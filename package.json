@@ -8,9 +8,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.9.1",
+    "@contentful/rich-text-types": "^15.9.1",
+    "@svgr/webpack": "^6.1.2",
+    "@tailwindcss/typography": "^0.5.0",
+    "date-fns": "^2.27.0",
+    "framer-motion": "^5.4.5",
+    "googleapis": "^92.0.0",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-player": "^2.9.0",
+    "react-responsive-carousel": "^3.2.22"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",

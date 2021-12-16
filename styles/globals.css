@@ -7,6 +7,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -16,4 +17,19 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.triangle {
+  border-left: 22px solid #003056;
+  border-top: 22px solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: -22px;
+  bottom: 25px;
+  z-index: 1;
 }
