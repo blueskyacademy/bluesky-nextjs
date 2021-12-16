@@ -1,0 +1,12 @@
+          <svg
+              strokeLinecap="round"
+              strokeWidth="2"
+               viewBox='0 0 52 52'
+            >
+              <circle cx="11" cy="13" fill="none" r="9" stroke="currentColor" />
+              <path
+                d=" M21.955,18.005c1.089,2.145,1.378,3.816,0.622,4.572C20.92,24.234,14.799,20.799,9,15S-0.234,3.08,1.423,1.423 C2.18,0.666,3.853,0.956,6,2.047"
+                stroke="currentColor"
+                fill="none"
+              />
+            </svg>
