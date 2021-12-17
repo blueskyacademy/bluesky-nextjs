@@ -9,6 +9,7 @@ jobs:
       - uses: amondnet/vercel-action@v20 # auto create a comment in your PR with preview url
         id: now-deployment
         with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.ORG_ID}} #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
       - name: preview-url
