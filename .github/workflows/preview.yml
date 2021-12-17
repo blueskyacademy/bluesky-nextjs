@@ -12,6 +12,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.ORG_ID}} #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
+          scope: { { team_TDeaGwptDd7N4suyMuZcwGTB } }
       - name: preview-url
         run: |
           # you can see this URL in github action log
