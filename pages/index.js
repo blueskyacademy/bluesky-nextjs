@@ -6,7 +6,6 @@ import GalleryImages from "../components/gallery-images";
 import Heading from "../components/heading";
 import Layout from "../components/layout";
 import NewsPreview from "../components/news-preview";
-import Timeline from "../components/timeline";
 import VideoHero from "../components/video-hero";
 import { getPostsForHome, getVideoForHome } from "../lib/api";
 
@@ -36,12 +35,6 @@ export default function Home({ allPosts, videos }) {
       image: "https://www.bsa.edu.vn/uploads/school_level/image/3/33.jpg",
     },
   ];
-  // const videos = [
-  //   "https://www.youtube.com/embed/N4YtNOGbtsQ",
-  //   "https://www.youtube.com/embed/bcQAiOKiVxA",
-  //   "https://www.youtube.com/embed/q8dvaSlSIdU",
-  //   "https://www.youtube.com/embed/uxpmSm638Gg",
-  // ];
   return (
     <Layout>
       <CarouselImages videos={images_carousel} />
@@ -65,9 +58,9 @@ export default function Home({ allPosts, videos }) {
           perspiciatis unde omnis iste.'
       />
       <GalleryImages />
-      <NewsPreview />
+      {/* <NewsPreview /> */}
 
-      {/* <div className='px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+      <div className='px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
         <Heading heading='News and Events' description='' />
 
         <div className='grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full'>
@@ -83,8 +76,7 @@ export default function Home({ allPosts, videos }) {
             />
           ))}
         </div>
-       
-      </div> */}
+      </div>
     </Layout>
   );
 }
