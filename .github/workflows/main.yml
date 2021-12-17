@@ -15,4 +15,4 @@ jobs:
           vercel-args: "--prod"
           vercel-org-id: ${{ secrets.ORG_ID}} #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
-          scope: { { team_TDeaGwptDd7N4suyMuZcwGTB } }
+          scope: ${{ secrets.TEAM_ID}} #Required
