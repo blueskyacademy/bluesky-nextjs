@@ -2,13 +2,13 @@ import DateComponent from "../date";
 
 const Job = ({ title, start, expire, requirement, benefit }) => {
   return (
-    <div className='mb-12 lg:max-w-lg lg:pr-5 lg:mb-0 w-full'>
+    <div className='mb-12 ml-10 lg:max-w-lg lg:pr-5 lg:mb-0 w-full'>
       <div className='max-w-xl mb-6'>
         <h2 className='max-w-lg mb-6 font-sans text-3xl font-bold text-gray-900 sm:text-4xl sm:leading-none'>
           {title}
         </h2>
         <p className='text-base text-gray-700 md:text-lg'>
-          Posted on {start && <DateComponent dateString={start} />}
+          Post on {start && <DateComponent dateString={start} />}
         </p>
         <p className='text-base text-gray-700 md:text-lg'>
           Expire on {expire && <DateComponent dateString={expire} />}

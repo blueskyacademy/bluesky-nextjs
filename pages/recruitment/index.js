@@ -10,7 +10,7 @@ export default function Recruitment({ allJobs }) {
     <Layout>
       <img
         className='object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-fit'
-        src='https://i.imgur.com/HOzCrV6.png/'
+        src='/images/recruitment.png'
         alt=''
       />
 

@@ -1,6 +1,6 @@
-const Testimonial = () => {
+const Testimonial = ({ id }) => {
   return (
-    <div>
+    <div id={id}>
       <div className='lg:px-20 md:px-6 px-4 py-12 '>
         <div className='flex flex-col items-center justify-center'>
           <h1 className='lg:text-4xl text-3xl font-bold text-center text-gray-800'>
@@ -44,7 +44,7 @@ const Testimonial = () => {
                   Alisha Cooper
                 </p>
                 <p className='text-base leading-4 mt-2 text-center text-gray-600'>
-                  Developer
+                  Phụ huynh em ABC, lớp 1A
                 </p>
               </div>
             </div>
@@ -82,7 +82,7 @@ const Testimonial = () => {
                   Henry Jack
                 </p>
                 <p className='text-base leading-4 mt-2 text-center text-gray-600'>
-                  UI/UX Designer
+                  Phụ huynh em ABC, lớp 2B
                 </p>
               </div>
             </div>

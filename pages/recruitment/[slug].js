@@ -1,10 +1,48 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
+import ApplicationForm from "../../components/application-form";
 import Job from "../../components/job";
 import Layout from "../../components/layout";
 import { getAllJobs, getJob } from "../../lib/api";
 
 export default function JobPage({ job }) {
   const router = useRouter();
+  const [form, setForm] = useState({});
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [statusForm, setStatusForm] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+  const handleChangeFile = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("fullName", form?.fullName);
+    formData.append("email", form?.email);
+    formData.append("title", job?.title);
+    formData.append("cv", selectedFile);
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ", " + pair[1]);
+    // }
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/career", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
+      console.log("result", result);
+      setStatusForm("success");
+    } catch (error) {
+      console.log("error", error);
+    }
+    setIsLoading(false);
+  };
 
   if (!router.isFallback && !job) {
     return <h1>404 - Page Not Found</h1>;
@@ -24,77 +62,14 @@ export default function JobPage({ job }) {
                 requirement={job.requirement}
                 benefit={job.benefit}
               />
-
-              <div className='bg-white rounded shadow-2xl p-7 sm:p-10 h-1/2'>
-                <h3 className='mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl'>
-                  Apply now
-                </h3>
-                <form>
-                  <div className='mb-1 sm:mb-2'>
-                    <label
-                      htmlFor='firstName'
-                      className='inline-block mb-1 font-medium'
-                    >
-                      Fullname
-                    </label>
-                    <input
-                      placeholder='Fullname'
-                      required
-                      type='text'
-                      className='flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline'
-                      id='fullName'
-                      name='fullName'
-                    />
-                  </div>
-                  <div className='mb-1 sm:mb-2'>
-                    <label
-                      htmlFor='email'
-                      className='inline-block mb-1 font-medium'
-                    >
-                      Email
-                    </label>
-                    <input
-                      placeholder='email@example.com'
-                      required
-                      type='text'
-                      className='flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline'
-                      id='email'
-                      name='email'
-                    />
-                  </div>
-                  <div className='mb-1 sm:mb-2'>
-                    <label
-                      htmlFor='email'
-                      className='inline-block mb-1 font-medium'
-                    >
-                      CV / Resume
-                    </label>
-                    <label className='w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-deep-purple-accent-400 hover:text-white'>
-                      <svg
-                        className='w-8 h-8'
-                        fill='currentColor'
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 20 20'
-                      >
-                        <path d='M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z' />
-                      </svg>
-                      <span className='mt-2 text-base leading-normal'>
-                        Select a file
-                      </span>
-                      <input type='file' className='hidden' />
-                    </label>
-                  </div>
-
-                  <div className='mt-4 mb-2 sm:mb-4'>
-                    <button
-                      type='submit'
-                      className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </form>
-              </div>
+              <ApplicationForm
+                handleSubmit={handleSubmit}
+                handleChangeForm={handleChangeForm}
+                handleChangeFile={handleChangeFile}
+                selectedFile={selectedFile}
+                status={statusForm}
+                isLoading={isLoading}
+              />
               <div className='w-1'></div>
             </div>
           </div>
@@ -115,7 +90,6 @@ export async function getStaticProps({ params, locale }) {
 
 export async function getStaticPaths({ locale }) {
   const allJobs = await getAllJobs(locale || "en-US");
-  console.log("allJobs", allJobs);
 
   return {
     paths: allJobs?.map(({ slug }) => `/recruitment/${slug}`) ?? [],
