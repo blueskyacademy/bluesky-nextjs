@@ -1,6 +1,9 @@
 import Layout from "../components/layout";
+import Testimonial from "../components/testimonial";
+import { useHashFragment } from "../hooks/useHashFragment";
 
-export default function Recruitment() {
+export default function Parents() {
+  useHashFragment();
   return (
     <Layout>
       <img
@@ -8,9 +11,7 @@ export default function Recruitment() {
         src='https://www.bsa.edu.vn/uploads/school_level/image/1/11.jpg'
         alt=''
       />
-      <Testimonial />
+      <Testimonial id='story' />
     </Layout>
   );
 }
-import React from "react";
-import Testimonial from "../components/testimonial";

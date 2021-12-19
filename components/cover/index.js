@@ -43,12 +43,12 @@ const Cover = ({ heading, description }) => {
               </p>
             </div>
             <div className='flex items-center sm:justify-center'>
-              <button
-                type='submit'
+              <a
+                href='#letter'
                 className='inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-bluesky-900 hover:bg-bluesky-900 focus:shadow-outline focus:outline-none'
               >
                 Read more
-              </button>
+              </a>
             </div>
           </div>
         </div>

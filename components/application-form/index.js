@@ -1,8 +1,15 @@
-const Form = ({ title, handleSubmit, handleChangeForm, isLoading, status }) => {
+const ApplicationForm = ({
+  handleSubmit,
+  handleChangeForm,
+  handleChangeFile,
+  selectedFile,
+  status,
+  isLoading,
+}) => {
   return (
-    <>
-      <h3 className='mb-2 text-xl font-semibold sm:text-center sm:mb-2 sm:text-2xl'>
-        {title}
+    <div className='bg-white rounded shadow-2xl p-7 sm:p-10 h-1/2'>
+      <h3 className='mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl'>
+        Apply now
       </h3>
       {status === "success" ? (
         <div>
@@ -28,7 +35,10 @@ const Form = ({ title, handleSubmit, handleChangeForm, isLoading, status }) => {
       ) : (
         <form onSubmit={handleSubmit}>
           <div className='mb-1 sm:mb-2'>
-            <label htmlFor='fullName' className='inline-block mb-1 font-medium'>
+            <label
+              htmlFor='firstName'
+              className='inline-block mb-1 font-medium'
+            >
               Fullname (*)
             </label>
             <input
@@ -42,28 +52,11 @@ const Form = ({ title, handleSubmit, handleChangeForm, isLoading, status }) => {
             />
           </div>
           <div className='mb-1 sm:mb-2'>
-            <label
-              htmlFor='phoneNumber'
-              className='inline-block mb-1 font-medium'
-            >
-              Phone number (*)
-            </label>
-            <input
-              placeholder='Phone number'
-              required
-              type='text'
-              className='flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline'
-              id='phoneNumber'
-              name='phoneNumber'
-              onChange={handleChangeForm}
-            />
-          </div>
-          <div className='mb-1 sm:mb-2'>
             <label htmlFor='email' className='inline-block mb-1 font-medium'>
               Email (*)
             </label>
             <input
-              placeholder='Email'
+              placeholder='email@example.com'
               required
               type='text'
               className='flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline'
@@ -73,23 +66,38 @@ const Form = ({ title, handleSubmit, handleChangeForm, isLoading, status }) => {
             />
           </div>
           <div className='mb-1 sm:mb-2'>
-            <label htmlFor='messsage' className='inline-block mb-1 font-medium'>
-              Your message
+            <label htmlFor='email' className='inline-block mb-1 font-medium'>
+              Upload CV{" "}
+              <span className='text-gray-600 ml-2'>
+                {selectedFile && selectedFile?.name}
+              </span>
             </label>
-            <textarea
-              placeholder='Your message'
-              type='text'
-              className='flex-grow w-full h-32 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline'
-              id='message'
-              name='message'
-              rows={3}
-              onChange={handleChangeForm}
-            />
+            <label className='w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-deep-purple-accent-400 hover:text-white'>
+              <svg
+                className='w-8 h-8'
+                fill='currentColor'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 20 20'
+              >
+                <path d='M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z' />
+              </svg>
+              <span className='mt-2 text-base leading-normal'>
+                Select a file
+              </span>
+              <input
+                type='file'
+                className='hidden'
+                id='cv'
+                name='cv'
+                onChange={handleChangeFile}
+              />
+            </label>
           </div>
-          <div className='mt-3 mb-2 sm:mb-4'>
+
+          <div className='mt-4 mb-2 sm:mb-4'>
             <button
               type='submit'
-              className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-bluesky-900 hover:bg-bluesky-900  focus:shadow-outline focus:outline-none'
+              className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
             >
               {isLoading ? (
                 <>
@@ -100,14 +108,14 @@ const Form = ({ title, handleSubmit, handleChangeForm, isLoading, status }) => {
                   <span>Processing...</span>
                 </>
               ) : (
-                "Send"
+                "Submit"
               )}
             </button>
           </div>
         </form>
       )}
-    </>
+    </div>
   );
 };
 
-export default Form;
+export default ApplicationForm;

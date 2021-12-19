@@ -5,11 +5,12 @@ import Gallery from "../components/gallery";
 import GalleryImages from "../components/gallery-images";
 import Heading from "../components/heading";
 import Layout from "../components/layout";
-import NewsPreview from "../components/news-preview";
 import VideoHero from "../components/video-hero";
 import { getPostsForHome, getVideoForHome } from "../lib/api";
+import { useHashFragment } from "../hooks/useHashFragment";
 
 export default function Home({ allPosts, videos }) {
+  useHashFragment();
   const images_carousel = [
     "https://www.bsa.edu.vn/uploads/carousel_image/image/89/Poster_tuy%E1%BB%83n_sinh.jpg",
     "https://www.bsa.edu.vn/uploads/carousel_image/image/90/2.jpg",
@@ -38,7 +39,10 @@ export default function Home({ allPosts, videos }) {
   return (
     <Layout>
       <CarouselImages videos={images_carousel} />
-      <div className='px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
+      <div
+        id='program'
+        className='px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'
+      >
         <div className='container mx-auto grid gap-6 row-gap-5 lg:grid-cols-3'>
           {schools.map((item, idx) => (
             <SchoolCard
@@ -50,17 +54,20 @@ export default function Home({ allPosts, videos }) {
           ))}
         </div>
       </div>
-      <VideoHero videos={videos} />
+      <VideoHero id='video' videos={videos} />
       <Gallery
+        id='gallery'
         title='Our gallery'
         description='Sed ut perspiciatis unde omnis iste natus error sit iste voluptatem
           accusantium doloremque rem aperiam, ipsa eaque quae. Sed ut
           perspiciatis unde omnis iste.'
       />
-      <GalleryImages />
-      {/* <NewsPreview /> */}
+      {/* <GalleryImages /> */}
 
-      <div className='px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+      <div
+        id='news'
+        className='px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'
+      >
         <Heading heading='News and Events' description='' />
 
         <div className='grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full'>

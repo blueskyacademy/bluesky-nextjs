@@ -1,8 +1,11 @@
 import React from "react";
 
-const Letter = () => {
+const Letter = ({ id }) => {
   return (
-    <div className='container mx-auto grid grid-cols-2 gap-10 my-5 leading-loose text-justify px-5'>
+    <div
+      id={id}
+      className='container mx-auto grid grid-cols-2 gap-10 my-5 leading-loose text-justify px-5'
+    >
       <div>
         From the day we started in June 2010 until now, June 2017, Blue Sky
         Academy has gone through an unforgettable 7-year journey. All school

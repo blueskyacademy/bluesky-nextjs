@@ -46,30 +46,14 @@ const NAVIGATIONS = {
       href: "#cofounder",
     },
   ],
-  // teachers: [
-  //   {
-  //     title: "DEPARMENTS",
-  //     href: "#deparments",
-  //   },
-  // ],
-  // posts: [
-  //   {
-  //     title: "POST",
-  //     href: "#post",
-  //   },
-  //   {
-  //     title: "VIDEO",
-  //     href: "#video",
-  //   },
-  // ],
   admission: [
     {
       title: "WHY BSA",
-      href: "#gioithieu",
+      href: "#why",
     },
     {
       title: "APPLY TO BSA",
-      href: "#gioithieu",
+      href: "#apply",
     },
     {
       title: "ADMISSION INQUERY",
@@ -83,11 +67,11 @@ const NAVIGATIONS = {
   parents: [
     {
       title: "PARENT STORY",
-      href: "#gioithieu",
+      href: "#story",
     },
     {
       title: "INSTRUCTION LEARNING ONLINE",
-      href: "#gioithieu",
+      href: "#learning",
     },
   ],
   recruitment: [

@@ -16,7 +16,7 @@ export default function About() {
   return (
     <Layout>
       <Cover heading='Message from our BSA Executive Chairman' description='' />
-      <Letter />
+      <Letter id='letter' />
       <Intro
         id='introduction'
         heading='INTRODUCTION'
