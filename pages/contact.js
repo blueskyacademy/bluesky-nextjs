@@ -44,12 +44,11 @@ export default function Contact() {
           <div className='flex flex-col justify-center lg:flex-row'>
             <div className='mb-12 mr-12 lg:max-w-lg lg:pr-5 lg:mb-0'>
               <div className='max-w-xl mb-6'>
-                <h2 className='max-w-lg mb-6 font-sans text-3xl font-bold  text-gray-900 sm:text-4xl sm:leading-none'>
+                <h2 className='max-w-lg mb-6 font-sans text-3xl font-bold text-gray-900 sm:text-4xl sm:leading-none'>
                   Contact Information
                 </h2>
-
                 <div className='text-base text-gray-700 md:text-lg'>
-                  Phường Lê Lợi, TP.Vinh, Tỉnh Nghệ An, Việt Nam
+                  Phường Lê Lợi, TP. Vinh, Tỉnh Nghệ An, Việt Nam
                 </div>
                 <hr className='my-3 border-gray-300' />
                 <div className='text-base text-gray-700 md:text-lg'>
