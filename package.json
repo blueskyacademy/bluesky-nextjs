@@ -17,6 +17,7 @@
     "formidable": "^2.0.1",
     "framer-motion": "^5.4.5",
     "googleapis": "^92.0.0",
+    "lodash": "^4.17.21",
     "next": "12.0.7",
     "next-connect": "^0.11.0",
     "react": "17.0.2",

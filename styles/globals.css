@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -24,7 +25,7 @@ a {
   width: 100%;
 }
 .triangle {
-  border-left: 22px solid #003056;
+  border-left: 22px solid #49479f;
   border-top: 22px solid transparent;
   height: 0;
   width: 0;
