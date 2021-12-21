@@ -1,11 +1,14 @@
+import AnimationRevealPage from "../../helpers/AnimationRevealPage";
 import CallAction from "../call-action";
 import Footer from "../footer";
+import Navbar from "../navbar";
 import Navigation from "../navigation";
 
 export default function Layout({ children }) {
   return (
     <>
-      <Navigation />
+      <Navbar />
+      {/* <Navigation /> */}
       <main>{children}</main>
       <CallAction
         title={"School Visit"}

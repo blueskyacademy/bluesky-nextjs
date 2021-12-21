@@ -27,16 +27,17 @@ module.exports = {
           "accent-700": "#d50000",
         },
         purple: {
-          50: "#f3e5f5",
-          100: "#e1bee7",
-          200: "#ce93d8",
-          300: "#ba68c8",
-          400: "#ab47bc",
-          500: "#9c27b0",
-          600: "#8e24aa",
-          700: "#7b1fa2",
-          800: "#6a1b9a",
-          900: "#4a148c",
+          900: "#160041",
+          800: "#18083A",
+          700: "#2C1854",
+          600: "#49479F",
+          500: "#6260b5",
+          400: "#7C7AC4",
+          300: "#B5A1F5",
+          200: "#D2C6FA",
+          100: "#e0d7fc",
+          50: "#f0ebfe",
+          25: "#F4F0FC",
           "accent-100": "#ea80fc",
           "accent-200": "#e040fb",
           "accent-400": "#d500f9",
@@ -243,16 +244,16 @@ module.exports = {
           "accent-700": "#ffab00",
         },
         yellow: {
-          50: "#fffde7",
-          100: "#fff9c4",
-          200: "#fff59d",
-          300: "#fff176",
-          400: "#ffee58",
-          500: "#ffeb3b",
-          600: "#fdd835",
-          700: "#fbc02d",
-          800: "#f9a825",
-          900: "#f57f17",
+          900: "#FAAF19",
+          800: "#FDBE3F",
+          700: "#EFB42D",
+          600: "#F4C350",
+          500: "#F8D075",
+          400: "#fbde9b",
+          300: "#FDEBC2",
+          200: "#fef3da",
+          100: "#fef7e7",
+          50: "#fffaf6",
           "accent-100": "#ffff8d",
           "accent-200": "#ffff00",
           "accent-400": "#ffea00",
@@ -321,6 +322,72 @@ module.exports = {
       },
       boxShadow: {
         outline: "0 0 0 3px rgba(101, 31, 255, 0.4)",
+      },
+      fontSize: {
+        "2xl": "1.75rem",
+        "3xl": "2rem",
+        "4xl": "2.25rem",
+        "5xl": "2.7rem",
+        "6xl": "3.25rem",
+        "7xl": "3.75rem",
+        "8xl": "5rem",
+        "9xl": "6rem",
+      },
+      animation: {
+        ping: "ping 2.5s cubic-bezier(0, 0, 0.3, 1) infinite",
+        "horizontal-bounce": "horizontal-bounce 1s infinite",
+        wiggle: "wiggle 1s ease-in-out infinite",
+        "fade-in-down": "fade-in-down 0.5s ease-out",
+        "fade-in-up": "fade-in-up 0.5s ease-out",
+      },
+
+      keyframes: {
+        ping: {
+          "75%, 100%": {
+            transform: "scale(2)",
+            opacity: 0,
+          },
+        },
+        wiggle: {
+          "0%, 100%": {
+            transform: "rotate(-3deg)",
+          },
+          "50%": {
+            transform: "rotate(3deg)",
+          },
+        },
+        "fade-in-down": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-in-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+
+        "horizontal-bounce": {
+          "50%": {
+            transform: "translateX(25%)",
+            animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
+          },
+
+          "0%, 100%": {
+            transform: "translateX(0)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+          },
+        },
       },
     },
   },
