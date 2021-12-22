@@ -17,7 +17,10 @@ export default function Home({ allPosts, testimonials }) {
       <HomeHero />
       <AnimationRevealPage>
         <Programs id="program" />
-        <GalleryHero />
+        <GalleryHero
+          title="Our gallery"
+          description={`Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.`}
+        />
         <Events posts={allPosts} id="news" />
         <Feedback id="story" testimonials={testimonials} />
         <Faq />

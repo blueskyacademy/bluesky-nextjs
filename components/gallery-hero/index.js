@@ -1,15 +1,13 @@
-const GalleryHero = () => {
+const GalleryHero = ({ title, description }) => {
   return (
-    <section className="px-4 pt-16 sm:px-6 lg:px-8">
-      <div className="max-w-screen-xl mx-auto" data-wow-delay=".3s">
+    <section className="px-4 pt-12 sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl mx-auto">
         <div className="relative">
           <h2 className="max-w-3xl mx-auto text-center text-purple-900 text-5xl font-bold">
-            Our gallery
+            {title}
           </h2>
           <p className="max-w-2xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean
-            et tortor at risus viverra adipiscing at in.
+            {description}
           </p>
         </div>
 

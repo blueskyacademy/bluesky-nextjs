@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
+        written: ["Gochi Hand", "cursive"],
       },
       colors: {
         red: {
@@ -332,6 +333,14 @@ module.exports = {
         "7xl": "3.75rem",
         "8xl": "5rem",
         "9xl": "6rem",
+      },
+      maxWidth: {
+        prose: "65ch",
+      },
+
+      borderRadius: {
+        "4xl": "2.5rem",
+        "5xl": "5rem",
       },
       animation: {
         ping: "ping 2.5s cubic-bezier(0, 0, 0.3, 1) infinite",

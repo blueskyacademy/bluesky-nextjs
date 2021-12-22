@@ -1,101 +1,221 @@
-const Person = ({ name, role, description, avatar }) => {
+const Founders = () => {
   return (
     <div>
-      <img
-        className='object-cover w-36 h-36 rounded-full shadow'
-        src={
-          avatar
-            ? avatar
-            : "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-        }
-        alt='Person'
-      />
-      <div className='flex flex-col justify-center mt-2'>
-        <p className='text-lg font-bold'>{name}</p>
-        <p className='mb-4 text-xs text-gray-800'>{role}</p>
-        <p className='text-sm tracking-wide text-gray-800'>{description}</p>
-      </div>
-    </div>
-  );
-};
-
-const Cofounders = ({ heading, subHeading, id }) => {
-  const COFOUNDERS = [
-    {
-      name: "Ms Hanh (Nguyen Thi Hong Hanh) ",
-      role: "Charmain",
-      description:
-        "Through her 28 years of teaching experience, Ms Hanh has always carried the concern that children in Nghe An and vicinity are lacking a nurturing environment. One in which they can learn, play, discover their natural abilities and aptitudes, and be ready to join the global world. ",
-      avatar: "https://i.imgur.com/ikrZXqM.png/",
-    },
-    {
-      name: "Mr Harley (Trung Tuan Dung)",
-      role: "Teacher",
-      description:
-        "Mr Harley believes in learning through discovery. When we are young, we learn by watching, listening, asking, trying, and reading. When we are older, we think, we share and we change our minds. Our world around us changes quickly which often challenges our learned beliefs.",
-      avatar: "https://i.imgur.com/2bALhku.png/",
-    },
-    {
-      name: "Mr Jerry (Trung Tuan Cuong)",
-      role: "Teacher",
-      description:
-        "In response, he contributed significantly to the design and ongoing development of the BSA facilities, such as the Science laboratory, the swimming pool and the football pitch as well as many other strategic projects. ",
-      avatar: "https://i.imgur.com/x4tLX0P.png/",
-    },
-  ];
-  return (
-    <div className='bg-gray-100' id={id}>
-      <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
-        <div className='max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12'>
-          <div>
-            <p className='inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400'>
-              Blue Sky Academy
-            </p>
+      <div className="w-full h-32 sm:h-40 lg:h-44 "></div>
+      <section className="px-4 overflow-hidden bg-white pb-28 sm:pb-36 sm:px-6 lg:px-8">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="px-4 text-center sm:px-6 lg:px-8">
+            <h3 className="text-purple-900 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
+              <span className="block"></span>
+              <span className="relative block">
+                <span className="relative">
+                  <img
+                    className="absolute inset-0 transform translate-y-9 sm:translate-y-10 xl:translate-y-12"
+                    src="svg/underline-simple-light-purple.svg"
+                  />
+                  <span className="relative">Our founders</span>
+                </span>
+              </span>
+            </h3>
           </div>
-          <h2 className='max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto'>
-            <span className='relative inline-block'>
-              <svg
-                viewBox='0 0 52 24'
-                fill='currentColor'
-                className='absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block'
-              >
-                <defs>
-                  <pattern
-                    id='247432cb-6e6c-4bec-9766-564ed7c230dc'
-                    x='0'
-                    y='0'
-                    width='.135'
-                    height='.30'
-                  >
-                    <circle cx='1' cy='1' r='.7' />
-                  </pattern>
-                </defs>
-                <rect
-                  fill='url(#247432cb-6e6c-4bec-9766-564ed7c230dc)'
-                  width='52'
-                  height='24'
+
+          <div className="grid max-w-xl mx-auto mt-20 lg:max-w-none sm:mt-24 lg:mt-44 lg:grid-cols-12 gap-14 sm:gap-16 lg:gap-8">
+            <div className="relative z-10 flex flex-col justify-center order-2 lg:order-1 lg:col-span-6 lg:text-left">
+              <div>
+                <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
+                  Our Principal
+                </span>
+              </div>
+
+              <div>
+                <h1 className="mt-3.5 font-bold text-purple-900 text-2xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold">
+                  Ms Hanh (Nguyen Thi Hong Hanh)
+                </h1>
+                <div className="max-w-xl mt-3 text-lg text-purple-800 sm:leading-relaxed sm:text-xl">
+                  Through her 28 years of teaching experience, Ms Hanh has
+                  always carried the concern that children in Nghe An and
+                  vicinity are lacking a nurturing environment. One in which
+                  they can learn, play, discover their natural abilities and
+                  aptitudes, and be ready to join the global world. She believes
+                  that “every child is a genius”.
+                </div>
+                <div className="max-w-xl mt-3 text-lg text-purple-800 sm:leading-relaxed sm:text-xl">
+                  A child should be nurtured from their first steps and
+                  especially through the golden period – the school years. With
+                  a proper education and not by luck, all children can become
+                  talented citizens of the world. BSA was founded upon this
+                  belief and continues to educate its students with this
+                  philosophy
+                </div>
+              </div>
+            </div>
+
+            <div className="relative order-1 w-full max-w-xl mx-auto lg:order-2 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+              <div className="hidden lg:block">
+                <img
+                  src="svg/blob-light-yellow.svg"
+                  className="absolute inset-0 w-full h-full transform lg:scale-135"
+                  alt=""
                 />
-              </svg>
-              <span className='relative'></span>
-            </span>{" "}
-            {heading}
-          </h2>
-          <p className='text-base text-gray-700 md:text-lg'>{subHeading}</p>
+              </div>
+
+              <img
+                src="svg/dots-large-strip.svg"
+                className="absolute top-0 origin-top transform -translate-x-1/2 -translate-y-8 left-1/2 lg:hidden sm:scale-100 scale-80"
+                alt=""
+              />
+
+              <div className="relative w-full mx-auto shadow-lg rounded-3xl lg:max-w-lg lg:mr-0 lg:ml-auto">
+                <div className="relative block w-full">
+                  <img
+                    className="absolute z-10 hidden w-40 transform lg:block -top-20 -left-20 xl:w-48 xl:-top-20 xl:-left-20"
+                    src="svg/dots.svg"
+                    alt=""
+                  />
+
+                  <figure className="aspect-w-12 aspect-h-10 md:order-1">
+                    <img
+                      src="https://i.imgur.com/ikrZXqM.png/"
+                      className="object-cover object-center w-full h-full shadow-xl rounded-3xl"
+                      alt="About 01"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid max-w-xl mx-auto mt-20 lg:max-w-none sm:mt-24 lg:mt-44 lg:grid-cols-12 gap-14 sm:gap-16 lg:gap-8">
+            <div className="relative z-10 flex flex-col justify-center order-2 lg:col-span-6 lg:text-left">
+              <div>
+                <h1 className="mt-3.5 font-bold text-purple-900 text-2xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold">
+                  Mr Harley (Trung Tuan Dung)
+                </h1>
+                <div className="max-w-xl mt-3 text-lg text-purple-800 sm:leading-relaxed sm:text-xl">
+                  Mr Harley believes in learning through discovery. When we are
+                  young, we learn by watching, listening, asking, trying, and
+                  reading. When we are older, we think, we share and we change
+                  our minds.
+                </div>
+                <div className="max-w-xl mt-3 text-lg text-purple-800 sm:leading-relaxed sm:text-xl">
+                  Our world around us changes quickly which often challenges our
+                  learned beliefs. Our discovery is the combined effort of
+                  thinking and reflecting. Born and raised in Nghe An, Harley
+                  went on to attend a top Singaporean high school, then Yale,
+                  one of the best American universities, both on full
+                  scholarships. Through Blue Sky, Harley is passionate about
+                  preparing students early for an international education. After
+                  15 years of studying and working abroad in Singapore, China
+                  and the US, Harley connects BSA with excellent education
+                  programs, brings native English teachers to Vinh and develops
+                  a quality school IT infrastructure. With a strong educational
+                  beginning, early confidence in the use of English and
+                  technology, our children will develop a better understanding
+                  of the world and make more discoveries.
+                </div>
+              </div>
+            </div>
+
+            <div className="relative order-1 w-full max-w-xl mx-auto lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+              <div className="hidden lg:block">
+                <img
+                  src="svg/blob-light-purple.svg"
+                  className="absolute inset-0 w-full h-full transform lg:scale-135"
+                  alt=""
+                />
+              </div>
+
+              <img
+                src="svg/dots-large-strip.svg"
+                className="absolute top-0 origin-top transform -translate-x-1/2 -translate-y-8 left-1/2 lg:hidden sm:scale-100 scale-80"
+                alt=""
+              />
+
+              <div className="relative w-full mx-auto shadow-lg rounded-3xl lg:max-w-lg lg:mx-0">
+                <div className="relative block w-full">
+                  <img
+                    className="absolute z-10 hidden w-40 transform lg:block -top-20 -right-20 xl:w-48 xl:-top-20 xl:-right-20"
+                    src="svg/dots.svg"
+                    alt=""
+                  />
+
+                  <figure className="aspect-w-12 aspect-h-10 md:order-1">
+                    <img
+                      src="https://i.imgur.com/2bALhku.png/"
+                      className="object-cover object-center w-full h-full shadow-xl rounded-3xl"
+                      alt="About 02"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid max-w-xl mx-auto mt-20 lg:max-w-none sm:mt-24 lg:mt-44 lg:grid-cols-12 gap-14 sm:gap-16 lg:gap-8">
+            <div className="relative z-10 flex flex-col justify-center order-2 lg:order-1 lg:col-span-6 lg:text-left">
+              <div>
+                <h1 className="mt-3.5 font-bold text-purple-900 text-2xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold">
+                  Mr Jerry (Trung Tuan Cuong)
+                </h1>
+                <div className="max-w-xl mt-3 text-lg text-purple-800 sm:leading-relaxed sm:text-xl">
+                  Mr Jerry is the second son of Ms Hanh. He is currently working
+                  as the risk actuary in the leading insurance company in the
+                  UK. He is also a non-executive director for BSA, in charge of
+                  strategies.
+                </div>
+                <div className="max-w-xl mt-3 text-lg text-purple-800 sm:leading-relaxed sm:text-xl">
+                  Like Mr Harley, Mr Jerry had five years of studying abroad at
+                  the leading college and university in the United Kingdom,
+                  including the London School of Economics and Political Science
+                  – LSE. With his access to international education, Mr Jerry
+                  felt that children in Vietnam, and in Nghe An particular, were
+                  constrained by the lack of facilities in their education
+                  environments. In response, he contributed significantly to the
+                  design and ongoing development of the BSA facilities, such as
+                  the Science laboratory, the swimming pool and the football
+                  pitch as well as many other strategic projects.
+                </div>
+              </div>
+            </div>
+
+            <div className="relative order-1 w-full max-w-xl mx-auto lg:order-2 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+              <div className="hidden lg:block">
+                <img
+                  src="svg/blob-light-rose.svg"
+                  className="absolute inset-0 w-full h-full transform lg:scale-135"
+                  alt=""
+                />
+              </div>
+
+              <img
+                src="svg/dots-large-strip.svg"
+                className="absolute top-0 origin-top transform -translate-x-1/2 -translate-y-8 left-1/2 lg:hidden sm:scale-100 scale-80"
+                alt=""
+              />
+
+              <div className="relative w-full mx-auto shadow-lg rounded-3xl lg:max-w-lg lg:mr-0 lg:ml-auto">
+                <div className="relative block w-full">
+                  <img
+                    className="absolute z-10 hidden w-40 transform lg:block -top-20 -left-20 xl:w-48 xl:-top-20 xl:-left-20"
+                    src="svg/dots.svg"
+                    alt=""
+                  />
+
+                  <figure className="aspect-w-12 aspect-h-10 md:order-1">
+                    <img
+                      src="https://i.imgur.com/x4tLX0P.png/"
+                      className="object-cover object-center w-full h-full shadow-xl rounded-3xl"
+                      alt="About 03"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className='grid gap-10 mx-auto sm:grid-cols-1 lg:grid-cols-3 lg:max-w-screen-lg'>
-          {COFOUNDERS.map((item, idx) => (
-            <Person
-              key={item.name}
-              name={item.name}
-              role={item.role}
-              description={item.description}
-              avatar={item.avatar}
-            />
-          ))}
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
 
-export default Cofounders;
+export default Founders;

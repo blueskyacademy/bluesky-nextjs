@@ -2,7 +2,7 @@ const Programs = ({ id }) => {
   return (
     <div
       id={id}
-      className="px-4 pt-16 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8"
+      className="px-4 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8"
     >
       <div className="max-w-xl mx-auto md:max-w-screen-xl">
         <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-12">
@@ -157,7 +157,7 @@ const Programs = ({ id }) => {
                     width="44"
                     height="44"
                     viewBox="0 0 24 24"
-                    stroke-Width="2"
+                    strokeWidth="2"
                     stroke="currentColor"
                     fill="none"
                     strokeLinecap="round"

@@ -48,7 +48,7 @@ const AnimationRevealPage = ({ disabled, children }) => {
     );
   });
   return (
-    <div className="font-display min-h-screen text-secondary-500 py-8 overflow-hidden">
+    <div className="font-display min-h-screen text-secondary-500 overflow-hidden">
       {childrenWithAnimation}
     </div>
   );
