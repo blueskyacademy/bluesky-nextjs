@@ -18,6 +18,7 @@ export default function Home({ allPosts, testimonials }) {
       <AnimationRevealPage>
         <Programs id="program" />
         <GalleryHero
+          hasButton={true}
           title="Our gallery"
           description={`Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.`}
         />

@@ -1,4 +1,5 @@
 import React from "react";
+import DateComponent from "../date";
 
 const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
   const BACKGROUND_COLORS = {
@@ -11,18 +12,20 @@ const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
     <div
       className={`grid w-full ${BACKGROUND_COLORS[idx]} rounded-2xl sm:grid-cols-12`}
     >
-      <div className="h-48 rounded-t-2xl sm:h-full sm:rounded-tr-none sm:rounded-l-2xl sm:col-span-4">
-        <img
-          src={coverImage}
-          className="object-cover object-center w-full h-full rounded-t-2xl sm:rounded-tr-none sm:rounded-l-2xl"
-          alt="Event 01"
-        />
-      </div>
+      {idx % 2 === 0 && (
+        <div className="h-48 rounded-t-2xl sm:h-full sm:rounded-tr-none sm:rounded-l-2xl sm:col-span-4">
+          <img
+            src={coverImage}
+            className="object-cover object-center w-full h-full rounded-t-2xl sm:rounded-tr-none sm:rounded-l-2xl"
+            alt="Event 01"
+          />
+        </div>
+      )}
 
       <div className="flex flex-col justify-center h-full px-6 py-8 sm:col-span-8 sm:py-10 sm:px-8 lg:px-6 xl:px-8">
         <div>
           <div className="inline-flex items-center justify-center px-3.5 py-0.5 text-sm -rotate-1 bg-purple-200 text-purple-700 font-medium leading-6 align-top rounded-xl">
-            Aug. 14, 2021
+            <DateComponent dateString={date} />
           </div>
         </div>
         <h4 className="mt-4 text-2xl font-bold text-purple-900 xl:text-3xl lg:text-2xl sm:text-3xl lg:leading-tight xl:leading-tight">
@@ -32,6 +35,15 @@ const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
           {excerpt.slice(0, 100)}...
         </p>
       </div>
+      {idx % 2 !== 0 && (
+        <div className="order-1 h-48 sm:order-2 rounded-t-2xl sm:h-full sm:rounded-tl-none sm:rounded-r-2xl sm:col-span-4">
+          <img
+            src={coverImage}
+            className="object-cover object-center w-full h-full rounded-t-2xl sm:rounded-tl-none sm:rounded-r-2xl"
+            alt="Event 01"
+          />
+        </div>
+      )}
     </div>
   );
 };
@@ -62,6 +74,7 @@ const Events = ({ id, posts }) => {
               coverImage={post?.coverImage?.url}
               title={post.title}
               excerpt={post.excerpt}
+              date={post?.date}
             />
           ))}
         </div>

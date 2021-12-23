@@ -1,73 +1,92 @@
 export const Gallery = ({ id, title, description }) => {
   return (
-    <div
-      id={id}
-      className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'
-    >
-      <div className='flex flex-col w-full mb-6 lg:justify-between lg:flex-row md:mb-8'>
-        <div className='flex items-center mb-5 md:mb-6 group lg:max-w-xl'>
-          <a aria-label='Item' className='mr-3'>
-            <div className='flex items-center justify-center w-16 h-16 rounded-full bg-indigo-50'>
-              <svg
-                className='w-12 h-12 text-deep-purple-accent-400'
-                stroke='currentColor'
-                viewBox='0 0 52 52'
-              >
-                <polygon
-                  strokeWidth='3'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  fill='none'
-                  points='29 13 14 29 25 29 23 39 38 23 27 23'
-                />
-              </svg>
-            </div>
-          </a>
-          <h2 className='font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl'>
-            <span className='inline-block mb-2'>{title}</span>
-            <div className='h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100' />
+    <section className="relative px-4 pt-16 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="relative">
+          <div className="flex justify-center">
+            <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
+              Creating memories for students
+            </span>
+          </div>
+          <h2 className="max-w-3xl mx-auto mt-4 text-center text-purple-900 font-extrabold text-4xl sm:text-6xl xl:text-7xl leading-snug sm:leading-tight xl:leading-tighter">
+            {`See what our students' experience looks like`}
           </h2>
+          <p className="max-w-2xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean
+            et tortor at risus viverra adipiscing at in.
+          </p>
         </div>
-        <p className='w-full text-gray-700 lg:text-sm lg:max-w-md'>
-          {description}
-        </p>
+
+        <div
+          id="hero-gallery"
+          className="relative z-10 grid grid-cols-12 gap-4 js-lightgallery lg:px-4 2xl:px-16 mt-14 sm:mt-16 md:mt-20 lg:mt-24 sm:gap-6 lg:gap-10 xl:gap-12"
+        >
+          <div className="flex flex-col col-span-4 md:col-span-2 md:justify-end">
+            <div className="w-full cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
+              <img
+                src="images/kindergarten.png"
+                className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl rotate-3 md:-rotate-8 md:-translate-y-12 md:translate-x-3 group-hover:rotate-0 group-hover:scale-110"
+                alt="Gallery hero 01"
+              />
+            </div>
+          </div>
+          <div className="flex col-span-8 md:col-span-3 md:flex-col">
+            <div className="w-1/2 mr-2 md:w-full sm:mr-3 md:mr-0">
+              <div className="relative z-10 cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
+                <img
+                  src="images/primary.png"
+                  className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl -rotate-3 md:-rotate-8 group-hover:rotate-0 group-hover:scale-110"
+                  alt="Gallery hero 02"
+                />
+              </div>
+            </div>
+
+            <div className="relative w-1/2 ml-2 sm:ml-3 md:ml-6">
+              <div className="cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
+                <img
+                  src="images/gallery-hero-01.png"
+                  className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl rotate-3 md:rotate-8 group-hover:rotate-0 group-hover:scale-110"
+                  alt="Gallery hero 03"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="col-span-4 md:col-span-4 md:pr-4">
+            <div className="w-full cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
+              <img
+                src="images/secondary.png"
+                className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl -rotate-3 md:rotate-4 group-hover:rotate-0 group-hover:scale-110"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="flex col-span-8 md:col-span-3 md:flex-col md:pr-3 md:translate-y-12">
+            <div className="w-1/2 mr-2 md:w-full sm:mr-3 md:mr-0">
+              <div className="relative z-10 cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
+                <img
+                  src="images/gallery-hero-02.png"
+                  className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl rotate-3 md:rotate-12 group-hover:rotate-0 group-hover:scale-110"
+                  alt="images/gallery-hero-05.jpg"
+                />
+              </div>
+            </div>
+
+            <div className="relative w-1/2 ml-2 md:w-2/3 sm:ml-3 md:-ml-3 lg:-ml-6">
+              <div className="cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50 md:-translate-y-6">
+                <img
+                  src="images/gallery-hero-03.jpeg"
+                  className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl -rotate-3 md:-rotate-8 group-hover:rotate-0 group-hover:scale-110"
+                  alt="Gallery hero 06"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className='grid gap-8 row-gap-5 mb-8 lg:grid-cols-4 lg:row-gap-8'>
-        <div>
-          <img
-            className='object-cover w-full h-40 mb-2 rounded shadow-lg md:h-40 xl:h-56'
-            src='https://www.bsa.edu.vn/assets/homepage/1-ee8b35ffcebac6a813554184dd7cffd85383b5d0ae0f643319a1c2a0b53a4cd9.jpg'
-            alt=''
-          />
-        </div>
-        <div>
-          <img
-            className='object-cover w-full h-40 mb-2 rounded shadow-lg md:h-40 xl:h-56'
-            src='https://www.bsa.edu.vn/assets/homepage/2-b4157556adcb50984ef632b401bb4d635782b3ca783ab5450282786835184196.jpg'
-            alt=''
-          />
-        </div>
-        <div>
-          <img
-            className='object-cover w-full h-40 mb-2 rounded shadow-lg md:h-40 xl:h-56'
-            src='https://www.bsa.edu.vn/assets/homepage/3-504fc77ab9733f6d81f73bbc22d060d5e408396fdab1402760b1313d115ab5d2.jpg'
-            alt=''
-          />
-        </div>
-        <div>
-          <img
-            className='object-cover w-full h-40 mb-2 rounded shadow-lg md:h-40 xl:h-56'
-            src='https://www.bsa.edu.vn/assets/homepage/4-cd40fbe9547374560a8d96c500f582eaf0884f3cafda55b0b3d1ad8c29df03ea.jpg'
-            alt=''
-          />
-        </div>
-      </div>
-      <div className='text-center'>
-        <a className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'>
-          View more
-        </a>
-      </div>
-    </div>
+    </section>
   );
 };
 export default Gallery;

@@ -1,4 +1,3 @@
-import AnimationRevealPage from "../../helpers/AnimationRevealPage";
 import CallAction from "../call-action";
 import Footer from "../footer";
 import Navbar from "../navbar";
