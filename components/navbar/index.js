@@ -6,8 +6,8 @@ const MENU = [
   { title: "Home", slug: "home", path: "/" },
   { title: "About BSA", slug: "about", path: "/about" },
   { title: "Teachers", slug: "teachers", path: "/teachers" },
-  { title: "Classes", slug: "classes", path: "/classes/test" },
   { title: "Gallery", slug: "gallery", path: "/gallery" },
+  { title: "Classes", slug: "classes", path: "/classes/test" },
   { title: "News & Events", slug: "posts", path: "/posts" },
   { title: "Admission", slug: "admission", path: "/admission" },
   { title: "Parents", slug: "parents", path: "/parents" },
@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link href="/">
           <a className="inline-flex items-center">
             <img
-              src="images/logo.png"
+              src="/images/logo.png"
               alt="Logo"
               className="h-32 w-auto rounded"
             />

@@ -1,4 +1,4 @@
-const GalleryHero = ({ title, description }) => {
+const GalleryHero = ({ title, description, hasButton = false }) => {
   return (
     <section className="px-4 pt-12 sm:px-6 lg:px-8">
       <div className="max-w-screen-xl mx-auto">
@@ -32,16 +32,40 @@ const GalleryHero = ({ title, description }) => {
 
           <img
             className="object-cover w-full rounded-2xl lg:h-80 h-30vw"
-            src="images/school-grid-04.jpg"
+            src="images/gallery-hero-01.png"
             alt="School grid 04"
           />
 
           <img
             className="object-cover w-full rounded-2xl lg:h-80 h-30vw"
-            src="images/school-grid-05.jpg"
+            src="images/gallery-hero-02.png"
             alt="School grid 05"
           />
         </div>
+
+        {hasButton && (
+          <div className="flex justify-center mt-12 sm:mt-16">
+            <button className="text-lg font-medium text-purple-900 bg-purple-200 sm:mt-0 sm:ml-6 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:text-white hover:bg-purple-600 group">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 mr-3 text-purple-600 duration-300 ease-in-out group-hover:text-purple-50"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+              View more
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

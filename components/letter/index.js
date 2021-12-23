@@ -59,7 +59,7 @@ const Letter = ({ id }) => {
           <div className="flex flex-col justify-center order-1 lg:order-2 lg:py-36">
             <div className="relative z-20 mx-auto prose prose-lg prose-light sm:prose-xl text-white">
               <h2 className="font-4xl text-white">Message from Principal</h2>
-              <div className="text-lg leading-8 tracking-wide">
+              <div className="text-base leading-loose tracking-wide">
                 From the day we started in June 2010 until now, June 2017, Blue
                 Sky Academy has gone through an unforgettable 7-year journey.
                 All school levels, including Kindergarten, Primary and Secondary
@@ -80,7 +80,7 @@ const Letter = ({ id }) => {
               <h3 className="font-2xl text-white">
                 Some key guidelines for our education program are as follows:{" "}
               </h3>
-              <ul className="text-lg tracking-wide">
+              <ul className="text-base leading-loose tracking-wide">
                 <li>
                   Let students at all levels explore the world around them. From
                   Primary school, students are encouraged to ask questions and
@@ -118,7 +118,7 @@ const Letter = ({ id }) => {
                   themselves.
                 </li>
               </ul>
-              <p className="text-lg leading-8 tracking-wide">
+              <p className="text-base leading-loose tracking-wide">
                 Blue Sky Academy will continue to post information about
                 development plans, achievements on the school website
                 (www.bsa.edu.vn), so parents and visitors can stay up to date on
