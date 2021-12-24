@@ -9,11 +9,11 @@ export default function Layout({ children }) {
       <Navbar />
       {/* <Navigation /> */}
       <main>{children}</main>
-      <CallAction
+      {/* <CallAction
         title={"School Visit"}
         content={"Registration"}
         bottomSpacing={0}
-      />
+      /> */}
       <Footer />
     </>
   );

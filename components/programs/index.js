@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Programs = ({ id }) => {
   return (
     <div
@@ -45,29 +47,32 @@ const Programs = ({ id }) => {
                   </div>
                 </div>
                 <div className="mt-8">
-                  <a
-                    href=""
-                    className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group"
-                  >
-                    Learn more
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
-                      width="44"
-                      height="44"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <line x1="15" y1="16" x2="19" y2="12"></line>
-                      <line x1="15" y1="8" x2="19" y2="12"></line>
-                    </svg>
-                  </a>
+                  <Link href="/classes/kindergarten">
+                    <a className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
+                      Learn more
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
+                        width="44"
+                        height="44"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="currentColor"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path
+                          stroke="none"
+                          d="M0 0h24v24H0z"
+                          fill="none"
+                        ></path>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <line x1="15" y1="16" x2="19" y2="12"></line>
+                        <line x1="15" y1="8" x2="19" y2="12"></line>
+                      </svg>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -98,29 +103,28 @@ const Programs = ({ id }) => {
                 </div>
               </div>
               <div className="mt-8">
-                <a
-                  href=""
-                  className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group"
-                >
-                  Learn more
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <line x1="15" y1="16" x2="19" y2="12"></line>
-                    <line x1="15" y1="8" x2="19" y2="12"></line>
-                  </svg>
-                </a>
+                <Link href="/classes/kindergarten">
+                  <a className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
+                    Learn more
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <line x1="15" y1="16" x2="19" y2="12"></line>
+                      <line x1="15" y1="8" x2="19" y2="12"></line>
+                    </svg>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

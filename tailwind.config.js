@@ -343,6 +343,7 @@ module.exports = {
         "5xl": "5rem",
       },
       animation: {
+        spin: "1s linear infinite",
         ping: "ping 2.5s cubic-bezier(0, 0, 0.3, 1) infinite",
         "horizontal-bounce": "horizontal-bounce 1s infinite",
         wiggle: "wiggle 1s ease-in-out infinite",
