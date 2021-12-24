@@ -9,6 +9,7 @@ export default async function handler(req, res) {
       phoneNumber,
       email,
       message,
+      date,
       type = "School",
     } = req.body;
     const auth = new google.auth.GoogleAuth({
@@ -32,7 +33,7 @@ export default async function handler(req, res) {
       range: `${type}!A2:C`,
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[submittedAt, fullName, phoneNumber, email, message]],
+        values: [[submittedAt, fullName, phoneNumber, email, date, message]],
       },
     });
     res.status(200).json({ message: "It works!", response });

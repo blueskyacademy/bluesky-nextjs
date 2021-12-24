@@ -1,4 +1,17 @@
-const Stats = () => {
+const StatCard = ({ label, value }) => {
+  return (
+    <div className="mt-12 text-center sm:mt-0">
+      <h4 className="leading-none text-white font-written text-8xl lg:text-9xl">
+        {value}
+      </h4>
+      <p className="mt-0.5 sm:mt-1.5 text-lg lg:text-xl font-medium text-purple-50">
+        {label}
+      </p>
+    </div>
+  );
+};
+
+const Stats = ({ stats }) => {
   return (
     <div>
       <section className="relative w-full px-4 py-16 bg-purple-600 sm:py-24 sm:px-6 lg:px-8">
@@ -10,59 +23,13 @@ const Stats = () => {
           </div>
 
           <div className="mt-12 sm:grid sm:grid-cols-3 sm:gap-x-6 md:gap-x-8 lg:gap-x-12 sm:gap-y-12 gap-y-16">
-            <div className="text-center">
-              <h4 className="leading-none text-white font-written text-8xl lg:text-9xl">
-                30+
-              </h4>
-              <p className="mt-0.5 sm:mt-1.5 text-lg lg:text-xl font-medium text-purple-50">
-                Teachers
-              </p>
-            </div>
-
-            <div className="mt-12 text-center sm:mt-0">
-              <h4 className="leading-none text-white font-written text-8xl lg:text-9xl">
-                6+
-              </h4>
-              <p className="mt-0.5 sm:mt-1.5 text-lg lg:text-xl font-medium text-purple-50">
-                Average years of teacher experience
-              </p>
-            </div>
-
-            <div className="mt-12 text-center sm:mt-0">
-              <h4 className="leading-none text-white font-written text-8xl lg:text-9xl">
-                16
-              </h4>
-              <p className="mt-0.5 sm:mt-1.5 text-lg lg:text-xl font-medium text-purple-50">
-                Average number of students per class
-              </p>
-            </div>
-
-            <div className="mt-12 text-center sm:mt-0">
-              <h4 className="leading-none text-white font-written text-8xl lg:text-9xl">
-                16:1
-              </h4>
-              <p className="mt-0.5 sm:mt-1.5 text-lg lg:text-xl font-medium text-purple-50">
-                Student to teacher ratio
-              </p>
-            </div>
-
-            <div className="mt-12 text-center sm:mt-0">
-              <h4 className="leading-none text-white font-written text-8xl lg:text-9xl">
-                4
-              </h4>
-              <p className="mt-0.5 sm:mt-1.5 text-lg lg:text-xl font-medium text-purple-50">
-                Number of Departments
-              </p>
-            </div>
-
-            <div className="mt-12 text-center sm:mt-0">
-              <h4 className="leading-none text-white font-written text-8xl lg:text-9xl">
-                90%
-              </h4>
-              <p className="mt-0.5 sm:mt-1.5 text-lg lg:text-xl font-medium text-purple-50">
-                Student state exam percentile
-              </p>
-            </div>
+            {stats?.map((item, idx) => (
+              <StatCard
+                key={`stat-${idx}`}
+                value={item.value}
+                label={item.label}
+              />
+            ))}
           </div>
         </div>
       </section>
