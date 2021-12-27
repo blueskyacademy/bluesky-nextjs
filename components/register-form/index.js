@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BusForm from "./bus-form";
 import ExamForm from "./exam-form";
 import VisitForm from "./visit-form";
 
-const SERVICE = {
+export const SERVICE = {
   school: "school",
   exam: "exam",
   bus: "bus",
@@ -23,10 +23,15 @@ const DetailForm = ({ type }) => {
   );
 };
 
-const RegisterForm = () => {
-  const [currentTab, setCurrentTab] = useState(SERVICE.school);
+const RegisterForm = ({ id, tab }) => {
+  const [currentTab, setCurrentTab] = useState(tab ?? SERVICE.school);
+  useEffect(() => {
+    if (tab) {
+      setCurrentTab(tab);
+    }
+  }, [tab]);
   return (
-    <section>
+    <section id={id}>
       <div className="px-4 pt-20 bg-purple-25 sm:pt-28 lg:pt-36 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <h3 className="max-w-2xl mx-auto mb-10 text-center text-purple-900 sm:mb-12 md:mb-20 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
