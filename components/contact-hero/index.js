@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const ContactForm = ({
+export const ContactForm = ({
   handleSubmit,
   handleChangeForm,
   selectedDate,
@@ -26,7 +26,7 @@ const ContactForm = ({
     <div style={{ minHeight: "800px" }}>
       <div>
         <h3 className="text-2xl font-bold text-purple-900">
-          Register Visit School Tour
+          Campus Tour Registration
         </h3>
         <p className="text-purple-800 mt-0.5 text-opacity-90">
           {`We'll get back to you within 24 hours.`}

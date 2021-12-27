@@ -1,4 +1,47 @@
+import Link from "next/link";
+import { useState, useRef } from "react";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
+
+const VideoPopup = ({ showPopup, onClose }) => {
+  const wrapperRef = useRef(null);
+  useOutsideClick(wrapperRef, () => {
+    if (showPopup) {
+      onClose();
+    }
+  });
+  return (
+    <>
+      {showPopup ? (
+        <>
+          <div className="fixed inset-0 z-50 w-full h-full px-4 overflow-hidden transition duration-150 ease-linear">
+            <div className="fixed top-0 left-0 w-screen h-screen transition-opacity duration-300 ease-linear bg-black opacity-50"></div>
+            <div className="flex items-center justify-center w-auto min-h-screen mx-auto">
+              <div
+                className="w-full max-w-6xl max-h-full overflow-auto bg-white rounded-2xl"
+                ref={wrapperRef}
+              >
+                <div className="relative aspect-w-16 aspect-h-9">
+                  <iframe
+                    className="absolute w-full h-full"
+                    src="https://www.youtube.com/embed/N4YtNOGbtsQ"
+                    title="Video"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : null}
+    </>
+  );
+};
+
 const HomeHero = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const handleWatchVideo = () => {
+    setShowPopup(true);
+  };
   return (
     <>
       <section className="px-4 pt-16 sm:px-6 lg:px-8">
@@ -19,31 +62,34 @@ const HomeHero = () => {
             </p>
 
             <div className="flex flex-col items-center mt-8 overflow-hidden sm:flex-row">
-              <a
-                href="#"
-                className="text-lg font-semibold text-purple-900 bg-yellow-500 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group"
-              >
-                About us
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 ml-3 group-hover:animate-horizontal-bounce"
-                  width="44"
-                  height="44"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <line x1="15" y1="16" x2="19" y2="12" />
-                  <line x1="15" y1="8" x2="19" y2="12" />
-                </svg>
-              </a>
+              <Link href="/about">
+                <a className="text-lg font-semibold text-purple-900 bg-yellow-500 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group">
+                  About us
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 ml-3 group-hover:animate-horizontal-bounce"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <line x1="15" y1="16" x2="19" y2="12" />
+                    <line x1="15" y1="8" x2="19" y2="12" />
+                  </svg>
+                </a>
+              </Link>
 
-              <button className="mt-6 text-lg font-medium text-purple-900 bg-purple-200 sm:mt-0 sm:ml-6 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:text-white hover:bg-purple-600 group">
+              <button
+                type="button"
+                className="mt-6 text-lg font-medium text-purple-900 bg-purple-200 sm:mt-0 sm:ml-6 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:text-white hover:bg-purple-600 group cursor-pointer"
+                onClick={handleWatchVideo}
+              >
                 <svg
                   className="w-6 h-6 mr-3 text-purple-600 duration-300 ease-in-out group-hover:text-purple-50"
                   xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +122,11 @@ const HomeHero = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="absolute inline-flex w-20 h-20 bg-purple-400 rounded-full opacity-60 animate-ping"></span>
 
-                <button className="relative z-10 flex items-center justify-center w-20 h-20 bg-white rounded-full outline-none opacity-90">
+                <button
+                  type="button"
+                  className="relative z-10 flex items-center justify-center w-20 h-20 bg-white rounded-full outline-none opacity-90 cursor-pointer"
+                  onClick={handleWatchVideo}
+                >
                   <svg
                     className="w-10 h-10 ml-1 text-purple-600 duration-300 ease-in-out group-hover:text-purple-50"
                     xmlns="http://www.w3.org/2000/svg"
@@ -97,6 +147,7 @@ const HomeHero = () => {
           </div>
         </div>
       </section>
+      <VideoPopup showPopup={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
 };

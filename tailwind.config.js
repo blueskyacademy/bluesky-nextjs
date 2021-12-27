@@ -346,6 +346,7 @@ module.exports = {
         spin: "1s linear infinite",
         ping: "ping 2.5s cubic-bezier(0, 0, 0.3, 1) infinite",
         "horizontal-bounce": "horizontal-bounce 1s infinite",
+        "vertical-bounce": "vertical-bounce 1s infinite",
         wiggle: "wiggle 1s ease-in-out infinite",
         "fade-in-down": "fade-in-down 0.5s ease-out",
         "fade-in-up": "fade-in-up 0.5s ease-out",
@@ -366,6 +367,7 @@ module.exports = {
             transform: "rotate(3deg)",
           },
         },
+
         "fade-in-down": {
           "0%": {
             opacity: "0",
@@ -398,6 +400,17 @@ module.exports = {
             animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
           },
         },
+        "vertical-bounce": {
+          "50%": {
+            transform: "translateY(25%)",
+            animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
+          },
+
+          "0%, 100%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+          },
+        },
       },
     },
   },
@@ -407,5 +420,8 @@ module.exports = {
     opacity: ["responsive", "hover", "focus", "group-hover"],
     backgroundColor: ["responsive", "hover", "focus", "group-hover"],
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/typography"),
+  ],
 };

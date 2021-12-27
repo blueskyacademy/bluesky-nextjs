@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Question = () => {
+const Question = ({ question, answer }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
     <li className="w-full px-5 py-6 bg-white sm:px-12 sm:py-8 rounded-3xl">
@@ -9,7 +9,7 @@ const Question = () => {
         onClick={() => setShowAnswer(!showAnswer)}
       >
         <span className="font-medium text-left text-purple-900 duration-300 ease-in-out group-hover:text-purple-600">
-          What are your hours and schedules?
+          {question}
         </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -31,17 +31,14 @@ const Question = () => {
       {showAnswer && (
         <div className="relative duration-700">
           <div className="mt-3 text-base leading-relaxed text-purple-800 sm:text-lg">
-            Praesent sapien massa, convallis a pellentesque nec, egestas non
-            nisi. Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu
-            erat, accumsan id imperdiet et, porttitor at sem. Donec sollicitudin
-            molestie malesuada.
+            {answer}
           </div>
         </div>
       )}
     </li>
   );
 };
-const Faq = () => {
+const Faq = ({ faq }) => {
   return (
     <section className="py-20 bg-yellow-100 sm:py-28">
       <div className="px-4 mx-auto lg:max-w-screen-lg sm:px-6 lg:px-8">
@@ -68,8 +65,12 @@ const Faq = () => {
               alt=""
             />
           </div>
-          {[1, 2, 3, 4, 5, 6].map((item, idx) => (
-            <Question key={`question-${idx}`} />
+          {faq.map((item, idx) => (
+            <Question
+              key={`question-${idx}`}
+              question={item?.question}
+              answer={item?.answer}
+            />
           ))}
         </ul>
       </div>

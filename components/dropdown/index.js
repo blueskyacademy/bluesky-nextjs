@@ -1,24 +1,33 @@
 import { useState } from "react";
 
-const Dropdown = ({ options, value, handleChange }) => {
+const Dropdown = ({
+  options,
+  value,
+  handleChange,
+  title,
+  placeholder = "",
+}) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <div className="max-w-md mx-auto">
-      <label htmlFor="select" className="font-semibold block py-2">
-        Select Class
+      <label
+        htmlFor="select"
+        className="font-semibold block py-2 text-purple-900 text-sm"
+      >
+        {title}
       </label>
 
       <div className="relative">
         <div
-          className="h-10 bg-white flex border border-gray-200 rounded items-center"
+          className="h-14 bg-white flex border border-purple-50 rounded items-center rounded-xl border-2"
           onClick={() => setShowDropdown(!showDropdown)}
         >
           <input
-            value={value ? value : "Please choose one class"}
+            value={value ? value : placeholder}
             name="select"
             id="select"
-            className="px-4 appearance-none outline-none text-gray-800 w-full"
+            className="px-4 appearance-none outline-none text-purple-700 w-full text-sm"
             onChange={() => console.log("change")}
           />
           <label
@@ -49,7 +58,7 @@ const Dropdown = ({ options, value, handleChange }) => {
               id="show_more"
               className="hidden peer"
             />
-            <div className="absolute rounded shadow bg-white overflow-hidden hidden peer-checked:flex flex-col w-full mt-1 border border-gray-200 z-50">
+            <div className="absolute rounded shadow bg-white overflow-hidden hidden peer-checked:flex flex-col w-full mt-1 border border-gray-200 z-50 text-sm">
               {options.map((item, idx) => (
                 <div
                   className="cursor-pointer group"

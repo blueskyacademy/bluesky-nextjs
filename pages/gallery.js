@@ -3,19 +3,16 @@ import GalleryGrid from "../components/gallery-grid";
 import Layout from "../components/layout";
 import { getGalleries, getVideoForHome } from "../lib/api";
 import CTA from "../components/cta";
-import AnimationRevealPage from "../helpers/AnimationRevealPage";
 
 export default function GalleryPage({ videos, galleries }) {
   return (
     <Layout>
-      <AnimationRevealPage>
-        <div>
-          <Gallery />
-          <GalleryGrid videos={videos} galleries={galleries} />
-        </div>
+      <div>
+        <Gallery />
+        <GalleryGrid videos={videos} galleries={galleries} />
+      </div>
 
-        <CTA />
-      </AnimationRevealPage>
+      <CTA />
     </Layout>
   );
 }
