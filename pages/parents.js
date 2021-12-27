@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import CTA from "../components/cta";
 import Feedback from "../components/feedback";
 import Layout from "../components/layout";
@@ -8,12 +9,14 @@ import { useHashFragment } from "../hooks/useHashFragment";
 import { getTestimonials } from "../lib/api";
 
 export default function Parents({ testimonials }) {
+  const router = useRouter();
+  const { tab } = router.query;
   useHashFragment();
   return (
     <Layout>
+      <RegisterHero />
+      <RegisterForm id="register" tab={tab} />
       <AnimationRevealPage>
-        <RegisterHero />
-        <RegisterForm />
         <Feedback id="story" testimonials={testimonials} />
         <CTA hasButton={false} />
       </AnimationRevealPage>

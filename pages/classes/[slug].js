@@ -7,9 +7,13 @@ import Stats from "../../components/stats";
 import AnimationRevealPage from "../../helpers/AnimationRevealPage";
 import CTA from "../../components/cta";
 import DivisionTeam from "../../components/division-team";
+import NotFoundPage from "../404";
 
 const Class = ({ division }) => {
   const router = useRouter();
+  if (!router.isFallback && !division) {
+    return <NotFoundPage />;
+  }
   return (
     <Layout>
       {router.isFallback ? (

@@ -28,27 +28,26 @@ const ClassHero = ({ name, summary, coverImage, description }) => {
                 Read more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 ml-3 group-hover:animate-horizontal-bounce"
+                  className="w-6 h-6 ml-3 text-purple-500 duration-300 ease-in-out animate-vertical-bounce hover:text-purple-600"
                   width="44"
                   height="44"
                   viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  stroke="#2c3e50"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <line x1="12" y1="5" x2="12" y2="19" />
-                  <line x1="18" y1="13" x2="12" y2="19" />
-                  <line x1="6" y1="13" x2="12" y2="19" />
+                  <polyline points="7 7 12 12 17 7" />
+                  <polyline points="7 13 12 18 17 13" />
                 </svg>
               </a>
             </div>
           </div>
 
           <div className="relative z-1 mt-14 sm:mt-16">
-            <div className="aspect-w-3 aspect-h-2 sm:aspect-w-16 sm:aspect-h-9">
+            <div>
               <img
                 className="object-cover w-full h-full shadow-xl rounded-3xl"
                 src={coverImage}
