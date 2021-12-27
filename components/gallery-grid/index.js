@@ -5,7 +5,7 @@ const Gallery = ({ src, title, link }) => {
   return (
     <>
       <li className="cursor-pointer" data-src="images/gallery-01.jpg">
-        <div className="aspect-w-1 aspect-h-1 relative group">
+        <div className="relative group">
           <img
             src={src}
             className="object-cover rounded-2xl h-72 w-full"

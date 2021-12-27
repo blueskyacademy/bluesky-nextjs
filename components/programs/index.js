@@ -7,7 +7,7 @@ const Programs = ({ id }) => {
       className="px-4 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8"
     >
       <div className="max-w-xl mx-auto md:max-w-screen-xl">
-        <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-12">
+        <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-12 ">
           <div>
             <h2 className="max-w-4xl text-purple-900 h2 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
               Education Program

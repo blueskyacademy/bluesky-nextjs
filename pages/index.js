@@ -1,5 +1,5 @@
 import Layout from "../components/layout";
-import { getPostsForHome, getTestimonials } from "../lib/api";
+import { getFaq, getPostsForHome, getTestimonials } from "../lib/api";
 import { useHashFragment } from "../hooks/useHashFragment";
 import Programs from "../components/programs";
 import Events from "../components/events";
@@ -10,7 +10,7 @@ import HomeHero from "../components/home-hero";
 import CTA from "../components/cta";
 import Feedback from "../components/feedback";
 
-export default function Home({ allPosts, testimonials }) {
+export default function Home({ allPosts, testimonials, faq }) {
   useHashFragment();
   return (
     <Layout>
@@ -19,12 +19,13 @@ export default function Home({ allPosts, testimonials }) {
         <Programs id="program" />
         <GalleryHero
           hasButton={true}
+          url="/gallery"
           title="Our gallery"
           description={`Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.`}
         />
         <Events posts={allPosts} id="news" />
         <Feedback id="story" testimonials={testimonials} />
-        <Faq />
+        <Faq faq={faq} />
         <CTA />
       </AnimationRevealPage>
     </Layout>
@@ -32,10 +33,10 @@ export default function Home({ allPosts, testimonials }) {
 }
 export async function getStaticProps({ locale }) {
   const allPosts = (await getPostsForHome(locale)) ?? [];
-  // const videos = (await getVideoForHome()) ?? [];
   const testimonials = (await getTestimonials(locale)) ?? [];
+  const faq = (await getFaq()) ?? [];
   return {
-    props: { allPosts, testimonials },
+    props: { allPosts, testimonials, faq },
     revalidate: 1,
   };
 }

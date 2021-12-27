@@ -17,14 +17,14 @@ const ScheduleHero = ({ classes }) => {
   const classOptions = classes?.map((item) => item.name).sort();
   useEffect(() => {
     const chosenClass = classes?.find((item) => item.name == selectedClass);
-    console.log("chosenClass", chosenClass);
+
     if (!showSchedule) {
       setFileId(chosenClass?.menuFileId);
     } else {
       setFileId(chosenClass?.scheduleFileId);
     }
   }, [showSchedule, selectedClass]);
-  console.log("selectedClass", selectedClass);
+
   return (
     <section>
       <div className="px-4 pt-10 sm:pt-10 lg:pt-10 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25">
@@ -59,6 +59,8 @@ const ScheduleHero = ({ classes }) => {
             </li>
           </ul>
           <Dropdown
+            title="Select class"
+            placeholder="Please select a class"
             options={classOptions}
             value={selectedClass}
             handleChange={(item) => setSelectedClass(item)}
