@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 const Dropdown = ({
   options,
@@ -8,6 +9,12 @@ const Dropdown = ({
   placeholder = "",
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const wrapper = useRef(null);
+  useOutsideClick(wrapper, () => {
+    if (showDropdown) {
+      setShowDropdown(false);
+    }
+  });
 
   return (
     <div className="max-w-md mx-auto">
@@ -18,23 +25,23 @@ const Dropdown = ({
         {title}
       </label>
 
-      <div className="relative">
-        <div
-          className="h-14 bg-white flex border border-purple-50 rounded items-center rounded-xl border-2"
-          onClick={() => setShowDropdown(!showDropdown)}
-        >
+      <div className="relative" ref={wrapper}>
+        <div className="h-14 bg-white flex border border-purple-50 rounded items-center rounded-xl border-2">
           <input
-            value={value ? value : placeholder}
+            value={value}
+            placeholder={placeholder}
             name="select"
             id="select"
-            className="px-4 appearance-none outline-none text-purple-700 w-full text-sm"
+            className="px-4 appearance-none outline-none text-purple-700 w-full text-sm font-medium placeholder-purple-700 placeholder-opacity-70"
             onChange={() => console.log("change")}
+            autoComplete="off"
           />
           <label
             htmlFor="show_more"
             className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-gray-600"
           >
             <svg
+              onClick={() => setShowDropdown(!showDropdown)}
               className={`w-4 h-4 mx-2 fill-current ${
                 showDropdown ? "transform rotate-180" : ""
               }`}
@@ -68,7 +75,7 @@ const Dropdown = ({
                     handleChange(item);
                   }}
                 >
-                  <a className="block p-2 border-transparent border-l-4 group-hover:border-blue-600 group-hover:bg-gray-100">
+                  <a className="block p-2 border-transparent border-l-4 group-hover:border-purple-600 group-hover:bg-gray-100">
                     {item}
                   </a>
                 </div>

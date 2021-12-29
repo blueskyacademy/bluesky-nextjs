@@ -1,31 +1,79 @@
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import Dropdown from "../dropdown";
+import { addDays, format, setHours, setMinutes } from "date-fns";
+import { GENDER, RETEST_OPTIONS } from "../../lib/constant";
+import DatePickerCustomHeader from "../date-picker-custom-header";
+import { calculateDisableDays } from "../../lib/helper";
 
-const BUS_SERVICE = {
-  twoWay: "Two-way journey",
-  pickup: "Pick-up only",
-  drop: "Drop-off only",
-};
-const ExamForm = ({
-  handleSubmit,
-  handleChangeForm,
-  selectedDate,
-  isLoading,
-  status,
-  handleChangeDate,
-}) => {
-  const [selectedOption, setSelectedOption] = useState("No");
+const ExamForm = () => {
+  const [form, setForm] = useState({});
+  const [reTestOption, setReTestOption] = useState(RETEST_OPTIONS.no);
+  const [gender, setGender] = useState(GENDER.female);
+  const [isLoading, setIsLoading] = useState(false);
+  const [statusForm, setStatusForm] = useState();
   const [dateOfBirth, setDateOfBirth] = useState();
   const [dateOfExam, setDateOfExam] = useState();
+
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      ...form,
+      reTest: reTestOption,
+      gender: gender,
+      submittedAt: format(Date.now(), "HH:mm:ss dd-MM-yyyy"),
+      dateOfBirth: format(dateOfBirth, "dd-MM-yyyy"),
+      dateOfExam: format(dateOfExam, "dd-MM-yyyy"),
+    };
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/exam", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json();
+      setStatusForm("success");
+    } catch (error) {
+      console.log("error", error);
+    }
+    setIsLoading(false);
+  };
   // eslint-disable-next-line react/display-name
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <div
-      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
+      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between"
       onClick={onClick}
       ref={ref}
     >
-      {value}
+      {value ? (
+        value
+      ) : (
+        <p className="text-purple-700 opacity-70">
+          Please choose from 2PM to 4PM on every Wednesday
+        </p>
+      )}
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className={`flex-shrink-0 w-4 h-4 ml-3 text-purple-700 duration-300 ease-in-out sm:w-4 sm:h-4 sm:ml-6 group-hover:text-purple-600`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
     </div>
   ));
   return (
@@ -38,7 +86,7 @@ const ExamForm = ({
           Please register the entrance exam on every Wednesday from 2PM - 4PM
         </p>
       </div>
-      {status === "success" ? (
+      {statusForm === "success" ? (
         <div className="flex flex-col items-center justify-between mt-12">
           <svg
             viewBox="0 0 24 24"
@@ -68,55 +116,55 @@ const ExamForm = ({
               </h3>
             </div>
             <div className="md:col-span-2">
-              <div>
-                <label
-                  htmlFor="fullNameStudent"
-                  className="ml-0.5 text-purple-900 font-medium text-sm"
-                >
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  placeholder="Fullname"
-                  className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
-                  required
-                  id="fullNameStudent"
-                  name="fullNameStudent"
-                  onChange={handleChangeForm}
-                />
-              </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="mt-6">
+                <div>
                   <label
-                    htmlFor="dateOfBirth"
+                    htmlFor="fullNameStudent"
+                    className="ml-0.5 text-purple-900 font-medium text-sm"
+                  >
+                    Fullname
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Enter fullname"
+                    className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
+                    required
+                    id="fullNameStudent"
+                    name="fullNameStudent"
+                    onChange={handleChangeForm}
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="currentGrade"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
                     Date of birth *
                   </label>
-
-                  <DatePicker
+                  <DatePickerCustomHeader
                     selected={dateOfBirth}
-                    onChange={(date) => setDateOfBirth(date)}
-                    dateFormat="MMMM d, yyyy"
-                    customInput={<ExampleCustomInput />}
-                    maxDate={new Date()}
+                    handleChangeDate={(date) => setDateOfBirth(date)}
                   />
                 </div>
-                <div className="mt-6">
-                  <label
-                    htmlFor="grade"
-                    className="ml-0.5 text-purple-900 font-medium text-sm"
-                  >
-                    Gender *
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Gender"
-                    className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
-                    required
-                    id="grade"
-                    name="grade"
-                    onChange={handleChangeForm}
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="mt-4">
+                  <Dropdown
+                    options={[GENDER.male, GENDER.female, GENDER.other]}
+                    title="Gender"
+                    placeholder="Choose an option"
+                    value={gender}
+                    handleChange={(item) => setGender(item)}
+                  />
+                </div>
+                <div className="mt-4">
+                  <Dropdown
+                    options={[RETEST_OPTIONS.no, RETEST_OPTIONS.yes]}
+                    title="Is it a re-test?"
+                    placeholder="Choose an option"
+                    value={reTestOption}
+                    handleChange={(item) => setReTestOption(item)}
                   />
                 </div>
               </div>
@@ -156,15 +204,6 @@ const ExamForm = ({
                     onChange={handleChangeForm}
                   />
                 </div>
-              </div>
-              <div style={{ width: "250px" }} className="mt-4">
-                <Dropdown
-                  options={["No", "Yes"]}
-                  title="Is it a re-test?"
-                  placeholder="Choose an option"
-                  value={selectedOption}
-                  handleChange={(item) => setSelectedOption(item)}
-                />
               </div>
             </div>
           </div>
@@ -307,9 +346,16 @@ const ExamForm = ({
                 <DatePicker
                   selected={dateOfExam}
                   onChange={(date) => setDateOfExam(date)}
-                  dateFormat="MMMM d, yyyy"
+                  showTimeSelect
+                  timeFormat="HH:mm"
+                  timeInputLabel="Time:"
+                  dateFormat="h:mm aa MMMM d, yyyy"
                   customInput={<ExampleCustomInput />}
                   minDate={new Date()}
+                  excludeDates={calculateDisableDays()}
+                  maxDate={addDays(new Date(), 60)}
+                  minTime={setHours(setMinutes(new Date(), 0), 14)}
+                  maxTime={setHours(setMinutes(new Date(), 0), 16)}
                 />
               </div>
             </div>

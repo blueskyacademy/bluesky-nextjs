@@ -44,13 +44,13 @@ const HomeHero = () => {
   };
   return (
     <>
-      <section className="px-4 pt-16 sm:px-6 lg:px-8">
+      <section className="px-4 py-16 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-bluesky-50">
         <div className="max-w-screen-xl mx-auto lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="flex flex-col items-center justify-center lg:items-start lg:col-span-6">
             <div>
-              <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1 animate-fade-in-down">
+              {/* <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1 animate-fade-in-down">
                 Welcome to Blue Sky Academy
-              </span>
+              </span> */}
             </div>
             <h1 className="max-w-xl mt-4 text-center text-purple-900 sm:mt-5 lg:text-left h1 lg:max-w-none text-6xl leading-snug sm:leading-tight xl:leading-tighter font-extrabold ">
               Creating a brighter future for your child

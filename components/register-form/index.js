@@ -9,13 +9,13 @@ export const SERVICE = {
   bus: "bus",
 };
 
-const DetailForm = ({ type }) => {
+const DetailForm = ({ type, classes }) => {
   return (
     <div className="px-4 mt-12 -mb-48 -translate-y-56 lg:mt-20 sm:mt-16 sm:px-6 lg:px-8">
       <div className={`${type === SERVICE.school ? "w-1/2" : "w-2/3"} mx-auto`}>
         <div className="relative z-10 w-full px-4 py-10 mx-auto bg-white shadow-xl rounded-3xl lg:mr-0 lg:ml-auto sm:p-16 lg:p-12 xl:p-14">
           {type === SERVICE.school && <VisitForm />}
-          {type === SERVICE.bus && <BusForm />}
+          {type === SERVICE.bus && <BusForm classes={classes} />}
           {type === SERVICE.exam && <ExamForm />}
         </div>
       </div>
@@ -23,7 +23,7 @@ const DetailForm = ({ type }) => {
   );
 };
 
-const RegisterForm = ({ id, tab }) => {
+const RegisterForm = ({ id, tab, classes }) => {
   const [currentTab, setCurrentTab] = useState(tab ?? SERVICE.school);
   useEffect(() => {
     if (tab) {
@@ -78,7 +78,7 @@ const RegisterForm = ({ id, tab }) => {
         </div>
       </div>
       <div className="w-full h-56 bg-purple-25"></div>
-      <DetailForm type={currentTab} />
+      <DetailForm type={currentTab} classes={classes} />
     </section>
   );
 };
