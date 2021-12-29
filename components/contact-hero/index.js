@@ -1,7 +1,8 @@
 import { forwardRef, useState } from "react";
-import { format } from "date-fns";
+import { format, setHours, setMinutes } from "date-fns";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FORMAT_DATETIME_DISPLAY } from "../../lib/constant";
 
 export const ContactForm = ({
   handleSubmit,
@@ -14,11 +15,33 @@ export const ContactForm = ({
   // eslint-disable-next-line react/display-name
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <div
-      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
+      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 duration-300 ease-in-out border-2 outline-none h-14 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between"
       onClick={onClick}
       ref={ref}
     >
-      {value}
+      {value ? (
+        value
+      ) : (
+        <p className="text-purple-700 opacity-70">
+          Please choose date and time
+        </p>
+      )}
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className={`flex-shrink-0 w-4 h-4 ml-3 text-purple-700 duration-300 ease-in-out sm:w-4 sm:h-4 sm:ml-6 group-hover:text-purple-600`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
     </div>
   ));
 
@@ -118,12 +141,14 @@ export const ContactForm = ({
             <DatePicker
               selected={selectedDate}
               onChange={(date) => handleChangeDate(date)}
-              showTimeInput
+              showTimeSelect
               timeFormat="HH:mm"
               timeInputLabel="Time:"
               dateFormat="h:mm aa MMMM d, yyyy"
               customInput={<ExampleCustomInput />}
               minDate={new Date()}
+              minTime={setHours(setMinutes(new Date(), 0), 8)}
+              maxTime={setHours(setMinutes(new Date(), 0), 18)}
             />
           </div>
 
@@ -173,7 +198,7 @@ const ContactHero = () => {
   const [form, setForm] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [statusForm, setStatusForm] = useState();
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState();
 
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
@@ -186,8 +211,8 @@ const ContactHero = () => {
     const data = {
       ...form,
       type: "School",
-      submittedAt: format(Date.now(), "HH:mm:ss dd-MM-yyyy"),
-      date: format(selectedDate, "HH:mm:ss dd-MM-yyyy"),
+      submittedAt: format(Date.now(), FORMAT_DATETIME_DISPLAY),
+      date: format(selectedDate, FORMAT_DATETIME_DISPLAY),
     };
     setIsLoading(true);
     try {

@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 import ScheduleHero from "../components/schedule-hero";
 import CTA from "../components/cta";
-import { getSchedules } from "../lib/api";
+import { getClasses } from "../lib/api";
 
 const Schedules = ({ classes }) => {
   return (
@@ -14,7 +14,7 @@ const Schedules = ({ classes }) => {
 
 export default Schedules;
 export async function getStaticProps() {
-  const classes = (await getSchedules()) ?? [];
+  const classes = (await getClasses()) ?? [];
 
   return {
     props: { classes },

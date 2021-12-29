@@ -1,29 +1,82 @@
 import { forwardRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import Dropdown from "../dropdown";
+import { format } from "date-fns";
+import DatePickerCustomHeader from "../date-picker-custom-header";
+import {
+  FORMAT_DATETIME_DISPLAY,
+  FORMAT_DATE_DISPLAY,
+  BUS_SERVICE,
+} from "../../lib/constant";
 
-const BUS_SERVICE = {
-  twoWay: "Two-way journey",
-  pickup: "Pick-up only",
-  drop: "Drop-off only",
-};
-const BusForm = ({
-  handleSubmit,
-  handleChangeForm,
-  selectedDate,
-  isLoading,
-  status,
-  handleChangeDate,
-}) => {
+const BusForm = ({ classes }) => {
+  const [form, setForm] = useState({});
   const [selectedOption, setSelectedOption] = useState(BUS_SERVICE.twoWay);
+  const [isLoading, setIsLoading] = useState(false);
+  const [statusForm, setStatusForm] = useState();
+  const [dateOfBirth, setDateOfBirth] = useState();
+  const [startDate, setStartDate] = useState();
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+  const handleChangeGrade = (value) => {
+    setForm({ ...form, currentGrade: value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      ...form,
+      busOption: selectedOption,
+      submittedAt: format(Date.now(), FORMAT_DATETIME_DISPLAY),
+      dateOfBirth: format(dateOfBirth, FORMAT_DATE_DISPLAY),
+      startDate: format(startDate, FORMAT_DATE_DISPLAY),
+    };
+    console.log("data", data);
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/bus", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json();
+      setStatusForm("success");
+    } catch (error) {
+      console.log("error", error);
+    }
+    setIsLoading(false);
+  };
+
   // eslint-disable-next-line react/display-name
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <div
-      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
+      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between"
       onClick={onClick}
       ref={ref}
     >
-      {value}
+      {value ? (
+        value
+      ) : (
+        <p className="text-purple-700 opacity-70">Please choose a date</p>
+      )}
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className={`flex-shrink-0 w-4 h-4 ml-3 text-purple-700 duration-300 ease-in-out sm:w-4 sm:h-4 sm:ml-6 group-hover:text-purple-600`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
     </div>
   ));
   return (
@@ -34,7 +87,7 @@ const BusForm = ({
         </h3>
         <p className="text-purple-800 mt-0.5 text-opacity-90"></p>
       </div>
-      {status === "success" ? (
+      {statusForm === "success" ? (
         <div className="flex flex-col items-center justify-between mt-12">
           <svg
             viewBox="0 0 24 24"
@@ -64,54 +117,46 @@ const BusForm = ({
               </h3>
             </div>
             <div className="md:col-span-2">
-              <div>
-                <label
-                  htmlFor="fullNameStudent"
-                  className="ml-0.5 text-purple-900 font-medium text-sm"
-                >
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  placeholder="Fullname"
-                  className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
-                  required
-                  id="fullNameStudent"
-                  name="fullNameStudent"
-                  onChange={handleChangeForm}
-                />
-              </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="mt-6">
+                <div>
+                  <label
+                    htmlFor="fullNameStudent"
+                    className="ml-0.5 text-purple-900 font-medium text-sm"
+                  >
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Fullname"
+                    className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
+                    required
+                    id="fullNameStudent"
+                    name="fullNameStudent"
+                    onChange={handleChangeForm}
+                  />
+                </div>
+                <div>
                   <label
                     htmlFor="dateOfBirth"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
                     Date of birth *
                   </label>
-
-                  <DatePicker
-                    selected={selectedDate}
-                    onChange={(date) => handleChangeDate(date)}
-                    dateFormat="MMMM d, yyyy"
-                    customInput={<ExampleCustomInput />}
+                  <DatePickerCustomHeader
+                    selected={dateOfBirth}
+                    handleChangeDate={(date) => setDateOfBirth(date)}
                   />
                 </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
                 <div className="mt-6">
-                  <label
-                    htmlFor="grade"
-                    className="ml-0.5 text-purple-900 font-medium text-sm"
-                  >
-                    Current Grade *
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Current Grade"
-                    className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
-                    required
-                    id="grade"
-                    name="grade"
-                    onChange={handleChangeForm}
+                  <Dropdown
+                    title="Current Grade *"
+                    placeholder="Please select a grade"
+                    options={classes}
+                    value={form?.currentGrade}
+                    handleChange={(value) => handleChangeGrade(value)}
                   />
                 </div>
               </div>
@@ -209,19 +254,22 @@ const BusForm = ({
               </h3>
             </div>
             <div className="md:col-span-2">
-              <div style={{ width: "250px" }} className="mt-4">
-                <Dropdown
-                  options={[
-                    BUS_SERVICE.twoWay,
-                    BUS_SERVICE.pickup,
-                    BUS_SERVICE.drop,
-                  ]}
-                  title="Select an option"
-                  placeholder="Choose an option"
-                  value={selectedOption}
-                  handleChange={(item) => setSelectedOption(item)}
-                />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="mt-4">
+                  <Dropdown
+                    options={[
+                      BUS_SERVICE.twoWay,
+                      BUS_SERVICE.pickup,
+                      BUS_SERVICE.drop,
+                    ]}
+                    title="Select an option"
+                    placeholder="Choose an option"
+                    value={selectedOption}
+                    handleChange={(item) => setSelectedOption(item)}
+                  />
+                </div>
               </div>
+
               <div className="grid grid-cols-2 gap-4">
                 {selectedOption !== BUS_SERVICE.drop && (
                   <div className="mt-6">
@@ -246,7 +294,7 @@ const BusForm = ({
                 {selectedOption != BUS_SERVICE.pickup && (
                   <div className="mt-6">
                     <label
-                      htmlFor="dropoffAdress"
+                      htmlFor="dropOffAdress"
                       className="ml-0.5 text-purple-900 font-medium text-sm"
                     >
                       Drop-off address
@@ -272,15 +320,21 @@ const BusForm = ({
                 </label>
 
                 <DatePicker
-                  selected={selectedDate}
-                  onChange={(date) => handleChangeDate(date)}
-                  dateFormat="MMMM d, yyyy"
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat={FORMAT_DATE_DISPLAY}
                   customInput={<ExampleCustomInput />}
                   minDate={new Date()}
                 />
               </div>
               <div className="mt-4">
-                <input type="checkbox" value="" id="flexCheckChecked" checked />
+                <input
+                  type="checkbox"
+                  value=""
+                  id="flexCheckChecked"
+                  checked
+                  readOnly
+                />
                 <label
                   className="form-check-label text-gray-800 ml-2 text-sm"
                   htmlFor="flexCheckChecked"
