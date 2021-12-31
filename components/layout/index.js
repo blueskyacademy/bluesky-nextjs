@@ -6,8 +6,8 @@ import Navigation from "../navigation";
 export default function Layout({ children }) {
   return (
     <>
-      <Navbar />
-      {/* <Navigation /> */}
+      {/* <Navbar /> */}
+      <Navigation />
       <main>{children}</main>
       {/* <CallAction
         title={"School Visit"}

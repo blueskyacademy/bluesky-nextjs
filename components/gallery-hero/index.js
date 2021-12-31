@@ -8,12 +8,12 @@ const GalleryHero = ({ title, description, hasButton = false, url }) => {
           <h2 className="max-w-3xl mx-auto text-center text-purple-900 text-5xl font-bold">
             {title}
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
+          <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
             {description}
           </p>
         </div>
 
-        <div className="grid grid-flow-row-dense grid-cols-2 gap-2 sm:grid-cols-3 mt-14 sm:mt-16 lg:mt-24 sm:gap-3 md:gap-4 lg:gap-6">
+        <div className="grid grid-flow-row-dense grid-cols-2 gap-2 sm:grid-cols-3 mt- sm:mt-12 lg:mt-12 sm:gap-3 md:gap-4 lg:gap-6">
           <img
             className="object-cover w-full rounded-2xl lg:h-80 h-30vw"
             alt="School grid 01"

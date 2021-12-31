@@ -3,20 +3,9 @@ import Link from "next/link";
 const Programs = ({ id }) => {
   return (
     <div id={id}>
-      <div className="bg-bluesky-800 py-10">
-        <div className="text-center">
-          <h2 className="mx-auto text-white h2 text-3xl sm:text-3xl xl:text-4xl sm:leading-tighter font-bold">
-            Education Program
-          </h2>
-          <p className="max-w-6xl mx-auto mt-2 text-xl leading-relaxed text-purple-100 sm:mt-2 lg:text-center">
-            Overview of the curriculum at Blue Sky Academy School system is
-            designed exclusively for three levels
-          </p>
-        </div>
-      </div>
-      <div className="px-4 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8 bg-bluesky-50">
+      <div className="px-4 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8 bg-gradient-to-b from-bluesky-50 to-white">
         <div className="max-w-xl mx-auto md:max-w-screen-xl">
-          {/* <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-12 ">
+          <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-12 ">
             <div>
               <h2 className="max-w-4xl text-purple-900 h2 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
                 Education Program
@@ -27,7 +16,7 @@ const Programs = ({ id }) => {
                 school and secondary.
               </p>
             </div>
-          </div> */}
+          </div>
 
           <div className="mt-16 md:mt-72 md:grid md:grid-cols-2 md:gap-8 lg:gap-16">
             <div className="relative">
@@ -143,7 +132,7 @@ const Programs = ({ id }) => {
               </div>
             </div>
 
-            <div className="relative w-full px-8 py-10 mt-12 sm:p-12 md:mt-0 md:col-start-2 md:px-8 md:py-10 lg:p-12 md:-translate-y-20 bg-blue-50 rounded-3xl">
+            <div className="relative w-full px-8 py-10 mt-12 sm:p-12 md:mt-0 md:col-start-2 md:px-8 md:py-10 lg:p-12 md:-translate-y-80 bg-blue-50 rounded-3xl">
               <div className="flex flex-col justify-between">
                 <div className="flex-1">
                   <h3 className="text-purple-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">

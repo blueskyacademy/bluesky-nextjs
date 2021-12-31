@@ -43,7 +43,6 @@ export default function About({ teachers }) {
             "At Blue Sky Academy, we pride ourselves on the quality of our teachers. We commit to creating a positive classroom experience for all students, no matter their learning needs."
           }
         />
-        <Founders />
         <Stats stats={STATS} />
         <SchoolTeam teachers={teachers} />
 

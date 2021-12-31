@@ -52,9 +52,9 @@ export default function JobPage({ job }) {
       {router.isFallback ? (
         <h1>Loading ...</h1>
       ) : (
-        <div className='bg-gray-100'>
-          <div className='px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10 '>
-            <div className='flex flex-col justify-between lg:flex-row w-full'>
+        <div className="">
+          <div className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10 ">
+            <div className="flex flex-col justify-between lg:flex-row w-full">
               <Job
                 title={job.title}
                 start={job.start}
@@ -70,7 +70,7 @@ export default function JobPage({ job }) {
                 status={statusForm}
                 isLoading={isLoading}
               />
-              <div className='w-1'></div>
+              <div className="w-1"></div>
             </div>
           </div>
         </div>

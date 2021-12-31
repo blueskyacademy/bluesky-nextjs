@@ -58,7 +58,7 @@ const DescriptionValues = () => {
           </div>
 
           <div className="w-full max-w-xl mx-auto mt-16 lg:mt-0 lg:max-w-none lg:mx-0">
-            <div className="aspect-w-3 aspect-h-4">
+            <div className="aspect-w-9 aspect-h-6">
               <img
                 className="object-cover w-full h-full rounded-3xl"
                 src="images/secondary.png"

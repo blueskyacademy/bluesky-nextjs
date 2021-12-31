@@ -1,6 +1,7 @@
 import AboutHero from "../components/about-hero";
 import CTA from "../components/cta";
 import DescriptionValues from "../components/description-value";
+import Founders from "../components/founders";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import Letter from "../components/letter";
@@ -26,6 +27,7 @@ export default function About() {
         />
         <DescriptionValues />
         <Letter id="letter" />
+        <Founders />
         <CTA />
       </AnimationRevealPage>
     </Layout>
