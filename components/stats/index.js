@@ -13,7 +13,7 @@ const StatCard = ({ label, value }) => {
 
 const Stats = ({ stats }) => {
   return (
-    <div>
+    <div className="pt-16">
       <section className="relative w-full px-4 py-16 bg-purple-600 sm:py-24 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <div>

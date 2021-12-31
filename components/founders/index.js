@@ -85,7 +85,7 @@ const Founders = () => {
             </div>
           </div>
 
-          <div className="grid max-w-xl mx-auto mt-20 lg:max-w-none sm:mt-24 lg:mt-44 lg:grid-cols-12 gap-14 sm:gap-16 lg:gap-8">
+          <div className="grid max-w-xl mx-auto mt-16 lg:max-w-none sm:mt-16 lg:mt-32 lg:grid-cols-12 gap-14 sm:gap-16 lg:gap-8">
             <div className="relative z-10 flex flex-col justify-center order-2 lg:col-span-6 lg:text-left">
               <div>
                 <h1 className="mt-3.5 font-bold text-purple-900 text-2xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold">
@@ -125,19 +125,19 @@ const Founders = () => {
                 />
               </div>
 
-              <img
+              {/* <img
                 src="svg/dots-large-strip.svg"
                 className="absolute top-0 origin-top transform -translate-x-1/2 -translate-y-8 left-1/2 lg:hidden sm:scale-100 scale-80"
                 alt=""
-              />
+              /> */}
 
               <div className="relative w-full mx-auto shadow-lg rounded-3xl lg:max-w-lg lg:mx-0">
                 <div className="relative block w-full">
-                  <img
+                  {/* <img
                     className="absolute z-10 hidden w-40 transform lg:block -top-20 -right-20 xl:w-48 xl:-top-20 xl:-right-20"
                     src="svg/dots.svg"
                     alt=""
-                  />
+                  /> */}
 
                   <figure className="aspect-w-12 aspect-h-10 md:order-1">
                     <img
@@ -151,7 +151,7 @@ const Founders = () => {
             </div>
           </div>
 
-          <div className="grid max-w-xl mx-auto mt-20 lg:max-w-none sm:mt-24 lg:mt-44 lg:grid-cols-12 gap-14 sm:gap-16 lg:gap-8">
+          <div className="grid max-w-xl mx-auto mt-16 lg:max-w-none sm:mt-16 lg:mt-32 lg:grid-cols-12 gap-14 sm:gap-16 lg:gap-8">
             <div className="relative z-10 flex flex-col justify-center order-2 lg:order-1 lg:col-span-6 lg:text-left">
               <div>
                 <h1 className="mt-3.5 font-bold text-purple-900 text-2xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold">
@@ -195,11 +195,11 @@ const Founders = () => {
 
               <div className="relative w-full mx-auto shadow-lg rounded-3xl lg:max-w-lg lg:mr-0 lg:ml-auto">
                 <div className="relative block w-full">
-                  <img
+                  {/* <img
                     className="absolute z-10 hidden w-40 transform lg:block -top-20 -left-20 xl:w-48 xl:-top-20 xl:-left-20"
                     src="svg/dots.svg"
                     alt=""
-                  />
+                  /> */}
 
                   <figure className="aspect-w-12 aspect-h-10 md:order-1">
                     <img

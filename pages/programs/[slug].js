@@ -53,7 +53,7 @@ export async function getStaticPaths() {
   const divisions = await getAllSchoolDivisions();
 
   return {
-    paths: divisions?.map(({ slug }) => `/classes/${slug}`) ?? [],
+    paths: divisions?.map(({ slug }) => `/programs/${slug}`) ?? [],
     fallback: true,
   };
 }

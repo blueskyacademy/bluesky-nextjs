@@ -8,14 +8,8 @@ export default function Recruitment({ allJobs }) {
   useHashFragment();
   return (
     <Layout>
-      <img
-        className='object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-fit'
-        src='/images/recruitment.png'
-        alt=''
-      />
-
-      <Postions id='jobs' jobs={allJobs} />
-      <Benefits id='benefits' />
+      <Postions id="jobs" jobs={allJobs} />
+      {/* <Benefits id="benefits" /> */}
     </Layout>
   );
 }

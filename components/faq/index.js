@@ -3,7 +3,7 @@ import { useState } from "react";
 const Question = ({ question, answer }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
-    <li className="w-full px-5 py-6 bg-white sm:px-12 sm:py-8 rounded-3xl">
+    <li className="w-full px-5 py-6 bg-white sm:px-8 sm:py-4 rounded-2xl">
       <button
         className="flex items-center justify-between w-full text-lg sm:text-xl group"
         onClick={() => setShowAnswer(!showAnswer)}
@@ -38,9 +38,9 @@ const Question = ({ question, answer }) => {
     </li>
   );
 };
-const Faq = ({ faq }) => {
+const Faq = ({ id, faq }) => {
   return (
-    <section className="py-20 bg-yellow-100 sm:py-28">
+    <section className="py-20 bg-yellow-100 sm:py-28" id={id}>
       <div className="px-4 mx-auto lg:max-w-screen-lg sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 className="text-purple-900 text-5xl font-bold">

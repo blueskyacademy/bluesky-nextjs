@@ -1,6 +1,7 @@
 import { NavLink } from "./nav-link";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import DropdownLink from "./dropdown-link";
 
 const MENU = [
   { title: "Home", slug: "home", path: "/" },
@@ -70,6 +71,7 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
+      <DropdownLink />
     </div>
   );
 };

@@ -33,11 +33,11 @@ const Intro = ({ heading, description, id }) => {
 
             <div className="flex flex-col justify-center mt-16 sm:mt-44 lg:mt-0 lg:col-span-6">
               <div>
-                <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
+                {/* <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
                   Grow with an international and integrative mindset
-                </span>
+                </span> */}
               </div>
-              <h3 className="mt-4 text-purple-900 sm:mt-5 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold">{`Our vision`}</h3>
+              <h3 className="text-purple-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold">{`Our vision`}</h3>
               <p className="max-w-2xl mt-3 text-lg leading-loose text-purple-800">
                 Blue Sky Academy was established to build a world-class
                 education system that is both innovative and standardized across
@@ -47,7 +47,18 @@ const Intro = ({ heading, description, id }) => {
                 long-lasting values of Vietnam can further enhance our students’
                 education.
               </p>
-              <div className="mt-6">
+              <br />
+              <p className="max-w-2xl mt-3 text-lg leading-loose text-purple-800">
+                Blue Sky Academy was established to build a world-class
+                education system that is both innovative and standardized across
+                all levels of education, from kindergarten to high school. is
+                vision was based on the modern educational philosophy that a
+                foundation of scientific research, humane value and the
+                long-lasting values of Vietnam can further enhance our students’
+                education.
+              </p>
+              <br />
+              {/* <div className="mt-6">
                 <a
                   href=""
                   className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group"
@@ -71,7 +82,7 @@ const Intro = ({ heading, description, id }) => {
                     <line x1="15" y1="8" x2="19" y2="12"></line>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -153,7 +164,30 @@ const Intro = ({ heading, description, id }) => {
                 for diversity, cooperation between one student and another, and
                 cooperation between students and teachers.
               </p>
-              <div className="mt-6">
+              <br />
+              <p className="max-w-2xl mt-3 text-lg leading-loose text-purple-800">
+                In order to harmoniously grow, students must be challenged in
+                realistic situations to enhance their awareness and
+                problem-solving skills, forming a strong basis for lifetime
+                learning. Teachers are the designers, consultants, and
+                supporters of students’ learning experiences. Their support
+                encourages imagination, creativity and reasoning skills which
+                allows students to make their own decisions with a positive
+                attitude and sense of responsibility. Teachers are strong
+                examples for our students, encouraging learning, researching and
+                living outside of the classroom.
+              </p>
+              <br />
+              <p className="max-w-2xl mt-3 text-lg leading-loose text-purple-800">
+                Blue Sky Academy students learn a curriculum that combines the
+                Ministry of Education and Cambridge International Examinations
+                (CIE) standards, including Cambridge Primary (5-11 years old)
+                and Cambridge Secondary 1 (11-14 years old), starting out with
+                English, Math, Science and heading towards more subjects under
+                the Cambridge IGCSE (14-16 years old) program.
+              </p>
+              <br />
+              {/* <div className="mt-6">
                 <a
                   href=""
                   className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group"
@@ -177,7 +211,7 @@ const Intro = ({ heading, description, id }) => {
                     <line x1="15" y1="8" x2="19" y2="12"></line>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

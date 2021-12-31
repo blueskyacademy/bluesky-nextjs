@@ -58,10 +58,10 @@ const TestimonialCard = ({ content, img, title, description }) => {
 
 const Feedback = ({ id, testimonials }) => {
   return (
-    <section id={id} className="py-20 bg-purple-600 sm:py-28 lg:py-32 md:mt-12">
+    <section id={id} className="py-20 bg-purple-600 sm:py-20 lg:py-20 md:mt-12">
       <div className="px-4 mx-auto lg:max-w-screen-2xl sm:px-6">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="max-w-2xl text-center text-white text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
+          <h2 className="max-w-4xl text-center text-white text-5xl sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
             See what parents are saying about us
           </h2>
           <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-50">

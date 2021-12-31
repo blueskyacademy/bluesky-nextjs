@@ -4,88 +4,56 @@ import Link from "next/link";
 const NAVIGATIONS = {
   home: [
     {
-      title: "PROGRAM EDUCATION",
+      title: "Program Education",
       href: "#program",
     },
     {
-      title: "VIDEO",
-      href: "#video",
-    },
-    {
-      title: "GALLERY",
+      title: "Gallery",
       href: "#gallery",
     },
     {
-      title: "NEWS",
-      href: "#news",
+      title: "Parents",
+      href: "#parents",
+    },
+    {
+      title: "FAQ",
+      href: "#faq",
     },
   ],
   about: [
     {
-      title: "INTRODUCTION",
+      title: "Vision",
       href: "#introduction",
     },
     {
-      title: "ACCREDITION",
+      title: "Mission",
       href: "#accredition",
     },
     {
-      title: "VISION",
+      title: "Core Values",
       href: "#vision",
     },
     {
-      title: "MISSION",
+      title: "Message from Principal",
       href: "#mision",
     },
     {
-      title: "CORE VALUES",
+      title: "Co-founders",
       href: "#core",
     },
-    {
-      title: "CO-FOUNDERS",
-      href: "#cofounder",
-    },
   ],
-  admission: [
+  programs: [
     {
-      title: "WHY BSA",
-      href: "#why",
+      title: "Kindergarten",
+      href: "/programs/kindergarten",
     },
     {
-      title: "APPLY TO BSA",
-      href: "#apply",
+      title: "Primary",
+      href: "/programs/primary",
     },
     {
-      title: "ADMISSION INQUERY",
-      href: "#gioithieu",
-    },
-    {
-      title: "OUR FEES",
-      href: "#gioithieu",
-    },
-  ],
-  parents: [
-    {
-      title: "PARENT STORY",
-      href: "#story",
-    },
-    {
-      title: "INSTRUCTION LEARNING ONLINE",
-      href: "#learning",
-    },
-  ],
-  recruitment: [
-    {
-      title: "JOBS AT BSA",
-      href: "#jobs",
-    },
-    {
-      title: "BENEFITS",
-      href: "#benefits",
-    },
-    {
-      title: "TEACHER DEVELOPMENT",
-      href: "#gioithieu",
+      title: "Secondary",
+      href: "/programs/secondary",
     },
   ],
 };
@@ -96,10 +64,11 @@ export function SubNav({ slug = "home" }) {
   return (
     <nav
       ref={stickyRef}
-      className={`bg-bluesky-900 relative ${isSticky && "sticky"}`}
+      className={`relative ${
+        isSticky ? "sticky bg-white border-b" : "bg-yellow-200"
+      }`}
       style={{
-        boxShadow: "0px 2px 5px 0px rgb(0 0 0 / 75%)",
-        zIndex: 999,
+        zIndex: 40,
         minHeight: 50,
       }}
     >
@@ -110,7 +79,7 @@ export function SubNav({ slug = "home" }) {
               <a
                 aria-label="Our product"
                 title="Our product"
-                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 cursor-pointer"
+                className="font-medium tracking-wide text-purple-800 transition-colors duration-200 cursor-pointer text-lg"
               >
                 {item.title}
               </a>
