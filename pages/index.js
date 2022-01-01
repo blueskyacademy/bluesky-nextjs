@@ -15,22 +15,19 @@ export default function Home({ allPosts, testimonials, faq }) {
   return (
     <Layout>
       <HomeHero />
-      <AnimationRevealPage>
-        <Programs id="program" />
-        <div id="gallery" className="md:-mt-72">
-          <GalleryHero
-            hasButton={true}
-            url="/gallery"
-            title="Our gallery"
-            description={`Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.`}
-          />
-        </div>
-
-        <Events posts={allPosts} id="news" />
-        <Feedback id="parents" testimonials={testimonials} />
-        <Faq faq={faq} id="faq" />
-        <CTA />
-      </AnimationRevealPage>
+      <Programs id="program" />
+      <GalleryHero
+        id="gallery"
+        className="md:-mt-72"
+        hasButton={true}
+        url="/gallery"
+        title="Our gallery"
+        description={`Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.`}
+      />
+      <Events posts={allPosts} id="news" />
+      <Feedback id="parents" testimonials={testimonials} />
+      <Faq faq={faq} id="faq" />
+      <CTA />
     </Layout>
   );
 }

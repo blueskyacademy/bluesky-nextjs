@@ -32,11 +32,6 @@ const Intro = ({ heading, description, id }) => {
             </div>
 
             <div className="flex flex-col justify-center mt-16 sm:mt-44 lg:mt-0 lg:col-span-6">
-              <div>
-                {/* <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
-                  Grow with an international and integrative mindset
-                </span> */}
-              </div>
               <h3 className="text-purple-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold">{`Our vision`}</h3>
               <p className="max-w-2xl mt-3 text-lg leading-loose text-purple-800">
                 Blue Sky Academy was established to build a world-class
