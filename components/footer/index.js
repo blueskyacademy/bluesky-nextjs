@@ -1,128 +1,346 @@
+import { getYear } from "date-fns";
+import Link from "next/link";
 export default function Footer() {
+  const year = getYear(new Date());
+  const WEBSITE_LINKS = [
+    { title: "Teachers", slug: "teachers", path: "/teachers" },
+    { title: "Gallery", slug: "gallery", path: "/gallery" },
+    { title: "Programs", slug: "programs", path: "/programs" },
+    { title: "News", slug: "posts", path: "/posts" },
+    { title: "Parents", slug: "parents", path: "/parents" },
+  ];
+  const PROGRAM_LINKS = [
+    {
+      title: "Kindergarten",
+      href: "/programs/kindergarten",
+    },
+    {
+      title: "Primary",
+      href: "/programs/primary",
+    },
+    {
+      title: "Secondary",
+      href: "/programs/secondary",
+    },
+  ];
   return (
-    <div className="bg-yellow-100">
-      <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
-        <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="sm:col-span-2">
-            <a
-              aria-label="Go home"
-              title="Company"
-              className="inline-flex items-center"
-            >
-              <svg
-                className="w-8 text-deep-purple-accent-400"
-                viewBox="0 0 24 24"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeMiterlimit="10"
-                stroke="currentColor"
-                fill="none"
-              >
-                <rect x="3" y="1" width="7" height="12" />
-                <rect x="3" y="17" width="7" height="6" />
-                <rect x="14" y="1" width="7" height="6" />
-                <rect x="14" y="11" width="7" height="12" />
-              </svg>
-              <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                BLUE SKY ACADEMY
-              </span>
-            </a>
-            <div className="mt-6 lg:max-w-sm">
-              <img src="https://www.bsa.edu.vn/assets/cie-logo-71105d129834e28b51a1768bd1c05b41f42335aba859d9a10a1193e566d27657.png" />
+    <footer className="px-4 pt-16 space-y-8 bg-yellow-50 divide-y sm:pt-20 sm:px-6 lg:px-8 divide-purple-400/20">
+      <div className="grid max-w-md mx-auto gap-y-8 sm:gapy-12 sm:gap-x-8 md:gap-x-12 sm:max-w-none lg:max-w-screen-2xl sm:grid-cols-2 lg:grid-cols-11 lg:gap-8 xl:gap-12">
+        <div className="flex flex-col lg:mx-auto lg:col-span-4">
+          <div className="flex items-center">
+            <div className="flex-grow-0 flex-shrink-0 w-60">
+              <Link href="/">
+                <a>
+                  <img
+                    src="/images/Horizontal-logo.png"
+                    alt="BSA"
+                    className="h-20"
+                  />
+                </a>
+              </Link>
             </div>
           </div>
-          <div className="space-y-2 text-sm">
-            <p className="text-base font-bold tracking-wide text-gray-900">
-              Contacts
-            </p>
-            <div className="flex">
-              <p className="mr-1 text-gray-800">Phone:</p>
-              <a
-                href="tel:850-123-5021"
-                aria-label="Our phone"
-                title="Our phone"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              >
-                +84 238 357 9779
-              </a>
-            </div>
-            <div className="flex">
-              <p className="mr-1 text-gray-800">Fax: </p>
-              <a
-                href="mailto:info@lorem.mail"
-                aria-label="Our email"
-                title="Our email"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              >
-                +84 238 357 9889
-              </a>
-            </div>
-            <div className="flex">
-              <p className="text-gray-800"></p>
-              <a
-                href="https://www.google.com/maps"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Our address"
-                title="Our address"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              >
-                Le Loi, Vinh City, Nghe An, Vietnam
-              </a>
-            </div>
+
+          <div className="mt-6">
+            <img src="/images/cie-logo.png" className="h-24" />
           </div>
-          <div>
-            <span className="text-base font-bold tracking-wide text-gray-900">
-              Social
-            </span>
-            <div className="flex items-center mt-1 space-x-3">
-              <a className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-                  <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z" />
+
+          <div className="w-full mt-5 lg:mt-6">
+            <div className="flex justify-start space-x-4">
+              <a
+                className="flex items-center justify-center w-10 h-10 text-white duration-300 ease-in-out bg-purple-500 rounded-full hover:bg-purple-600"
+                href="#"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
                 </svg>
               </a>
-              <a className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
-                  <circle cx="15" cy="15" r="4" />
-                  <path d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z" />
-                </svg>
-              </a>
-              <a className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-                  <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z" />
+
+              <a
+                className="flex items-center justify-center w-10 h-10 text-white transition duration-300 ease-in-out bg-purple-500 rounded-full hover:bg-purple-600"
+                href="#"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
                 </svg>
               </a>
             </div>
-            <p className="mt-4 text-sm text-gray-500">
-              Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
-              spare ribs salami.
-            </p>
           </div>
         </div>
-        <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-          <p className="text-sm text-gray-600">
-            © Copyright 2021. All rights reserved.
-          </p>
-          <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
-            <li>
-              <a className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                F.A.Q
-              </a>
+        <div className="flex-shrink sm:order-4 lg:order-none lg:col-span-2">
+          <h6 className="relative text-xl font-bold tracking-wide text-purple-900">
+            <span className="relative z-20">Website Link</span>
+            <span
+              className="
+            absolute
+            left-0
+            z-10
+            w-12
+            h-1
+            rounded-lg
+            bg-gradient-to-r
+            from-yellow-400
+            to-yellow-500
+            -bottom-1
+          "
+            ></span>
+          </h6>
+
+          <ul className="mt-6 text-lg divide-y divide-purple-400/20">
+            {WEBSITE_LINKS.map((item) => (
+              <li
+                key={`footer-${item.title}`}
+                className="
+            pb-2
+            font-medium
+            text-purple-700
+            duration-300
+            ease-in-out
+            hover:text-purple-600
+          "
+              >
+                <Link href={item.path}>
+                  <a>{item.title}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex-shrink sm:order-3 lg:order-none lg:col-span-2">
+          <h6 className="relative text-xl font-bold tracking-wide text-purple-900">
+            <span className="relative z-20">Programs</span>
+            <span
+              className="
+            absolute
+            left-0
+            z-10
+            w-12
+            h-1
+            rounded-lg
+            bg-gradient-to-r
+            from-yellow-400
+            to-yellow-500
+            -bottom-1
+          "
+            ></span>
+          </h6>
+
+          <ul className="mt-6 text-lg divide-y divide-purple-400/20">
+            {PROGRAM_LINKS.map((item) => (
+              <li
+                key={item.title}
+                className="
+            pt-2
+            font-medium
+            text-purple-700
+            duration-300
+            ease-in-out
+            hover:text-purple-600
+          "
+              >
+                <Link href={item.href}>
+                  <a> {item.title} </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="sm:order-2 lg:order-none lg:col-span-3 lg:mx-auto">
+          <h6 className="relative text-xl font-bold tracking-wide text-purple-900">
+            <span className="relative z-20">Contact us</span>
+            <span
+              className="
+            absolute
+            left-0
+            z-10
+            w-12
+            h-1
+            rounded-lg
+            bg-gradient-to-r
+            from-yellow-400
+            to-yellow-500
+            -bottom-1
+          "
+            ></span>
+          </h6>
+
+          <ul className="flex flex-col mt-6 space-y-5">
+            <li className="flex flex-shrink max-w-xs">
+              <div>
+                <span
+                  className="
+                flex
+                items-center
+                justify-center
+                bg-yellow-400
+                rounded-2xl
+                w-11
+                h-11
+              "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-purple-700"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <circle cx="12" cy="11" r="3" />
+                    <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                  </svg>
+                </span>
+              </div>
+              <div className="flex-1 mt-0 ml-3 xl:ml-4">
+                <h5 className="flex items-center text-base font-semibold text-purple-900">
+                  Address
+                </h5>
+                <p
+                  className="
+                mt-0.5
+                text-sm text-purple-800
+                leading-relaxed
+                text-opacity-90
+              "
+                >
+                  Le Loi, Vinh City, Nghe An, Vietnam
+                </p>
+              </div>
             </li>
-            <li>
-              <a className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                Privacy Policy
-              </a>
+
+            <li className="flex flex-shrink-0">
+              <div>
+                <span
+                  className="
+                flex
+                items-center
+                justify-center
+                bg-purple-200
+                rounded-2xl
+                w-11
+                h-11
+              "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-purple-700"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <polyline points="3 7 12 13 21 7" />
+                  </svg>
+                </span>
+              </div>
+              <div className="flex-1 ml-3 xl:ml-4">
+                <h5 className="flex items-center text-base font-semibold text-purple-900">
+                  Email
+                </h5>
+                <p
+                  className="
+                mt-0.5
+                text-sm text-purple-800
+                leading-relaxed
+                text-opacity-90
+              "
+                >
+                  bluesky@edu.vn
+                </p>
+              </div>
             </li>
-            <li>
-              <a className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                Terms &amp; Conditions
-              </a>
+
+            <li className="flex flex-shrink-0">
+              <div>
+                <span
+                  className="
+                flex
+                items-center
+                justify-center
+                rounded-2xl
+                w-11
+                h-11
+                bg-rose-200
+              "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-purple-700"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                  </svg>
+                </span>
+              </div>
+              <div className="flex-1 ml-3 xl:ml-4">
+                <h5 className="flex items-center text-base font-semibold text-purple-900">
+                  Phone
+                </h5>
+                <p
+                  className="
+                mt-0.5
+                text-sm text-purple-800
+                leading-relaxed
+                text-opacity-90
+              "
+                >
+                  +84 238 357 9779
+                  <br />
+                  +84 238 357 9559
+                </p>
+              </div>
             </li>
           </ul>
         </div>
       </div>
-    </div>
+      <div className="flex flex-col justify-center max-w-md py-8 mx-auto sm:flex-row sm:max-w-none lg:max-w-screen-2xl">
+        <span className="text-base text-purple-800/90">
+          © {year} Blue Sky Academy
+        </span>
+      </div>
+    </footer>
   );
 }

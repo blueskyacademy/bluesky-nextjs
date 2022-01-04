@@ -7,8 +7,8 @@ const useSticky = () => {
   useEffect(() => {
     const onScroll = () => {
       if (!stickyRef.current) return;
-      const stickyPosY = stickyRef.current.getBoundingClientRect().bottom;
-      if (window.scrollY > stickyPosY) {
+      const stickyPosY = stickyRef.current.getBoundingClientRect().top;
+      if (window.scrollY > stickyPosY + 200) {
         setIsSticky(true);
       } else {
         setIsSticky(false);

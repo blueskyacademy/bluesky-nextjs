@@ -1,12 +1,9 @@
-const Values = ({ heading, subHeading, id }) => {
-  const VALUES = [
-    "Learning to know",
-    "Learning to do",
-    "Learning to live together",
-    "Learning to be",
-  ];
+const Values = ({ id }) => {
   return (
-    <section className="relative w-full px-4 py-16 sm:py-24 lg:py-32 sm:px-6 lg:px-8">
+    <section
+      id={id}
+      className="relative w-full px-4 py-16 sm:py-24 lg:py-32 sm:px-6 lg:px-8"
+    >
       <div className="max-w-xl mx-auto lg:max-w-screen-xl">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 xl:gap-32">
           <div className="flex items-center">
