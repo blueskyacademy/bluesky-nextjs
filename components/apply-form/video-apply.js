@@ -26,6 +26,7 @@ const VideoApply = () => {
   const [file, setFile] = useState();
   const [email, setEmail] = useState("");
   const [statusForm, setStatusForm] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
@@ -100,6 +101,7 @@ const VideoApply = () => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("email", email);
+    setIsLoading(true);
     try {
       const response = await fetch("/api/video", {
         method: "POST",
@@ -111,6 +113,7 @@ const VideoApply = () => {
     } catch (error) {
       console.log("error", error);
     }
+    setIsLoading(false);
   };
   return (
     <div className="border p-10 rounded-xl shadow-2xl">
@@ -162,7 +165,17 @@ const VideoApply = () => {
             onClick={handleSubmit}
             className="text-lg ml-2 font-semibold text-purple-900 bg-yellow-500 leading-normal inline-flex items-center justify-center px-8 py-2 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600"
           >
-            Submit
+            {isLoading ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 text-purple-900"
+                  viewBox="0 0 24 24"
+                ></svg>
+                <span>Processing...</span>
+              </>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       )}
