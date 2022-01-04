@@ -1,6 +1,6 @@
-const Founders = () => {
+const Founders = ({ id }) => {
   return (
-    <div>
+    <div id={id}>
       <div className="w-full h-32 sm:h-40 lg:h-44 "></div>
       <section className="px-4 overflow-hidden bg-white pb-28 sm:pb-36 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">

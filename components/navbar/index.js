@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import DropdownLink from "./dropdown-link";
 import { useState } from "react";
+import { SubNav } from "./sub-nav";
 
 const MENU = [
   {
@@ -32,30 +33,44 @@ const MENU = [
     path: "/about",
     subMenu: [
       {
-        title: "Vision",
-        href: "/about#introduction",
-      },
-      {
-        title: "Mission",
-        href: "/about#accredition",
-      },
-      {
-        title: "Core Values",
+        title: "Vision & Mission",
         href: "/about#vision",
       },
       {
+        title: "Core Values",
+        href: "/about#core",
+      },
+      {
         title: "Message from Principal",
-        href: "/about#mision",
+        href: "/about#message",
       },
       {
         title: "Co-founders",
-        href: "/about#core",
+        href: "/about#founder",
       },
     ],
   },
   { title: "Teachers", slug: "teachers", path: "/teachers" },
   { title: "Gallery", slug: "gallery", path: "/gallery" },
-  { title: "Programs", slug: "programs", path: "/programs" },
+  {
+    title: "Programs",
+    slug: "programs",
+    path: "/programs",
+    subMenu: [
+      {
+        title: "Kindergarten",
+        href: "/programs/kindergarten",
+      },
+      {
+        title: "Primary",
+        href: "/programs/primary",
+      },
+      {
+        title: "Secondary",
+        href: "/programs/secondary",
+      },
+    ],
+  },
   { title: "News", slug: "posts", path: "/posts" },
   { title: "Parents", slug: "parents", path: "/parents" },
   { title: "Schedules", slug: "schedules", path: "/schedules" },
@@ -70,28 +85,58 @@ const Navbar = () => {
   const handleClick = () => {
     setActive(!active);
   };
+  const [currentSlug, setCurrentSlug] = useState(pathname.slice(1) || "home");
 
   return (
     <div className="bg-transparent sticky-bar">
       <div className="max-w-screen-xl mx-auto">
         <nav className="bg-transparent flex justify-between items-center">
           <a>
-            <img className="h-28" src="/images/logo.png" alt="" />
+            <img
+              className="h-28"
+              src="/images/logo-blue-text-small.png"
+              alt=""
+            />
           </a>
-          <div
-            className={`items-center justify-between hidden lg:flex md:space-x-2 lg:space-x-4`}
-          >
-            {MENU.map((item, idx) => (
-              <div key={`menu-${item.path}-${idx}`}>
-                <DropdownLink
-                  title={item.title}
-                  path={item.path}
-                  exact
-                  subMenu={item?.subMenu}
-                />
-              </div>
-            ))}
+          <div>
+            <div className="flex flex-row-reverse mb-4">
+              <img
+                className="px-2"
+                style={{ height: 24, cursor: "pointer" }}
+                alt="VietNam"
+                src="/images/vi_flag.png"
+                onClick={() =>
+                  router.push({ pathname, query }, asPath, { locale: "vi-VN" })
+                }
+              />
+              <img
+                src="/images/en_flag.jpg"
+                style={{ height: 24, width: 36, cursor: "pointer" }}
+                onClick={() =>
+                  router.push({ pathname, query }, asPath, { locale: "en-US" })
+                }
+              />
+            </div>
+
+            <div
+              className={`items-center justify-between hidden lg:flex md:space-x-2 lg:space-x-4`}
+            >
+              {MENU.map((item, idx) => (
+                <div
+                  key={`menu-${item.path}-${idx}`}
+                  onClick={() => setCurrentSlug(item.slug)}
+                >
+                  <DropdownLink
+                    title={item.title}
+                    path={item.path}
+                    exact
+                    subMenu={item?.subMenu}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
+
           <div className="lg:hidden">
             <button className="navbar-burger flex items-center py-2 px-3 text-blue-500 hover:text-blue-700 rounded border border-blue-200 hover:border-blue-300">
               <svg
@@ -106,6 +151,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
+      <SubNav slug={currentSlug} />
     </div>
   );
 };

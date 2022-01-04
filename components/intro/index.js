@@ -1,6 +1,6 @@
-const Intro = ({ heading, description, id }) => {
+const Intro = ({ id }) => {
   return (
-    <div>
+    <div id={id}>
       <div className="w-full h-32 sm:h-40 xl:h-48 bg-gradient-to-b from-purple-25 to-yellow-100"></div>
       <section className="px-4 pb-16 overflow-hidden bg-yellow-100  sm:pb-24 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">

@@ -22,38 +22,20 @@ const NAVIGATIONS = {
   ],
   about: [
     {
-      title: "Vision",
-      href: "#introduction",
-    },
-    {
-      title: "Mission",
-      href: "#accredition",
+      title: "Vision & Mission",
+      href: "/about#vision",
     },
     {
       title: "Core Values",
-      href: "#vision",
+      href: "/about#core",
     },
     {
       title: "Message from Principal",
-      href: "#mision",
+      href: "/about#message",
     },
     {
       title: "Co-founders",
-      href: "#core",
-    },
-  ],
-  programs: [
-    {
-      title: "Kindergarten",
-      href: "/programs/kindergarten",
-    },
-    {
-      title: "Primary",
-      href: "/programs/primary",
-    },
-    {
-      title: "Secondary",
-      href: "/programs/secondary",
+      href: "/about#founder",
     },
   ],
 };
@@ -64,8 +46,8 @@ export function SubNav({ slug = "home" }) {
   return (
     <nav
       ref={stickyRef}
-      className={`relative ${
-        isSticky ? "sticky bg-white border-b" : "bg-yellow-200"
+      className={`relative shadow-xl ${
+        isSticky ? "sticky bg-yellow-50 border-b" : "hidden"
       }`}
       style={{
         zIndex: 40,

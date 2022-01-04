@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import ApplicationForm from "../../components/application-form";
+//import ApplicationForm from "../../components/application-form";
 import Job from "../../components/job";
 import Layout from "../../components/layout";
 import { getAllJobs, getJob } from "../../lib/api";
@@ -54,24 +54,13 @@ export default function JobPage({ job }) {
       ) : (
         <div className="">
           <div className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10 ">
-            <div className="flex flex-col justify-between lg:flex-row w-full">
-              <Job
-                title={job.title}
-                start={job.start}
-                expire={job.expire}
-                requirement={job.requirement}
-                benefit={job.benefit}
-              />
-              <ApplicationForm
-                handleSubmit={handleSubmit}
-                handleChangeForm={handleChangeForm}
-                handleChangeFile={handleChangeFile}
-                selectedFile={selectedFile}
-                status={statusForm}
-                isLoading={isLoading}
-              />
-              <div className="w-1"></div>
-            </div>
+            <Job
+              title={job.title}
+              start={job.start}
+              expire={job.expire}
+              requirement={job.requirement}
+              benefit={job.benefit}
+            />
           </div>
         </div>
       )}
