@@ -33,6 +33,13 @@ const STATS = [
     label: "Student pass exam",
   },
 ];
+const TEACHER_IMAGES = [
+  "/images/teacher-01.jpeg",
+  "/images/teacher-03.jpeg",
+  "/images/teacher-02.jpeg",
+  "/images/kindergarten.png",
+  "/images/secondary.png",
+];
 export default function About({ teachers }) {
   return (
     <Layout>
@@ -42,6 +49,7 @@ export default function About({ teachers }) {
           description={
             "At Blue Sky Academy, we pride ourselves on the quality of our teachers. We commit to creating a positive classroom experience for all students, no matter their learning needs."
           }
+          images={TEACHER_IMAGES}
         />
         <Stats stats={STATS} />
         <SchoolTeam teachers={teachers} />

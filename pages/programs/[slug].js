@@ -8,6 +8,7 @@ import AnimationRevealPage from "../../helpers/AnimationRevealPage";
 import CTA from "../../components/cta";
 import DivisionTeam from "../../components/division-team";
 import NotFoundPage from "../404";
+import CarouselImages from "../../components/carousel-images";
 
 const Class = ({ division }) => {
   const router = useRouter();
@@ -30,6 +31,7 @@ const Class = ({ division }) => {
             <Reason reasons={division?.reasonsCollection?.items} />
             <Stats stats={division?.statsCollection?.items} />
             <DivisionTeam teachers={division?.teachersCollection?.items} />
+            <CarouselImages classes={division?.classesCollection?.items} />
             <CTA />
           </AnimationRevealPage>
         </>
@@ -46,6 +48,7 @@ export async function getStaticProps({ params }) {
     props: {
       division: data ?? null,
     },
+    revalidate: 1,
   };
 }
 

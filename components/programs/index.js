@@ -26,10 +26,10 @@ const Programs = ({ id }) => {
                 style={{ width: `calc(50 % + 4rem)` }}
               />
 
-              <div className="relative z-10 w-full px-8 py-10 sm:p-12 md:px-8 md:py-10 lg:p-12 bg-purple-25 rounded-3xl">
+              <div className="relative z-10 w-full px-8 py-10 sm:p-12 md:px-8 md:py-10 lg:p-12 bg-blue-50 rounded-3xl">
                 <div className="flex flex-col justify-between">
                   <div className="flex-1">
-                    <h3 className="text-purple-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
+                    <h3 className="text-blue-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
                       Primary School
                     </h3>
                     <p className="max-w-2xl mt-3 text-lg leading-loose text-purple-800">
@@ -47,7 +47,7 @@ const Programs = ({ id }) => {
                   </div>
                   <div className="mt-8">
                     <Link href="/classes/primary">
-                      <a className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
+                      <a className="font-medium text-white bg-blue-900 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-blue-500 group">
                         Learn more
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -83,10 +83,10 @@ const Programs = ({ id }) => {
               />
             </div>
 
-            <div className="relative w-full px-8 py-10 mt-12 bg-yellow-200 sm:p-12 md:mt-0 md:px-8 md:py-10 lg:p-12 md:-translate-y-80 rounded-3xl">
+            <div className="relative w-full px-8 py-10 mt-12 bg-red-50 sm:p-12 md:mt-0 md:px-8 md:py-10 lg:p-12 md:-translate-y-80 rounded-3xl">
               <div className="flex flex-col justify-between">
                 <div className="flex-1">
-                  <h3 className="text-purple-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
+                  <h3 className="text-red-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
                     Kindergarten
                   </h3>
                   <p className="max-w-2xl mt-3 text-lg leading-loose text-purple-800">
@@ -103,7 +103,7 @@ const Programs = ({ id }) => {
                 </div>
                 <div className="mt-8">
                   <Link href="/classes/kindergarten">
-                    <a className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
+                    <a className="font-medium text-white bg-red-800 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-red-500 group">
                       Learn more
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -132,10 +132,10 @@ const Programs = ({ id }) => {
               </div>
             </div>
 
-            <div className="relative w-full px-8 py-10 mt-12 sm:p-12 md:mt-0 md:col-start-2 md:px-8 md:py-10 lg:p-12 md:-translate-y-80 bg-blue-50 rounded-3xl">
+            <div className="relative w-full px-8 py-10 mt-12 sm:p-12 md:mt-0 md:col-start-2 md:px-8 md:py-10 lg:p-12 md:-translate-y-80 bg-green-50 rounded-3xl">
               <div className="flex flex-col justify-between">
                 <div className="flex-1">
-                  <h3 className="text-purple-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
+                  <h3 className="text-green-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
                     Secondary School
                   </h3>
                   <p className="max-w-2xl mt-3 text-lg leading-loose text-purple-800">
@@ -154,7 +154,7 @@ const Programs = ({ id }) => {
                 </div>
                 <div className="mt-8">
                   <Link href="/classes/secondary">
-                    <a className="font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
+                    <a className="font-medium text-white bg-green-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-green-500 group">
                       Learn more
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
