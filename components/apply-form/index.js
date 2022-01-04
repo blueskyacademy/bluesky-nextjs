@@ -6,7 +6,7 @@ const ApplyForm = ({ video }) => {
   const router = useRouter();
   return (
     <div>
-      <ul className="flex flex-wrap items-center justify-center -my-2 space-x-2 text-sm font-medium sm:space-x-4 lg:space-x-6">
+      <ul className="flex flex-wrap items-center justify-center space-x-2 text-sm font-medium sm:space-x-4 lg:space-x-6 mt-10">
         <li className="my-2">
           <button
             className={`inline-flex items-center justify-center px-4 py-1.5 sm:text-lg duration-300 ease-in-out ${
@@ -29,7 +29,7 @@ const ApplyForm = ({ video }) => {
         </li>
       </ul>
       {!video && <AirTable />}
-      {video && <VideoRecord />}
+      {video ? <VideoRecord /> : null}
     </div>
   );
 };

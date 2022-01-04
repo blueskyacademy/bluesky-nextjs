@@ -7,6 +7,7 @@ const GalleryHero = ({
   description,
   hasButton = false,
   url,
+  images,
 }) => {
   return (
     <div id={id} className={className}>
@@ -22,35 +23,16 @@ const GalleryHero = ({
           </div>
 
           <div className="grid grid-flow-row-dense grid-cols-2 gap-2 sm:grid-cols-3 mt- sm:mt-12 lg:mt-12 sm:gap-3 md:gap-4 lg:gap-6">
-            <img
-              className="object-cover w-full rounded-2xl lg:h-80 h-30vw"
-              alt="School grid 01"
-              src="images/primary.png"
-            />
-
-            <img
-              className="object-cover w-full col-span-2 rounded-2xl lg:h-80 h-30vw"
-              src="images/kindergarten.png"
-              alt="School grid 02"
-            />
-
-            <img
-              className="object-cover w-full rounded-2xl lg:h-80 h-30vw"
-              src="images/secondary.png"
-              alt="School grid 03"
-            />
-
-            <img
-              className="object-cover w-full rounded-2xl lg:h-80 h-30vw"
-              src="images/gallery-hero-01.png"
-              alt="School grid 04"
-            />
-
-            <img
-              className="object-cover w-full rounded-2xl lg:h-80 h-30vw"
-              src="images/gallery-hero-02.png"
-              alt="School grid 05"
-            />
+            {images?.map((item, idx) => (
+              <img
+                key={`image-hero-${item}-${idx}`}
+                className={`object-cover w-full rounded-2xl lg:h-80 h-30vw ${
+                  idx == 1 && "col-span-2"
+                }`}
+                alt="School grid 01"
+                src={item}
+              />
+            ))}
           </div>
 
           {hasButton && (

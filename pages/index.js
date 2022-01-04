@@ -12,6 +12,13 @@ import Feedback from "../components/feedback";
 
 export default function Home({ allPosts, testimonials, faq }) {
   useHashFragment();
+  const GALLERY_IMAGES = [
+    "/images/primary.png",
+    "/images/kindergarten.png",
+    "/images/secondary.png",
+    "/images/gallery-hero-01.png",
+    "/images/gallery-hero-02.png",
+  ];
   return (
     <Layout>
       <HomeHero />
@@ -23,6 +30,7 @@ export default function Home({ allPosts, testimonials, faq }) {
         url="/gallery"
         title="Our gallery"
         description={`Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.`}
+        images={GALLERY_IMAGES}
       />
       <Events posts={allPosts} id="news" />
       <Feedback id="parents" testimonials={testimonials} />
