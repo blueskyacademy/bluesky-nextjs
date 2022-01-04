@@ -7,7 +7,7 @@ const Facebook = () => {
       <Script strategy="lazyOnload">
         {`
             var chatbox = document.getElementById('fb-customer-chat');
-            chatbox.setAttribute("page_id", "BlueSkyAcademy");
+            chatbox.setAttribute("page_id","430784860266681");
             chatbox.setAttribute("attribution", "biz_inbox");
       
             window.fbAsyncInit = function() {
