@@ -14,12 +14,21 @@ const ExamForm = () => {
   const [statusForm, setStatusForm] = useState();
   const [dateOfBirth, setDateOfBirth] = useState();
   const [dateOfExam, setDateOfExam] = useState();
+  const [errors, setErrors] = useState({});
 
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!dateOfBirth) {
+      setErrors({ ...errors, dateOfBirth: true });
+      return;
+    }
+    if (!dateOfExam) {
+      setErrors({ ...errors, dateOfExam: true });
+      return;
+    }
     const data = {
       ...form,
       reTest: reTestOption,
@@ -45,9 +54,11 @@ const ExamForm = () => {
     setIsLoading(false);
   };
   // eslint-disable-next-line react/display-name
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+  const ExampleCustomInput = forwardRef(({ value, onClick, error }, ref) => (
     <div
-      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between"
+      className={`w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between ${
+        error && "border-red-200"
+      }`}
       onClick={onClick}
       ref={ref}
     >
@@ -144,7 +155,11 @@ const ExamForm = () => {
                   </label>
                   <DatePickerCustomHeader
                     selected={dateOfBirth}
-                    handleChangeDate={(date) => setDateOfBirth(date)}
+                    handleChangeDate={(date) => {
+                      setErrors({ ...errors, dateOfBirth: false });
+                      setDateOfBirth(date);
+                    }}
+                    error={errors?.dateOfBirth}
                   />
                 </div>
               </div>
@@ -239,7 +254,7 @@ const ExamForm = () => {
                     htmlFor="relationship"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Relationship to the student
+                    Relationship to the student *
                   </label>
                   <input
                     id="relationship"
@@ -258,7 +273,7 @@ const ExamForm = () => {
                     htmlFor="occupation"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Occupation
+                    Occupation *
                   </label>
                   <input
                     id="occupation"
@@ -275,7 +290,7 @@ const ExamForm = () => {
                     htmlFor="company"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Company Address
+                    Company Address *
                   </label>
                   <input
                     id="company"
@@ -294,7 +309,7 @@ const ExamForm = () => {
                     htmlFor="phone"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Phone
+                    Phone *
                   </label>
                   <input
                     id="phoneNumber"
@@ -345,12 +360,17 @@ const ExamForm = () => {
 
                 <DatePicker
                   selected={dateOfExam}
-                  onChange={(date) => setDateOfExam(date)}
+                  onChange={(date) => {
+                    setErrors({ ...errors, dateOfExam: false });
+                    setDateOfExam(date);
+                  }}
                   showTimeSelect
                   timeFormat="HH:mm"
                   timeInputLabel="Time:"
                   dateFormat="h:mm aa MMMM d, yyyy"
-                  customInput={<ExampleCustomInput />}
+                  customInput={
+                    <ExampleCustomInput error={errors?.dateOfExam} />
+                  }
                   minDate={new Date()}
                   excludeDates={calculateDisableDays()}
                   maxDate={addDays(new Date(), 60)}
@@ -368,10 +388,7 @@ const ExamForm = () => {
             >
               {isLoading ? (
                 <>
-                  <svg
-                    className="animate-spin h-5 w-5 mr-3 text-purple-900"
-                    viewBox="0 0 24 24"
-                  ></svg>
+                  <div className="loading-circle animate-spin ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mr-2"></div>
                   <span>Processing...</span>
                 </>
               ) : (

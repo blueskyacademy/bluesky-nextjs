@@ -167,10 +167,7 @@ const VideoApply = () => {
           >
             {isLoading ? (
               <>
-                <svg
-                  className="animate-spin h-5 w-5 mr-3 text-purple-900"
-                  viewBox="0 0 24 24"
-                ></svg>
+                <div className="loading-circle animate-spin ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mr-2"></div>
                 <span>Processing...</span>
               </>
             ) : (

@@ -11,11 +11,14 @@ export const ContactForm = ({
   isLoading,
   status,
   handleChangeDate,
+  error,
 }) => {
   // eslint-disable-next-line react/display-name
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+  const ExampleCustomInput = forwardRef(({ value, onClick, error }, ref) => (
     <div
-      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 duration-300 ease-in-out border-2 outline-none h-14 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between"
+      className={`w-full p-4 mt-2 text-sm font-medium text-purple-700 duration-300 ease-in-out border-2 outline-none h-14 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between ${
+        error && "border-red-200"
+      }`}
       onClick={onClick}
       ref={ref}
     >
@@ -101,7 +104,7 @@ export const ContactForm = ({
               htmlFor="phone"
               className="ml-0.5 text-purple-900 font-medium text-sm"
             >
-              Phone
+              Phone *
             </label>
             <input
               id="phoneNumber"
@@ -145,7 +148,7 @@ export const ContactForm = ({
               timeFormat="HH:mm"
               timeInputLabel="Time:"
               dateFormat="h:mm aa MMMM d, yyyy"
-              customInput={<ExampleCustomInput />}
+              customInput={<ExampleCustomInput error={error} />}
               minDate={new Date()}
               minTime={setHours(setMinutes(new Date(), 0), 8)}
               maxTime={setHours(setMinutes(new Date(), 0), 18)}
@@ -177,10 +180,7 @@ export const ContactForm = ({
             >
               {isLoading ? (
                 <>
-                  <svg
-                    className="animate-spin h-5 w-5 mr-3 text-purple-900"
-                    viewBox="0 0 24 24"
-                  ></svg>
+                  <div className="loading-circle animate-spin ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mr-2"></div>
                   <span>Processing...</span>
                 </>
               ) : (
@@ -199,15 +199,21 @@ const ContactHero = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [statusForm, setStatusForm] = useState();
   const [selectedDate, setSelectedDate] = useState();
+  const [error, setError] = useState(false);
 
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
   const handleChangeDate = (date) => {
     setSelectedDate(date);
+    setError(false);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!selectedDate) {
+      setError(true);
+      return;
+    }
     const data = {
       ...form,
       type: "School",
@@ -269,6 +275,7 @@ const ContactHero = () => {
               status={statusForm}
               selectedDate={selectedDate}
               handleChangeDate={handleChangeDate}
+              error={error}
             />
           </div>
         </div>

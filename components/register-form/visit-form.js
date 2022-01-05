@@ -6,14 +6,21 @@ const VisitForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [statusForm, setStatusForm] = useState();
   const [selectedDate, setSelectedDate] = useState();
+  const [error, setError] = useState(false);
+
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
   const handleChangeDate = (date) => {
     setSelectedDate(date);
+    setError(false);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!selectedDate) {
+      setError(true);
+      return;
+    }
     const data = {
       ...form,
       type: "School",
@@ -46,6 +53,7 @@ const VisitForm = () => {
         status={statusForm}
         selectedDate={selectedDate}
         handleChangeDate={handleChangeDate}
+        error={error}
       />
     </div>
   );

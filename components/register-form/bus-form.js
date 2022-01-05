@@ -16,14 +16,34 @@ const BusForm = ({ classes }) => {
   const [statusForm, setStatusForm] = useState();
   const [dateOfBirth, setDateOfBirth] = useState();
   const [startDate, setStartDate] = useState();
+  const [errors, setErrors] = useState({});
+  const [checkAgree, setCheckAgree] = useState(true);
   const handleChangeForm = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
   const handleChangeGrade = (value) => {
     setForm({ ...form, currentGrade: value });
+    setErrors({ ...errors, currentGrade: false });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // validate
+    if (!dateOfBirth) {
+      setErrors({ ...errors, dateOfBirth: true });
+      return;
+    }
+    if (!form?.currentGrade) {
+      setErrors({ ...errors, currentGrade: true });
+      return;
+    }
+
+    if (!startDate) {
+      setErrors({ ...errors, startDate: true });
+      return;
+    }
+    if (!checkAgree) {
+      return;
+    }
     const data = {
       ...form,
       busOption: selectedOption,
@@ -31,7 +51,6 @@ const BusForm = ({ classes }) => {
       dateOfBirth: format(dateOfBirth, FORMAT_DATE_DISPLAY),
       startDate: format(startDate, FORMAT_DATE_DISPLAY),
     };
-    console.log("data", data);
     setIsLoading(true);
     try {
       const response = await fetch("/api/bus", {
@@ -50,9 +69,11 @@ const BusForm = ({ classes }) => {
   };
 
   // eslint-disable-next-line react/display-name
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+  const ExampleCustomInput = forwardRef(({ value, onClick, error }, ref) => (
     <div
-      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between"
+      className={`w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between ${
+        error && "border-red-200"
+      }`}
       onClick={onClick}
       ref={ref}
     >
@@ -144,7 +165,11 @@ const BusForm = ({ classes }) => {
                   </label>
                   <DatePickerCustomHeader
                     selected={dateOfBirth}
-                    handleChangeDate={(date) => setDateOfBirth(date)}
+                    handleChangeDate={(date) => {
+                      setErrors({ ...errors, dateOfBirth: false });
+                      setDateOfBirth(date);
+                    }}
+                    error={errors?.dateOfBirth}
                   />
                 </div>
               </div>
@@ -157,6 +182,7 @@ const BusForm = ({ classes }) => {
                     options={classes}
                     value={form?.currentGrade}
                     handleChange={(value) => handleChangeGrade(value)}
+                    error={errors?.currentGrade}
                   />
                 </div>
               </div>
@@ -194,7 +220,7 @@ const BusForm = ({ classes }) => {
                     htmlFor="relationship"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Relationship to the student
+                    Relationship to the student *
                   </label>
                   <input
                     id="relationship"
@@ -213,7 +239,7 @@ const BusForm = ({ classes }) => {
                     htmlFor="phone"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Phone
+                    Phone *
                   </label>
                   <input
                     id="phoneNumber"
@@ -277,7 +303,7 @@ const BusForm = ({ classes }) => {
                       htmlFor="pickupAddress"
                       className="ml-0.5 text-purple-900 font-medium text-sm"
                     >
-                      Pick-up address
+                      Pick-up address *
                     </label>
                     <input
                       id="pickupAddress"
@@ -297,7 +323,7 @@ const BusForm = ({ classes }) => {
                       htmlFor="dropOffAdress"
                       className="ml-0.5 text-purple-900 font-medium text-sm"
                     >
-                      Drop-off address
+                      Drop-off address *
                     </label>
                     <input
                       id="dropoffAdress"
@@ -321,9 +347,12 @@ const BusForm = ({ classes }) => {
 
                 <DatePicker
                   selected={startDate}
-                  onChange={(date) => setStartDate(date)}
+                  onChange={(date) => {
+                    setErrors({ ...errors, startDate: false });
+                    setStartDate(date);
+                  }}
                   dateFormat={FORMAT_DATE_DISPLAY}
-                  customInput={<ExampleCustomInput />}
+                  customInput={<ExampleCustomInput error={errors?.startDate} />}
                   minDate={new Date()}
                 />
               </div>
@@ -332,8 +361,8 @@ const BusForm = ({ classes }) => {
                   type="checkbox"
                   value=""
                   id="flexCheckChecked"
-                  checked
-                  readOnly
+                  checked={checkAgree}
+                  onChange={() => setCheckAgree(!checkAgree)}
                 />
                 <label
                   className="form-check-label text-gray-800 ml-2 text-sm"
@@ -354,10 +383,7 @@ const BusForm = ({ classes }) => {
             >
               {isLoading ? (
                 <>
-                  <svg
-                    className="animate-spin h-5 w-5 mr-3 text-purple-900"
-                    viewBox="0 0 24 24"
-                  ></svg>
+                  <div className="loading-circle animate-spin ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mr-2"></div>
                   <span>Processing...</span>
                 </>
               ) : (

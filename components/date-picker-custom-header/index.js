@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import { FORMAT_DATE_DISPLAY } from "../../lib/constant";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DatePickerCustomHeader = ({ selected, handleChangeDate }) => {
+const DatePickerCustomHeader = ({ selected, handleChangeDate, error }) => {
   const years = range(2005, getYear(new Date()) + 1, 1);
   const months = [
     "January",
@@ -22,9 +22,11 @@ const DatePickerCustomHeader = ({ selected, handleChangeDate }) => {
     "December",
   ];
   // eslint-disable-next-line react/display-name
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+  const ExampleCustomInput = forwardRef(({ value, onClick, error }, ref) => (
     <div
-      className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between"
+      className={`w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none flex justify-between ${
+        error && "border-red-200"
+      }`}
       onClick={onClick}
       ref={ref}
     >
@@ -112,7 +114,7 @@ const DatePickerCustomHeader = ({ selected, handleChangeDate }) => {
       dateFormat={FORMAT_DATE_DISPLAY}
       selected={selected}
       onChange={(date) => handleChangeDate(date)}
-      customInput={<ExampleCustomInput />}
+      customInput={<ExampleCustomInput error={error} />}
       maxDate={new Date()}
     />
   );
