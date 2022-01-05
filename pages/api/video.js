@@ -32,7 +32,7 @@ handler.post(async (req, res) => {
 
     let fileMetaData = {
       name: fileName,
-      parents: ["1xifVOa2ufa30z1O6nMsAlNCG4vT4GrOY"],
+      parents: [process.env.APPLICATION_VIDEO_FOLDERID],
     };
     let media = {
       mimeType: "video/x-matroska",

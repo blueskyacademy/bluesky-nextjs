@@ -7,6 +7,7 @@ const Dropdown = ({
   handleChange,
   title,
   placeholder = "",
+  error = false,
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const wrapper = useRef(null);
@@ -26,7 +27,11 @@ const Dropdown = ({
       </label>
 
       <div className="relative" ref={wrapper}>
-        <div className="h-14 bg-white flex border border-purple-50 rounded items-center rounded-xl border-2">
+        <div
+          className={`h-14 bg-white flex border border-purple-50 rounded items-center rounded-xl border-2 ${
+            error && "border-red-200"
+          }`}
+        >
           <input
             value={value}
             placeholder={placeholder}
