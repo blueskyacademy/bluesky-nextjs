@@ -73,3 +73,24 @@ a {
     transform: rotate(360deg);
   }
 }
+.videoEmbed {
+  position: relative;
+  padding-bottom: 56.25%;
+  margin-bottom: 2rem;
+}
+
+.videoEmbed__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.hover-up-5 {
+  transition: 0.3s;
+}
+
+.hover-up-5:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}

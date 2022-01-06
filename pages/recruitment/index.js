@@ -1,15 +1,16 @@
 import Layout from "../../components/layout";
 import Postions from "../../components/positions";
-import Benefits from "../../components/benefits";
-import { useHashFragment } from "../../hooks/useHashFragment";
+import RecruitmentHero from "../../components/recruitment-hero";
 import { getAllJobs } from "../../lib/api";
+import AnimationRevealPage from "../../helpers/AnimationRevealPage";
 
 export default function Recruitment({ allJobs }) {
-  useHashFragment();
   return (
     <Layout>
-      <Postions id="jobs" jobs={allJobs} />
-      {/* <Benefits id="benefits" /> */}
+      <AnimationRevealPage>
+        <RecruitmentHero />
+        <Postions id="jobs" jobs={allJobs} />
+      </AnimationRevealPage>
     </Layout>
   );
 }
