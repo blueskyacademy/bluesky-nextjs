@@ -5,7 +5,7 @@ import { NavLink } from "./nav-link";
 const DropdownLink = ({ title, slug, path, subMenu = [] }) => {
   return (
     <div className="dropdown group">
-      <NavLink href={path} title={title} exact></NavLink>
+      <NavLink href={path} title={title}></NavLink>
       {subMenu.length > 0 ? (
         <div className="pt-2">
           <div

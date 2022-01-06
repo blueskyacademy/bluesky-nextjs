@@ -1,11 +1,11 @@
-import PostPreview from "../../components/blocks/columns/post-preview";
-import CTA from "../../components/cta";
-import Layout from "../../components/layout";
-import Pagination from "../../components/pagination";
-import { getPaginatedPosts } from "../../lib/api";
-import { POSTS_PER_PAGE } from "../../lib/constant";
+import PostPreview from "../../../components/blocks/columns/post-preview";
+import CTA from "../../../components/cta";
+import Layout from "../../../components/layout";
+import Pagination from "../../../components/pagination";
+import { getPaginatedPosts, getTotalPostNumber } from "../../../lib/api";
+import { POSTS_PER_PAGE } from "../../../lib/constant";
 
-export default function Posts({ allPosts, currentPage, totalPages }) {
+export default function PostsIndexPage({ allPosts, currentPage, totalPages }) {
   return (
     <Layout>
       <div className="max-w-screen-xl mx-auto">
@@ -31,15 +31,35 @@ export default function Posts({ allPosts, currentPage, totalPages }) {
     </Layout>
   );
 }
-export async function getStaticProps({ locale }) {
-  const postSummaries = await getPaginatedPosts(locale, 1);
+export async function getStaticPaths() {
+  const totalPosts = await getTotalPostNumber();
+  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+
+  const paths = [];
+
+  /**
+   * Start from page 2, so we don't replicate /blog
+   * which is page 1
+   */
+  for (let page = 2; page <= totalPages; page++) {
+    paths.push({ params: { page: page.toString() } });
+  }
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ locale, params }) {
+  const postSummaries = await getPaginatedPosts(locale, params.page);
   const totalPages = Math.ceil(postSummaries.total / POSTS_PER_PAGE);
 
   return {
     props: {
       allPosts: postSummaries.items,
       totalPages,
-      currentPage: "1",
+      currentPage: params.page,
     },
     revalidate: 1,
   };

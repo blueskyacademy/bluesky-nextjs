@@ -11,7 +11,6 @@ export default function GalleryPage({ videos, galleries }) {
         <Gallery />
         <GalleryGrid videos={videos} galleries={galleries} />
       </div>
-
       <CTA />
     </Layout>
   );
