@@ -4,6 +4,7 @@ import Layout from "../../components/layout";
 import PostBody from "../../components/post/post-body";
 import PostHeader from "../../components/post/post-header";
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api";
+import CTA from "../../components/cta";
 
 export default function Post({ post, morePosts }) {
   const router = useRouter();
@@ -26,12 +27,11 @@ export default function Post({ post, morePosts }) {
             />
             <PostBody content={post.content} />
           </article>
-          <hr className='border-gray-200 mt-28 mb-24' />
-          <h2 className='mb-8 text-4xl md:text-4xl font-bold text-center'>
+          <h2 className="mb-8 text-4xl md:text-4xl font-bold text-center mt-24">
             More stories
           </h2>
-          <div className='container mx-auto'>
-            <div className='grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full'>
+          <div className="container mx-auto">
+            <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
               {morePosts.map((post) => (
                 <PostPreview
                   key={post.slug}
@@ -45,6 +45,7 @@ export default function Post({ post, morePosts }) {
               ))}
             </div>
           </div>
+          <CTA />
         </>
       )}
     </Layout>

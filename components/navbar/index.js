@@ -129,7 +129,6 @@ const Navbar = () => {
                   <DropdownLink
                     title={item.title}
                     path={item.path}
-                    exact
                     subMenu={item?.subMenu}
                   />
                 </div>
