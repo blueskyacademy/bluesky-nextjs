@@ -31,7 +31,7 @@ export default function Post({ post, morePosts }) {
             More stories
           </h2>
           <div className="container mx-auto">
-            <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+            <div className="grid gap-12 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
               {morePosts.map((post) => (
                 <PostPreview
                   key={post.slug}
