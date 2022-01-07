@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SCHEDULE_TYPE } from "../../lib/constant";
 import Dropdown from "../dropdown";
+import DropdownSearch from "../dropdown-search";
 import EmbedDocs from "../embed-docs";
 import LoadingSpinner from "../loading-spiner";
 
@@ -25,6 +26,7 @@ const Loading = () => {
 const ScheduleHero = ({ classes }) => {
   const [scheduleType, setScheduleType] = useState(SCHEDULE_TYPE.program);
   const [selectedClass, setSelectedClass] = useState();
+  const [search, setSearch] = useState();
   const [fileId, setFileId] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -50,6 +52,13 @@ const ScheduleHero = ({ classes }) => {
     };
     fetchSchedule(data);
   }, [scheduleType, selectedClass]);
+  const handleChangeSearch = (value) => {
+    setSelectedClass();
+    setSearch(value);
+  };
+  const handleChange = (item) => {
+    setSelectedClass(item);
+  };
 
   return (
     <section>
@@ -84,12 +93,14 @@ const ScheduleHero = ({ classes }) => {
               </button>
             </li>
           </ul>
-          <Dropdown
+          <DropdownSearch
             title="Select class"
             placeholder="Please select a class"
             options={classes}
             value={selectedClass}
-            handleChange={(item) => setSelectedClass(item)}
+            handleChange={handleChange}
+            search={search}
+            handleChangeSearch={handleChangeSearch}
           />
         </div>
       </div>
