@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const AdmissionHero = () => {
   return (
     <section className="relative w-full px-4 py-12 sm:py-12 sm:px-6 xl:px-8">
@@ -16,12 +18,11 @@ const AdmissionHero = () => {
               {`We know you care about your child's future. That’s why we offer you the freedom to choose the right program for them. `}
             </p>
 
-            <a
-              href=""
-              className="mt-6 font-medium text-purple-900 bg-yellow-500 w-[220px] leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group"
-            >
-              View lastest notice
-            </a>
+            <Link href="/pages/admission-open-for-the-academic-year">
+              <a className="mt-6 font-medium text-purple-900 bg-yellow-500 w-[220px] leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group">
+                View lastest notice
+              </a>
+            </Link>
 
             <div className="mt-8 font-medium lg:mt-10">
               <p className="text-purple-800">
@@ -148,30 +149,28 @@ const AdmissionHero = () => {
                       <span className="ml-2 text-purple-800">Secondary</span>
                     </li>
                   </ul>
-
-                  <a
-                    href="#"
-                    className="mt-6 font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group"
-                  >
-                    View more
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
-                      width="44"
-                      height="44"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <line x1="15" y1="16" x2="19" y2="12" />
-                      <line x1="15" y1="8" x2="19" y2="12" />
-                    </svg>
-                  </a>
+                  <Link href="/pages/fee-schedule">
+                    <a className="mt-6 font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
+                      View more
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
+                        width="44"
+                        height="44"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="currentColor"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <line x1="15" y1="16" x2="19" y2="12" />
+                        <line x1="15" y1="8" x2="19" y2="12" />
+                      </svg>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -276,29 +275,28 @@ const AdmissionHero = () => {
                     </li>
                   </ul>
 
-                  <a
-                    href=""
-                    className="mt-6 font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group"
-                  >
-                    View detail
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
-                      width="44"
-                      height="44"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <line x1="15" y1="16" x2="19" y2="12" />
-                      <line x1="15" y1="8" x2="19" y2="12" />
-                    </svg>
-                  </a>
+                  <Link href="/pages/academic-calendar">
+                    <a className="mt-6 font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
+                      View detail
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
+                        width="44"
+                        height="44"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="currentColor"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <line x1="15" y1="16" x2="19" y2="12" />
+                        <line x1="15" y1="8" x2="19" y2="12" />
+                      </svg>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

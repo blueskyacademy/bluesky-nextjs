@@ -25,7 +25,7 @@ export default function Post({ post, morePosts }) {
               coverImage={post.coverImage.url}
               date={post.date}
             />
-            <PostBody content={post.content} />
+            <PostBody content={post.content} className="max-w-2xl mx-auto" />
           </article>
           <h2 className="mb-8 text-4xl md:text-4xl font-bold text-center mt-24">
             More stories

@@ -32,7 +32,6 @@ const DropdownSearch = ({
       : options;
     setFilterOptions(newFilterOptions);
   }, [search, options]);
-
   return (
     <div className="max-w-md mx-auto">
       <label
@@ -54,7 +53,10 @@ const DropdownSearch = ({
             name="select"
             id="select"
             className="px-4 appearance-none outline-none text-purple-700 w-full text-sm font-medium placeholder-purple-700 placeholder-opacity-70"
-            onChange={(e) => handleChangeSearch(e.target.value)}
+            onChange={(e) => {
+              handleChangeSearch(e.target.value);
+            }}
+            onFocus={() => setShowDropdown(true)}
             autoComplete="off"
           />
           <label
@@ -80,13 +82,7 @@ const DropdownSearch = ({
 
         {showDropdown && (
           <>
-            <input
-              type="checkbox"
-              name="show_more"
-              id="show_more"
-              className="hidden peer"
-            />
-            <div className="absolute rounded shadow bg-white overflow-hidden hidden peer-checked:flex flex-col w-full mt-1 border border-gray-200 z-50 text-sm">
+            <div className="absolute rounded shadow bg-white overflow-hidden flex flex-col w-full mt-1 border border-gray-200 z-50 text-sm">
               {filterOptions.map((item, idx) => (
                 <div
                   className="cursor-pointer group"

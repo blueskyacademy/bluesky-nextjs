@@ -47,7 +47,7 @@ export function SubNav({ slug = "home" }) {
     <nav
       ref={stickyRef}
       className={`relative shadow-xl ${
-        isSticky ? "sticky bg-yellow-50 border-b" : "hidden"
+        isSticky ? "sticky bg-yellow-50 border-b hidden md:block" : "hidden"
       }`}
       style={{
         zIndex: 40,
