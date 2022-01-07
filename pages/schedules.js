@@ -2,12 +2,15 @@ import Layout from "../components/layout";
 import ScheduleHero from "../components/schedule-hero";
 import CTA from "../components/cta";
 import { getClasses } from "../lib/api";
+import AnimationRevealPage from "../helpers/AnimationRevealPage";
 
 const Schedules = ({ classes }) => {
   return (
     <Layout>
-      <ScheduleHero classes={classes} />
-      <CTA />
+      <AnimationRevealPage>
+        <ScheduleHero classes={classes} />
+        <CTA />
+      </AnimationRevealPage>
     </Layout>
   );
 };

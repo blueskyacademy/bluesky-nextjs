@@ -99,9 +99,9 @@ function renderOptions(links) {
   };
 }
 
-export default function PostBody({ content }) {
+export default function PostBody({ content, className }) {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className={className}>
       <div className={markdownStyles["markdown"]}>
         {documentToReactComponents(content.json, renderOptions(content.links))}
       </div>

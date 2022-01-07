@@ -46,7 +46,7 @@ const Programs = ({ id }) => {
                     </div>
                   </div>
                   <div className="mt-8">
-                    <Link href="/classes/primary">
+                    <Link href="/programs/primary">
                       <a className="font-medium text-white bg-blue-900 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-blue-500 group">
                         Learn more
                         <svg
@@ -102,7 +102,7 @@ const Programs = ({ id }) => {
                   </div>
                 </div>
                 <div className="mt-8">
-                  <Link href="/classes/kindergarten">
+                  <Link href="/programs/kindergarten">
                     <a className="font-medium text-white bg-red-800 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-red-500 group">
                       Learn more
                       <svg
@@ -153,7 +153,7 @@ const Programs = ({ id }) => {
                   </div>
                 </div>
                 <div className="mt-8">
-                  <Link href="/classes/secondary">
+                  <Link href="/programs/secondary">
                     <a className="font-medium text-white bg-green-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-green-500 group">
                       Learn more
                       <svg
