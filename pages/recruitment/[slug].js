@@ -1,54 +1,16 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
-//import ApplicationForm from "../../components/application-form";
 import Job from "../../components/job";
 import Layout from "../../components/layout";
-import { getAllJobs, getJob } from "../../lib/api";
+import { getAllJobs, getJob, getNavigation } from "../../lib/api";
 
-export default function JobPage({ job }) {
+export default function JobPage({ job, navigations }) {
   const router = useRouter();
-  const [form, setForm] = useState({});
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [statusForm, setStatusForm] = useState();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleChangeForm = (e) => {
-    setForm({ ...form, [e.target.id]: e.target.value });
-  };
-  const handleChangeFile = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("fullName", form?.fullName);
-    formData.append("email", form?.email);
-    formData.append("title", job?.title);
-    formData.append("cv", selectedFile);
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0] + ", " + pair[1]);
-    // }
-    setIsLoading(true);
-    try {
-      const response = await fetch("/api/career", {
-        method: "POST",
-        body: formData,
-      });
-      const result = await response.json();
-      console.log("result", result);
-      setStatusForm("success");
-    } catch (error) {
-      console.log("error", error);
-    }
-    setIsLoading(false);
-  };
 
   if (!router.isFallback && !job) {
     return <h1>404 - Page Not Found</h1>;
   }
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       {router.isFallback ? (
         <h1>Loading ...</h1>
       ) : (
@@ -69,11 +31,14 @@ export default function JobPage({ job }) {
 }
 export async function getStaticProps({ params, locale }) {
   const data = await getJob(params.slug, locale);
+  const navigations = (await getNavigation()) ?? [];
 
   return {
     props: {
       job: data ?? null,
+      navigations,
     },
+    revalidate: 1,
   };
 }
 

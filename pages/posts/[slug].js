@@ -3,10 +3,14 @@ import PostPreview from "../../components/blocks/columns/post-preview";
 import Layout from "../../components/layout";
 import PostBody from "../../components/post/post-body";
 import PostHeader from "../../components/post/post-header";
-import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api";
+import {
+  getAllPostsWithSlug,
+  getNavigation,
+  getPostAndMorePosts,
+} from "../../lib/api";
 import CTA from "../../components/cta";
 
-export default function Post({ post, morePosts }) {
+export default function Post({ post, morePosts, navigations }) {
   const router = useRouter();
 
   if (!router.isFallback && !post) {
@@ -14,7 +18,7 @@ export default function Post({ post, morePosts }) {
   }
 
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       {router.isFallback ? (
         <h1>Loading…</h1>
       ) : (
@@ -53,11 +57,13 @@ export default function Post({ post, morePosts }) {
 }
 export async function getStaticProps({ params, locale }) {
   const data = await getPostAndMorePosts(params.slug, locale);
+  const navigations = (await getNavigation()) ?? [];
 
   return {
     props: {
       post: data?.post ?? null,
       morePosts: data?.morePosts ?? [],
+      navigations,
     },
   };
 }

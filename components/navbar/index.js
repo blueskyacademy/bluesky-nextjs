@@ -8,7 +8,7 @@ const MENU = [
     title: "Home",
     slug: "home",
     path: "/",
-    subMenu: [
+    subPages: [
       {
         title: "Program Education",
         href: "/#program",
@@ -31,7 +31,7 @@ const MENU = [
     title: "About us",
     slug: "about",
     path: "/about",
-    subMenu: [
+    subPages: [
       {
         title: "Vision & Mission",
         href: "/about#vision",
@@ -54,9 +54,9 @@ const MENU = [
   { title: "Gallery", slug: "gallery", path: "/gallery" },
   {
     title: "Programs",
-    slug: "programs",
+    slug: "Programs",
     path: "/programs",
-    subMenu: [
+    subPages: [
       {
         title: "Kindergarten",
         href: "/programs/kindergarten",
@@ -75,10 +75,98 @@ const MENU = [
   { title: "Parents", slug: "parents", path: "/parents" },
   { title: "Schedules", slug: "schedules", path: "/schedules" },
   { title: "Admission", slug: "admission", path: "/admission" },
-  { title: "Careers", slug: "recruitment", path: "/recruitment" },
+  { title: "Careers", slug: "recruitment", path: "recruitment" },
   { title: "Contact", slug: "contact", path: "/contact" },
 ];
-const Navbar = () => {
+
+const formatNavigations = (navigations = []) => {
+  const result = [];
+  for (let item of navigations) {
+    const subPagesNavigation = item?.subPagesCollection?.items ?? [];
+    let newNavigation = {};
+    switch (item.slug) {
+      case "home":
+        newNavigation = {
+          ...item,
+          subPages: [
+            {
+              title: "Program Education",
+              href: "/#program",
+            },
+            {
+              title: "Gallery",
+              href: "/#gallery",
+            },
+            {
+              title: "Parents",
+              href: "/#parents",
+            },
+            {
+              title: "FAQ",
+              href: "/#faq",
+            },
+            ...subPagesNavigation,
+          ],
+        };
+        result.push(newNavigation);
+        break;
+      case "about":
+        newNavigation = {
+          ...item,
+          subPages: [
+            {
+              title: "Vision & Mission",
+              href: "/about#vision",
+            },
+            {
+              title: "Core Values",
+              href: "/about#core",
+            },
+            {
+              title: "Message from Principal",
+              href: "/about#message",
+            },
+            {
+              title: "Co-founders",
+              href: "/about#founder",
+            },
+            ...subPagesNavigation,
+          ],
+        };
+        result.push(newNavigation);
+        break;
+      case "program":
+        newNavigation = {
+          ...item,
+          subPages: [
+            {
+              title: "Kindergarten",
+              href: "/programs/kindergarten",
+            },
+            {
+              title: "Primary",
+              href: "/programs/primary",
+            },
+            {
+              title: "Secondary",
+              href: "/programs/secondary",
+            },
+            ...subPagesNavigation,
+          ],
+        };
+        result.push(newNavigation);
+        break;
+      default:
+        newNavigation = {
+          ...item,
+          subPages: subPagesNavigation,
+        };
+        result.push(newNavigation);
+    }
+  }
+  return result;
+};
+const Navbar = ({ navigations }) => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
   const [active, setActive] = useState(false);
@@ -86,6 +174,8 @@ const Navbar = () => {
     setActive(!active);
   };
   const [currentSlug, setCurrentSlug] = useState(pathname.slice(1) || "home");
+  const renderNavigations = formatNavigations(navigations);
+  console.log("renderNavigations", renderNavigations);
 
   return (
     <div className="bg-transparent sticky-bar">
@@ -121,7 +211,7 @@ const Navbar = () => {
             <div
               className={`items-center justify-between hidden lg:flex md:space-x-2 lg:space-x-4`}
             >
-              {MENU.map((item, idx) => (
+              {renderNavigations?.map((item, idx) => (
                 <div
                   key={`menu-${item.path}-${idx}`}
                   onClick={() => setCurrentSlug(item.slug)}
@@ -129,7 +219,7 @@ const Navbar = () => {
                   <DropdownLink
                     title={item.title}
                     path={item.path}
-                    subMenu={item?.subMenu}
+                    subPages={item?.subPages}
                   />
                 </div>
               ))}

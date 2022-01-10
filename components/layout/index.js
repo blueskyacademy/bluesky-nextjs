@@ -4,17 +4,11 @@ import Footer from "../footer";
 import Navbar from "../navbar";
 import Navigation from "../navigation";
 
-export default function Layout({ children }) {
+export default function Layout({ children, navigations = [] }) {
   return (
     <>
-      <Navbar />
-      {/* <Navigation /> */}
+      <Navbar navigations={navigations} />
       <main>{children}</main>
-      {/* <CallAction
-        title={"School Visit"}
-        content={"Registration"}
-        bottomSpacing={0}
-      /> */}
       <Facebook />
       <Footer />
     </>

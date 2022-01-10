@@ -23,7 +23,7 @@ const Certificate = ({ id }) => {
           <div className="w-full  mx-auto sm:gap-8 lg:col-span-1 xl:col-span-5 sm:grid-cols-2 lg:gap-4 xl:gap-8 lg:order-2 sm:max-w-none sm:mx-0">
             <img
               className="object-cover"
-              src="images/certificate.png"
+              src="/images/certificate.png"
               alt="Cambridge"
             ></img>
           </div>

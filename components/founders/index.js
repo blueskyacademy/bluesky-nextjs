@@ -11,7 +11,7 @@ const Founders = ({ id }) => {
                 <span className="relative">
                   <img
                     className="absolute inset-0 transform translate-y-9 sm:translate-y-10 xl:translate-y-12"
-                    src="svg/underline-simple-light-purple.svg"
+                    src="/svg/underline-simple-light-purple.svg"
                   />
                   <span className="relative">Our founders</span>
                 </span>
@@ -53,7 +53,7 @@ const Founders = ({ id }) => {
             <div className="relative order-1 w-full max-w-xl mx-auto lg:order-2 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
               <div className="hidden lg:block">
                 <img
-                  src="svg/blob-light-yellow.svg"
+                  src="/svg/blob-light-yellow.svg"
                   className="absolute inset-0 w-full h-full transform lg:scale-135"
                   alt=""
                 />
@@ -69,7 +69,7 @@ const Founders = ({ id }) => {
                 <div className="relative block w-full">
                   <img
                     className="absolute z-10 hidden w-40 transform lg:block -top-20 -left-20 xl:w-48 xl:-top-20 xl:-left-20"
-                    src="svg/dots.svg"
+                    src="/svg/dots.svg"
                     alt=""
                   />
 
@@ -119,7 +119,7 @@ const Founders = ({ id }) => {
             <div className="relative order-1 w-full max-w-xl mx-auto lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
               <div className="hidden lg:block">
                 <img
-                  src="svg/blob-light-purple.svg"
+                  src="/svg/blob-light-purple.svg"
                   className="absolute inset-0 w-full h-full transform lg:scale-135"
                   alt=""
                 />
@@ -181,14 +181,14 @@ const Founders = ({ id }) => {
             <div className="relative order-1 w-full max-w-xl mx-auto lg:order-2 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
               <div className="hidden lg:block">
                 <img
-                  src="svg/blob-light-rose.svg"
+                  src="/svg/blob-light-rose.svg"
                   className="absolute inset-0 w-full h-full transform lg:scale-135"
                   alt=""
                 />
               </div>
 
               <img
-                src="svg/dots-large-strip.svg"
+                src="/svg/dots-large-strip.svg"
                 className="absolute top-0 origin-top transform -translate-x-1/2 -translate-y-8 left-1/2 lg:hidden sm:scale-100 scale-80"
                 alt=""
               />

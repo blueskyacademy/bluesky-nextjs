@@ -11,7 +11,7 @@ const DescriptionValues = () => {
             <div className="grid max-w-4xl gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-1 sm:mx-auto lg:mx-0 lg:max-w-md">
               <div className="flex">
                 <div className="w-14">
-                  <img src="svg/checkmark.svg" className="w-7 h-7" alt="" />
+                  <img src="/svg/checkmark.svg" className="w-7 h-7" alt="" />
                 </div>
                 <div className="w-full">
                   <h5 className="flex items-center text-xl font-semibold text-purple-900">
@@ -27,7 +27,7 @@ const DescriptionValues = () => {
 
               <div className="flex">
                 <div className="w-14">
-                  <img src="svg/checkmark.svg" className="w-7 h-7" alt="" />
+                  <img src="/svg/checkmark.svg" className="w-7 h-7" alt="" />
                 </div>
                 <div className="w-full">
                   <h5 className="flex items-center text-xl font-semibold text-purple-900">
@@ -41,7 +41,7 @@ const DescriptionValues = () => {
 
               <div className="flex">
                 <div className="w-14">
-                  <img src="svg/checkmark.svg" className="w-7 h-7" alt="" />
+                  <img src="/svg/checkmark.svg" className="w-7 h-7" alt="" />
                 </div>
                 <div className="w-full">
                   <h5 className="flex items-center text-xl font-semibold text-purple-900">
@@ -61,7 +61,7 @@ const DescriptionValues = () => {
             <div className="aspect-w-9 aspect-h-6">
               <img
                 className="object-cover w-full h-full rounded-3xl"
-                src="images/secondary.png"
+                src="/images/secondary.png"
                 alt="values"
               />
             </div>

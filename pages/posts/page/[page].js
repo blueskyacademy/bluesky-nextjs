@@ -6,9 +6,14 @@ import PostList from "../../../components/post-list";
 import { getPaginatedPosts, getTotalPostNumber } from "../../../lib/api";
 import { POSTS_PER_PAGE } from "../../../lib/constant";
 
-export default function PostsIndexPage({ allPosts, currentPage, totalPages }) {
+export default function PostsIndexPage({
+  allPosts,
+  currentPage,
+  totalPages,
+  navigations,
+}) {
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       <div className="max-w-screen-xl mx-auto">
         <h3 className="mx-auto my-10 text-left text-purple-800 sm:my-10 md:my-10 text-4xl leading-tight tracking-tight sm:text-4xl xl:text-4xl sm:leading-tighter font-semibold">
           Latest News
@@ -43,12 +48,14 @@ export async function getStaticPaths() {
 export async function getStaticProps({ locale, params }) {
   const postSummaries = await getPaginatedPosts(locale, params.page);
   const totalPages = Math.ceil(postSummaries.total / POSTS_PER_PAGE);
+  const navigations = (await getNavigation()) ?? [];
 
   return {
     props: {
       allPosts: postSummaries.items,
       totalPages,
       currentPage: params.page,
+      navigations,
     },
     revalidate: 1,
   };

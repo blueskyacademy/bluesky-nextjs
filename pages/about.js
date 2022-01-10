@@ -8,11 +8,12 @@ import Letter from "../components/letter";
 import Values from "../components/values";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
 import { useHashFragment } from "../hooks/useHashFragment";
+import { getNavigation } from "../lib/api";
 
-export default function About() {
+export default function About({ navigations }) {
   useHashFragment();
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       <AboutHero />
       <Intro id="vision" />
       <Values id="core" />
@@ -22,4 +23,11 @@ export default function About() {
       <CTA />
     </Layout>
   );
+}
+export async function getStaticProps() {
+  const navigations = (await getNavigation()) ?? [];
+  return {
+    props: { navigations },
+    revalidate: 1,
+  };
 }

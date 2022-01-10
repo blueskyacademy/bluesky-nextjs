@@ -1,12 +1,12 @@
 import Layout from "../components/layout";
 import ScheduleHero from "../components/schedule-hero";
 import CTA from "../components/cta";
-import { getClasses } from "../lib/api";
+import { getClasses, getNavigation } from "../lib/api";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
 
-const Schedules = ({ classes }) => {
+const Schedules = ({ classes, navigations }) => {
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       <AnimationRevealPage>
         <ScheduleHero classes={classes} />
         <CTA />
@@ -18,9 +18,10 @@ const Schedules = ({ classes }) => {
 export default Schedules;
 export async function getStaticProps() {
   const classes = (await getClasses()) ?? [];
+  const navigations = (await getNavigation()) ?? [];
 
   return {
-    props: { classes },
+    props: { classes, navigations },
     revalidate: 1,
   };
 }

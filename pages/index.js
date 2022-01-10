@@ -1,5 +1,10 @@
 import Layout from "../components/layout";
-import { getFaq, getPostsForHome, getTestimonials } from "../lib/api";
+import {
+  getFaq,
+  getNavigation,
+  getPostsForHome,
+  getTestimonials,
+} from "../lib/api";
 import { useHashFragment } from "../hooks/useHashFragment";
 import Programs from "../components/programs";
 import Events from "../components/events";
@@ -10,7 +15,7 @@ import HomeHero from "../components/home-hero";
 import CTA from "../components/cta";
 import Feedback from "../components/feedback";
 
-export default function Home({ allPosts, testimonials, faq }) {
+export default function Home({ allPosts, testimonials, faq, navigations }) {
   useHashFragment();
   const GALLERY_IMAGES = [
     "/images/primary.png",
@@ -20,7 +25,7 @@ export default function Home({ allPosts, testimonials, faq }) {
     "/images/gallery-hero-02.png",
   ];
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       <HomeHero />
       <Programs id="program" />
       <GalleryHero
@@ -43,8 +48,9 @@ export async function getStaticProps({ locale }) {
   const allPosts = (await getPostsForHome(locale)) ?? [];
   const testimonials = (await getTestimonials(locale)) ?? [];
   const faq = (await getFaq()) ?? [];
+  const navigations = (await getNavigation()) ?? [];
   return {
-    props: { allPosts, testimonials, faq },
+    props: { allPosts, testimonials, faq, navigations },
     revalidate: 1,
   };
 }

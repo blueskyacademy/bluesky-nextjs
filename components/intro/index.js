@@ -17,14 +17,14 @@ const Intro = ({ id }) => {
                 <div className="aspect-w-3 aspect-h-4 rounded-2xl">
                   <img
                     className="object-cover rounded-2xl"
-                    src="images/primary.png"
+                    src="/images/primary.png"
                     alt="Home blocks 01"
                   />
                 </div>
                 <div className="absolute bottom-0 left-0 hidden sm:block sm:translate-y-1/3 sm:w-72 sm:h-72 lg:w-64 lg:h-64 xl:w-72 xl:h-72 2xl:w-80 2xl:h-80 rounded-3xl">
                   <img
                     className="object-cover w-full h-full rounded-3xl"
-                    src="images/kindergarten.png"
+                    src="/images/kindergarten.png"
                     alt="Home blocks 02"
                   />
                 </div>
@@ -87,14 +87,14 @@ const Intro = ({ id }) => {
                 <div className="aspect-w-3 aspect-h-4 rounded-3xl">
                   <img
                     className="object-cover rounded-3xl"
-                    src="images/primary.png"
+                    src="/images/primary.png"
                     alt="Home blocks 03"
                   />
                 </div>
                 <div className="absolute top-0 right-0 hidden sm:block sm:-translate-y-1/3 sm:w-72 sm:h-72 lg:w-64 lg:h-64 xl:w-72 xl:h-72 2xl:w-80 2xl:h-80 rounded-3xl">
                   <img
                     className="object-cover w-full h-full rounded-3xl"
-                    src="images/secondary.png"
+                    src="/images/secondary.png"
                     alt="Home blocks 04"
                   />
                 </div>
@@ -128,14 +128,14 @@ const Intro = ({ id }) => {
                 <div className="aspect-w-3 aspect-h-4 rounded-2xl">
                   <img
                     className="object-cover rounded-2xl"
-                    src="images/primary.png"
+                    src="/images/primary.png"
                     alt="Home blocks 01"
                   />
                 </div>
                 <div className="absolute bottom-0 left-0 hidden sm:block sm:translate-y-1/3 sm:w-72 sm:h-72 lg:w-64 lg:h-64 xl:w-72 xl:h-72 2xl:w-80 2xl:h-80 rounded-3xl">
                   <img
                     className="object-cover w-full h-full rounded-3xl"
-                    src="images/kindergarten.png"
+                    src="/images/kindergarten.png"
                     alt="Home blocks 02"
                   />
                 </div>
