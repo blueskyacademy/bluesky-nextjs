@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import SchoolTeam from "../components/school-team";
 import Stats from "../components/stats";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
-import { getTeachers } from "../lib/api";
+import { getNavigation, getTeachers } from "../lib/api";
 import CTA from "../components/cta";
 import Founders from "../components/founders";
 
@@ -40,9 +40,9 @@ const TEACHER_IMAGES = [
   "/images/kindergarten.png",
   "/images/secondary.png",
 ];
-export default function About({ teachers }) {
+export default function About({ teachers, navigations }) {
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       <AnimationRevealPage>
         <GalleryHero
           title="Our teachers"
@@ -61,9 +61,10 @@ export default function About({ teachers }) {
 }
 export async function getStaticProps({ locale }) {
   const teachers = (await getTeachers(locale)) ?? [];
+  const navigations = (await getNavigation()) ?? [];
 
   return {
-    props: { teachers },
+    props: { teachers, navigations },
     revalidate: 1,
   };
 }

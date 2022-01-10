@@ -1,21 +1,25 @@
 import Layout from "../../components/layout";
 import { useRouter } from "next/router";
-import { getAllPages, getPage, getPostsForHome } from "../../lib/api";
+import {
+  getAllPages,
+  getNavigation,
+  getPage,
+  getPostsForHome,
+} from "../../lib/api";
 import AnimationRevealPage from "../../helpers/AnimationRevealPage";
 import CTA from "../../components/cta";
-
 import NotFoundPage from "../404";
 import PostBody from "../../components/post/post-body";
 import BreadCrumb from "../../components/breadcrumb";
 import RecentPosts from "../../components/recent-posts";
 
-const Page = ({ page, posts }) => {
+const Page = ({ page, posts, navigations }) => {
   const router = useRouter();
   if (!router.isFallback && !page) {
     return <NotFoundPage />;
   }
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       {router.isFallback ? (
         <h1>Loading ...</h1>
       ) : (
@@ -37,13 +41,15 @@ const Page = ({ page, posts }) => {
 
 export default Page;
 export async function getStaticProps({ params, locale }) {
-  const data = await getPage(params.slug);
+  const data = await getPage(params.slug, locale);
   const posts = (await getPostsForHome(locale)) ?? [];
+  const navigations = (await getNavigation()) ?? [];
 
   return {
     props: {
       page: data ?? null,
       posts,
+      navigations,
     },
     revalidate: 1,
   };

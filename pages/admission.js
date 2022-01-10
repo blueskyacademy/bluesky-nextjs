@@ -4,11 +4,12 @@ import { useHashFragment } from "../hooks/useHashFragment";
 import CTA from "../components/cta";
 import AdmissionHero from "../components/admission-hero";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
+import { getNavigation } from "../lib/api";
 
-export default function Admission() {
+export default function Admission({ navigations }) {
   useHashFragment();
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       <AnimationRevealPage>
         <AdmissionHero />
         <Step
@@ -22,4 +23,11 @@ export default function Admission() {
       </AnimationRevealPage>
     </Layout>
   );
+}
+export async function getStaticProps() {
+  const navigations = (await getNavigation()) ?? [];
+  return {
+    props: { navigations },
+    revalidate: 1,
+  };
 }

@@ -48,7 +48,7 @@ const AboutHero = () => {
           <div className="aspect-w-3 aspect-h-2 sm:aspect-w-16 sm:aspect-h-9">
             <img
               className="object-cover w-full h-full shadow-xl rounded-3xl"
-              src="images/pricipal.jpeg"
+              src="/images/pricipal.jpeg"
               alt="preschool"
             />
           </div>

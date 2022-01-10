@@ -3,10 +3,11 @@ import ContactHero from "../components/contact-hero";
 import ContactInformation from "../components/contact-information";
 import CTA from "../components/cta";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
+import { getNavigation } from "../lib/api";
 
-export default function Contact() {
+export default function Contact({ navigations }) {
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       <AnimationRevealPage>
         <div>
           <ContactHero />
@@ -16,4 +17,11 @@ export default function Contact() {
       </AnimationRevealPage>
     </Layout>
   );
+}
+export async function getStaticProps() {
+  const navigations = (await getNavigation()) ?? [];
+  return {
+    props: { navigations },
+    revalidate: 1,
+  };
 }

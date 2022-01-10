@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Layout from "../components/layout";
-const NotFoundPage = () => {
+import { getNavigation } from "../lib/api";
+const NotFoundPage = ({ navigations }) => {
   return (
-    <div>
-      <Layout>
+    <>
+      <Layout navigations={navigations}>
         <section className="pt-20 pb-32">
           <div className="container text-center">
             <img
@@ -41,8 +42,15 @@ const NotFoundPage = () => {
           </div>
         </section>
       </Layout>
-    </div>
+    </>
   );
 };
 
 export default NotFoundPage;
+export async function getStaticProps() {
+  const navigations = (await getNavigation()) ?? [];
+  return {
+    props: { navigations },
+    revalidate: 1,
+  };
+}

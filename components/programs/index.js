@@ -21,7 +21,7 @@ const Programs = ({ id }) => {
           <div className="mt-16 md:mt-72 md:grid md:grid-cols-2 md:gap-8 lg:gap-16">
             <div className="relative">
               <img
-                src="svg/curved-dotted-line.svg"
+                src="/svg/curved-dotted-line.svg"
                 className="absolute top-0 hidden -translate-y-1/2 md:block left-1/2"
                 style={{ width: `calc(50 % + 4rem)` }}
               />
@@ -40,7 +40,7 @@ const Programs = ({ id }) => {
                     <div className="relative mt-8 aspect-w-3 aspect-h-2">
                       <img
                         className="object-cover rounded-2xl"
-                        src="images/primary.png"
+                        src="/images/primary.png"
                         alt="Program 01"
                       />
                     </div>
@@ -77,7 +77,7 @@ const Programs = ({ id }) => {
               </div>
 
               <img
-                src="svg/looped-dotted-line.svg"
+                src="/svg/looped-dotted-line.svg"
                 className="hidden md:block absolute bottom-0 left-1/2 translate-y-[90%]"
                 style={{ width: `calc(50 % + 4rem)` }}
               />
@@ -96,7 +96,7 @@ const Programs = ({ id }) => {
                   <div className="relative mt-8 aspect-w-3 aspect-h-2">
                     <img
                       className="object-cover rounded-2xl"
-                      src="images/kindergarten.png"
+                      src="/images/kindergarten.png"
                       alt="Program 02"
                     />
                   </div>
@@ -147,7 +147,7 @@ const Programs = ({ id }) => {
                   <div className="relative mt-8 aspect-w-3 aspect-h-2">
                     <img
                       className="object-cover rounded-2xl"
-                      src="images/secondary.png"
+                      src="/images/secondary.png"
                       alt="Program 03"
                     />
                   </div>

@@ -5,11 +5,12 @@ import CTA from "../../components/cta";
 import { useHashFragment } from "../../hooks/useHashFragment";
 import Certificate from "../../components/certificate";
 import Pathway from "../../components/pathway";
+import { getNavigation } from "../../lib/api";
 
-export default function ProgramPage() {
+export default function ProgramPage({ navigations }) {
   useHashFragment();
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       <Certificate />
       <Pathway />
 
@@ -19,4 +20,11 @@ export default function ProgramPage() {
       </div>
     </Layout>
   );
+}
+export async function getStaticProps() {
+  const navigations = (await getNavigation()) ?? [];
+  return {
+    props: { navigations },
+    revalidate: 1,
+  };
 }

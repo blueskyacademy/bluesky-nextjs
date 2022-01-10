@@ -6,12 +6,12 @@ const Letter = ({ id }) => {
       <div className="absolute inset-y-0 right-0 w-full max-w-screen-xl ml-auto bg-purple-600 rounded-l-5xl"></div>
 
       <img
-        src="svg/dots-chaos.svg"
+        src="/svg/dots-chaos.svg"
         className="absolute bottom-0 right-0 z-10 hidden h-auto transform 2xl:block w-80"
         alt=""
       />
       <img
-        src="svg/dots-strip.svg"
+        src="/svg/dots-strip.svg"
         className="absolute z-10 hidden h-auto transform 2xl:block top-1 right-20 w-36"
         alt=""
       />
@@ -20,18 +20,18 @@ const Letter = ({ id }) => {
         <div className="relative grid gap-12 lg:grid-cols-2 2xl:gap-4 lg:pr-10 2xl:pr-0">
           <div className="relative grid order-2 w-full max-w-2xl grid-cols-2 gap-3 mx-auto lg:order-1 sm:gap-6 lg:py-32 lg:max-w-none">
             <img
-              src="svg/dots-purple-mess.svg"
+              src="/svg/dots-purple-mess.svg"
               className="absolute hidden transform lg:block top-12 -right-16 2xl:right-0 "
               alt=""
             />
             <img
-              src="images/dots-grid.svg"
+              src="/images/dots-grid.svg"
               className="absolute top-0 hidden h-auto transform translate-y-12 right-2 w-80"
               alt=""
             />
             <div className="col-span-2 transform aspect-w-3 aspect-h-4 2xl:-translate-x-16">
               <img
-                src="images/kindergarten.png"
+                src="/images/kindergarten.png"
                 className="object-cover w-full h-full rounded-3xl 2xl:rounded-4xl"
                 alt="Program description 01"
               />
@@ -39,7 +39,7 @@ const Letter = ({ id }) => {
             <div className="transform 2xl:-translate-x-16">
               <div className="aspect-w-1 aspect-h-1">
                 <img
-                  src="images/primary.png"
+                  src="/images/primary.png"
                   className="object-cover w-full h-full rounded-3xl 2xl:rounded-4xl"
                   alt="Program description 02"
                 />
@@ -48,7 +48,7 @@ const Letter = ({ id }) => {
             <div className="transform 2xl:-translate-x-16">
               <div className="aspect-w-1 aspect-h-1">
                 <img
-                  src="images/secondary.png"
+                  src="/images/secondary.png"
                   className="object-cover w-full h-full rounded-3xl 2xl:rounded-4xl"
                   alt="Program description 03"
                 />

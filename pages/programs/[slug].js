@@ -1,6 +1,10 @@
 import Layout from "../../components/layout";
 import { useRouter } from "next/router";
-import { getAllSchoolDivisions, getSchoolDivision } from "../../lib/api";
+import {
+  getAllSchoolDivisions,
+  getNavigation,
+  getSchoolDivision,
+} from "../../lib/api";
 import ClassHero from "../../components/class-hero";
 import Reason from "../../components/reason";
 import Stats from "../../components/stats";
@@ -10,13 +14,13 @@ import DivisionTeam from "../../components/division-team";
 import NotFoundPage from "../404";
 import CarouselImages from "../../components/carousel-images";
 
-const Class = ({ division }) => {
+const Class = ({ division, navigations }) => {
   const router = useRouter();
   if (!router.isFallback && !division) {
     return <NotFoundPage />;
   }
   return (
-    <Layout>
+    <Layout navigations={navigations}>
       {router.isFallback ? (
         <h1>Loading ...</h1>
       ) : (
@@ -43,10 +47,12 @@ const Class = ({ division }) => {
 export default Class;
 export async function getStaticProps({ params }) {
   const data = await getSchoolDivision(params.slug);
+  const navigations = (await getNavigation()) ?? [];
 
   return {
     props: {
       division: data ?? null,
+      navigations,
     },
     revalidate: 1,
   };
