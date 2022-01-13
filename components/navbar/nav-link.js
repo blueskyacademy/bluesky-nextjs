@@ -8,8 +8,8 @@ export function NavLink({ href, title, ...props }) {
       : pathname.startsWith(href === "/" ? "home" : href);
   if (!href) {
     return (
-      <div className="relative p-0.5 group">
-        <span className="relative z-10 text-lg font-medium text-purple-700 duration-300 ease-in-out group-hover:text-purple-600">
+      <div className="relative group">
+        <span className="relative z-10 text-lg font-medium text-purple-700 duration-300 ease-in-out group-hover:text-purple-600 whitespace-nowrap">
           {title}
         </span>
         <span
@@ -23,8 +23,8 @@ export function NavLink({ href, title, ...props }) {
   return (
     <Link href={href}>
       <a {...props}>
-        <div className="relative p-0.5 group">
-          <span className="relative z-10 text-lg font-medium text-purple-700 duration-300 ease-in-out group-hover:text-purple-600">
+        <div className="relative group">
+          <span className="relative z-10 text-lg font-medium text-purple-700 duration-300 ease-in-out group-hover:text-purple-600 whitespace-nowrap">
             {title}
           </span>
           <span

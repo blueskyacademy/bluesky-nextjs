@@ -1,5 +1,6 @@
 import { useState } from "react";
 import VideoHero from "../video-hero";
+import { useIntl } from "react-intl";
 
 const Gallery = ({ src, title, link }) => {
   return (
@@ -67,6 +68,7 @@ const ImagesGrid = ({ galleries }) => {
 };
 
 const GalleryGrid = ({ videos, galleries }) => {
+  const { formatMessage: f } = useIntl();
   const [showImages, setShowImages] = useState(true);
 
   return (
@@ -74,7 +76,10 @@ const GalleryGrid = ({ videos, galleries }) => {
       <div className="px-4 pt-20 bg-purple-25 sm:pt-28 lg:pt-36 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <h3 className="max-w-2xl mx-auto mb-10 text-center text-purple-900 sm:mb-12 md:mb-20 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-            {`See what it's like to be part of our school`}
+            {f({
+              id: "Gallery.SeeWhatItIsLikeToBePartOfOurSchool",
+              defaultMessage: "See what it's like to be part of our school",
+            })}
           </h3>
           <ul className="flex flex-wrap items-center justify-center -my-2 space-x-2 text-sm font-medium sm:space-x-4 lg:space-x-6">
             <li className="my-2">
@@ -86,7 +91,10 @@ const GalleryGrid = ({ videos, galleries }) => {
                 } rounded-full hover:bg-purple-500 hover:text-white`}
                 onClick={() => setShowImages(true)}
               >
-                Images
+                {f({
+                  id: "Gallery.Images",
+                  defaultMessage: "Images",
+                })}
               </button>
             </li>
             <li className="my-2">

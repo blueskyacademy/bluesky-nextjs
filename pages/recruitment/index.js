@@ -16,7 +16,7 @@ export default function Recruitment({ allJobs, navigations }) {
 }
 export async function getStaticProps({ locale }) {
   const allJobs = (await getAllJobs(locale)) ?? [];
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
   return {
     props: { allJobs, navigations },
     revalidate: 1,

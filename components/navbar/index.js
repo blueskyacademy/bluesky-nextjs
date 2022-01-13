@@ -3,82 +3,6 @@ import DropdownLink from "./dropdown-link";
 import { useState } from "react";
 import { SubNav } from "./sub-nav";
 
-const MENU = [
-  {
-    title: "Home",
-    slug: "home",
-    path: "/",
-    subPages: [
-      {
-        title: "Program Education",
-        href: "/#program",
-      },
-      {
-        title: "Gallery",
-        href: "/#gallery",
-      },
-      {
-        title: "Parents",
-        href: "/#parents",
-      },
-      {
-        title: "FAQ",
-        href: "/#faq",
-      },
-    ],
-  },
-  {
-    title: "About us",
-    slug: "about",
-    path: "/about",
-    subPages: [
-      {
-        title: "Vision & Mission",
-        href: "/about#vision",
-      },
-      {
-        title: "Core Values",
-        href: "/about#core",
-      },
-      {
-        title: "Message from Principal",
-        href: "/about#message",
-      },
-      {
-        title: "Co-founders",
-        href: "/about#founder",
-      },
-    ],
-  },
-  { title: "Teachers", slug: "teachers", path: "/teachers" },
-  { title: "Gallery", slug: "gallery", path: "/gallery" },
-  {
-    title: "Programs",
-    slug: "Programs",
-    path: "/programs",
-    subPages: [
-      {
-        title: "Kindergarten",
-        href: "/programs/kindergarten",
-      },
-      {
-        title: "Primary",
-        href: "/programs/primary",
-      },
-      {
-        title: "Secondary",
-        href: "/programs/secondary",
-      },
-    ],
-  },
-  { title: "News", slug: "posts", path: "/posts" },
-  { title: "Parents", slug: "parents", path: "/parents" },
-  { title: "Schedules", slug: "schedules", path: "/schedules" },
-  { title: "Admission", slug: "admission", path: "/admission" },
-  { title: "Careers", slug: "recruitment", path: "recruitment" },
-  { title: "Contact", slug: "contact", path: "/contact" },
-];
-
 const formatNavigations = (navigations = []) => {
   const result = [];
   for (let item of navigations) {
@@ -135,7 +59,7 @@ const formatNavigations = (navigations = []) => {
         };
         result.push(newNavigation);
         break;
-      case "program":
+      case "programs":
         newNavigation = {
           ...item,
           subPages: [
@@ -175,7 +99,6 @@ const Navbar = ({ navigations }) => {
   };
   const [currentSlug, setCurrentSlug] = useState(pathname.slice(1) || "home");
   const renderNavigations = formatNavigations(navigations);
-  console.log("renderNavigations", renderNavigations);
 
   return (
     <div className="bg-transparent sticky-bar">

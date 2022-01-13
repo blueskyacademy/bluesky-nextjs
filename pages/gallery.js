@@ -21,7 +21,7 @@ export default function GalleryPage({ videos, galleries, navigations }) {
 export async function getStaticProps({ locale }) {
   const videos = (await getVideoForHome()) ?? [];
   const galleries = (await getGalleries(locale)) ?? [];
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: { videos, galleries, navigations },

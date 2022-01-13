@@ -31,7 +31,7 @@ export default function JobPage({ job, navigations }) {
 }
 export async function getStaticProps({ params, locale }) {
   const data = await getJob(params.slug, locale);
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: {

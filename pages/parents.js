@@ -26,7 +26,7 @@ export default function Parents({ testimonials, classes, navigations }) {
 export async function getStaticProps({ locale }) {
   const testimonials = (await getTestimonials(locale)) ?? [];
   const classes = (await getClasses()) ?? [];
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: { testimonials, classes, navigations },

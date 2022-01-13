@@ -3,7 +3,11 @@ import CTA from "../../../components/cta";
 import Layout from "../../../components/layout";
 import Pagination from "../../../components/pagination";
 import PostList from "../../../components/post-list";
-import { getPaginatedPosts, getTotalPostNumber } from "../../../lib/api";
+import {
+  getNavigation,
+  getPaginatedPosts,
+  getTotalPostNumber,
+} from "../../../lib/api";
 import { POSTS_PER_PAGE } from "../../../lib/constant";
 
 export default function PostsIndexPage({
@@ -48,7 +52,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ locale, params }) {
   const postSummaries = await getPaginatedPosts(locale, params.page);
   const totalPages = Math.ceil(postSummaries.total / POSTS_PER_PAGE);
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: {

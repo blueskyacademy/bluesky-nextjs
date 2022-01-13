@@ -14,8 +14,8 @@ const Apply = ({ navigations }) => {
 };
 
 export default Apply;
-export async function getStaticProps() {
-  const navigations = (await getNavigation()) ?? [];
+export async function getStaticProps({ locale }) {
+  const navigations = (await getNavigation(locale)) ?? [];
   return {
     props: { navigations },
     revalidate: 1,

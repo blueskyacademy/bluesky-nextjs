@@ -47,8 +47,8 @@ export default function Home({ allPosts, testimonials, faq, navigations }) {
 export async function getStaticProps({ locale }) {
   const allPosts = (await getPostsForHome(locale)) ?? [];
   const testimonials = (await getTestimonials(locale)) ?? [];
-  const faq = (await getFaq()) ?? [];
-  const navigations = (await getNavigation()) ?? [];
+  const faq = (await getFaq(locale)) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
   return {
     props: { allPosts, testimonials, faq, navigations },
     revalidate: 1,

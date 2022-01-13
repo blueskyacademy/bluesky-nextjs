@@ -3,7 +3,6 @@ import { useState } from "react";
 import { NavLink } from "./nav-link";
 
 const DropdownLink = ({ title, slug, path, subPages = [] }) => {
-  console.log("subPages", subPages);
   return (
     <div className="dropdown group">
       <NavLink href={path} title={title}></NavLink>
@@ -16,12 +15,12 @@ const DropdownLink = ({ title, slug, path, subPages = [] }) => {
             {subPages.map((item, idx) => (
               <div key={`submenu-${idx}`}>
                 <Link
-                  href={`${item?.href ? item.href : `/pages/${item.slug}`}`}
-                  key={`${item.title}-${idx}`}
+                  href={`${item?.href ? item.href : `/pages/${item?.slug}`}`}
+                  key={`${item?.title}-${idx}`}
                 >
                   <a className="block w-full py-3 transition duration-200 ease-in-out rounded-xl sm:px-5 hover:bg-purple-25 group">
                     <h5 className="text-md font-semibold text-purple-600 whitespace-pre-wrap">
-                      {item.title}
+                      {item?.title}
                     </h5>
                   </a>
                 </Link>
