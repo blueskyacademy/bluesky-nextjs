@@ -5,7 +5,7 @@ import Stats from "../components/stats";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
 import { getNavigation, getTeachers } from "../lib/api";
 import CTA from "../components/cta";
-import Founders from "../components/founders";
+import { useIntl } from "react-intl";
 
 const STATS = [
   {
@@ -41,14 +41,20 @@ const TEACHER_IMAGES = [
   "/images/secondary.png",
 ];
 export default function About({ teachers, navigations }) {
+  const { formatMessage: f } = useIntl();
   return (
     <Layout navigations={navigations}>
       <AnimationRevealPage>
         <GalleryHero
-          title="Our teachers"
-          description={
-            "At Blue Sky Academy, we pride ourselves on the quality of our teachers. We commit to creating a positive classroom experience for all students, no matter their learning needs."
-          }
+          title={f({
+            id: "Teacher.OurTeachers",
+            defaultMessage: "Our Teacher",
+          })}
+          description={f({
+            id: "Teacher.WePrideOurselves",
+            defaultMessage:
+              "At Blue Sky Academy, we pride ourselves on the quality of our teachers. We commit to creating a positive classroom experience for all students, no matter their learning needs.",
+          })}
           images={TEACHER_IMAGES}
         />
         <Stats stats={STATS} />
@@ -61,7 +67,7 @@ export default function About({ teachers, navigations }) {
 }
 export async function getStaticProps({ locale }) {
   const teachers = (await getTeachers(locale)) ?? [];
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: { teachers, navigations },

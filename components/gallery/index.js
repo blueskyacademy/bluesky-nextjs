@@ -1,4 +1,4 @@
-export const Gallery = ({ id, title, description }) => {
+export const Gallery = () => {
   return (
     <section className="relative px-4 pt-16 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25">
       <div className="max-w-screen-xl mx-auto">

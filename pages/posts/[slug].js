@@ -57,7 +57,7 @@ export default function Post({ post, morePosts, navigations }) {
 }
 export async function getStaticProps({ params, locale }) {
   const data = await getPostAndMorePosts(params.slug, locale);
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: {

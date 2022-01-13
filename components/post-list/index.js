@@ -9,7 +9,7 @@ const PostList = ({ posts }) => {
           {posts.map((post, idx) => (
             <div
               className={`w-full ${
-                idx == 1 ? "lg:w-2/3" : "lg:w-1/3"
+                idx == 0 ? "lg:w-2/3" : "lg:w-1/3"
               } px-3 mb-12 hover-up-5`}
               key={`post-${idx}`}
             >

@@ -43,7 +43,7 @@ export default Page;
 export async function getStaticProps({ params, locale }) {
   const data = await getPage(params.slug, locale);
   const posts = (await getPostsForHome(locale)) ?? [];
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: {

@@ -39,7 +39,7 @@ const StepCard = ({ index, title, content }) => {
     </div>
   );
 };
-const Step = ({ id, heading, subHeading }) => {
+const Step = ({ id }) => {
   const STEPS = [
     {
       title: "Consultation",
@@ -79,7 +79,7 @@ const Step = ({ id, heading, subHeading }) => {
             <span className="relative">
               <img
                 className="absolute inset-0 transform translate-y-9 sm:translate-y-14 xl:translate-y-14"
-                src="svg/underline-simple-light-purple.svg"
+                src="/svg/underline-simple-light-purple.svg"
               />
               <span className="relative">Process to apply </span>
             </span>

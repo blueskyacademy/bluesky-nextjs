@@ -45,9 +45,9 @@ const Class = ({ division, navigations }) => {
 };
 
 export default Class;
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const data = await getSchoolDivision(params.slug);
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: {

@@ -16,9 +16,9 @@ const Schedules = ({ classes, navigations }) => {
 };
 
 export default Schedules;
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   const classes = (await getClasses()) ?? [];
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: { classes, navigations },

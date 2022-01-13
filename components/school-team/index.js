@@ -1,13 +1,35 @@
 import { useState } from "react";
+import { useIntl } from "react-intl";
 
 const DEPARTMENTS = [
-  "School Leader Ship",
-  "Teaching Faculty Leadership",
-  "Kindergarten",
-  "Primary & Secondary Teachers",
-  "Cambridge Programs Division",
-  "Art & Physical Division",
-  "Support Staff",
+  {
+    title: "School Leader Ship",
+    id: "Teacher.SchoolLeaderShip",
+  },
+  {
+    title: "Teaching Faculty Leadership",
+    id: "Teacher.TeachingFacultyLeadership",
+  },
+  {
+    title: "Kindergarten",
+    id: "Teacher.Kindergarten",
+  },
+  {
+    title: "Primary & Secondary Teachers",
+    id: "Teacher.PrimarySecondary",
+  },
+  {
+    title: "Cambridge Programs Division",
+    id: "Teacher.CambridgeProgram",
+  },
+  {
+    title: "Art & Physical Division",
+    id: "Teacher.ArtPhysicalDivision",
+  },
+  {
+    title: "Support Staff",
+    id: "Teacher.SupportStaff",
+  },
 ];
 const PersonCard = ({ image, name, role }) => {
   return (
@@ -34,7 +56,7 @@ const PersonList = ({ persons }) => {
     <div className="grid gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
       {persons?.map((item, idx) => (
         <PersonCard
-          key={`person-${idx}`}
+          key={`person-${item?.name}-${idx}`}
           name={item.name}
           role={item.role}
           image={item.photo.url}
@@ -54,6 +76,7 @@ const formatPersonsByDepartment = (persons) => {
   return result;
 };
 const SchoolTeam = ({ teachers }) => {
+  const { formatMessage: f } = useIntl();
   const [selectedDepartment, setSelectedDepartment] =
     useState("School Leader Ship");
   const result = formatPersonsByDepartment(teachers);
@@ -63,7 +86,10 @@ const SchoolTeam = ({ teachers }) => {
         <div className="max-w-2xl mx-auto lg:max-w-screen-xl">
           <div className="flex items-center">
             <h3 className="max-w-4xl text-white sm:text-center text-4xl leading-tight tracking-wide sm:text-5xl xl:text-6xl sm:leading-tighter font-bold lg:text-left">
-              Meet the awesome teachers
+              {f({
+                id: "Teacher.MeetTheAwesomeTeacher",
+                defaultMessage: "Meet the awesome teachers",
+              })}
             </h3>
           </div>
         </div>
@@ -73,10 +99,10 @@ const SchoolTeam = ({ teachers }) => {
           <ul className="grid grid-cols-3">
             {DEPARTMENTS.map((item) => (
               <li
-                key={item}
-                onClick={() => setSelectedDepartment(item)}
+                key={item.title}
+                onClick={() => setSelectedDepartment(item.title)}
                 className={
-                  selectedDepartment === item
+                  selectedDepartment === item.title
                     ? "text-yellow-400 py-2 font-bold"
                     : "py-2 text-white"
                 }
@@ -84,7 +110,9 @@ const SchoolTeam = ({ teachers }) => {
                 <a
                   className={`transition-colors duration-300 text-xl  hover:text-yellow-400 cursor-pointer`}
                 >
-                  {item}
+                  {f({
+                    id: item.id,
+                  })}
                 </a>
               </li>
             ))}

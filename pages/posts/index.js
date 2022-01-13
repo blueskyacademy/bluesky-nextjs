@@ -27,7 +27,7 @@ export default function Posts({
 export async function getStaticProps({ locale }) {
   const postSummaries = await getPaginatedPosts(locale, 1);
   const totalPages = Math.ceil(postSummaries.total / POSTS_PER_PAGE);
-  const navigations = (await getNavigation()) ?? [];
+  const navigations = (await getNavigation(locale)) ?? [];
 
   return {
     props: {
