@@ -90,7 +90,7 @@ const formatNavigations = (navigations = []) => {
   }
   return result;
 };
-const Navbar = ({ navigations }) => {
+const Navbar = ({ navigations, className }) => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
   const [active, setActive] = useState(false);
@@ -101,18 +101,133 @@ const Navbar = ({ navigations }) => {
   const renderNavigations = formatNavigations(navigations);
 
   return (
-    <div className="bg-transparent sticky-bar">
+    <div className={className}>
       <div className="max-w-screen-xl mx-auto">
-        <nav className="bg-transparent flex justify-between items-center">
+        <div className="flex justify-between border-b border-purple-200/30">
           <a>
             <img
-              className="h-28"
-              src="/images/logo-blue-text-small.png"
+              className="h-24 rounded"
+              //src="/images/logo-blue-text-small.png"
+              src="/images/logo.png"
               alt=""
             />
           </a>
           <div>
-            <div className="flex flex-row-reverse mb-4">
+            <ul className="flex mt-2 space-x-6 pt-2">
+              <li className="flex flex-shrink max-w-xs">
+                <div>
+                  <span
+                    className="
+                flex
+                items-center
+                justify-center
+                bg-yellow-400
+                rounded-2xl
+                 w-9
+                h-9
+              "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6 text-purple-700"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <circle cx="12" cy="11" r="3" />
+                      <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                    </svg>
+                  </span>
+                </div>
+                <div className="flex-1 mt-2 ml-2 xl:ml-2">
+                  <h5 className="flex items-center text-base text-purple-900">
+                    Le Loi, Vinh City, Nghe An, Vietnam
+                  </h5>
+                </div>
+              </li>
+
+              <li className="flex flex-shrink-0">
+                <div>
+                  <span
+                    className="
+                flex
+                items-center
+                justify-center
+                bg-purple-200
+                rounded-2xl
+                 w-9
+                h-9
+              "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6 text-purple-700"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <polyline points="3 7 12 13 21 7" />
+                    </svg>
+                  </span>
+                </div>
+                <div className="flex-1 ml-2 xl:ml-2 mt-2">
+                  <h5 className="flex items-center text-base text-purple-900">
+                    bluesky@edu.vn
+                  </h5>
+                </div>
+              </li>
+
+              <li className="flex flex-shrink-0">
+                <div>
+                  <span
+                    className="
+                flex
+                items-center
+                justify-center
+                rounded-2xl
+                w-9
+                h-9
+                bg-rose-200
+              "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6 text-purple-700"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                    </svg>
+                  </span>
+                </div>
+                <div className="flex-1 ml-2 xl:ml-2 mt-2">
+                  <h5 className="flex items-center text-base text-purple-900">
+                    +84 238 357 9779
+                  </h5>
+                </div>
+              </li>
+            </ul>
+            <div className="flex flex-row-reverse mt-4">
               <img
                 className="px-2"
                 style={{ height: 24, cursor: "pointer" }}
@@ -130,23 +245,23 @@ const Navbar = ({ navigations }) => {
                 }
               />
             </div>
+          </div>
+        </div>
 
-            <div
-              className={`items-center justify-between hidden lg:flex md:space-x-2 lg:space-x-4`}
-            >
-              {renderNavigations?.map((item, idx) => (
-                <div
-                  key={`menu-${item.path}-${idx}`}
-                  onClick={() => setCurrentSlug(item.slug)}
-                >
-                  <DropdownLink
-                    title={item.title}
-                    path={item.path}
-                    subPages={item?.subPages}
-                  />
-                </div>
-              ))}
-            </div>
+        <nav className="bg-transparent mt-3 pt-3">
+          <div className={`items-center justify-between hidden lg:flex`}>
+            {renderNavigations?.map((item, idx) => (
+              <div
+                key={`menu-${item.path}-${idx}`}
+                onClick={() => setCurrentSlug(item.slug)}
+              >
+                <DropdownLink
+                  title={item.title}
+                  path={item.path}
+                  subPages={item?.subPages}
+                />
+              </div>
+            ))}
           </div>
 
           <div className="lg:hidden">

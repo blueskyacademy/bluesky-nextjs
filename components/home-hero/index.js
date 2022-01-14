@@ -44,7 +44,7 @@ const HomeHero = () => {
   };
   return (
     <>
-      <section className="px-4 py-16 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-bluesky-50">
+      <section className="px-4 py-16 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-25 to-purple-50">
         <div className="max-w-screen-xl mx-auto lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="flex flex-col items-center justify-center lg:items-start lg:col-span-6">
             <div>

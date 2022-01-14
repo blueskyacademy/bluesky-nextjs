@@ -3,7 +3,7 @@ import Link from "next/link";
 const Programs = ({ id }) => {
   return (
     <div id={id}>
-      <div className="px-4 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8 bg-gradient-to-b from-bluesky-50 to-white">
+      <div className="px-4 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8 bg-yellow-100">
         <div className="max-w-xl mx-auto md:max-w-screen-xl">
           <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-12 ">
             <div>

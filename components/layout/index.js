@@ -4,10 +4,10 @@ import Footer from "../footer";
 import Navbar from "../navbar";
 import Navigation from "../navigation";
 
-export default function Layout({ children, navigations = [] }) {
+export default function Layout({ children, navigations = [], className }) {
   return (
     <>
-      <Navbar navigations={navigations} />
+      <Navbar navigations={navigations} className={className} />
       <main>{children}</main>
       <Facebook />
       <Footer />
