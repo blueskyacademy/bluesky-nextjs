@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
+import { useIntl } from "react-intl";
 
 const VideoPopup = ({ showPopup, onClose }) => {
   const wrapperRef = useRef(null);
@@ -38,33 +40,42 @@ const VideoPopup = ({ showPopup, onClose }) => {
 };
 
 const HomeHero = () => {
+  const { formatMessage: f } = useIntl();
   const [showPopup, setShowPopup] = useState(false);
   const handleWatchVideo = () => {
     setShowPopup(true);
   };
   return (
-    <>
+    <div>
       <section className="px-4 py-16 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-25 to-purple-50">
         <div className="max-w-screen-xl mx-auto lg:grid lg:grid-cols-12 lg:gap-8">
-          <div className="flex flex-col items-center justify-center lg:items-start lg:col-span-6">
-            <div>
-              {/* <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1 animate-fade-in-down">
-                Welcome to Blue Sky Academy
-              </span> */}
-            </div>
+          <motion.div
+            className="flex flex-col items-center justify-center lg:items-start lg:col-span-6"
+            initial={{ y: "50%", opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <h1 className="max-w-xl mt-4 text-center text-purple-900 sm:mt-5 lg:text-left h1 lg:max-w-none text-6xl leading-snug sm:leading-tight xl:leading-tighter font-extrabold ">
-              Creating a brighter future for your child
+              {f({
+                id: "Home.CreateABrighterFutureForYourChild",
+                defaultMessage: "Creating a brighter future for your child",
+              })}
             </h1>
             <p className="max-w-2xl mt-3 text-xl leading-loose text-center text-purple-800 lg:text-left">
-              At BSA School, we believe every child deserves a brighter future.
-              and strive to give every student a personalized education that
-              will promote their individual strengths and creativity.
+              {f({
+                id: "Home.SloganHero",
+                defaultMessage: `Blue Sky Academy believes that empowering our students to absorb knowledge and sharpen their skills will create an organic relationship between school, family and society.`,
+              })}
             </p>
 
             <div className="flex flex-col items-center mt-8 overflow-hidden sm:flex-row">
               <Link href="/about">
                 <a className="text-lg font-semibold text-purple-900 bg-yellow-500 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group">
-                  About us
+                  {f({
+                    id: "Home.AboutUs",
+                    defaultMessage: "About us",
+                  })}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-6 h-6 ml-3 group-hover:animate-horizontal-bounce"
@@ -104,14 +115,20 @@ const HomeHero = () => {
                     </g>
                   </g>
                 </svg>
-                Watch video
+                {f({
+                  id: "Home.WatchVideo",
+                  defaultMessage: "Watch Video",
+                })}
               </button>
             </div>
 
             <p className="hidden text-sm font-medium tracking-wider text-purple-900 uppercase sm:block lg:hidden xl:block mt-14">
-              Cambrigde International School
+              {f({
+                id: "Home.CambrigdeInternationalSchool",
+                defaultMessage: "Cambrigde International School",
+              })}
             </p>
-          </div>
+          </motion.div>
           <div className="flex flex-col justify-center max-w-3xl mx-auto mt-16 lg:mt-0 lg:max-w-none lg:col-span-6">
             <div className="relative">
               <img
@@ -148,7 +165,7 @@ const HomeHero = () => {
         </div>
       </section>
       <VideoPopup showPopup={showPopup} onClose={() => setShowPopup(false)} />
-    </>
+    </div>
   );
 };
 

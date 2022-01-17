@@ -44,19 +44,19 @@ export default function About({ teachers, navigations }) {
   const { formatMessage: f } = useIntl();
   return (
     <Layout navigations={navigations}>
+      <GalleryHero
+        title={f({
+          id: "Teacher.OurTeachers",
+          defaultMessage: "Our Teacher",
+        })}
+        description={f({
+          id: "Teacher.WePrideOurselves",
+          defaultMessage:
+            "At Blue Sky Academy, we pride ourselves on the quality of our teachers. We commit to creating a positive classroom experience for all students, no matter their learning needs.",
+        })}
+        images={TEACHER_IMAGES}
+      />
       <AnimationRevealPage>
-        <GalleryHero
-          title={f({
-            id: "Teacher.OurTeachers",
-            defaultMessage: "Our Teacher",
-          })}
-          description={f({
-            id: "Teacher.WePrideOurselves",
-            defaultMessage:
-              "At Blue Sky Academy, we pride ourselves on the quality of our teachers. We commit to creating a positive classroom experience for all students, no matter their learning needs.",
-          })}
-          images={TEACHER_IMAGES}
-        />
         <Stats stats={STATS} />
         <SchoolTeam teachers={teachers} />
 

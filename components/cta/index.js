@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { useIntl } from "react-intl";
 
 const CTA = ({ hasButton = true }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <section className="py-24 bg-white sm:py-32">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
@@ -24,7 +26,10 @@ const CTA = ({ hasButton = true }) => {
           {hasButton && (
             <Link href="/contact">
               <a className="text-lg font-semibold text-purple-900 bg-yellow-500 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group">
-                Register now
+                {f({
+                  id: "Home.RegisterNow",
+                  defaultMessage: "Register now",
+                })}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-6 h-6 ml-3 group-hover:animate-horizontal-bounce"

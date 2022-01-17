@@ -14,8 +14,10 @@ import AnimationRevealPage from "../helpers/AnimationRevealPage";
 import HomeHero from "../components/home-hero";
 import CTA from "../components/cta";
 import Feedback from "../components/feedback";
+import { useIntl } from "react-intl";
 
 export default function Home({ allPosts, testimonials, faq, navigations }) {
+  const { formatMessage: f } = useIntl();
   useHashFragment();
   const GALLERY_IMAGES = [
     "/images/primary.png",
@@ -27,15 +29,22 @@ export default function Home({ allPosts, testimonials, faq, navigations }) {
   return (
     <Layout navigations={navigations} className="bg-purple-25">
       <HomeHero />
-      <div className="w-full h-20 sm:h-20 xl:h-20 bg-gradient-to-b from-purple-50 to-yellow-100"></div>
+      <div className="w-full h-20 sm:h-20 xl:h-20 bg-gradient-to-b from-purple-50 to-white"></div>
       <Programs id="program" />
       <GalleryHero
         id="gallery"
         className="md:-mt-72"
         hasButton={true}
         url="/gallery"
-        title="Our gallery"
-        description={`Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.`}
+        title={f({
+          id: "Home.OurGallery",
+          defaultMessage: "Our Gallery",
+        })}
+        description={f({
+          id: "Home.GallerySummary",
+          defaultMessage:
+            "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+        })}
         images={GALLERY_IMAGES}
       />
       <Events posts={allPosts} id="news" />

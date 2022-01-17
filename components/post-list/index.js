@@ -1,17 +1,33 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import DateComponent from "../date";
 
+const transition = { duration: 1, ease: "easeOut" };
+
 const PostList = ({ posts }) => {
+  const blogVariants = {
+    enter: { transition: { staggerChildren: 0.1 } },
+    exit: { transition: { staggerChildren: 0.1 } },
+  };
+
   return (
-    <section>
+    <motion.div
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      variants={blogVariants}
+    >
       <div className="container">
         <div className="flex flex-wrap -mx-3">
           {posts.map((post, idx) => (
-            <div
+            <motion.div
               className={`w-full ${
                 idx == 0 ? "lg:w-2/3" : "lg:w-1/3"
-              } px-3 mb-12 hover-up-5`}
+              } px-3 mb-20 hover-up-5`}
               key={`post-${idx}`}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, transition }}
+              viewport={{ once: true }}
             >
               <a href="#">
                 <img
@@ -36,14 +52,14 @@ const PostList = ({ posts }) => {
                 </Link>
 
                 <p className="text-gray-800 leading-loose">
-                  {post?.excerpt.slice(0, 150)}...
+                  {idx === 0 ? post.excerpt : post?.excerpt.slice(0, 150)}...
                 </p>
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 
