@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { useIntl } from "react-intl";
 
 const GalleryHero = ({
   id,
@@ -9,34 +11,52 @@ const GalleryHero = ({
   url,
   images,
 }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <div id={id} className={className}>
       <section className="px-4 pt-12 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
-          <div className="relative">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <h2 className="max-w-3xl mx-auto text-center text-purple-900 text-5xl font-bold">
               {title}
             </h2>
+
             <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
               {description}
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-flow-row-dense grid-cols-2 gap-2 sm:grid-cols-3 mt- sm:mt-12 lg:mt-12 sm:gap-3 md:gap-4 lg:gap-6">
             {images?.map((item, idx) => (
-              <img
+              <motion.img
                 key={`image-hero-${item}-${idx}`}
                 className={`object-cover w-full rounded-2xl lg:h-80 h-30vw ${
                   idx == 1 && "col-span-2"
                 }`}
                 alt="School grid 01"
                 src={item}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
+                initial={{ y: "50%", opacity: 0 }}
+                whileInView={{ y: "0", opacity: 1 }}
               />
             ))}
           </div>
 
           {hasButton && (
-            <div className="flex justify-center mt-12 sm:mt-16">
+            <motion.div
+              className="flex justify-center mt-12 sm:mt-16"
+              viewport={{ once: true }}
+              transition={{ duration: 1.6 }}
+              initial={{ y: "50%", opacity: 0 }}
+              whileInView={{ y: "0", opacity: 1 }}
+            >
               <Link href={url}>
                 <button className="text-lg font-medium text-purple-900 bg-purple-200 sm:mt-0 sm:ml-6 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:text-white hover:bg-purple-600 group">
                   <svg
@@ -55,10 +75,13 @@ const GalleryHero = ({
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <line x1="5" y1="12" x2="19" y2="12" />
                   </svg>
-                  View more
+                  {f({
+                    id: "Home.ViewMore",
+                    defaultMessage: "View More",
+                  })}
                 </button>
               </Link>
-            </div>
+            </motion.div>
           )}
         </div>
       </section>

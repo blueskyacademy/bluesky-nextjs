@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import React from "react";
 import DateComponent from "../date";
+import { useIntl } from "react-intl";
 
 const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
   const BACKGROUND_COLORS = {
@@ -9,8 +11,12 @@ const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
     3: "bg-teal-50",
   };
   return (
-    <div
+    <motion.div
       className={`grid w-full ${BACKGROUND_COLORS[idx]} rounded-2xl sm:grid-cols-12`}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
+      initial={{ y: "50%", opacity: 0 }}
+      whileInView={{ y: "0", opacity: 1 }}
     >
       {idx % 2 === 0 && (
         <div className="h-48 rounded-t-2xl sm:h-full sm:rounded-tr-none sm:rounded-l-2xl sm:col-span-4">
@@ -44,27 +50,38 @@ const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
           />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
 const Events = ({ id, posts }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <section
       id={id}
       className="relative w-full px-4 py-16 sm:py-24 sm:px-6 lg:px-8"
     >
       <div className="max-w-2xl mx-auto lg:max-w-screen-xl animate-fade-in-up">
-        <div>
+        <motion.div
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          initial={{ y: "50%", opacity: 0 }}
+          whileInView={{ y: "0", opacity: 1 }}
+        >
           <h2 className="text-purple-900 lg:text-center text-5xl font-bold">
-            News &amp; Events
+            {f({
+              id: "Home.NewsAndEvents",
+              defaultMessage: "News and Events",
+            })}
           </h2>
-          <p className="max-w-2xl mx-auto mt-3 text-xl leading-relaxed text-purple-800 lg:mt-4 lg:text-center">
-            Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-            dui. Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-            sem.
+          <p className="max-w-3xl mx-auto mt-3 text-xl leading-relaxed text-purple-800 lg:mt-4 lg:text-center">
+            {f({
+              id: "Home.NewsSummary",
+              defaultMessage:
+                "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+            })}
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-12 lg:grid lg:grid-cols-2 lg:gap-6 xl:gap-8 sm:mt-16">
           {posts?.map((post, idx) => (

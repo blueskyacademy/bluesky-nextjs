@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
+import { useIntl } from "react-intl";
 
 const Question = ({ question, answer }) => {
   const [showAnswer, setShowAnswer] = useState(false);
@@ -39,17 +41,29 @@ const Question = ({ question, answer }) => {
   );
 };
 const Faq = ({ id, faq }) => {
+  const { formatMessage: f } = useIntl();
   return (
-    <section className="py-20 bg-yellow-100 sm:py-28" id={id}>
+    <motion.section
+      className="py-20 bg-yellow-100 sm:py-28"
+      id={id}
+      transition={{ duration: 1 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+    >
       <div className="px-4 mx-auto lg:max-w-screen-lg sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 className="text-purple-900 text-5xl font-bold">
-            Frequently asked questions
+            {f({
+              id: "Home.FrequentlyAskedQuestions",
+              defaultMessage: "Frequently asked questions",
+            })}
           </h2>
           <p className="max-w-2xl mt-4 text-xl leading-relaxed text-purple-800 lg:text-left">
-            Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-            dui. Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-            sem.
+            {f({
+              id: "Home.FAQSummary",
+              defaultMessage:
+                "Blue Sky Academy answers the most frequently asked private school questions regarding our community and admissions process",
+            })}
           </p>
         </div>
         <ul className="relative mt-12 space-y-6">
@@ -74,7 +88,7 @@ const Faq = ({ id, faq }) => {
           ))}
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

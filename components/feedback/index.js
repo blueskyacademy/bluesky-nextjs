@@ -1,6 +1,15 @@
+import { motion } from "framer-motion";
+import { useIntl } from "react-intl";
+
 const TestimonialCard = ({ content, img, title, description }) => {
   return (
-    <blockquote className="px-8 py-8 transition duration-300 ease-in-out bg-yellow-200 sm:px-6 md:px-8 lg:px-5 2xl:px-8 rounded-3xl">
+    <motion.div
+      className="px-8 py-8 transition duration-300 ease-in-out bg-yellow-200 sm:px-6 md:px-8 lg:px-5 2xl:px-8 rounded-3xl"
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+    >
       <img
         src={img}
         className="object-cover w-20 h-20 border-2 border-yellow-300 rounded-full filter drop-shadow-2xl"
@@ -52,24 +61,36 @@ const TestimonialCard = ({ content, img, title, description }) => {
       </div>
 
       <p className="mt-5 text-lg text-purple-800">{content}</p>
-    </blockquote>
+    </motion.div>
   );
 };
 
 const Feedback = ({ id, testimonials }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <section id={id} className="py-20 bg-purple-600 sm:py-20 lg:py-20 md:mt-12">
       <div className="px-4 mx-auto lg:max-w-screen-2xl sm:px-6">
-        <div className="flex flex-col items-center justify-center">
+        <motion.div
+          className="flex flex-col items-center justify-center"
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          initial={{ y: "50%", opacity: 0 }}
+          whileInView={{ y: "0", opacity: 1 }}
+        >
           <h2 className="max-w-4xl text-center text-white text-5xl sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-            See what parents are saying about us
+            {f({
+              id: "Home.ParentFeedback",
+              defaultMessage: "See what parents are saying about us",
+            })}
           </h2>
           <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-50">
-            Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-            dui. Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-            sem.
+            {f({
+              id: "Home.ParentFeedbackSummary",
+              defaultMessage:
+                "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+            })}
           </p>
-        </div>
+        </motion.div>
         <div className="grid gap-8 mt-12 md:gap-8 sm:gap-6 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 xl:grid-cols-4 sm:grid-cols-2 2xl:gap-12 lg:gap-6">
           {testimonials.map((item, idx) => (
             <TestimonialCard
