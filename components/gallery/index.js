@@ -1,20 +1,30 @@
+import { useIntl } from "react-intl";
 export const Gallery = () => {
+  const { formatMessage: f } = useIntl();
   return (
     <section className="relative px-4 pt-16 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25">
       <div className="max-w-screen-xl mx-auto">
         <div className="relative">
           <div className="flex justify-center">
             <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
-              Creating memories for students
+              {f({
+                id: "Gallery.CreatingMemoriesForStudents",
+                defaultMessage: "Creating memories for students",
+              })}
             </span>
           </div>
           <h2 className="max-w-3xl mx-auto mt-4 text-center text-purple-900 font-extrabold text-4xl sm:text-6xl xl:text-7xl leading-snug sm:leading-tight xl:leading-tighter">
-            {`See what our students' experience looks like`}
+            {f({
+              id: "Gallery.SeeWhatOurStudentsExperienceLooksLike",
+              defaultMessage: "See what our students' experience looks like",
+            })}
           </h2>
           <p className="max-w-2xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean
-            et tortor at risus viverra adipiscing at in.
+            {f({
+              id: "Gallery.GallerySummary",
+              defaultMessage:
+                "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+            })}
           </p>
         </div>
 

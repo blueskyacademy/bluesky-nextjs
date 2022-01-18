@@ -1,27 +1,41 @@
 import Link from "next/link";
+import { useIntl } from "react-intl";
 
 const RecruitmentHero = () => {
+  const { formatMessage: f } = useIntl();
   return (
     <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 py-6 items-center justify-center flex-col">
         <div className="text-center lg:w-2/3 w-full">
           <h2 className="sm:text-5xl text-5xl mb-4 font-bold text-purple-900">
-            {`Let’s Work Together`}
+            {f({
+              id: "Recruitment.JoinOurTeam",
+              defaultMessage: "Join Our Team",
+            })}
           </h2>
           <p className="mb-6 leading-relaxed">
-            Join us at Blue Sky Academy today and discover the difference
-            between a job and career.
+            {f({
+              id: "Recruitment.WeOfferAFriendlyProfessionalWorkStructureLongTermPositions",
+              defaultMessage:
+                "We offer a friendly & professional work structure & long-term positions.",
+            })}
           </p>
           <div className="flex justify-center">
             <Link href="/recruitment#jobs">
               <a className="mt-6 text-lg font-medium text-white bg-indigo-600 sm:mt-0 sm:ml-6 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:text-white hover:bg-purple-600 group cursor-pointer mr-3">
-                View open positions
+                {f({
+                  id: "Recruitment.ViewOpenPositions",
+                  defaultMessage: "View open positions",
+                })}
               </a>
             </Link>
 
             <Link href="/apply">
               <a className="text-lg font-semibold text-purple-900 bg-yellow-500 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group">
-                Apply online
+                {f({
+                  id: "Recruitment.ApplyOnline",
+                  defaultMessage: "Apply online",
+                })}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-6 h-6 ml-3 group-hover:animate-horizontal-bounce"

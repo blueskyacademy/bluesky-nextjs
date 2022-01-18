@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { SERVICE } from "../register-form";
+import { useIntl } from "react-intl";
 
 const RegisterHero = () => {
+  const { formatMessage: f } = useIntl();
   return (
     <section className="relative px-4 py-16 overflow-hidden lg:py-20 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25">
       <img
@@ -17,13 +19,19 @@ const RegisterHero = () => {
         <div className="flex flex-col justify-center lg:col-span-5">
           <div>
             <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
-              Now register with BSA
+              {f({
+                id: "Parent.NowRegisterWithBSA",
+                defaultMessage: "Now register with BSA",
+              })}
             </span>
           </div>
 
           <div className="relative">
             <h1 className="max-w-xl mt-10 text-purple-900 sm:mt-10 font-extrabold text-5xl sm:text-6xl xl:text-7xl leading-snug sm:leading-tight xl:leading-tighter lg:max-w-none">
-              Get in touch
+              {f({
+                id: "Parent.GetInTouch",
+                defaultMessage: "Get in touch",
+              })}
             </h1>
 
             <img
@@ -34,9 +42,11 @@ const RegisterHero = () => {
           </div>
 
           <p className="max-w-2xl mt-3 text-xl leading-loose text-purple-800 sm:mt-4">
-            Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum
-            porta. Praesent sapien massa, convallis a pellentesque nec, egestas
-            non nisi.
+            {f({
+              id: "Parent.GetInTouchSummary",
+              defaultMessage:
+                "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+            })}
           </p>
         </div>
 
@@ -66,10 +76,17 @@ const RegisterHero = () => {
                   </svg>
 
                   <p className="mt-4 text-xl font-semibold text-purple-900">
-                    School Visit Registration
+                    {f({
+                      id: "Parent.SchoolVisitRegistration",
+                      defaultMessage: "School Visit Registration",
+                    })}
                   </p>
                   <p className="mt-2 text-sm text-purple-800">
-                    Register BSA school visit tour from Mon to Fri
+                    {f({
+                      id: "Parent.RegisterBSASchoolVisitTour",
+                      defaultMessage:
+                        "Register BSA school visit tour from Mon to Fri",
+                    })}
                   </p>
                 </div>
 
@@ -122,10 +139,17 @@ const RegisterHero = () => {
                     <line x1="12" y1="5" x2="12" y2="10" />
                   </svg>
                   <p className="mt-4 text-xl font-semibold text-purple-900">
-                    Bus Service Registration
+                    {f({
+                      id: "Parent.BusServiceRegistration",
+                      defaultMessage: "Bus Service Registration",
+                    })}
                   </p>
                   <p className="mt-2 text-sm text-purple-800">
-                    Choose the bus service for your child conveniently
+                    {f({
+                      id: "Parent.ChooseTheBusServiceForYourChild",
+                      defaultMessage:
+                        "Choose the bus service for your child conveniently",
+                    })}
                   </p>
                 </div>
 
@@ -176,10 +200,17 @@ const RegisterHero = () => {
                     <line x1="11" y1="18" x2="20" y2="18" />
                   </svg>
                   <p className="mt-4 text-xl font-semibold text-purple-900">
-                    Entrance Exam Registration
+                    {f({
+                      id: "Parent.EntranceExamRegistration",
+                      defaultMessage: "Entrance Exam Registration",
+                    })}
                   </p>
                   <p className="mt-2 text-sm text-purple-800">
-                    Confidently choose the best program for your child
+                    {f({
+                      id: "Parent.ConfidentlyChooseTheBestProgramForYourChild",
+                      defaultMessage:
+                        "Confidently choose the best program for your child",
+                    })}
                   </p>
                 </div>
 
@@ -232,10 +263,17 @@ const RegisterHero = () => {
                   </svg>
 
                   <p className="mt-4 text-xl font-semibold text-purple-900">
-                    Weekly Schedule
+                    {f({
+                      id: "Schedule.WeeklySchedule",
+                      defaultMessage: "Weekly Schedule",
+                    })}
                   </p>
                   <p className="mt-2 text-sm text-purple-800">
-                    {`Easily update weekly timetable and meal menu`}
+                    {f({
+                      id: "Parent.EasilyUpdateWeeklyTimetable",
+                      defaultMessage:
+                        "Easily update weekly timetable and meal menu",
+                    })}
                   </p>
                 </div>
 
@@ -286,10 +324,16 @@ const RegisterHero = () => {
                   </svg>
 
                   <p className="mt-4 text-xl font-semibold text-purple-900">
-                    School Gallery
+                    {f({
+                      id: "Parent.SchoolGallery",
+                      defaultMessage: "School Gallery",
+                    })}
                   </p>
                   <p className="mt-2 text-sm text-purple-800">
-                    View our school gallery and video
+                    {f({
+                      id: "Parent.ViewOurSchoolGalleryAndVideo",
+                      defaultMessage: "View our school gallery and video",
+                    })}
                   </p>
                 </div>
 

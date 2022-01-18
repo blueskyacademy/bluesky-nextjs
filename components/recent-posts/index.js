@@ -1,7 +1,9 @@
 import Link from "next/link";
 import DateComponent from "../date";
+import { useIntl } from "react-intl";
 
 const RecentPosts = ({ recentPosts }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <section>
       <div className="pl-12 py-12 mx-auto">
@@ -15,7 +17,10 @@ const RecentPosts = ({ recentPosts }) => {
             </div>
             <div className="relative flex justify-start">
               <span className="pr-3 text-lg font-medium text-neutral-600 bg-white">
-                News
+                {f({
+                  id: "Home.NewsAndEvents",
+                  defaultMessage: "News and Events",
+                })}
               </span>
             </div>
           </div>

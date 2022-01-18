@@ -8,9 +8,11 @@ import {
   FORMAT_DATE_DISPLAY,
   BUS_SERVICE,
 } from "../../lib/constant";
+import { useIntl } from "react-intl";
 
 const BusForm = ({ classes }) => {
   const [form, setForm] = useState({});
+  const { formatMessage: f } = useIntl();
   const [selectedOption, setSelectedOption] = useState(BUS_SERVICE.twoWay);
   const [isLoading, setIsLoading] = useState(false);
   const [statusForm, setStatusForm] = useState();
@@ -80,7 +82,12 @@ const BusForm = ({ classes }) => {
       {value ? (
         value
       ) : (
-        <p className="text-purple-700 opacity-70">Please choose a date</p>
+        <p className="text-purple-700 opacity-70">
+          {f({
+            id: "Form.PleaseChooseADate",
+            defaultMessage: "Please choose a date",
+          })}
+        </p>
       )}
       <div>
         <svg
@@ -104,7 +111,10 @@ const BusForm = ({ classes }) => {
     <div style={{ minHeight: "800px" }}>
       <div className="flex items-center flex-col">
         <h3 className="text-2xl font-bold text-purple-900">
-          Bus Service Registration
+          {f({
+            id: "Parent.BusServiceRegistration",
+            defaultMessage: "Bus Service Registration",
+          })}
         </h3>
         <p className="text-purple-800 mt-0.5 text-opacity-90"></p>
       </div>
@@ -121,12 +131,24 @@ const BusForm = ({ classes }) => {
           </svg>
           <div className="text-center">
             <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
-              Submit done!
+              {f({
+                id: "Form.SubmitDone",
+                defaultMessage: "Submit done!",
+              })}
             </h3>
             <p className="text-gray-600 my-2">
-              Thank you. Our staff will call you soon
+              {f({
+                id: "Form.ThankYou",
+                defaultMessage: "Thank you. Our staff will call you soon",
+              })}
             </p>
-            <p> Have a great day! </p>
+            <p>
+              {" "}
+              {f({
+                id: "Form.HaveAGreatDay",
+                defaultMessage: "Have a great day!",
+              })}{" "}
+            </p>
           </div>
         </div>
       ) : (
@@ -134,7 +156,10 @@ const BusForm = ({ classes }) => {
           <div className="md:grid md:grid-cols-3 md:gap-2">
             <div className="md:col-span-1">
               <h3 className="text-purple-900 font-medium mt-2">
-                Student Information
+                {f({
+                  id: "Form.StudentInformation",
+                  defaultMessage: "Student Information",
+                })}
               </h3>
             </div>
             <div className="md:col-span-2">
@@ -144,11 +169,18 @@ const BusForm = ({ classes }) => {
                     htmlFor="fullNameStudent"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Full Name *
+                    {f({
+                      id: "Form.FullName",
+                      defaultMessage: "Full Name",
+                    })}
+                    *
                   </label>
                   <input
                     type="text"
-                    placeholder="Fullname"
+                    placeholder={f({
+                      id: "Form.FullName",
+                      defaultMessage: "Full Name",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     required
                     id="fullNameStudent"
@@ -161,7 +193,11 @@ const BusForm = ({ classes }) => {
                     htmlFor="dateOfBirth"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Date of birth *
+                    {f({
+                      id: "Form.DateOfBirth",
+                      defaultMessage: "Date of birth",
+                    })}{" "}
+                    *
                   </label>
                   <DatePickerCustomHeader
                     selected={dateOfBirth}
@@ -177,8 +213,14 @@ const BusForm = ({ classes }) => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="mt-6">
                   <Dropdown
-                    title="Current Grade *"
-                    placeholder="Please select a grade"
+                    title={`${f({
+                      id: "Form.CurrentGrade",
+                      defaultMessage: "Current Grade",
+                    })} *`}
+                    placeholder={f({
+                      id: "Form.PleaseSelectAGrade",
+                      defaultMessage: "Please select a grade",
+                    })}
                     options={classes}
                     value={form?.currentGrade}
                     handleChange={(value) => handleChangeGrade(value)}
@@ -193,7 +235,15 @@ const BusForm = ({ classes }) => {
           <div className="md:grid md:grid-cols-3 md:gap-2">
             <div className="md:col-span-1">
               <h3 className="text-purple-900 font-medium mt-6">
-                {`Student's Parent`} <br /> {`/ Guardian Information`}
+                {f({
+                  id: "Form.StudentParent",
+                  defaultMessage: "Student's Parent",
+                })}{" "}
+                <br />{" "}
+                {`/ ${f({
+                  id: "Form.GuardianInformation",
+                  defaultMessage: "Guardian Information",
+                })}`}
               </h3>
             </div>
             <div className="md:col-span-2">
@@ -203,7 +253,11 @@ const BusForm = ({ classes }) => {
                     htmlFor="fullNameParent"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Fullname *
+                    {f({
+                      id: "Form.FullName",
+                      defaultMessage: "Full Name",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="fullNameParent"
@@ -211,7 +265,10 @@ const BusForm = ({ classes }) => {
                     onChange={handleChangeForm}
                     required
                     type="text"
-                    placeholder="Full name"
+                    placeholder={f({
+                      id: "Form.FullName",
+                      defaultMessage: "Full Name",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                   />
                 </div>
@@ -220,13 +277,20 @@ const BusForm = ({ classes }) => {
                     htmlFor="relationship"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Relationship to the student *
+                    {f({
+                      id: "Form.RelationshipToTheStudent",
+                      defaultMessage: "Relationship to the student",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="relationship"
                     type="text"
                     name="relationship"
-                    placeholder="Enter relationship"
+                    placeholder={f({
+                      id: "Form.RelationshipToTheStudent",
+                      defaultMessage: "Relationship to the student",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     required
                     onChange={handleChangeForm}
@@ -239,7 +303,11 @@ const BusForm = ({ classes }) => {
                     htmlFor="phone"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Phone *
+                    {f({
+                      id: "Form.Phone",
+                      defaultMessage: "Phone",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="phoneNumber"
@@ -247,7 +315,10 @@ const BusForm = ({ classes }) => {
                     onChange={handleChangeForm}
                     required
                     type="text"
-                    placeholder="Phone number"
+                    placeholder={f({
+                      id: "Form.Phone",
+                      defaultMessage: "Phone",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                   />
                 </div>
@@ -256,13 +327,20 @@ const BusForm = ({ classes }) => {
                     htmlFor="email"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Email *
+                    {f({
+                      id: "Form.Email",
+                      defaultMessage: "Email",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="email"
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder={f({
+                      id: "Form.Email",
+                      defaultMessage: "Email",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     required
                     onChange={handleChangeForm}
@@ -276,7 +354,10 @@ const BusForm = ({ classes }) => {
           <div className="md:grid md:grid-cols-3 md:gap-2">
             <div className="md:col-span-1">
               <h3 className="text-purple-900 font-medium mt-6">
-                Bus Service Detail
+                {f({
+                  id: "Form.BusServiceDetail",
+                  defaultMessage: "Bus Service Detail",
+                })}{" "}
               </h3>
             </div>
             <div className="md:col-span-2">
@@ -288,8 +369,14 @@ const BusForm = ({ classes }) => {
                       BUS_SERVICE.pickup,
                       BUS_SERVICE.drop,
                     ]}
-                    title="Select an option"
-                    placeholder="Choose an option"
+                    title={f({
+                      id: "Form.SelectAnOption",
+                      defaultMessage: "Select an option",
+                    })}
+                    placeholder={f({
+                      id: "Form.ChooseAnOption",
+                      defaultMessage: "Choose an option",
+                    })}
                     value={selectedOption}
                     handleChange={(item) => setSelectedOption(item)}
                   />
@@ -303,7 +390,11 @@ const BusForm = ({ classes }) => {
                       htmlFor="pickupAddress"
                       className="ml-0.5 text-purple-900 font-medium text-sm"
                     >
-                      Pick-up address *
+                      {f({
+                        id: "Form.PickUpAddress",
+                        defaultMessage: "Pick up address",
+                      })}{" "}
+                      *
                     </label>
                     <input
                       id="pickupAddress"
@@ -311,7 +402,10 @@ const BusForm = ({ classes }) => {
                       onChange={handleChangeForm}
                       required
                       type="text"
-                      placeholder="Enter pickup address"
+                      placeholder={f({
+                        id: "Form.PickUpAddress",
+                        defaultMessage: "Pick up address",
+                      })}
                       className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     />
                   </div>
@@ -323,13 +417,20 @@ const BusForm = ({ classes }) => {
                       htmlFor="dropOffAdress"
                       className="ml-0.5 text-purple-900 font-medium text-sm"
                     >
-                      Drop-off address *
+                      {f({
+                        id: "Form.DropOffAddress",
+                        defaultMessage: "Drop-off address",
+                      })}{" "}
+                      *
                     </label>
                     <input
                       id="dropoffAdress"
                       type="text"
                       name="dropoffAdress"
-                      placeholder="Enter drop off adress"
+                      placeholder={f({
+                        id: "Form.DropOffAddress",
+                        defaultMessage: "Drop-off address",
+                      })}
                       className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                       required
                       onChange={handleChangeForm}
@@ -342,7 +443,11 @@ const BusForm = ({ classes }) => {
                   htmlFor="dateTime"
                   className="ml-0.5 text-purple-900 font-medium text-sm"
                 >
-                  Start Date *
+                  {f({
+                    id: "Form.StartDate",
+                    defaultMessage: "Start Date",
+                  })}{" "}
+                  *
                 </label>
 
                 <DatePicker
@@ -368,9 +473,11 @@ const BusForm = ({ classes }) => {
                   className="form-check-label text-gray-800 ml-2 text-sm"
                   htmlFor="flexCheckChecked"
                 >
-                  We hear by agree to pay tuition and other related school fees
-                  by the due date and ensure that our child(ren) and family
-                  follow all Blue Sky Acadmy policies and rules.
+                  {f({
+                    id: "Form.Checkbox",
+                    defaultMessage:
+                      "We hear by agree to pay tuition and other related school fees by the due date and ensure that our child(ren) and family follow all Blue Sky Acadmy policies and rules.",
+                  })}{" "}
                 </label>
               </div>
             </div>
@@ -384,10 +491,19 @@ const BusForm = ({ classes }) => {
               {isLoading ? (
                 <>
                   <div className="loading-circle animate-spin ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mr-2"></div>
-                  <span>Processing...</span>
+                  <span>
+                    {f({
+                      id: "Form.Processing",
+                      defaultMessage: "Processing",
+                    })}
+                    ...
+                  </span>
                 </>
               ) : (
-                "Submit"
+                f({
+                  id: "Form.SendMessage",
+                  defaultMessage: "Send message",
+                })
               )}
             </button>
           </div>

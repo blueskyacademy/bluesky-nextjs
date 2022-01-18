@@ -59,7 +59,6 @@ export default function About({ teachers, navigations }) {
       <AnimationRevealPage>
         <Stats stats={STATS} />
         <SchoolTeam teachers={teachers} />
-
         <CTA />
       </AnimationRevealPage>
     </Layout>

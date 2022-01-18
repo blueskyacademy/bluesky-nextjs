@@ -1,10 +1,17 @@
+import { useIntl } from "react-intl";
 const Reason = ({ reasons }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <section className="relative w-full px-4 py-12 sm:py-16 sm:px-6 xl:px-8">
       <div className="max-w-xl mx-auto lg:max-w-screen-xl pb-16">
         <div className="px-4 pb-6 text-center sm:px-6 lg:px-8">
           <h3 className="text-purple-900 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-            <span className="block">Why parents </span>
+            <span className="block">
+              {f({
+                id: "Program.WhyParents",
+                defaultMessage: "Why parents",
+              })}
+            </span>
 
             <span className="relative block">
               <span className="relative">
@@ -12,7 +19,12 @@ const Reason = ({ reasons }) => {
                   className="absolute inset-0 transform translate-y-9 sm:translate-y-10 xl:translate-y-12"
                   src="/svg/underline-simple-light-purple.svg"
                 />
-                <span className="relative">should choose BSA</span>
+                <span className="relative">
+                  {f({
+                    id: "Program.ShouldChooseBSA",
+                    defaultMessage: "should choose BSA",
+                  })}
+                </span>
               </span>
             </span>
           </h3>
@@ -43,8 +55,11 @@ const Reason = ({ reasons }) => {
             </span>
             <div className="px-4 py-10 mt-2 sm:px-10 sm:py-12">
               <p className="text-lg font-semibold text-purple-900 sm:text-xl">
-                At Blue Sky Academy, we pride ourselves on the quality of our
-                teaching. You can expect the following from our academy:
+                {f({
+                  id: "Program.WePrideOurselvesOnTheQuality",
+                  defaultMessage:
+                    "At Blue Sky Academy, we pride ourselves on the quality of our teaching. You can expect the following from our academy:",
+                })}
               </p>
 
               <ul className="mt-5 space-y-5 text-lg text-purple-800">

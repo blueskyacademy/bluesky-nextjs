@@ -6,28 +6,32 @@ import Intro from "../components/intro";
 import Layout from "../components/layout";
 import Letter from "../components/letter";
 import Values from "../components/values";
-import AnimationRevealPage from "../helpers/AnimationRevealPage";
 import { useHashFragment } from "../hooks/useHashFragment";
-import { getNavigation } from "../lib/api";
+import { getNavigation, getParagraphs } from "../lib/api";
 
-export default function About({ navigations }) {
+export default function About({ navigations, visions, message, cofounders }) {
   useHashFragment();
   return (
     <Layout navigations={navigations}>
       <AboutHero />
-      <Intro id="vision" />
+      <Intro id="vision" visions={visions} />
       <Values id="core" />
       <DescriptionValues />
-      <Letter id="message" />
-      <Founders id="founder" />
+      <Letter id="message" message={message} />
+      <Founders id="founder" cofounders={cofounders} />
       <CTA />
     </Layout>
   );
 }
 export async function getStaticProps({ locale }) {
   const navigations = (await getNavigation(locale)) ?? [];
+  const {
+    visions = [],
+    message,
+    cofounders = [],
+  } = await getParagraphs(locale);
   return {
-    props: { navigations },
+    props: { navigations, visions, message, cofounders },
     revalidate: 1,
   };
 }
