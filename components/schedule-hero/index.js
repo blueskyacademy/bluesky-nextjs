@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { SCHEDULE_TYPE } from "../../lib/constant";
-import Dropdown from "../dropdown";
+import { useIntl } from "react-intl";
 import DropdownSearch from "../dropdown-search";
 import EmbedDocs from "../embed-docs";
 import LoadingSpinner from "../loading-spiner";
@@ -24,6 +24,7 @@ const Loading = () => {
 };
 
 const ScheduleHero = ({ classes }) => {
+  const { formatMessage: f } = useIntl();
   const [scheduleType, setScheduleType] = useState(SCHEDULE_TYPE.program);
   const [selectedClass, setSelectedClass] = useState();
   const [search, setSearch] = useState();
@@ -65,7 +66,10 @@ const ScheduleHero = ({ classes }) => {
       <div className="px-4 pt-10 sm:pt-10 lg:pt-10 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25">
         <div className="max-w-screen-xl mx-auto">
           <h3 className="max-w-2xl mx-auto mb-10 text-center text-purple-900 sm:mb-10 md:mb-10 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-            Weekly Schedule
+            {f({
+              id: "Schedule.WeeklySchedule",
+              defaultMessage: "Weekly Schedule",
+            })}
           </h3>
           <ul className="flex flex-wrap items-center justify-center -my-2 space-x-2 text-sm font-medium sm:space-x-4 lg:space-x-6">
             <li className="my-2">
@@ -77,7 +81,10 @@ const ScheduleHero = ({ classes }) => {
                 } rounded-full hover:bg-purple-500 hover:text-white`}
                 onClick={() => setScheduleType(SCHEDULE_TYPE.program)}
               >
-                Class Schedule
+                {f({
+                  id: "Schedule.ClassSchedule",
+                  defaultMessage: "Class Schedule",
+                })}
               </button>
             </li>
             <li className="my-2">
@@ -89,13 +96,22 @@ const ScheduleHero = ({ classes }) => {
                 } rounded-full hover:bg-purple-500 hover:text-white`}
                 onClick={() => setScheduleType(SCHEDULE_TYPE.meal)}
               >
-                Meal Menu
+                {f({
+                  id: "Schedule.MealMenu",
+                  defaultMessage: "Meal Menu",
+                })}
               </button>
             </li>
           </ul>
           <DropdownSearch
-            title="Select class"
-            placeholder="Please select a class"
+            title={f({
+              id: "Schedule.SelectClass",
+              defaultMessage: "Select Class",
+            })}
+            placeholder={f({
+              id: "Schedule.PleaseSelectAClass",
+              defaultMessage: "Please select a class",
+            })}
             options={classes}
             value={selectedClass}
             handleChange={handleChange}

@@ -1,3 +1,4 @@
+import { useIntl } from "react-intl";
 const PersonCard = ({ image, name, role }) => {
   return (
     <div>
@@ -34,13 +35,17 @@ const PersonList = ({ persons }) => {
 };
 
 const DivisionTeam = ({ teachers }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <section>
       <div className="px-4 pt-16 py-4 bg-purple-600 sm:pt-24 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-screen-xl">
           <div className="flex items-center">
             <h3 className="max-w-4xl text-white sm:text-center text-4xl leading-tight tracking-wide sm:text-5xl xl:text-6xl sm:leading-tighter font-bold lg:text-left">
-              Meet the awesome teachers
+              {f({
+                id: "Teacher.MeetTheAwesomeTeacher",
+                defaultMessage: "Meet the awesome teachers",
+              })}
             </h3>
           </div>
         </div>

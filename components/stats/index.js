@@ -1,3 +1,4 @@
+import { useIntl } from "react-intl";
 const StatCard = ({ label, value }) => {
   return (
     <div className="mt-12 text-center sm:mt-0">
@@ -12,13 +13,18 @@ const StatCard = ({ label, value }) => {
 };
 
 const Stats = ({ stats }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <div className="pt-16">
       <section className="relative w-full px-4 py-16 bg-purple-600 sm:py-24 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <div>
             <h2 className="max-w-4xl mx-auto text-center text-white text-4xl leading-tight tracking-wide sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-              Giving our students the best possible start to their education
+              {f({
+                id: "Teacher.GivingOurStudentsTheBestPossibleStartToTheirEducation",
+                defaultMessage:
+                  "Giving our students the best possible start to their education",
+              })}
             </h2>
           </div>
 

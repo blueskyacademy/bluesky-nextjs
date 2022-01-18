@@ -1,25 +1,71 @@
 import { getYear } from "date-fns";
 import Link from "next/link";
+import { useIntl } from "react-intl";
 export default function Footer() {
+  const { formatMessage: f } = useIntl();
   const year = getYear(new Date());
   const WEBSITE_LINKS = [
-    { title: "Teachers", slug: "teachers", path: "/teachers" },
-    { title: "Gallery", slug: "gallery", path: "/gallery" },
-    { title: "Programs", slug: "programs", path: "/programs" },
-    { title: "News", slug: "posts", path: "/posts" },
-    { title: "Parents", slug: "parents", path: "/parents" },
+    {
+      title: f({
+        id: "Home.Teachers",
+        defaultMessage: "Teachers",
+      }),
+      slug: "teachers",
+      path: "/teachers",
+    },
+    {
+      title: f({
+        id: "Home.OurGallery",
+        defaultMessage: "Our Gallery",
+      }),
+      slug: "gallery",
+      path: "/gallery",
+    },
+    {
+      title: f({
+        id: "Home.EducationProgram",
+        defaultMessage: "Education Program",
+      }),
+      slug: "programs",
+      path: "/programs",
+    },
+    {
+      title: f({
+        id: "Home.NewsAndEvents",
+        defaultMessage: "News and Events",
+      }),
+      slug: "posts",
+      path: "/posts",
+    },
+    {
+      title: f({
+        id: "Home.Parent",
+        defaultMessage: "Parent",
+      }),
+      slug: "parents",
+      path: "/parents",
+    },
   ];
   const PROGRAM_LINKS = [
     {
-      title: "Kindergarten",
+      title: f({
+        id: "Home.Kindergarten",
+        defaultMessage: "Kindergarten",
+      }),
       href: "/programs/kindergarten",
     },
     {
-      title: "Primary",
+      title: f({
+        id: "Home.PrimarySchool",
+        defaultMessage: "Primary School",
+      }),
       href: "/programs/primary",
     },
     {
-      title: "Secondary",
+      title: f({
+        id: "Home.Secondary",
+        defaultMessage: "Secondary",
+      }),
       href: "/programs/secondary",
     },
   ];
@@ -93,7 +139,12 @@ export default function Footer() {
         </div>
         <div className="flex-shrink sm:order-4 lg:order-none lg:col-span-2">
           <h6 className="relative text-xl font-bold tracking-wide text-purple-900">
-            <span className="relative z-20">Website Link</span>
+            <span className="relative z-20">
+              {f({
+                id: "Home.WebsiteLinks",
+                defaultMessage: "Website Links",
+              })}
+            </span>
             <span
               className="
             absolute
@@ -132,7 +183,12 @@ export default function Footer() {
         </div>
         <div className="flex-shrink sm:order-3 lg:order-none lg:col-span-2">
           <h6 className="relative text-xl font-bold tracking-wide text-purple-900">
-            <span className="relative z-20">Programs</span>
+            <span className="relative z-20">
+              {f({
+                id: "Home.EducationProgram",
+                defaultMessage: "Education Program",
+              })}
+            </span>
             <span
               className="
             absolute
@@ -171,7 +227,12 @@ export default function Footer() {
         </div>
         <div className="sm:order-2 lg:order-none lg:col-span-3 lg:mx-auto">
           <h6 className="relative text-xl font-bold tracking-wide text-purple-900">
-            <span className="relative z-20">Contact us</span>
+            <span className="relative z-20">
+              {f({
+                id: "Home.ContactUs",
+                defaultMessage: "Contact us",
+              })}
+            </span>
             <span
               className="
             absolute
@@ -222,7 +283,10 @@ export default function Footer() {
               </div>
               <div className="flex-1 mt-0 ml-3 xl:ml-4">
                 <h5 className="flex items-center text-base font-semibold text-purple-900">
-                  Address
+                  {f({
+                    id: "Home.Address",
+                    defaultMessage: "Address",
+                  })}
                 </h5>
                 <p
                   className="
@@ -232,7 +296,10 @@ export default function Footer() {
                 text-opacity-90
               "
                 >
-                  Le Loi, Vinh City, Nghe An, Vietnam
+                  {f({
+                    id: "Home.AddressDetail",
+                    defaultMessage: "Le Loi, Vinh City, Nghe An, Vietnam",
+                  })}
                 </p>
               </div>
             </li>
@@ -270,7 +337,10 @@ export default function Footer() {
               </div>
               <div className="flex-1 ml-3 xl:ml-4">
                 <h5 className="flex items-center text-base font-semibold text-purple-900">
-                  Email
+                  {f({
+                    id: "Home.Email",
+                    defaultMessage: "Email",
+                  })}
                 </h5>
                 <p
                   className="
@@ -317,7 +387,10 @@ export default function Footer() {
               </div>
               <div className="flex-1 ml-3 xl:ml-4">
                 <h5 className="flex items-center text-base font-semibold text-purple-900">
-                  Phone
+                  {f({
+                    id: "Home.Phone",
+                    defaultMessage: "Phone",
+                  })}
                 </h5>
                 <p
                   className="

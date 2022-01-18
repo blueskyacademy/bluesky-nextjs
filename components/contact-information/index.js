@@ -1,11 +1,16 @@
+import { useIntl } from "react-intl";
 const ContactInformation = () => {
+  const { formatMessage: f } = useIntl();
   return (
     <section className="relative w-full px-4 pt-56 bg-white -mb-52 -translate-y-52 sm:pt-64 lg:pt-72 sm:px-6 lg:px-8">
       <div className="max-w-xl mx-auto lg:max-w-screen-xl">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 xl:gap-32">
           <div className="flex items-center">
             <h2 className="max-w-4xl text-purple-900 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-              Contact information
+              {f({
+                id: "Home.ContactUs",
+                defaultMessage: "Contact us",
+              })}
             </h2>
           </div>
         </div>
@@ -35,10 +40,16 @@ const ContactInformation = () => {
               </div>
               <div className="flex-1 ml-6 sm:mt-3 lg:mt-0 sm:ml-0 lg:ml-6">
                 <h5 className="flex items-center text-xl font-semibold text-purple-900">
-                  Address
+                  {f({
+                    id: "Home.Address",
+                    defaultMessage: "Address",
+                  })}
                 </h5>
                 <p className="mt-1.5 text-base text-purple-800 leading-relaxed">
-                  Le Loi, Vinh City, Nghe An, Vietnam
+                  {f({
+                    id: "Home.AddressDetail",
+                    defaultMessage: "Le Loi, Vinh City, Nghe An, Vietnam",
+                  })}
                 </p>
               </div>
             </div>
@@ -68,7 +79,10 @@ const ContactInformation = () => {
               </div>
               <div className="flex-1 ml-6 sm:mt-3 lg:mt-0 sm:ml-0 lg:ml-6">
                 <h5 className="flex items-center text-xl font-semibold text-purple-900">
-                  Email us
+                  {f({
+                    id: "Home.Email",
+                    defaultMessage: "Email",
+                  })}
                 </h5>
                 <p className="mt-1.5 text-base text-purple-800 leading-relaxed">
                   bluesky@edu.vn
@@ -100,7 +114,10 @@ const ContactInformation = () => {
               </div>
               <div className="flex-1 ml-6 sm:mt-3 lg:mt-0 sm:ml-0 lg:ml-6">
                 <h5 className="flex items-center text-xl font-semibold text-purple-900">
-                  Call us
+                  {f({
+                    id: "Home.Phone",
+                    defaultMessage: "Phone",
+                  })}
                 </h5>
                 <p className="mt-1.5 text-base text-purple-800 leading-relaxed">
                   +84 238 357 9779

@@ -5,8 +5,10 @@ import { addDays, format, setHours, setMinutes } from "date-fns";
 import { GENDER, RETEST_OPTIONS } from "../../lib/constant";
 import DatePickerCustomHeader from "../date-picker-custom-header";
 import { calculateDisableDays } from "../../lib/helper";
+import { useIntl } from "react-intl";
 
 const ExamForm = () => {
+  const { formatMessage: f } = useIntl();
   const [form, setForm] = useState({});
   const [reTestOption, setReTestOption] = useState(RETEST_OPTIONS.no);
   const [gender, setGender] = useState(GENDER.female);
@@ -66,7 +68,10 @@ const ExamForm = () => {
         value
       ) : (
         <p className="text-purple-700 opacity-70">
-          Please choose from 2PM to 4PM on every Wednesday
+          {f({
+            id: "Form.PleaseChooseFrom2PMTo4PMOnEveryWednesday",
+            defaultMessage: "Please choose from 2PM to 4PM on every Wednesday",
+          })}
         </p>
       )}
       <div>
@@ -91,10 +96,16 @@ const ExamForm = () => {
     <div style={{ minHeight: "800px" }}>
       <div className="flex items-center flex-col">
         <h3 className="text-2xl font-bold text-purple-900">
-          Entrance Exam Registration
+          {f({
+            id: "Parent.EntranceExamRegistration",
+            defaultMessage: "Entrance Exam Registration",
+          })}
         </h3>
         <p className="text-purple-800 mt-0.5 text-opacity-90">
-          Please register the entrance exam on every Wednesday from 2PM - 4PM
+          {f({
+            id: "Form.PleaseChooseFrom2PMTo4PMOnEveryWednesday",
+            defaultMessage: "Please choose from 2PM to 4PM on every Wednesday",
+          })}
         </p>
       </div>
       {statusForm === "success" ? (
@@ -110,12 +121,24 @@ const ExamForm = () => {
           </svg>
           <div className="text-center">
             <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
-              Submit done!
+              {f({
+                id: "Form.SubmitDone",
+                defaultMessage: "Submit done!",
+              })}
             </h3>
             <p className="text-gray-600 my-2">
-              Thank you. Our staff will call you soon
+              {f({
+                id: "Form.ThankYou",
+                defaultMessage: "Thank you. Our staff will call you soon",
+              })}
             </p>
-            <p> Have a great day! </p>
+            <p>
+              {" "}
+              {f({
+                id: "Form.HaveAGreatDay",
+                defaultMessage: "Have a great day!",
+              })}{" "}
+            </p>
           </div>
         </div>
       ) : (
@@ -123,7 +146,10 @@ const ExamForm = () => {
           <div className="md:grid md:grid-cols-3 md:gap-2">
             <div className="md:col-span-1">
               <h3 className="text-purple-900 font-medium mt-2">
-                Student Information
+                {f({
+                  id: "Form.StudentInformation",
+                  defaultMessage: "Student Information",
+                })}
               </h3>
             </div>
             <div className="md:col-span-2">
@@ -133,12 +159,19 @@ const ExamForm = () => {
                     htmlFor="fullNameStudent"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Fullname
+                    {f({
+                      id: "Form.FullName",
+                      defaultMessage: "Full Name",
+                    })}
+                    *
                   </label>
 
                   <input
                     type="text"
-                    placeholder="Enter fullname"
+                    placeholder={f({
+                      id: "Form.FullName",
+                      defaultMessage: "Full Name",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     required
                     id="fullNameStudent"
@@ -151,7 +184,11 @@ const ExamForm = () => {
                     htmlFor="currentGrade"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Date of birth *
+                    {f({
+                      id: "Form.DateOfBirth",
+                      defaultMessage: "Date of birth",
+                    })}{" "}
+                    *
                   </label>
                   <DatePickerCustomHeader
                     selected={dateOfBirth}
@@ -167,8 +204,14 @@ const ExamForm = () => {
                 <div className="mt-4">
                   <Dropdown
                     options={[GENDER.male, GENDER.female, GENDER.other]}
-                    title="Gender"
-                    placeholder="Choose an option"
+                    title={f({
+                      id: "Form.Gender",
+                      defaultMessage: "Gender",
+                    })}
+                    placeholder={f({
+                      id: "Form.SelectAnOption",
+                      defaultMessage: "Select an option",
+                    })}
                     value={gender}
                     handleChange={(item) => setGender(item)}
                   />
@@ -176,8 +219,14 @@ const ExamForm = () => {
                 <div className="mt-4">
                   <Dropdown
                     options={[RETEST_OPTIONS.no, RETEST_OPTIONS.yes]}
-                    title="Is it a re-test?"
-                    placeholder="Choose an option"
+                    title={f({
+                      id: "Form.IsItAReTest",
+                      defaultMessage: "Is it a re-test?",
+                    })}
+                    placeholder={f({
+                      id: "Form.SelectAnOption",
+                      defaultMessage: "Select an option",
+                    })}
                     value={reTestOption}
                     handleChange={(item) => setReTestOption(item)}
                   />
@@ -207,11 +256,18 @@ const ExamForm = () => {
                     htmlFor="currentGrade"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Current Grade *
+                    {f({
+                      id: "Form.CurrentGrade",
+                      defaultMessage: "Current Grade",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     type="text"
-                    placeholder="Current Grade"
+                    placeholder={f({
+                      id: "Form.CurrentGrade",
+                      defaultMessage: "Current Grade",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     required
                     id="currentGrade"
@@ -227,7 +283,15 @@ const ExamForm = () => {
           <div className="md:grid md:grid-cols-3 md:gap-2">
             <div className="md:col-span-1">
               <h3 className="text-purple-900 font-medium mt-6">
-                {`Student's Parent`} <br /> {`/ Guardian Information`}
+                {f({
+                  id: "Form.StudentParent",
+                  defaultMessage: "Student's Parent",
+                })}{" "}
+                <br />{" "}
+                {`/ ${f({
+                  id: "Form.GuardianInformation",
+                  defaultMessage: "Guardian Information",
+                })}`}
               </h3>
             </div>
             <div className="md:col-span-2">
@@ -237,7 +301,11 @@ const ExamForm = () => {
                     htmlFor="fullNameParent"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Fullname *
+                    {f({
+                      id: "Form.FullName",
+                      defaultMessage: "Full Name",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="fullNameParent"
@@ -245,7 +313,10 @@ const ExamForm = () => {
                     onChange={handleChangeForm}
                     required
                     type="text"
-                    placeholder="Full name"
+                    placeholder={f({
+                      id: "Form.FullName",
+                      defaultMessage: "Full Name",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                   />
                 </div>
@@ -254,13 +325,20 @@ const ExamForm = () => {
                     htmlFor="relationship"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Relationship to the student *
+                    {f({
+                      id: "Form.RelationshipToTheStudent",
+                      defaultMessage: "Relationship to the student",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="relationship"
                     type="text"
                     name="relationship"
-                    placeholder="Enter relationship"
+                    placeholder={f({
+                      id: "Form.RelationshipToTheStudent",
+                      defaultMessage: "Relationship to the student",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     required
                     onChange={handleChangeForm}
@@ -273,7 +351,11 @@ const ExamForm = () => {
                     htmlFor="occupation"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Occupation *
+                    {f({
+                      id: "Form.Occupation",
+                      defaultMessage: "Occupation",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="occupation"
@@ -281,7 +363,10 @@ const ExamForm = () => {
                     onChange={handleChangeForm}
                     required
                     type="text"
-                    placeholder="Enter occupation"
+                    placeholder={f({
+                      id: "Form.Occupation",
+                      defaultMessage: "Occupation",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                   />
                 </div>
@@ -290,13 +375,20 @@ const ExamForm = () => {
                     htmlFor="company"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Company Address *
+                    {f({
+                      id: "Form.CompanyAddress",
+                      defaultMessage: "CompanyAddress",
+                    })}
+                    *
                   </label>
                   <input
                     id="company"
                     type="text"
                     name="company"
-                    placeholder="Enter company"
+                    placeholder={f({
+                      id: "Form.CompanyAddress",
+                      defaultMessage: "Company Address",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     required
                     onChange={handleChangeForm}
@@ -309,7 +401,11 @@ const ExamForm = () => {
                     htmlFor="phone"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Phone *
+                    {f({
+                      id: "Form.Phone",
+                      defaultMessage: "Phone",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="phoneNumber"
@@ -317,7 +413,10 @@ const ExamForm = () => {
                     onChange={handleChangeForm}
                     required
                     type="text"
-                    placeholder="Phone number"
+                    placeholder={f({
+                      id: "Form.Phone",
+                      defaultMessage: "Phone",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                   />
                 </div>
@@ -326,7 +425,11 @@ const ExamForm = () => {
                     htmlFor="email"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Email *
+                    {f({
+                      id: "Form.Email",
+                      defaultMessage: "Email",
+                    })}{" "}
+                    *
                   </label>
                   <input
                     id="email"
@@ -346,7 +449,10 @@ const ExamForm = () => {
           <div className="md:grid md:grid-cols-3 md:gap-2">
             <div className="md:col-span-1">
               <h3 className="text-purple-900 font-medium mt-6">
-                Entrance Exam Date
+                {f({
+                  id: "Form.EntranceExamDate",
+                  defaultMessage: "Entrance Exam Date",
+                })}
               </h3>
             </div>
             <div className="md:col-span-2">
@@ -355,7 +461,11 @@ const ExamForm = () => {
                   htmlFor="dateTime"
                   className="ml-0.5 text-purple-900 font-medium text-sm"
                 >
-                  Start Date *
+                  {f({
+                    id: "Form.StartDate",
+                    defaultMessage: "Start Date",
+                  })}{" "}
+                  *
                 </label>
 
                 <DatePicker
@@ -389,10 +499,20 @@ const ExamForm = () => {
               {isLoading ? (
                 <>
                   <div className="loading-circle animate-spin ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mr-2"></div>
-                  <span>Processing...</span>
+                  <span>
+                    {" "}
+                    {f({
+                      id: "Form.Processing",
+                      defaultMessage: "Processing",
+                    })}
+                    ...
+                  </span>
                 </>
               ) : (
-                "Submit"
+                f({
+                  id: "Form.SendMessage",
+                  defaultMessage: "Send message",
+                })
               )}
             </button>
           </div>

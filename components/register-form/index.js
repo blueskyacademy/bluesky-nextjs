@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import BusForm from "./bus-form";
 import ExamForm from "./exam-form";
 import VisitForm from "./visit-form";
+import { useIntl } from "react-intl";
 
 export const SERVICE = {
   school: "school",
@@ -24,6 +25,7 @@ const DetailForm = ({ type, classes }) => {
 };
 
 const RegisterForm = ({ id, tab, classes }) => {
+  const { formatMessage: f } = useIntl();
   const [currentTab, setCurrentTab] = useState(tab ?? SERVICE.school);
   useEffect(() => {
     if (tab) {
@@ -35,7 +37,10 @@ const RegisterForm = ({ id, tab, classes }) => {
       <div className="px-4 pt-20 bg-purple-25 sm:pt-28 lg:pt-36 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <h3 className="max-w-2xl mx-auto mb-10 text-center text-purple-900 sm:mb-12 md:mb-20 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-            {`See what it's like to be part of our school`}
+            {f({
+              id: "Parent.SeeWhatItLikeToBePartOfOurSchool",
+              defaultMessage: "See what it's like to be part of our school",
+            })}
           </h3>
           <ul className="flex flex-wrap items-center justify-center -my-2 space-x-2 text-sm font-medium sm:space-x-4 lg:space-x-6">
             <li className="my-2">
@@ -47,7 +52,10 @@ const RegisterForm = ({ id, tab, classes }) => {
                 } rounded-full hover:bg-purple-500 hover:text-white`}
                 onClick={() => setCurrentTab(SERVICE.school)}
               >
-                School Visit
+                {f({
+                  id: "Parent.SchoolVisit",
+                  defaultMessage: "School Visit",
+                })}
               </button>
             </li>
             <li className="my-2">
@@ -59,7 +67,10 @@ const RegisterForm = ({ id, tab, classes }) => {
                 } rounded-full hover:bg-purple-500 hover:text-white`}
                 onClick={() => setCurrentTab(SERVICE.bus)}
               >
-                Bus Service
+                {f({
+                  id: "Parent.BusService",
+                  defaultMessage: "Bus Service",
+                })}
               </button>
             </li>
             <li className="my-2">
@@ -71,7 +82,10 @@ const RegisterForm = ({ id, tab, classes }) => {
                 } rounded-full hover:bg-purple-500 hover:text-white`}
                 onClick={() => setCurrentTab(SERVICE.exam)}
               >
-                Entrance Exam
+                {f({
+                  id: "Parent.EntranceExam",
+                  defaultMessage: "Entrance Exam",
+                })}
               </button>
             </li>
           </ul>

@@ -4,8 +4,10 @@ import { forwardRef } from "react";
 import DatePicker from "react-datepicker";
 import { FORMAT_DATE_DISPLAY } from "../../lib/constant";
 import "react-datepicker/dist/react-datepicker.css";
+import { useIntl } from "react-intl";
 
 const DatePickerCustomHeader = ({ selected, handleChangeDate, error }) => {
+  const { formatMessage: f } = useIntl();
   const years = range(2005, getYear(new Date()) + 1, 1);
   const months = [
     "January",
@@ -33,7 +35,12 @@ const DatePickerCustomHeader = ({ selected, handleChangeDate, error }) => {
       {value ? (
         value
       ) : (
-        <p className="text-purple-700 opacity-70">Please choose a date</p>
+        <p className="text-purple-700 opacity-70">
+          {f({
+            id: "Form.PleaseChooseADate",
+            defaultMessage: "Please choose a date",
+          })}
+        </p>
       )}
       <div>
         <svg

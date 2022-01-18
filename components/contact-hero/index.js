@@ -3,6 +3,7 @@ import { format, setHours, setMinutes } from "date-fns";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FORMAT_DATETIME_DISPLAY } from "../../lib/constant";
+import { useIntl } from "react-intl";
 
 export const ContactForm = ({
   handleSubmit,
@@ -13,6 +14,7 @@ export const ContactForm = ({
   handleChangeDate,
   error,
 }) => {
+  const { formatMessage: f } = useIntl();
   // eslint-disable-next-line react/display-name
   const ExampleCustomInput = forwardRef(({ value, onClick, error }, ref) => (
     <div
@@ -26,7 +28,10 @@ export const ContactForm = ({
         value
       ) : (
         <p className="text-purple-700 opacity-70">
-          Please choose date and time
+          {f({
+            id: "Form.PleaseChooseDateAndTime",
+            defaultMessage: "Please choose date and time",
+          })}
         </p>
       )}
       <div>
@@ -52,10 +57,16 @@ export const ContactForm = ({
     <div style={{ minHeight: "800px" }}>
       <div>
         <h3 className="text-2xl font-bold text-purple-900">
-          Campus Tour Registration
+          {f({
+            id: "Form.CampusTourRegistration",
+            defaultMessage: "Campus Tour Registration",
+          })}
         </h3>
         <p className="text-purple-800 mt-0.5 text-opacity-90">
-          {`We'll get back to you within 24 hours.`}
+          {f({
+            id: "Form.WeGetBackToYouWithin24Hours",
+            defaultMessage: "We'll get back to you within 24 hours.",
+          })}
         </p>
       </div>
       {status === "success" ? (
@@ -71,12 +82,24 @@ export const ContactForm = ({
           </svg>
           <div className="text-center">
             <h3 className="md:text-2xl text-base text-gray-900 font-semibold text-center">
-              Submit done!
+              {f({
+                id: "Form.SubmitDone",
+                defaultMessage: "Submit done!",
+              })}
             </h3>
             <p className="text-gray-600 my-2">
-              Thank you. Our staff will call you soon
+              {f({
+                id: "Form.ThankYou",
+                defaultMessage: "Thank you. Our staff will call you soon",
+              })}
             </p>
-            <p> Have a great day! </p>
+            <p>
+              {" "}
+              {f({
+                id: "Form.HaveAGreatDay",
+                defaultMessage: "Have a great day!",
+              })}
+            </p>
           </div>
         </div>
       ) : (
@@ -86,11 +109,18 @@ export const ContactForm = ({
               htmlFor="name"
               className="ml-0.5 text-purple-900 font-medium text-sm"
             >
-              Full Name *
+              {f({
+                id: "Form.FullName",
+                defaultMessage: "Full Name",
+              })}
+              *
             </label>
             <input
               type="text"
-              placeholder="Fullname"
+              placeholder={f({
+                id: "Form.FullName",
+                defaultMessage: "Full Name",
+              })}
               className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
               required
               id="fullName"
@@ -104,7 +134,11 @@ export const ContactForm = ({
               htmlFor="phone"
               className="ml-0.5 text-purple-900 font-medium text-sm"
             >
-              Phone *
+              {f({
+                id: "Form.Phone",
+                defaultMessage: "Phone",
+              })}{" "}
+              *
             </label>
             <input
               id="phoneNumber"
@@ -112,7 +146,10 @@ export const ContactForm = ({
               onChange={handleChangeForm}
               required
               type="text"
-              placeholder="Phone number"
+              placeholder={f({
+                id: "Form.Phone",
+                defaultMessage: "Phone",
+              })}
               className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
             />
           </div>
@@ -121,13 +158,20 @@ export const ContactForm = ({
               htmlFor="email"
               className="ml-0.5 text-purple-900 font-medium text-sm"
             >
-              Email *
+              {f({
+                id: "Form.Email",
+                defaultMessage: "Email",
+              })}{" "}
+              *
             </label>
             <input
               id="email"
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={f({
+                id: "Form.Email",
+                defaultMessage: "Email",
+              })}
               className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
               required
               onChange={handleChangeForm}
@@ -138,7 +182,11 @@ export const ContactForm = ({
               htmlFor="dateTime"
               className="ml-0.5 text-purple-900 font-medium text-sm"
             >
-              Preferred date and time *
+              {f({
+                id: "Form.PreferredDateAndTime",
+                defaultMessage: "Preferred date and time",
+              })}{" "}
+              *
             </label>
 
             <DatePicker
@@ -160,13 +208,19 @@ export const ContactForm = ({
               htmlFor="message"
               className="ml-0.5 text-purple-900 font-medium text-sm"
             >
-              Message
+              {f({
+                id: "Form.Message",
+                defaultMessage: "Message",
+              })}{" "}
             </label>
             <textarea
               id="message"
               type="text"
               name="message"
-              placeholder="Message"
+              placeholder={f({
+                id: "Form.Message",
+                defaultMessage: "Message",
+              })}
               rows={3}
               className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
               onChange={handleChangeForm}
@@ -181,10 +235,19 @@ export const ContactForm = ({
               {isLoading ? (
                 <>
                   <div className="loading-circle animate-spin ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mr-2"></div>
-                  <span>Processing...</span>
+                  <span>
+                    {f({
+                      id: "Form.Processing",
+                      defaultMessage: "Processing",
+                    })}
+                    ...
+                  </span>
                 </>
               ) : (
-                "Send message"
+                f({
+                  id: "Form.SendMessage",
+                  defaultMessage: "Send message",
+                })
               )}
             </button>
           </div>
@@ -195,6 +258,7 @@ export const ContactForm = ({
 };
 
 const ContactHero = () => {
+  const { formatMessage: f } = useIntl();
   const [form, setForm] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [statusForm, setStatusForm] = useState();
@@ -243,15 +307,24 @@ const ContactHero = () => {
         <div className="py-16 lg:py-32">
           <div>
             <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
-              Visit us soon
+              {f({
+                id: "Contact.VisitUsSoon",
+                defaultMessage: "Visit us soon",
+              })}
             </span>
           </div>
           <h1 className="max-w-md mt-4 text-purple-900 font-extrabold text-5xl sm:text-6xl xl:text-7xl leading-snug sm:leading-tight xl:leading-tighter">
-            {`We'd love to meet you`}
+            {f({
+              id: "Contact.WeLoveToMeetYou",
+              defaultMessage: "We'd love to meet you",
+            })}
           </h1>
           <p className="max-w-lg mt-3 text-xl leading-relaxed text-purple-800">
-            Praesent sapien massa, convallis a pellentesque nec, egestas non
-            nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+            {f({
+              id: "Contact.ContactSummary",
+              defaultMessage:
+                "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+            })}
           </p>
         </div>
         <div className="relative">

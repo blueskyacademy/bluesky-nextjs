@@ -1,7 +1,9 @@
+import { useIntl } from "react-intl";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 const CarouselImages = ({ classes }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <div className="max-w-lg mx-auto lg:max-w-screen-md pb-16">
       <div className="px-4 text-center sm:px-6 lg:px-8 pb-8">
@@ -13,7 +15,12 @@ const CarouselImages = ({ classes }) => {
                 className="absolute inset-0 transform translate-y-9 sm:translate-y-10 xl:translate-y-14"
                 src="/svg/underline-simple-light-purple.svg"
               />
-              <span className="relative">Our classes</span>
+              <span className="relative">
+                {f({
+                  id: "Program.OurClasses",
+                  defaultMessage: "Our classes",
+                })}
+              </span>
             </span>
           </span>
         </h3>

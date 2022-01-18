@@ -1,20 +1,35 @@
+import { motion } from "framer-motion";
+import { useIntl } from "react-intl";
 const Values = ({ id }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <section
       id={id}
       className="relative w-full px-4 py-16 sm:py-24 lg:py-32 sm:px-6 lg:px-8"
     >
-      <div className="max-w-xl mx-auto lg:max-w-screen-xl">
+      <motion.div
+        className="max-w-xl mx-auto lg:max-w-screen-xl"
+        initial={{ y: "50%", opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 xl:gap-32">
           <div className="flex items-center">
             <h2 className="max-w-4xl text-purple-900 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-              Core Values
+              {f({
+                id: "About.CoreValues",
+                defaultMessage: "Core Values",
+              })}
             </h2>
           </div>
           <div className="flex items-center mt-6 lg:mt-0">
             <p className="text-xl leading-relaxed text-purple-800">
-              Blue Sky Academy’s education system is based on UNESCO’s Four
-              Pillars of Learning
+              {f({
+                id: "About.CoreValuesSummary",
+                defaultMessage: `Blue Sky Academy’s education system is based on UNESCO’s Four
+              Pillars of Learning`,
+              })}
             </p>
           </div>
         </div>
@@ -43,7 +58,10 @@ const Values = ({ id }) => {
               </svg>
             </span>
             <h4 className="mt-4 text-xl font-semibold text-center text-purple-900">
-              Learning to know
+              {f({
+                id: "About.LearningToKnow",
+                defaultMessage: "Learning to know",
+              })}
             </h4>
             <div className="w-8 h-1.5 bg-gradient-to-r from-yellow-400 to-yellow-500 my-2 rounded-2xl"></div>
           </div>
@@ -70,7 +88,10 @@ const Values = ({ id }) => {
               </svg>
             </span>
             <h4 className="mt-4 text-xl font-semibold text-center text-purple-900">
-              Learning to do
+              {f({
+                id: "About.LearningToDo",
+                defaultMessage: "Learning to do",
+              })}
             </h4>
             <div className="w-8 h-1.5 bg-gradient-to-r from-purple-200 to-purple-300 my-2 rounded-2xl"></div>
           </div>
@@ -95,7 +116,10 @@ const Values = ({ id }) => {
               </svg>
             </span>
             <h4 className="mt-4 text-xl font-semibold text-center text-purple-900">
-              Learning to be
+              {f({
+                id: "About.LearningToBe",
+                defaultMessage: "Learning to be",
+              })}
             </h4>
             <div className="w-8 h-1.5 bg-gradient-to-r from-rose-100 to-rose-300 my-2 rounded-2xl"></div>
           </div>
@@ -122,12 +146,15 @@ const Values = ({ id }) => {
               </svg>
             </span>
             <h4 className="mt-4 text-xl font-semibold text-center text-purple-900">
-              Learing to live together
+              {f({
+                id: "About.LearningToLiveTogether",
+                defaultMessage: "Learning to live together",
+              })}
             </h4>
             <div className="w-8 h-1.5 bg-gradient-to-r from-blue-100 to-blue-300 my-2 rounded-2xl"></div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

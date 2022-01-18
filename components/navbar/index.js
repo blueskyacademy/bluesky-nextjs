@@ -2,102 +2,137 @@ import { useRouter } from "next/router";
 import DropdownLink from "./dropdown-link";
 import { useState } from "react";
 import { SubNav } from "./sub-nav";
+import { useIntl } from "react-intl";
 
-const formatNavigations = (navigations = []) => {
-  const result = [];
-  for (let item of navigations) {
-    const subPagesNavigation = item?.subPagesCollection?.items ?? [];
-    let newNavigation = {};
-    switch (item.slug) {
-      case "home":
-        newNavigation = {
-          ...item,
-          subPages: [
-            {
-              title: "Program Education",
-              href: "/#program",
-            },
-            {
-              title: "Gallery",
-              href: "/#gallery",
-            },
-            {
-              title: "Parents",
-              href: "/#parents",
-            },
-            {
-              title: "FAQ",
-              href: "/#faq",
-            },
-            ...subPagesNavigation,
-          ],
-        };
-        result.push(newNavigation);
-        break;
-      case "about":
-        newNavigation = {
-          ...item,
-          subPages: [
-            {
-              title: "Vision & Mission",
-              href: "/about#vision",
-            },
-            {
-              title: "Core Values",
-              href: "/about#core",
-            },
-            {
-              title: "Message from Principal",
-              href: "/about#message",
-            },
-            {
-              title: "Co-founders",
-              href: "/about#founder",
-            },
-            ...subPagesNavigation,
-          ],
-        };
-        result.push(newNavigation);
-        break;
-      case "programs":
-        newNavigation = {
-          ...item,
-          subPages: [
-            {
-              title: "Kindergarten",
-              href: "/programs/kindergarten",
-            },
-            {
-              title: "Primary",
-              href: "/programs/primary",
-            },
-            {
-              title: "Secondary",
-              href: "/programs/secondary",
-            },
-            ...subPagesNavigation,
-          ],
-        };
-        result.push(newNavigation);
-        break;
-      default:
-        newNavigation = {
-          ...item,
-          subPages: subPagesNavigation,
-        };
-        result.push(newNavigation);
-    }
-  }
-  return result;
-};
 const Navbar = ({ navigations, className }) => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
   const [active, setActive] = useState(false);
+  const { formatMessage: f } = useIntl();
   const handleClick = () => {
     setActive(!active);
   };
   const [currentSlug, setCurrentSlug] = useState(pathname.slice(1) || "home");
+  const formatNavigations = (navigations = []) => {
+    const result = [];
+    for (let item of navigations) {
+      const subPagesNavigation = item?.subPagesCollection?.items ?? [];
+      let newNavigation = {};
+      switch (item.slug) {
+        case "home":
+          newNavigation = {
+            ...item,
+            subPages: [
+              {
+                title: f({
+                  id: "Home.EducationProgram",
+                  defaultMessage: "Education Program",
+                }),
+                href: "/#program",
+              },
+              {
+                title: f({
+                  id: "Home.OurGallery",
+                  defaultMessage: "Our Gallery",
+                }),
+                href: "/#gallery",
+              },
+              {
+                title: f({
+                  id: "Home.Parent",
+                  defaultMessage: "Parent",
+                }),
+                href: "/#parents",
+              },
+              {
+                title: f({
+                  id: "Home.FAQ",
+                  defaultMessage: "FAQ",
+                }),
+                href: "/#faq",
+              },
+              ...subPagesNavigation,
+            ],
+          };
+          result.push(newNavigation);
+          break;
+        case "about":
+          newNavigation = {
+            ...item,
+            subPages: [
+              {
+                title: f({
+                  id: "About.VisionMission",
+                  defaultMessage: "Vision & Mission",
+                }),
+                href: "/about#vision",
+              },
+              {
+                title: f({
+                  id: "About.CoreValues",
+                  defaultMessage: "Core values",
+                }),
+                href: "/about#core",
+              },
+              {
+                title: f({
+                  id: "About.MessageFromThePrincipal",
+                  defaultMessage: "Message from Principal",
+                }),
+                href: "/about#message",
+              },
+              {
+                title: f({
+                  id: "About.Founders",
+                  defaultMessage: "Founders",
+                }),
+                href: "/about#founder",
+              },
+              ...subPagesNavigation,
+            ],
+          };
+          result.push(newNavigation);
+          break;
+        case "programs":
+          newNavigation = {
+            ...item,
+            subPages: [
+              {
+                title: f({
+                  id: "Home.Kindergarten",
+                  defaultMessage: "Kindergarten",
+                }),
+                href: "/programs/kindergarten",
+              },
+              {
+                title: f({
+                  id: "Home.PrimarySchool",
+                  defaultMessage: "Primary",
+                }),
+                href: "/programs/primary",
+              },
+              {
+                title: f({
+                  id: "Home.Secondary",
+                  defaultMessage: "Secondary",
+                }),
+                href: "/programs/secondary",
+              },
+              ...subPagesNavigation,
+            ],
+          };
+          result.push(newNavigation);
+          break;
+        default:
+          newNavigation = {
+            ...item,
+            subPages: subPagesNavigation,
+          };
+          result.push(newNavigation);
+      }
+    }
+    return result;
+  };
   const renderNavigations = formatNavigations(navigations);
 
   return (
@@ -147,7 +182,10 @@ const Navbar = ({ navigations, className }) => {
                 </div>
                 <div className="flex-1 mt-2 ml-2 xl:ml-2">
                   <h5 className="flex items-center text-base text-purple-900">
-                    Le Loi, Vinh City, Nghe An, Vietnam
+                    {f({
+                      id: "Home.AddressDetail",
+                      defaultMessage: "Le Loi, Vinh City, Nghe An, Vietnam",
+                    })}
                   </h5>
                 </div>
               </li>

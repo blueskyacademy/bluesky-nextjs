@@ -1,11 +1,23 @@
+import { motion } from "framer-motion";
+import { useIntl } from "react-intl";
 const DescriptionValues = () => {
+  const { formatMessage: f } = useIntl();
   return (
     <section className="px-4 -mt-8 bg-white sm:py-4 sm:mt-0 sm:px-6 lg:px-8 mb-16">
-      <div className="max-w-3xl mx-auto lg:max-w-screen-xl">
+      <motion.div
+        className="max-w-3xl mx-auto lg:max-w-screen-xl"
+        initial={{ y: "50%", opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <div className="lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-16">
           <div className="flex flex-col justify-center">
             <h2 className="text-purple-900 sm:text-center lg:text-left text-2xl leading-tight tracking-tight sm:text-3xl sm:leading-tighter font-bold">
-              With an aim to develop
+              {f({
+                id: "About.WithAnAimToDevelop",
+                defaultMessage: "With an aim to develop",
+              })}
             </h2>
 
             <div className="grid max-w-4xl gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-1 sm:mx-auto lg:mx-0 lg:max-w-md">
@@ -15,12 +27,17 @@ const DescriptionValues = () => {
                 </div>
                 <div className="w-full">
                   <h5 className="flex items-center text-xl font-semibold text-purple-900">
-                    Good knowledge
+                    {f({
+                      id: "About.GoodKnowledge",
+                      defaultMessage: "Good knowledge",
+                    })}
                   </h5>
                   <p className="mt-1 text-base text-purple-800">
-                    A well-rounded citizen who has a good knowledge base
-                    Intellectual capacity and language capability to integrate
-                    into global education
+                    {f({
+                      id: "About.GoodKnowledgeDetail",
+                      defaultMessage:
+                        "A well-rounded citizen who has a good knowledge base. Intellectual capacity and language capability to integrate into global education",
+                    })}
                   </p>
                 </div>
               </div>
@@ -31,10 +48,17 @@ const DescriptionValues = () => {
                 </div>
                 <div className="w-full">
                   <h5 className="flex items-center text-xl font-semibold text-purple-900">
-                    Coordination
+                    {f({
+                      id: "About.Coordination",
+                      defaultMessage: "Coordination",
+                    })}
                   </h5>
                   <p className="mt-1 text-base text-purple-800">
-                    The ability to present, lead and coordinate
+                    {f({
+                      id: "About.CoordinationSummary",
+                      defaultMessage:
+                        "The ability to present, lead and coordinate",
+                    })}
                   </p>
                 </div>
               </div>
@@ -45,12 +69,17 @@ const DescriptionValues = () => {
                 </div>
                 <div className="w-full">
                   <h5 className="flex items-center text-xl font-semibold text-purple-900">
-                    Confidence
+                    {f({
+                      id: "About.Confidence",
+                      defaultMessage: "Confidence",
+                    })}
                   </h5>
                   <p className="mt-1 text-base text-purple-800">
-                    Confidence, dynamics, and the desire to succeed in life
-                    Integrity, respect for themselves and for others
-                    Responsibility for themselves, family, and society.
+                    {f({
+                      id: "About.ConfidenceSummary",
+                      defaultMessage:
+                        "Confidence, dynamics, and the desire to succeed in life. Integrity, respect for themselves and for others Responsibility for themselves, family, and society.",
+                    })}
                   </p>
                 </div>
               </div>
@@ -67,7 +96,7 @@ const DescriptionValues = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,58 +1,70 @@
 import Link from "next/link";
-
+import { useIntl } from "react-intl";
 const AdmissionHero = () => {
+  const { formatMessage: f } = useIntl();
   return (
     <section className="relative w-full px-4 py-12 sm:py-12 sm:px-6 xl:px-8">
       <div className="max-w-xl mx-auto lg:max-w-screen-xl">
         <div className="lg:grid lg:grid-cols-2 md:gap-16 lg:gap-0">
           <div className="flex flex-col justify-center pr-10 xl:pr-0">
-            <div>
-              {/* <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
-                Our Preschool Plans
-              </span> */}
-            </div>
-            <h2 className="mt-3.5 sm:mt-4 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold max-w-xl text-purple-900">
-              A program for every parent and child
+            <h2 className="mt-3.5 sm:mt-4 text-4xl leading-tight tracking-tight sm:text-4xl xl:text-5xl sm:leading-tighter font-bold max-w-xl text-purple-900">
+              {f({
+                id: "Admission.AProgramForEveryParentAndChild",
+                defaultMessage: "A program for every parent and child",
+              })}
             </h2>
             <p className="max-w-lg mt-3 text-lg leading-relaxed text-purple-800">
-              {`We know you care about your child's future. That’s why we offer you the freedom to choose the right program for them. `}
+              {f({
+                id: "Admission.AdmissionHero",
+                defaultMessage:
+                  "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+              })}
             </p>
 
             <Link href="/pages/admission-open-for-the-academic-year">
-              <a className="mt-6 font-medium text-purple-900 bg-yellow-500 w-[220px] leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group">
-                View lastest notice
+              <a className="mt-6 font-medium text-purple-900 bg-yellow-500 w-[240px] leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group">
+                {f({
+                  id: "Admission.ViewAdmissionNotice",
+                  defaultMessage: "View admission notice",
+                })}
               </a>
             </Link>
 
             <div className="mt-8 font-medium lg:mt-10">
               <p className="text-purple-800">
-                Want to learn more about steps of admissions
+                {f({
+                  id: "Admission.WantToLearnMoreAboutStepsOfAdmissions",
+                  defaultMessage:
+                    "Want to learn more about steps of admissions",
+                })}
               </p>
-              <a
-                href=""
-                className="mt-1.5 flex items-center py-0.5 px-0 w-[160px] max-w-full leading-6 text-left text-purple-600 no-underline bg-transparent border-b-2 border-purple-600 border-solid cursor-pointer hover:text-purple-500 transition duration-300 ease-in-out hover:border-purple-400 group"
-              >
-                <span className="text-base font-bold text-left">
-                  How to apply ?
-                </span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 ml-3 group-hover:animate-horizontal-bounce"
-                  width="44"
-                  height="44"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <line x1="15" y1="16" x2="19" y2="12" />
-                  <line x1="15" y1="8" x2="19" y2="12" />
-                </svg>
-              </a>
+              <Link href="/admission#apply">
+                <a className="mt-1.5 flex items-center py-0.5 px-0 w-[190px] max-w-full leading-6 text-left text-purple-600 no-underline bg-transparent border-b-2 border-purple-600 border-solid cursor-pointer hover:text-purple-500 transition duration-300 ease-in-out hover:border-purple-400 group">
+                  <span className="text-base font-bold text-left">
+                    {f({
+                      id: "Admission.HowToApply",
+                      defaultMessage: "How to apply ?",
+                    })}
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 ml-1 group-hover:animate-horizontal-bounce"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <line x1="15" y1="16" x2="19" y2="12" />
+                    <line x1="15" y1="8" x2="19" y2="12" />
+                  </svg>
+                </a>
+              </Link>
             </div>
           </div>
 
@@ -61,7 +73,10 @@ const AdmissionHero = () => {
               <div className="relative">
                 <div className="relative inline-block w-full text-left">
                   <h3 className="relative text-xl font-bold tracking-normal text-purple-900">
-                    Fee schedule
+                    {f({
+                      id: "Admission.FeeSchedule",
+                      defaultMessage: "Fee schedule",
+                    })}
                   </h3>
 
                   <svg
@@ -82,12 +97,12 @@ const AdmissionHero = () => {
                   </svg>
 
                   <div className="mt-2">
-                    <h2 className="text-purple-900 h1"></h2>
-                    <div className="mt-3">
-                      {/* <div className="inline-block h-6 px-3 text-sm font-medium leading-6 text-purple-700 align-top bg-purple-200 -rotate-1 rounded-xl"></div> */}
-                    </div>
                     <p className="block w-full mt-6 font-medium text-purple-900">
-                      Fee schedule for an annual academic year
+                      {f({
+                        id: "Admission.FeeScheduleForAnAnnualAcademicYear",
+                        defaultMessage:
+                          "Fee schedule for an annual academic year",
+                      })}
                     </p>
                   </div>
 
@@ -108,7 +123,12 @@ const AdmissionHero = () => {
                         />
                       </svg>
 
-                      <span className="ml-2 text-purple-800">Kindergarten</span>
+                      <span className="ml-2 text-purple-800">
+                        {f({
+                          id: "Home.Kindergarten",
+                          defaultMessage: "Kindergarten",
+                        })}
+                      </span>
                     </li>
 
                     <li className="flex items-center">
@@ -127,7 +147,13 @@ const AdmissionHero = () => {
                         />
                       </svg>
 
-                      <span className="ml-2 text-purple-800">Primary</span>
+                      <span className="ml-2 text-purple-800">
+                        {" "}
+                        {f({
+                          id: "Home.PrimarySchool",
+                          defaultMessage: "Primary",
+                        })}
+                      </span>
                     </li>
 
                     <li className="flex items-center">
@@ -146,12 +172,21 @@ const AdmissionHero = () => {
                         />
                       </svg>
 
-                      <span className="ml-2 text-purple-800">Secondary</span>
+                      <span className="ml-2 text-purple-800">
+                        {" "}
+                        {f({
+                          id: "Home.Secondary",
+                          defaultMessage: "Secondary",
+                        })}
+                      </span>
                     </li>
                   </ul>
                   <Link href="/pages/fee-schedule">
                     <a className="mt-6 font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
-                      View more
+                      {f({
+                        id: "Home.ViewMore",
+                        defaultMessage: "View More",
+                      })}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"
@@ -179,7 +214,10 @@ const AdmissionHero = () => {
               <div className="relative">
                 <div className="relative inline-block w-full text-left">
                   <h3 className="relative text-xl font-bold tracking-normal text-purple-900">
-                    Academic Calendar
+                    {f({
+                      id: "Admission.AcademicCalendar",
+                      defaultMessage: "Academic Calendar",
+                    })}
                   </h3>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -202,14 +240,11 @@ const AdmissionHero = () => {
                   </svg>
 
                   <div className="mt-2">
-                    <h2 className="text-purple-600 h1"></h2>
-                    <div className="mt-3">
-                      {/* <div className="inline-block h-6 px-3 text-sm font-medium leading-6 text-purple-700 align-top bg-purple-200 -rotate-1 rounded-xl">
-                        2020-2021
-                      </div> */}
-                    </div>
                     <p className="block w-full mt-6 font-medium text-purple-900">
-                      View BSA academic calendar
+                      {f({
+                        id: "Admission.ViewBSAAcademicCalendar",
+                        defaultMessage: "View BSA academic calendar",
+                      })}
                     </p>
                   </div>
 
@@ -231,7 +266,10 @@ const AdmissionHero = () => {
                       </svg>
 
                       <span className="ml-2 text-purple-800">
-                        School Events
+                        {f({
+                          id: "Admission.SchoolEvents",
+                          defaultMessage: "School Events",
+                        })}
                       </span>
                     </li>
                     <li className="flex items-center">
@@ -250,7 +288,13 @@ const AdmissionHero = () => {
                         />
                       </svg>
 
-                      <span className="ml-2 text-purple-800">Exam days</span>
+                      <span className="ml-2 text-purple-800">
+                        {" "}
+                        {f({
+                          id: "Admission.ExamDays",
+                          defaultMessage: "Exam Days",
+                        })}
+                      </span>
                     </li>
 
                     <li className="flex items-center">
@@ -270,14 +314,20 @@ const AdmissionHero = () => {
                       </svg>
 
                       <span className="ml-2 text-purple-800">
-                        Summer School
+                        {f({
+                          id: "Admission.SummerSchool",
+                          defaultMessage: "Summer School",
+                        })}
                       </span>
                     </li>
                   </ul>
 
                   <Link href="/pages/academic-calendar">
                     <a className="mt-6 font-medium text-white bg-purple-600 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-purple-500 group">
-                      View detail
+                      {f({
+                        id: "Home.ViewMore",
+                        defaultMessage: "View More",
+                      })}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-5 h-5 ml-3 group-hover:animate-horizontal-bounce"

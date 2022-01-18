@@ -10,7 +10,6 @@ import Programs from "../components/programs";
 import Events from "../components/events";
 import Faq from "../components/faq";
 import GalleryHero from "../components/gallery-hero";
-import AnimationRevealPage from "../helpers/AnimationRevealPage";
 import HomeHero from "../components/home-hero";
 import CTA from "../components/cta";
 import Feedback from "../components/feedback";

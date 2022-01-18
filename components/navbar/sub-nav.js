@@ -1,47 +1,71 @@
 import useSticky from "../../hooks/useSticky";
 import Link from "next/link";
-
-const NAVIGATIONS = {
-  home: [
-    {
-      title: "Program Education",
-      href: "#program",
-    },
-    {
-      title: "Gallery",
-      href: "#gallery",
-    },
-    {
-      title: "Parents",
-      href: "#parents",
-    },
-    {
-      title: "FAQ",
-      href: "#faq",
-    },
-  ],
-  about: [
-    {
-      title: "Vision & Mission",
-      href: "/about#vision",
-    },
-    {
-      title: "Core Values",
-      href: "/about#core",
-    },
-    {
-      title: "Message from Principal",
-      href: "/about#message",
-    },
-    {
-      title: "Co-founders",
-      href: "/about#founder",
-    },
-  ],
-};
-
+import { useIntl } from "react-intl";
 export function SubNav({ slug = "home" }) {
   const { isSticky, stickyRef } = useSticky();
+  const { formatMessage: f } = useIntl();
+  const NAVIGATIONS = {
+    home: [
+      {
+        title: f({
+          id: "Home.EducationProgram",
+          defaultMessage: "Education Program",
+        }),
+        href: "#program",
+      },
+      {
+        title: f({
+          id: "Home.OurGallery",
+          defaultMessage: "Our Gallery",
+        }),
+        href: "#gallery",
+      },
+      {
+        title: f({
+          id: "Home.Parent",
+          defaultMessage: "Parent",
+        }),
+        href: "#parents",
+      },
+      {
+        title: f({
+          id: "Home.FAQ",
+          defaultMessage: "FAQ",
+        }),
+        href: "#faq",
+      },
+    ],
+    about: [
+      {
+        title: f({
+          id: "About.VisionMission",
+          defaultMessage: "Vision & Mission",
+        }),
+        href: "/about#vision",
+      },
+      {
+        title: f({
+          id: "About.CoreValues",
+          defaultMessage: "Core values",
+        }),
+        href: "/about#core",
+      },
+      {
+        title: f({
+          id: "About.MessageFromThePrincipal",
+          defaultMessage: "Message from Principal",
+        }),
+        href: "/about#message",
+      },
+      {
+        title: f({
+          id: "About.Founders",
+          defaultMessage: "Founders",
+        }),
+        href: "/about#founder",
+      },
+    ],
+  };
   if (!NAVIGATIONS[slug]) return null;
   return (
     <nav
