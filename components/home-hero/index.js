@@ -58,8 +58,8 @@ const HomeHero = () => {
           >
             <h1 className="max-w-xl mt-4 text-center text-purple-900 sm:mt-5 lg:text-left h1 lg:max-w-none text-6xl leading-snug sm:leading-tight xl:leading-tighter font-extrabold ">
               {f({
-                id: "Home.CreateABrighterFutureForYourChild",
-                defaultMessage: "Creating a brighter future for your child",
+                id: "Home.BlueSkyAcademy",
+                defaultMessage: "Blue Sky Academy",
               })}
             </h1>
             <p className="max-w-2xl mt-3 text-xl leading-loose text-center text-purple-800 lg:text-left">
