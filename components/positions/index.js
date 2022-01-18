@@ -1,7 +1,9 @@
 import Link from "next/link";
 import DateComponent from "../date";
+import { useIntl } from "react-intl";
 
 const Position = ({ title, slug, introduction, start, expire }) => {
+  const { formatMessage: f } = useIntl();
   return (
     <div className="py-8 flex flex-wrap md:flex-nowrap">
       <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
@@ -29,7 +31,10 @@ const Position = ({ title, slug, introduction, start, expire }) => {
         <p className="leading-relaxed">{introduction}</p>
         <Link href={`/recruitment/${slug}`}>
           <a className="text-indigo-500 inline-flex items-center mt-4">
-            Read more
+            {f({
+              id: "Home.ViewMore",
+              defaultMessage: "View more",
+            })}
             <svg
               className="w-4 h-4 ml-2"
               viewBox="0 0 24 24"

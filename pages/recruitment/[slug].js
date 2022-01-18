@@ -43,7 +43,7 @@ export async function getStaticProps({ params, locale }) {
 }
 
 export async function getStaticPaths({ locale }) {
-  const allJobs = await getAllJobs(locale || "en-US");
+  const allJobs = await getAllJobs(locale);
 
   return {
     paths: allJobs?.map(({ slug }) => `/recruitment/${slug}`) ?? [],
