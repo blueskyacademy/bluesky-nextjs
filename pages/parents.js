@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import CTA from "../components/cta";
-import Feedback from "../components/feedback";
 import Layout from "../components/layout";
 import RegisterForm from "../components/register-form";
 import RegisterHero from "../components/register-hero";
+import Testimonial from "../components/testimonial";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
 import { useHashFragment } from "../hooks/useHashFragment";
 import { getClasses, getNavigation, getTestimonials } from "../lib/api";
@@ -17,7 +17,7 @@ export default function Parents({ testimonials, classes, navigations }) {
       <RegisterHero />
       <RegisterForm id="register" tab={tab} classes={classes} />
       <AnimationRevealPage>
-        <Feedback id="story" testimonials={testimonials.slice(0, 4)} />
+        <Testimonial testimonials={testimonials} />
         <CTA hasButton={false} />
       </AnimationRevealPage>
     </Layout>
