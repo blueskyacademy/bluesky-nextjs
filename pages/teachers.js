@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import SchoolTeam from "../components/school-team";
 import Stats from "../components/stats";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
-import { getNavigation, getTeachers } from "../lib/api";
+import { getNavigation, getStats, getTeachers } from "../lib/api";
 import CTA from "../components/cta";
 import { useIntl } from "react-intl";
 
@@ -40,7 +40,7 @@ const TEACHER_IMAGES = [
   "/images/kindergarten.png",
   "/images/secondary.png",
 ];
-export default function About({ teachers, navigations }) {
+export default function About({ teachers, navigations, stats }) {
   const { formatMessage: f } = useIntl();
   return (
     <Layout navigations={navigations}>
@@ -57,7 +57,7 @@ export default function About({ teachers, navigations }) {
         images={TEACHER_IMAGES}
       />
       <AnimationRevealPage>
-        <Stats stats={STATS} />
+        <Stats stats={stats} />
         <SchoolTeam teachers={teachers} />
         <CTA />
       </AnimationRevealPage>
@@ -67,9 +67,10 @@ export default function About({ teachers, navigations }) {
 export async function getStaticProps({ locale }) {
   const teachers = (await getTeachers(locale)) ?? [];
   const navigations = (await getNavigation(locale)) ?? [];
+  const stats = (await getStats(locale)) ?? [];
 
   return {
-    props: { teachers, navigations },
+    props: { teachers, navigations, stats },
     revalidate: 1,
   };
 }
