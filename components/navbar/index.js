@@ -7,10 +7,10 @@ import { useIntl } from "react-intl";
 const Navbar = ({ navigations, className }) => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
-  const [active, setActive] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { formatMessage: f } = useIntl();
-  const handleClick = () => {
-    setActive(!active);
+  const handleClickMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
   };
   const [currentSlug, setCurrentSlug] = useState(pathname.slice(1) || "home");
   const formatNavigations = (navigations = []) => {
@@ -334,9 +334,9 @@ const Navbar = ({ navigations, className }) => {
               {/* Button */}
               <button
                 className="relative z-50 w-6 h-5 transition duration-500 ease-in-out transform rotate-0 cursor-pointer group focus:outline-none"
-                onClick={handleClick}
+                onClick={handleClickMobileMenu}
               >
-                {!active ? (
+                {!showMobileMenu ? (
                   <>
                     <span className="absolute top-0 left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 group-hover:bg-purple-600"></span>
                     <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 top-2 group-hover:bg-purple-600"></span>
@@ -353,14 +353,14 @@ const Navbar = ({ navigations, className }) => {
                 )}
               </button>
               {/* Menu */}
-              {active && (
+              {showMobileMenu && (
                 <div className="absolute top-0 left-0 z-40 w-screen px-4 py-16 overflow-y-scroll bg-gradient-to-tr from-purple-600 to-purple-600 sm:px-8">
                   <div className="flex flex-col items-center justify-center w-full h-full">
                     <div className="flex flex-col w-full space-y-6 justify-evenly">
                       {renderNavigations?.map((item, idx) => (
                         <div
                           key={`menu-${item.path}-${idx}`}
-                          onClick={() => setCurrentSlug(item.slug)}
+                          onClick={handleClickMobileMenu}
                         >
                           <DropdownLink
                             title={item.title}

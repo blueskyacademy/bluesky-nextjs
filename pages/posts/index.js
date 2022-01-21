@@ -16,7 +16,7 @@ export default function Posts({
   return (
     <Layout navigations={navigations}>
       <div className="max-w-screen-xl mx-auto">
-        <h3 className="mx-auto my-10 text-left text-purple-800 sm:my-10 md:my-10 text-4xl leading-tight tracking-tight sm:text-4xl xl:text-4xl sm:leading-tighter font-semibold">
+        <h3 className="mx-auto my-10 text-left text-purple-800 sm:my-10 md:my-10 text-4xl leading-tight tracking-tight sm:text-4xl xl:text-4xl sm:leading-tighter font-semibold pl-3 md:pl-0">
           {f({
             id: "News.LatestNews",
             defaultMessage: "Latest News",

@@ -5,7 +5,7 @@ import { useIntl } from "react-intl";
 const Job = ({ title, start, expire, requirement, benefit }) => {
   const { formatMessage: f } = useIntl();
   return (
-    <div className="mb-12 ml-10 lg:pr-5 lg:mb-0 w-full mt-6">
+    <div className="mb-12 mx-3 md:ml-10 pl-0 lg:pr-5 lg:mb-0 w-full mt-6">
       <div className="text-center">
         <h2 className="mb-6 font-sans text-3xl font-bold text-gray-900 sm:text-4xl sm:leading-none">
           {title}

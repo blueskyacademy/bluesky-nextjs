@@ -28,7 +28,10 @@ const Page = ({ page, posts, navigations }) => {
             <BreadCrumb title={page?.title} slug={page?.slug} />
           </div>
           <div className="max-w-screen-xl flex flex-col lg:flex-row mx-auto">
-            <PostBody content={page.content} className="max-w-screen-md pt-6" />
+            <PostBody
+              content={page.content}
+              className="max-w-screen-md pt-6 mx-3 md:mx-auto"
+            />
             <RecentPosts recentPosts={posts} />
           </div>
 
