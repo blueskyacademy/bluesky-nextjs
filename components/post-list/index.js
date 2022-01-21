@@ -18,7 +18,7 @@ const PostList = ({ posts }) => {
       variants={blogVariants}
     >
       <div className="container">
-        <div className="flex flex-wrap -mx-3">
+        <div className="flex flex-wrap sm:-mx-3">
           {posts.map((post, idx) => (
             <motion.div
               className={`w-full ${

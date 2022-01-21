@@ -6,9 +6,11 @@ import { GENDER, RETEST_OPTIONS } from "../../lib/constant";
 import DatePickerCustomHeader from "../date-picker-custom-header";
 import { calculateDisableDays } from "../../lib/helper";
 import { useIntl } from "react-intl";
+import { useScreenSize } from "../../hooks/useScreenSize";
 
 const ExamForm = () => {
   const { formatMessage: f } = useIntl();
+  const { isMobile } = useScreenSize();
   const [form, setForm] = useState({});
   const [reTestOption, setReTestOption] = useState(RETEST_OPTIONS.no);
   const [gender, setGender] = useState(GENDER.female);
@@ -68,10 +70,16 @@ const ExamForm = () => {
         value
       ) : (
         <p className="text-purple-700 opacity-70">
-          {f({
-            id: "Form.PleaseChooseFrom2PMTo4PMOnEveryWednesday",
-            defaultMessage: "Please choose from 2PM to 4PM on every Wednesday",
-          })}
+          {isMobile
+            ? f({
+                id: "Form.PleaseChooseDateAndTime",
+                defaultMessage: "Please choose date and time",
+              })
+            : f({
+                id: "Form.PleaseChooseFrom2PMTo4PMOnEveryWednesday",
+                defaultMessage:
+                  "Please choose from 2PM to 4PM on every Wednesday",
+              })}
         </p>
       )}
       <div>
@@ -153,7 +161,7 @@ const ExamForm = () => {
               </h3>
             </div>
             <div className="md:col-span-2">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="fullNameStudent"
@@ -232,7 +240,7 @@ const ExamForm = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="mt-6">
                   <label
                     htmlFor="dateOfBirth"
@@ -295,7 +303,7 @@ const ExamForm = () => {
               </h3>
             </div>
             <div className="md:col-span-2">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="mt-6">
                   <label
                     htmlFor="fullNameParent"
@@ -345,7 +353,7 @@ const ExamForm = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="mt-6">
                   <label
                     htmlFor="occupation"
@@ -395,7 +403,7 @@ const ExamForm = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="mt-6">
                   <label
                     htmlFor="phone"

@@ -163,7 +163,7 @@ const BusForm = ({ classes }) => {
               </h3>
             </div>
             <div className="md:col-span-2">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="fullNameStudent"
@@ -210,7 +210,7 @@ const BusForm = ({ classes }) => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="mt-6">
                   <Dropdown
                     title={`${f({
@@ -247,7 +247,7 @@ const BusForm = ({ classes }) => {
               </h3>
             </div>
             <div className="md:col-span-2">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="mt-6">
                   <label
                     htmlFor="fullNameParent"
@@ -361,7 +361,7 @@ const BusForm = ({ classes }) => {
               </h3>
             </div>
             <div className="md:col-span-2">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div className="mt-4">
                   <Dropdown
                     options={[

@@ -7,32 +7,6 @@ import { getNavigation, getStats, getTeachers } from "../lib/api";
 import CTA from "../components/cta";
 import { useIntl } from "react-intl";
 
-const STATS = [
-  {
-    value: "30+",
-    label: "Teachers",
-  },
-  {
-    value: "6+",
-    label: "Average years of teacher experience",
-  },
-  {
-    value: "9",
-    label: "Average number of students per class",
-  },
-  {
-    value: "5:1",
-    label: "Student to teacher ratio",
-  },
-  {
-    value: "6",
-    label: "Number of Departments",
-  },
-  {
-    value: "100%",
-    label: "Student pass exam",
-  },
-];
 const TEACHER_IMAGES = [
   "/images/teacher-01.jpeg",
   "/images/teacher-03.jpeg",

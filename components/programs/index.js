@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useIntl } from "react-intl";
+import { useScreenSize } from "../../hooks/useScreenSize";
 
 const Programs = ({ id }) => {
   const { formatMessage: f } = useIntl();
+  const { isMobile } = useScreenSize();
   return (
     <div id={id}>
       <div className="px-4 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8">
         <div className="max-w-xl mx-auto md:max-w-screen-xl">
           <motion.div
             className="md:grid md:grid-cols-2 md:gap-12 lg:gap-12 "
-            initial={{ y: "50%", opacity: 0 }}
-            whileInView={{ y: "-20%", opacity: 1 }}
+            initial={{ y: `${isMobile ? "0%" : "50%"}`, opacity: 0 }}
+            whileInView={{ y: `${isMobile ? "0%" : "-20%"}`, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
@@ -114,7 +116,7 @@ const Programs = ({ id }) => {
             <motion.div
               className="relative w-full px-8 py-10 mt-12 bg-red-50 sm:p-12 md:mt-0 md:px-8 md:py-10 lg:p-12 rounded-3xl"
               initial={{ y: "0%", opacity: 0 }}
-              whileInView={{ y: "-50%", opacity: 1 }}
+              whileInView={{ y: `${isMobile ? "0%" : "-50%"}`, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
@@ -178,7 +180,7 @@ const Programs = ({ id }) => {
             <motion.div
               className="relative w-full px-8 py-10 mt-12 sm:p-12 md:mt-0 md:col-start-2 md:px-8 md:py-10 lg:p-12 bg-green-50 rounded-3xl"
               initial={{ y: "0%", opacity: 0 }}
-              whileInView={{ y: "-40%", opacity: 1 }}
+              whileInView={{ y: `${isMobile ? "0%" : "-40%"}`, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: "easeOut" }}
             >

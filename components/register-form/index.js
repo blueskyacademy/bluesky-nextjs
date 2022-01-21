@@ -13,7 +13,11 @@ export const SERVICE = {
 const DetailForm = ({ type, classes }) => {
   return (
     <div className="px-4 mt-12 -mb-48 -translate-y-56 lg:mt-20 sm:mt-16 sm:px-6 lg:px-8">
-      <div className={`${type === SERVICE.school ? "w-1/2" : "w-2/3"} mx-auto`}>
+      <div
+        className={`w-full ${
+          type === SERVICE.school ? "sm:w-1/2 " : "sm:w-2/3"
+        } mx-auto`}
+      >
         <div className="relative z-10 w-full px-4 py-10 mx-auto bg-white shadow-xl rounded-3xl lg:mr-0 lg:ml-auto sm:p-16 lg:p-12 xl:p-14">
           {type === SERVICE.school && <VisitForm />}
           {type === SERVICE.bus && <BusForm classes={classes} />}
