@@ -6,7 +6,7 @@ const RecentPosts = ({ recentPosts }) => {
   const { formatMessage: f } = useIntl();
   return (
     <section>
-      <div className="pl-12 py-12 mx-auto">
+      <div className="px-3 py-12 mx-auto md:pl-12">
         <div className="mx-auto">
           <div className="relative">
             <div

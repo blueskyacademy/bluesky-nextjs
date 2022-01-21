@@ -14,7 +14,7 @@ const Pagination = ({ totalPages, currentPage }) => {
   const prevDisabled = parseInt(currentPage, 10) === 1;
 
   return (
-    <div className="bg-white py-3 flex items-center justify-between border-t border-gray-200">
+    <div className="bg-white py-3 flex items-center justify-between border-t border-gray-200 px-3 md:px-0">
       <div className="sm:flex-1 sm:flex sm:items-center sm:justify-end">
         <div>
           <nav

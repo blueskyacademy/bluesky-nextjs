@@ -14,10 +14,7 @@ const PdfView = ({ fileId }) => {
 };
 const Loading = () => {
   return (
-    <div
-      className="px-4 mt-12 -mb-48 -translate-y-56 lg:mt-20 sm:mt-16 sm:px-6 lg:px-8 mx-auto"
-      style={{ width: "180px" }}
-    >
+    <div className="px-4 mt-12 -mb-48 -translate-y-56 lg:mt-20 sm:mt-16 sm:px-6 lg:px-8 mx-auto w-[140px] md:w-[180px]">
       <LoadingSpinner />
     </div>
   );

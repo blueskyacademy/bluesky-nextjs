@@ -12,7 +12,7 @@ const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
   };
   return (
     <motion.div
-      className={`grid w-full ${BACKGROUND_COLORS[idx]} rounded-2xl sm:grid-cols-12`}
+      className={`grid w-full ${BACKGROUND_COLORS[idx]} mt-8 lg:mt-0 rounded-2xl sm:grid-cols-12`}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
       initial={{ y: "50%", opacity: 0 }}
@@ -45,7 +45,7 @@ const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
         <div className="order-1 h-48 sm:order-2 rounded-t-2xl sm:h-full sm:rounded-tl-none sm:rounded-r-2xl sm:col-span-4">
           <img
             src={coverImage}
-            className="object-cover object-center w-full h-full rounded-t-2xl sm:rounded-tl-none sm:rounded-r-2xl"
+            className="object-cover object-center w-full h-full rounded-b-2xl sm:rounded-tl-none sm:rounded-r-2xl"
             alt="Event 01"
           />
         </div>
