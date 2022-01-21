@@ -69,12 +69,6 @@ const Founders = ({ id, cofounders }) => {
                   />
                 </div>
 
-                <img
-                  src="svg/dots-large-strip.svg"
-                  className="absolute top-0 origin-top transform -translate-x-1/2 -translate-y-8 left-1/2 lg:hidden sm:scale-100 scale-80"
-                  alt=""
-                />
-
                 <div className="relative w-full mx-auto shadow-lg rounded-3xl lg:max-w-lg lg:mr-0 lg:mr-auto">
                   <div className="relative block w-full">
                     <img

@@ -29,13 +29,16 @@ export default function Post({ post, morePosts, navigations }) {
               coverImage={post.coverImage.url}
               date={post.date}
             />
-            <PostBody content={post.content} className="max-w-2xl mx-auto" />
+            <PostBody
+              content={post.content}
+              className="max-w-2xl mx-2 sn:mx-auto"
+            />
           </article>
           <h2 className="mb-8 text-4xl md:text-4xl font-bold text-center mt-24">
             More stories
           </h2>
           <div className="container mx-auto">
-            <div className="grid gap-12 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+            <div className="grid gap-12 lg:grid-cols-3 sm:max-w-sm mx-2 sm:mx-auto lg:max-w-full">
               {morePosts.map((post) => (
                 <PostPreview
                   key={post.slug}

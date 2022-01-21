@@ -139,7 +139,7 @@ const Navbar = ({ navigations, className }) => {
     <div className={className}>
       <div className="max-w-screen-xl mx-auto">
         <div className="flex justify-between border-b border-purple-200/30">
-          <a>
+          <a className="hidden sm:block">
             <img
               className="h-24 rounded"
               //src="/images/logo-blue-text-small.png"
@@ -147,7 +147,7 @@ const Navbar = ({ navigations, className }) => {
               alt=""
             />
           </a>
-          <div>
+          <div className="hidden sm:block">
             <ul className="flex mt-2 space-x-6 pt-2">
               <li className="flex flex-shrink max-w-xs">
                 <div>
@@ -286,7 +286,7 @@ const Navbar = ({ navigations, className }) => {
           </div>
         </div>
 
-        <nav className="bg-transparent mt-3 pt-3">
+        <nav className="bg-transparent sm:pt-3">
           <div className={`items-center justify-between hidden lg:flex`}>
             {renderNavigations?.map((item, idx) => (
               <div
@@ -301,18 +301,80 @@ const Navbar = ({ navigations, className }) => {
               </div>
             ))}
           </div>
-
-          <div className="lg:hidden">
-            <button className="navbar-burger flex items-center py-2 px-3 text-blue-500 hover:text-blue-700 rounded border border-blue-200 hover:border-blue-300">
-              <svg
-                className="fill-current h-4 w-4"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+          <div className="flex items-center justify-between w-full">
+            <div className="flex-grow-0 flex-shrink-0 block w-48 lg:hidden sm:w-52">
+              <a>
+                <img
+                  src="/images/logo.png"
+                  alt="Bright"
+                  className="h-24 rounded"
+                />
+              </a>
+            </div>
+            {/* Mobile menu */}
+            <div className="flex flex-row-reverse mt-4 lg:hidden">
+              <img
+                className="px-2"
+                style={{ height: 24, cursor: "pointer" }}
+                alt="VietNam"
+                src="/images/vi_flag.png"
+                onClick={() =>
+                  router.push({ pathname, query }, asPath, { locale: "vi-VN" })
+                }
+              />
+              <img
+                src="/images/en_flag.jpg"
+                style={{ height: 24, width: 36, cursor: "pointer" }}
+                onClick={() =>
+                  router.push({ pathname, query }, asPath, { locale: "en-US" })
+                }
+              />
+            </div>
+            <div className="block mr-3 lg:hidden">
+              {/* Button */}
+              <button
+                className="relative z-50 w-6 h-5 transition duration-500 ease-in-out transform rotate-0 cursor-pointer group focus:outline-none"
+                onClick={handleClick}
               >
-                <title>Mobile menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-              </svg>
-            </button>
+                {!active ? (
+                  <>
+                    <span className="absolute top-0 left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 group-hover:bg-purple-600"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 top-2 group-hover:bg-purple-600"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 top-2 group-hover:bg-purple-600"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 top-4 group-hover:bg-purple-600"></span>
+                  </>
+                ) : (
+                  <>
+                    <span className="absolute top-0 left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-2 w-0 left-1/2"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-2 rotate-45"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-2 -rotate-45"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-4 top-2 w-0 left-1/2"></span>
+                  </>
+                )}
+              </button>
+              {/* Menu */}
+              {active && (
+                <div className="absolute top-0 left-0 z-40 w-screen px-4 py-16 overflow-y-scroll bg-gradient-to-tr from-purple-600 to-purple-600 sm:px-8">
+                  <div className="flex flex-col items-center justify-center w-full h-full">
+                    <div className="flex flex-col w-full space-y-6 justify-evenly">
+                      {renderNavigations?.map((item, idx) => (
+                        <div
+                          key={`menu-${item.path}-${idx}`}
+                          onClick={() => setCurrentSlug(item.slug)}
+                        >
+                          <DropdownLink
+                            title={item.title}
+                            path={item.path}
+                            subPages={item?.subPages}
+                            color="text-white"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </nav>
       </div>

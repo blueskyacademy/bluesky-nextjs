@@ -96,15 +96,15 @@ const SchoolTeam = ({ teachers }) => {
       </div>
       <div className="bg-purple-600 pb-16">
         <div className="max-w-2xl mx-auto lg:max-w-screen-xl">
-          <ul className="grid grid-cols-3">
+          <ul className="grid sm:grid-cols-3">
             {DEPARTMENTS.map((item) => (
               <li
                 key={item.title}
                 onClick={() => setSelectedDepartment(item.title)}
                 className={
                   selectedDepartment === item.title
-                    ? "text-yellow-400 py-2 font-bold"
-                    : "py-2 text-white"
+                    ? "text-yellow-400 py-2 font-bold mx-5 sm:mx-0"
+                    : "py-2 text-white mx-5 sm:mx-0"
                 }
               >
                 <a

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-export function NavLink({ href, title, ...props }) {
+export function NavLink({ href, title, color, ...props }) {
   const { pathname } = useRouter();
   const isActive =
     pathname === "/"
@@ -9,7 +9,11 @@ export function NavLink({ href, title, ...props }) {
   if (!href) {
     return (
       <div className="relative group">
-        <span className="relative z-10 text-lg font-medium text-purple-700 duration-300 ease-in-out group-hover:text-purple-600 whitespace-nowrap">
+        <span
+          className={`relative z-10 text-lg font-medium ${
+            color ? color : "text-purple-700 group-hover:text-purple-600"
+          } duration-300 ease-in-out whitespace-nowrap`}
+        >
           {title}
         </span>
         <span
@@ -24,12 +28,16 @@ export function NavLink({ href, title, ...props }) {
     <Link href={href}>
       <a {...props}>
         <div className="relative group">
-          <span className="relative z-10 text-lg font-medium text-purple-700 duration-300 ease-in-out group-hover:text-purple-600 whitespace-nowrap">
+          <span
+            className={`relative z-10 text-lg font-medium ${
+              color ? color : "text-purple-700 group-hover:text-purple-600"
+            } duration-300 ease-in-out  whitespace-nowrap`}
+          >
             {title}
           </span>
           <span
             className={`absolute bottom-0 h-1.5 duration-300 ease-in-out origin-bottom transform scale-x-0 bg-yellow-400 rounded-lg -left-1 -right-1 group-hover:scale-x-100 ${
-              isActive && "scale-x-100"
+              isActive && "scale-x-1 md:scale-x-100"
             }`}
           ></span>
         </div>

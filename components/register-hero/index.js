@@ -8,11 +8,11 @@ const RegisterHero = () => {
     <section className="relative px-4 py-16 overflow-hidden lg:py-20 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25">
       <img
         src="/svg/dots-large-grid.svg"
-        className="absolute right-0 h-auto transform opacity-25 lg:opacity-40 top-12 w-54"
+        className="absolute right-0 h-auto transform opacity-25 lg:opacity-40 top-12 w-54 hidden md:block"
       />
       <img
         src="/svg/dots-large-grid.svg"
-        className="absolute h-auto transform opacity-40 -left-36 bottom-36 w-54"
+        className="absolute h-auto transform opacity-40 -left-36 bottom-36 w-54 hidden md:block"
       />
 
       <div className="max-w-xl mx-auto lg:max-w-screen-xl lg:grid lg:grid-cols-12 lg:gap-8">
