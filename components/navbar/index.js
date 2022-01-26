@@ -4,14 +4,15 @@ import { useState } from "react";
 import { SubNav } from "./sub-nav";
 import { useIntl } from "react-intl";
 
-const Navbar = ({ navigations, className }) => {
+const Navbar = ({
+  navigations,
+  className,
+  showMobileMenu,
+  handleClickMobileMenu,
+}) => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { formatMessage: f } = useIntl();
-  const handleClickMobileMenu = () => {
-    setShowMobileMenu(!showMobileMenu);
-  };
   const [currentSlug, setCurrentSlug] = useState(pathname.slice(1) || "home");
   const formatNavigations = (navigations = []) => {
     const result = [];
@@ -287,7 +288,7 @@ const Navbar = ({ navigations, className }) => {
         </div>
 
         <nav className="bg-transparent sm:pt-3">
-          <div className={`items-center justify-between hidden lg:flex`}>
+          <div className={`items-center justify-between hidden md:flex`}>
             {renderNavigations?.map((item, idx) => (
               <div
                 key={`menu-${item.path}-${idx}`}
@@ -301,36 +302,40 @@ const Navbar = ({ navigations, className }) => {
               </div>
             ))}
           </div>
-          <div className="flex items-center justify-between w-full">
-            <div className="flex-grow-0 flex-shrink-0 block w-48 lg:hidden sm:w-52">
+          {/* Mobile menu */}
+          <div className="flex items-center justify-between w-full overflow-y-auto">
+            <div className="flex-grow-0 flex-shrink-0 block w-48 sm:hidden sm:w-52">
               <a>
                 <img
                   src="/images/logo.png"
                   alt="Bright"
-                  className="h-24 rounded"
+                  className="h-20 rounded mt-3 ml-3"
                 />
               </a>
             </div>
-            {/* Mobile menu */}
-            <div className="flex flex-row-reverse mt-4 lg:hidden">
+            <div className="flex flex-row-reverse mt-4 sm:hidden">
               <img
                 className="px-2"
                 style={{ height: 24, cursor: "pointer" }}
                 alt="VietNam"
                 src="/images/vi_flag.png"
                 onClick={() =>
-                  router.push({ pathname, query }, asPath, { locale: "vi-VN" })
+                  router.push({ pathname, query }, asPath, {
+                    locale: "vi-VN",
+                  })
                 }
               />
               <img
                 src="/images/en_flag.jpg"
                 style={{ height: 24, width: 36, cursor: "pointer" }}
                 onClick={() =>
-                  router.push({ pathname, query }, asPath, { locale: "en-US" })
+                  router.push({ pathname, query }, asPath, {
+                    locale: "en-US",
+                  })
                 }
               />
             </div>
-            <div className="block mr-3 lg:hidden">
+            <div className="block mr-3 sm:hidden">
               {/* Button */}
               <button
                 className="relative z-50 w-6 h-5 transition duration-500 ease-in-out transform rotate-0 cursor-pointer group focus:outline-none"
@@ -354,7 +359,7 @@ const Navbar = ({ navigations, className }) => {
               </button>
               {/* Menu */}
               {showMobileMenu && (
-                <div className="absolute top-0 left-0 z-40 w-screen px-4 py-16 overflow-y-scroll bg-gradient-to-tr from-purple-600 to-purple-600 sm:px-8">
+                <div className="absolute top-0 left-0 z-40 w-screen px-4 py-16 overflow-y-scroll bg-gradient-to-tr from-purple-600 to-purple-600 sm:px-8 overflow-x-hidden">
                   <div className="flex flex-col items-center justify-center w-full h-full">
                     <div className="flex flex-col w-full space-y-6 justify-evenly">
                       {renderNavigations?.map((item, idx) => (
