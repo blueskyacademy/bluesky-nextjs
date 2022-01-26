@@ -7,7 +7,7 @@ const AdmissionHero = () => {
       <div className="max-w-xl mx-auto lg:max-w-screen-xl">
         <div className="lg:grid lg:grid-cols-2 md:gap-16 lg:gap-0">
           <div className="flex flex-col justify-center pr-10 xl:pr-0">
-            <h2 className="mt-3.5 sm:mt-4 text-4xl leading-tight tracking-tight sm:text-4xl xl:text-5xl sm:leading-tighter font-bold max-w-xl text-purple-900">
+            <h2 className="mt-3.5 sm:mt-4 text-4xl sm:text-3xl xl:text-4xl sm:leading-tighter font-bold max-w-xl text-purple-900">
               {f({
                 id: "Admission.AProgramForEveryParentAndChild",
                 defaultMessage: "A program for every parent and child",

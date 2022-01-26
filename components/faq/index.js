@@ -46,6 +46,7 @@ const Faq = ({ id, faq }) => {
     <motion.section
       className="py-20 bg-yellow-100 sm:py-28"
       id={id}
+      viewport={{ once: true }}
       transition={{ duration: 1 }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
