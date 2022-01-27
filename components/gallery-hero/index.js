@@ -23,11 +23,11 @@ const GalleryHero = ({
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h2 className="max-w-3xl mx-auto text-center text-purple-900 text-5xl font-bold">
+            <h2 className="max-w-3xl mx-auto text-center text-primary-100 text-5xl font-bold">
               {title}
             </h2>
 
-            <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
+            <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-primary-100 sm:mt-5">
               {description}
             </p>
           </motion.div>

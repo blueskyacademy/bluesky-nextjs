@@ -11,6 +11,12 @@ module.exports = {
         written: ["Gochi Hand", "cursive"],
       },
       colors: {
+        primary: {
+          40: "#3A6B9F",
+          60: "#3A6B9F",
+          80: "#355C88",
+          100: "#003056",
+        },
         red: {
           50: "#ffebee",
           100: "#ffcdd2",
@@ -331,7 +337,7 @@ module.exports = {
         "2xl": "1.75rem",
         "3xl": "2rem",
         "4xl": "2.25rem",
-        "5xl": "2.7rem",
+        "5xl": "3rem",
         "6xl": "3.25rem",
         "7xl": "3.75rem",
         "8xl": "5rem",

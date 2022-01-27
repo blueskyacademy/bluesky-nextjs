@@ -18,7 +18,7 @@ const Programs = ({ id }) => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <div>
-              <h2 className="max-w-4xl text-purple-900 h2 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
+              <h2 className="max-w-4xl text-primary-100 h2 text-5xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
                 {f({
                   id: "Home.EducationProgram",
                   defaultMessage: "Education Program",

@@ -68,13 +68,13 @@ const Events = ({ id, posts }) => {
           initial={{ y: "50%", opacity: 0 }}
           whileInView={{ y: "0", opacity: 1 }}
         >
-          <h2 className="text-purple-900 lg:text-center text-5xl font-bold">
+          <h2 className="text-primary-100 lg:text-center text-5xl font-bold">
             {f({
               id: "Home.NewsAndEvents",
               defaultMessage: "News and Events",
             })}
           </h2>
-          <p className="max-w-3xl mx-auto mt-3 text-xl leading-relaxed text-purple-800 lg:mt-4 lg:text-center">
+          <p className="max-w-3xl mx-auto mt-3 text-xl leading-relaxed text-primary-100 lg:mt-4 lg:text-center">
             {f({
               id: "Home.NewsSummary",
               defaultMessage:
