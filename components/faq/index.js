@@ -53,13 +53,13 @@ const Faq = ({ id, faq }) => {
     >
       <div className="px-4 mx-auto lg:max-w-screen-lg sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <h2 className="text-purple-900 text-5xl font-bold">
+          <h2 className="text-primary-100 text-5xl font-bold">
             {f({
               id: "Home.FrequentlyAskedQuestions",
               defaultMessage: "Frequently asked questions",
             })}
           </h2>
-          <p className="max-w-2xl mt-4 text-xl leading-relaxed text-purple-800 lg:text-left">
+          <p className="max-w-2xl mt-4 text-xl leading-relaxed text-primary-100 lg:text-left">
             {f({
               id: "Home.FAQSummary",
               defaultMessage:

@@ -26,9 +26,9 @@ export default function Home({ allPosts, testimonials, faq, navigations }) {
     "/images/gallery-hero-02.png",
   ];
   return (
-    <Layout navigations={navigations} className="bg-purple-25">
+    <Layout navigations={navigations}>
       <HomeHero />
-      <div className="w-full h-20 sm:h-20 xl:h-20 bg-gradient-to-b from-purple-50 to-white"></div>
+      {/* <div className="w-full h-20 sm:h-20 xl:h-20 bg-gradient-to-b from-purple-50 to-white"></div> */}
       <Programs id="program" />
       <GalleryHero
         id="gallery"

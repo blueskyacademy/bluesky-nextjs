@@ -31,7 +31,7 @@ export default function Post({ post, morePosts, navigations }) {
             />
             <PostBody
               content={post.content}
-              className="max-w-2xl mx-2 sn:mx-auto"
+              className="max-w-2xl mx-2 sm:mx-auto"
             />
           </article>
           <h2 className="mb-8 text-4xl md:text-4xl font-bold text-center mt-24">

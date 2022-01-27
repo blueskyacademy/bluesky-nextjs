@@ -47,7 +47,7 @@ const HomeHero = () => {
   };
   return (
     <div>
-      <section className="px-4 py-16 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-25 to-purple-50">
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto lg:grid lg:grid-cols-12 lg:gap-8">
           <motion.div
             className="flex flex-col items-center justify-center lg:items-start lg:col-span-6"
@@ -56,7 +56,7 @@ const HomeHero = () => {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h1 className="max-w-xl mt-4 text-center text-purple-900 sm:mt-5 lg:text-left h1 lg:max-w-none text-6xl leading-snug sm:leading-tight xl:leading-tighter font-extrabold ">
+            <h1 className="uppercase max-w-xl mt-4 text-center text-primary-100 sm:mt-5 lg:text-left h1 lg:max-w-none text-7xl leading-snug sm:leading-tight xl:leading-tighter font-bold">
               {f({
                 id: "Home.BlueSkyAcademy",
                 defaultMessage: "Blue Sky Academy",
