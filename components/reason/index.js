@@ -1,6 +1,11 @@
 import { useIntl } from "react-intl";
-const Reason = ({ reasons }) => {
+const Reason = ({ reasons, slug }) => {
   const { formatMessage: f } = useIntl();
+  const BACKGROUND_COLOR = {
+    kindergarten: "bg-kindergarten",
+    primary: "bg-primary-division",
+    secondary: "bg-secondary",
+  };
   return (
     <section className="relative w-full px-4 py-12 sm:py-16 sm:px-6 xl:px-8">
       <div className="max-w-xl mx-auto lg:max-w-screen-xl pb-16">
@@ -30,7 +35,11 @@ const Reason = ({ reasons }) => {
           </h3>
         </div>
         <div className="flex flex-col justify-center">
-          <div className="relative max-w-8xl mt-16 bg-yellow-100 rounded-xl sm:mt-14">
+          <div
+            className={`relative max-w-8xl mt-16 ${
+              BACKGROUND_COLOR[slug] ?? `bg-yellow-100`
+            }  rounded-xl sm:mt-14`}
+          >
             <span className="absolute flex items-center justify-center shadow-md left-6 sm:left-10 -top-7 rounded-2xl w-14 h-14 bg-gradient-to-br from-purple-600 to-purple-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

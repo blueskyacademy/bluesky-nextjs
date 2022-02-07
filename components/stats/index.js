@@ -12,11 +12,20 @@ const StatCard = ({ label, value }) => {
   );
 };
 
-const Stats = ({ stats }) => {
+const Stats = ({ stats, slug }) => {
   const { formatMessage: f } = useIntl();
+  const BACKGROUND_COLOR = {
+    kindergarten: "bg-red-900",
+    primary: "bg-primary-100",
+    secondary: "bg-green-900",
+  };
   return (
     <div className="pt-16">
-      <section className="relative w-full px-4 py-16 bg-purple-600 sm:py-24 sm:px-6 lg:px-8">
+      <section
+        className={`relative w-full px-4 py-16 ${
+          BACKGROUND_COLOR[slug] ?? `bg-purple-600`
+        } sm:py-24 sm:px-6 lg:px-8`}
+      >
         <div className="max-w-screen-xl mx-auto">
           <div>
             <h2 className="max-w-4xl mx-auto text-center text-white text-4xl leading-tight tracking-wide sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
@@ -39,8 +48,16 @@ const Stats = ({ stats }) => {
           </div>
         </div>
       </section>
-      <div className="px-4 bg-purple-600 sm:px-6 lg:px-8">
-        <hr className="max-w-screen-xl mx-auto border-purple-500" />
+      <div
+        className={`px-4 ${
+          BACKGROUND_COLOR[slug] ?? `bg-purple-600`
+        } sm:px-6 lg:px-8`}
+      >
+        <hr
+          className={`max-w-screen-xl mx-auto ${
+            slug ? "border-white" : `border-purple-500`
+          }`}
+        />
       </div>
     </div>
   );
