@@ -34,11 +34,20 @@ const PersonList = ({ persons }) => {
   );
 };
 
-const DivisionTeam = ({ teachers }) => {
+const DivisionTeam = ({ teachers, slug }) => {
   const { formatMessage: f } = useIntl();
+  const BACKGROUND_COLOR = {
+    kindergarten: "bg-red-900",
+    primary: "bg-primary-100",
+    secondary: "bg-green-900",
+  };
   return (
     <section>
-      <div className="px-4 pt-16 py-4 bg-purple-600 sm:pt-24 sm:px-6 lg:px-8">
+      <div
+        className={`px-4 pt-16 py-4 ${
+          BACKGROUND_COLOR[slug] ?? `bg-purple-600`
+        }  sm:pt-24 sm:px-6 lg:px-8`}
+      >
         <div className="max-w-2xl mx-auto lg:max-w-screen-xl">
           <div className="flex items-center">
             <h3 className="max-w-4xl text-white sm:text-center text-4xl leading-tight tracking-wide sm:text-5xl xl:text-6xl sm:leading-tighter font-bold lg:text-left">
@@ -50,7 +59,9 @@ const DivisionTeam = ({ teachers }) => {
           </div>
         </div>
       </div>
-      <div className="w-full h-32 bg-purple-600"></div>
+      <div
+        className={`w-full h-32 ${BACKGROUND_COLOR[slug] ?? `bg-purple-600`}`}
+      ></div>
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto -translate-y-24 lg:max-w-screen-xl">
           <PersonList persons={teachers} />

@@ -22,7 +22,7 @@ const RecruitmentHero = () => {
           </p>
           <div className="flex-col justify-center sm:flex-row">
             <Link href="/recruitment#jobs">
-              <a className="mt-6 text-lg font-medium text-white bg-indigo-600 sm:mt-0 sm:ml-1 relative leading-normal inline-flex items-center justify-center px-2 py-3 duration-300 ease-in-out rounded-full outline-none hover:text-white hover:bg-purple-600 group cursor-pointer mr-3 sm:px-8">
+              <a className="mt-6 text-lg font-medium text-white bg-primary-100 sm:mt-0 sm:ml-1 relative leading-normal inline-flex items-center justify-center px-2 py-3 duration-300 ease-in-out rounded-full outline-none hover:text-white hover:bg-primary-80 group cursor-pointer mr-3 sm:px-8">
                 {f({
                   id: "Recruitment.ViewOpenPositions",
                   defaultMessage: "View open positions",

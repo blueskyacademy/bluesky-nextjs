@@ -107,7 +107,7 @@ const Testimonial = ({ testimonials }) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
   return (
-    <section className="py-20 bg-purple-600 sm:py-20 lg:py-20 md:mt-12">
+    <section className="py-20 bg-primary-100 sm:py-20 lg:py-20 md:mt-12">
       <div className="px-4 mx-auto lg:max-w-screen-2xl sm:px-6">
         <div className="flex flex-col items-center justify-center">
           <h2 className="max-w-4xl text-center text-white text-5xl sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">

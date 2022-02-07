@@ -27,14 +27,24 @@ const Class = ({ division, navigations }) => {
         <>
           <ClassHero
             name={division?.name}
+            slug={division?.slug}
             summary={division?.summary}
             coverImage={division?.coverImage?.url}
             description={division?.description}
           />
           <AnimationRevealPage>
-            <Reason reasons={division?.reasonsCollection?.items} />
-            <Stats stats={division?.statsCollection?.items} />
-            <DivisionTeam teachers={division?.teachersCollection?.items} />
+            <Reason
+              reasons={division?.reasonsCollection?.items}
+              slug={division?.slug}
+            />
+            <Stats
+              stats={division?.statsCollection?.items}
+              slug={division?.slug}
+            />
+            <DivisionTeam
+              teachers={division?.teachersCollection?.items}
+              slug={division?.slug}
+            />
             <CarouselImages classes={division?.classesCollection?.items} />
             <CTA />
           </AnimationRevealPage>

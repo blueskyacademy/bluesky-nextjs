@@ -305,7 +305,7 @@ const Navbar = ({
             ))}
           </div>
           {/* Mobile menu */}
-          <div className="flex items-center justify-between w-full overflow-y-auto shadow pb-3 block sm:hidden">
+          <div className="flex items-center justify-between w-full overflow-y-auto shadow pb-3 sm:hidden bg-white">
             <div className="block ml-6 sm:hidden">
               {/* Button */}
               <button
