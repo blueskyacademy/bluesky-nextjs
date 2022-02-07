@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useState } from "react";
 import { useScreenSize } from "../../hooks/useScreenSize";
 import { NavLink } from "./nav-link";
 
@@ -21,7 +20,7 @@ const DropdownLink = ({ title, slug, path, subPages = [], color }) => {
                   key={`${item?.title}-${idx}`}
                 >
                   <a className="block w-full py-3 transition duration-200 ease-in-out rounded-xl sm:px-5 hover:bg-purple-25 group">
-                    <h5 className="text-md font-semibold text-purple-600 whitespace-pre-wrap">
+                    <h5 className="text-md font-semibold text-primary-100 whitespace-pre-wrap">
                       {item?.title}
                     </h5>
                   </a>

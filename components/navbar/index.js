@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import DropdownLink from "./dropdown-link";
 import { useState } from "react";
@@ -138,18 +139,13 @@ const Navbar = ({
 
   return (
     <div className={className}>
-      <div className="max-w-screen-xl mx-auto">
-        <div className="flex justify-between border-b border-purple-200/30">
-          <a className="hidden sm:block">
-            <img
-              className="h-24 rounded"
-              //src="/images/logo-blue-text-small.png"
-              src="/images/logo.png"
-              alt=""
-            />
+      <header className="h-[80px] pt-2 hidden sm:block shadow_navigation">
+        <div className="max-w-screen-xl mx-auto flex justify-between">
+          <a>
+            <img className="h-[64px]" src="/svg/logo.svg" alt="" />
           </a>
-          <div className="hidden sm:block">
-            <ul className="flex mt-2 space-x-6 pt-2">
+          <div>
+            <ul className="flex mt-2 space-x-12 pt-2">
               <li className="flex flex-shrink max-w-xs">
                 <div>
                   <span
@@ -157,10 +153,10 @@ const Navbar = ({
                 flex
                 items-center
                 justify-center
-                bg-yellow-400
-                rounded-2xl
-                 w-9
-                h-9
+                bg-warning-60
+                rounded
+                w-8
+                h-8
               "
                   >
                     <svg
@@ -181,8 +177,8 @@ const Navbar = ({
                     </svg>
                   </span>
                 </div>
-                <div className="flex-1 mt-2 ml-2 xl:ml-2">
-                  <h5 className="flex items-center text-base text-purple-900">
+                <div className="flex-1 mt-1 ml-2 xl:ml-2">
+                  <h5 className="flex items-center text-base text-primary-100">
                     {f({
                       id: "Home.AddressDetail",
                       defaultMessage: "Le Loi, Vinh City, Nghe An, Vietnam",
@@ -198,10 +194,10 @@ const Navbar = ({
                 flex
                 items-center
                 justify-center
-                bg-purple-200
-                rounded-2xl
-                 w-9
-                h-9
+                bg-success-40
+                rounded
+                w-8
+                h-8
               "
                   >
                     <svg
@@ -222,8 +218,8 @@ const Navbar = ({
                     </svg>
                   </span>
                 </div>
-                <div className="flex-1 ml-2 xl:ml-2 mt-2">
-                  <h5 className="flex items-center text-base text-purple-900">
+                <div className="flex-1 ml-2 xl:ml-2 mt-1">
+                  <h5 className="flex items-center text-base text-primary-100">
                     bluesky@edu.vn
                   </h5>
                 </div>
@@ -236,10 +232,10 @@ const Navbar = ({
                 flex
                 items-center
                 justify-center
-                rounded-2xl
-                w-9
-                h-9
-                bg-rose-200
+                rounded
+                w-8
+                h-8
+                bg-purple-200
               "
                   >
                     <svg
@@ -259,35 +255,41 @@ const Navbar = ({
                     </svg>
                   </span>
                 </div>
-                <div className="flex-1 ml-2 xl:ml-2 mt-2">
-                  <h5 className="flex items-center text-base text-purple-900">
+                <div className="flex-1 ml-2 xl:ml-2 mt-1">
+                  <h5 className="flex items-center text-base text-primary-100">
                     +84 238 357 9779
                   </h5>
                 </div>
               </li>
+              <div className="flex flex-row-reverse mt-1">
+                <img
+                  className="px-2 h-[24px] cursor-pointer"
+                  alt="VietNam"
+                  src="/svg/VN.svg"
+                  onClick={() =>
+                    router.push({ pathname, query }, asPath, {
+                      locale: "vi-VN",
+                    })
+                  }
+                />
+                <img
+                  className="h-[24px] cursor-pointer"
+                  src="/svg/US.svg"
+                  alt="English"
+                  onClick={() =>
+                    router.push({ pathname, query }, asPath, {
+                      locale: "en-US",
+                    })
+                  }
+                />
+              </div>
             </ul>
-            <div className="flex flex-row-reverse mt-4">
-              <img
-                className="px-2"
-                style={{ height: 24, cursor: "pointer" }}
-                alt="VietNam"
-                src="/images/vi_flag.png"
-                onClick={() =>
-                  router.push({ pathname, query }, asPath, { locale: "vi-VN" })
-                }
-              />
-              <img
-                src="/images/en_flag.jpg"
-                style={{ height: 24, width: 36, cursor: "pointer" }}
-                onClick={() =>
-                  router.push({ pathname, query }, asPath, { locale: "en-US" })
-                }
-              />
-            </div>
           </div>
         </div>
+      </header>
 
-        <nav className="bg-transparent sm:pt-3">
+      <div className="max-w-screen-xl mx-auto">
+        <nav className="bg-transparent sm:pt-5">
           <div className={`items-center justify-between hidden md:flex`}>
             {renderNavigations?.map((item, idx) => (
               <div
@@ -303,39 +305,8 @@ const Navbar = ({
             ))}
           </div>
           {/* Mobile menu */}
-          <div className="flex items-center justify-between w-full overflow-y-auto">
-            <div className="flex-grow-0 flex-shrink-0 block w-48 sm:hidden sm:w-52">
-              <a>
-                <img
-                  src="/images/logo.png"
-                  alt="Bright"
-                  className="h-20 rounded mt-3 ml-3"
-                />
-              </a>
-            </div>
-            <div className="flex flex-row-reverse mt-4 sm:hidden">
-              <img
-                className="px-2"
-                style={{ height: 24, cursor: "pointer" }}
-                alt="VietNam"
-                src="/images/vi_flag.png"
-                onClick={() =>
-                  router.push({ pathname, query }, asPath, {
-                    locale: "vi-VN",
-                  })
-                }
-              />
-              <img
-                src="/images/en_flag.jpg"
-                style={{ height: 24, width: 36, cursor: "pointer" }}
-                onClick={() =>
-                  router.push({ pathname, query }, asPath, {
-                    locale: "en-US",
-                  })
-                }
-              />
-            </div>
-            <div className="block mr-3 sm:hidden">
+          <div className="flex items-center justify-between w-full overflow-y-auto shadow pb-3 block sm:hidden">
+            <div className="block ml-6 sm:hidden">
               {/* Button */}
               <button
                 className="relative z-50 w-6 h-5 transition duration-500 ease-in-out transform rotate-0 cursor-pointer group focus:outline-none"
@@ -343,10 +314,10 @@ const Navbar = ({
               >
                 {!showMobileMenu ? (
                   <>
-                    <span className="absolute top-0 left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 group-hover:bg-purple-600"></span>
-                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 top-2 group-hover:bg-purple-600"></span>
-                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 top-2 group-hover:bg-purple-600"></span>
-                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-purple-900 rounded-full opacity-100 top-4 group-hover:bg-purple-600"></span>
+                    <span className="absolute top-0 left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-primary-100 rounded-full opacity-100 group-hover:bg-purple-600"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-primary-100 rounded-full opacity-100 top-2 group-hover:bg-purple-600"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-primary-100 rounded-full opacity-100 top-2 group-hover:bg-purple-600"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-primary-100 rounded-full opacity-100 top-4 group-hover:bg-purple-600"></span>
                   </>
                 ) : (
                   <>
@@ -379,6 +350,37 @@ const Navbar = ({
                   </div>
                 </div>
               )}
+            </div>
+            <div className="block w-48 sm:hidden sm:w-52 flex justify-center">
+              <a>
+                <img
+                  src="/svg/logo.svg"
+                  alt="Bright"
+                  className="h-[48px] mt-3 ml-6"
+                />
+              </a>
+            </div>
+            <div className="flex flex-row-reverse mt-4 mr-4 sm:hidden">
+              <img
+                className="px-2 h-[24px] cursor-pointer"
+                alt="VietNam"
+                src="/svg/VN.svg"
+                onClick={() =>
+                  router.push({ pathname, query }, asPath, {
+                    locale: "vi-VN",
+                  })
+                }
+              />
+              <img
+                className="h-[24px] cursor-pointer"
+                src="/svg/US.svg"
+                alt="English"
+                onClick={() =>
+                  router.push({ pathname, query }, asPath, {
+                    locale: "en-US",
+                  })
+                }
+              />
             </div>
           </div>
         </nav>

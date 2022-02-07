@@ -68,7 +68,10 @@ const TestimonialCard = ({ content, img, title, description }) => {
 const Feedback = ({ id, testimonials }) => {
   const { formatMessage: f } = useIntl();
   return (
-    <section id={id} className="py-20 bg-purple-600 sm:py-20 lg:py-20 md:mt-12">
+    <section
+      id={id}
+      className="py-20 bg-primary-100 sm:py-20 lg:py-20 md:mt-12"
+    >
       <div className="px-4 mx-auto lg:max-w-screen-2xl sm:px-6">
         <motion.div
           className="flex flex-col items-center justify-center"
