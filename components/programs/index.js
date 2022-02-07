@@ -35,7 +35,7 @@ const Programs = ({ id }) => {
             </div>
           </motion.div>
 
-          <div className="mt-16 md:mt-72 md:grid md:grid-cols-2 md:gap-8 lg:gap-16">
+          <div className="mt-16 grid md:mt-72 md:grid md:grid-cols-2 md:gap-8 lg:gap-16">
             <motion.div
               className="relative"
               initial={{ y: "50%", opacity: 0 }}
@@ -43,16 +43,16 @@ const Programs = ({ id }) => {
               viewport={{ once: true }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <img
+              {/* <img
                 src="/svg/curved-dotted-line.svg"
                 className="absolute top-0 hidden -translate-y-1/2 md:block left-1/2"
                 style={{ width: `calc(50% + 4rem)` }}
-              />
+              /> */}
 
-              <div className="relative z-10 w-full px-8 py-10 sm:p-12 md:px-8 md:py-10 lg:p-12 bg-blue-50 rounded-3xl">
+              <div className="relative z-10 w-full px-8 py-6 md:px-8 md:py-6 bg-primary-division rounded-3xl">
                 <div className="flex flex-col justify-between">
                   <div className="flex-1">
-                    <h3 className="text-blue-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
+                    <h3 className="text-primary-60 text-2xl leading-tight tracking-tight sm:text-2xl sm:leading-tighter font-bold">
                       {f({
                         id: "Home.PrimarySchool",
                         defaultMessage: "Primary School",
@@ -107,22 +107,29 @@ const Programs = ({ id }) => {
               </div>
 
               <img
+                src="/svg/arrow.svg"
+                className="absolute top-0 hidden translate-y-3/4 md:block -translate-x-16"
+              />
+              {/* <img
                 src="/svg/looped-dotted-line.svg"
                 className="hidden md:block absolute bottom-0 left-1/2 translate-y-[90%]"
                 style={{ width: `calc(50% + 4rem)` }}
-              />
+              /> */}
             </motion.div>
-
             <motion.div
-              className="relative w-full px-8 py-10 mt-12 bg-red-50 sm:p-12 md:mt-0 md:px-8 md:py-10 lg:p-12 rounded-3xl"
+              className="relative w-full px-8 py-6 mt-12 bg-kindergarten md:mt-0 md:px-8 md:py-6 rounded-3xl"
               initial={{ y: "0%", opacity: 0 }}
               whileInView={{ y: `${isMobile ? "0%" : "-50%"}`, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
+              <img
+                src="/svg/red.svg"
+                className="hidden md:block absolute right-0 translate-x-1/2 translate-y-full z-10"
+              />
               <div className="flex flex-col justify-between">
                 <div className="flex-1">
-                  <h3 className="text-red-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
+                  <h3 className="text-red-800 text-2xl leading-tight tracking-tight sm:text-2xl sm:leading-tighter font-bold">
                     {f({
                       id: "Home.Kindergarten",
                       defaultMessage: "Kindergarten",
@@ -145,7 +152,7 @@ const Programs = ({ id }) => {
                 </div>
                 <div className="mt-8">
                   <Link href="/programs/kindergarten">
-                    <a className="font-medium text-white bg-red-800 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-red-500 group">
+                    <a className="font-medium text-white bg-red-900 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-red-500 group">
                       {f({
                         id: "Home.LearnMore",
                         defaultMessage: "Learn more",
@@ -178,7 +185,7 @@ const Programs = ({ id }) => {
             </motion.div>
 
             <motion.div
-              className="relative w-full px-8 py-10 mt-12 sm:p-12 md:mt-0 md:col-start-2 md:px-8 md:py-10 lg:p-12 bg-green-50 rounded-3xl"
+              className="relative w-full px-8 py-6 mt-12 md:mt-0 md:col-start-2 md:px-8 md:py-6 bg-secondary rounded-3xl"
               initial={{ y: "0%", opacity: 0 }}
               whileInView={{ y: `${isMobile ? "0%" : "-40%"}`, opacity: 1 }}
               viewport={{ once: true }}
@@ -186,7 +193,7 @@ const Programs = ({ id }) => {
             >
               <div className="flex flex-col justify-between">
                 <div className="flex-1">
-                  <h3 className="text-green-900 text-3xl leading-tight tracking-tight sm:text-4xl sm:leading-tighter font-bold;">
+                  <h3 className="text-green-900 text-2xl leading-tight tracking-tight sm:text-2xl sm:leading-tighter font-bold">
                     {f({
                       id: "Home.Secondary",
                       defaultMessage: "Secondary",
@@ -239,6 +246,10 @@ const Programs = ({ id }) => {
                   </Link>
                 </div>
               </div>
+              <img
+                src="/svg/earth.svg"
+                className="absolute translate-y-6 hidden md:block -right-16"
+              />
             </motion.div>
           </div>
         </div>

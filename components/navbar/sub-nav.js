@@ -70,15 +70,15 @@ export function SubNav({ slug = "home" }) {
   return (
     <nav
       ref={stickyRef}
-      className={`relative shadow-xl ${
-        isSticky ? "sticky bg-yellow-50 border-b hidden md:block" : "hidden"
+      className={`relative shadow-lg  ${
+        isSticky ? "sticky bg-white border-b hidden md:block" : "hidden"
       }`}
       style={{
         zIndex: 40,
-        minHeight: 50,
+        minHeight: 60,
       }}
     >
-      <div className="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="flex justify-center items-center space-x-8 lg:flex justify-items-center mx-auto">
           {NAVIGATIONS[slug]?.map((item, idx) => (
             <Link href={item.href} key={`${item.title}-${idx}`}>

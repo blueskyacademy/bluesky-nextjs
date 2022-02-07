@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
+        sans: ["Myriad Pro", ...defaultTheme.fontFamily.sans],
         written: ["Gochi Hand", "cursive"],
       },
       colors: {
@@ -26,8 +26,8 @@ module.exports = {
           500: "#f44336",
           600: "#e53935",
           700: "#d32f2f",
-          800: "#c62828",
-          900: "#b71c1c",
+          800: "#A12737",
+          900: "#4E1F14",
           "accent-100": "#ff8a80",
           "accent-200": "#ff5252",
           "accent-400": "#ff1744",
@@ -315,6 +315,24 @@ module.exports = {
           100: "#F7FAFC",
           800: "#434190",
           900: "#003056",
+        },
+        warning: {
+          40: "#FCECC7",
+          60: "#FDE2A1",
+          80: "#FCD27C",
+          100: "#FDD055",
+        },
+        success: {
+          40: "#B0D891",
+          60: "#75C36C",
+          80: "#1B8148",
+          100: "#115D36",
+        },
+        danger: {
+          40: "#F36D60",
+          60: "#C62A39",
+          80: "#A12737",
+          100: "#4E1F14",
         },
       },
       spacing: {

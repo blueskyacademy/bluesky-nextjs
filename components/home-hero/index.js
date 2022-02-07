@@ -71,7 +71,7 @@ const HomeHero = () => {
 
             <div className="flex flex-col items-center mt-8 overflow-hidden sm:flex-row">
               <Link href="/about">
-                <a className="text-lg font-semibold text-purple-900 bg-yellow-500 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:bg-yellow-600 group">
+                <a className="text-lg font-semibold text-white bg-primary-100 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded_button outline-none hover:bg-primary-100 group h-[55px]">
                   {f({
                     id: "Home.AboutUs",
                     defaultMessage: "About us",
@@ -98,27 +98,31 @@ const HomeHero = () => {
 
               <button
                 type="button"
-                className="mt-6 text-lg font-medium text-purple-900 bg-purple-200 sm:mt-0 sm:ml-6 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded-full outline-none hover:text-white hover:bg-purple-600 group cursor-pointer"
+                className="mt-6 text-lg font-medium bg-white sm:mt-0 sm:ml-6 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded_button group cursor-pointer border-solid border-2 border-primary-100"
                 onClick={handleWatchVideo}
               >
-                <svg
-                  className="w-6 h-6 mr-3 text-purple-600 duration-300 ease-in-out group-hover:text-purple-50"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 494.148 494.148"
-                  fill="currentColor"
-                >
-                  <g>
-                    <g>
-                      <path d="M405.284,201.188L130.804,13.28C118.128,4.596,105.356,0,94.74,0C74.216,0,61.52,16.472,61.52,44.044v406.124    c0,27.54,12.68,43.98,33.156,43.98c10.632,0,23.2-4.6,35.904-13.308l274.608-187.904c17.66-12.104,27.44-28.392,27.44-45.884    C432.632,229.572,422.964,213.288,405.284,201.188z" />
-                    </g>
-                  </g>
-                </svg>
                 {f({
                   id: "Home.WatchVideo",
                   defaultMessage: "Watch Video",
                 })}
+                <svg
+                  className="ml-2"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="0.4"
+                    d="M22 12.0048C22 17.5137 17.5116 22 12 22C6.48842 22 2 17.5137 2 12.0048C2 6.48625 6.48842 2 12 2C17.5116 2 22 6.48625 22 12.0048Z"
+                    fill="#003056"
+                  />
+                  <path
+                    d="M16 12.0049C16 12.2576 15.9205 12.5113 15.7614 12.7145C15.7315 12.7543 15.5923 12.9186 15.483 13.0255L15.4233 13.0838C14.5881 13.9694 12.5099 15.3011 11.456 15.7278C11.456 15.7375 10.8295 15.9913 10.5312 16H10.4915C10.0341 16 9.60653 15.7482 9.38778 15.34C9.26847 15.1154 9.15909 14.4642 9.14915 14.4554C9.05966 13.8712 9 12.9769 9 11.9951C9 10.9657 9.05966 10.0316 9.16903 9.45808C9.16903 9.44836 9.27841 8.92345 9.34801 8.74848C9.45739 8.49672 9.65625 8.2819 9.90483 8.14581C10.1037 8.04957 10.3125 8 10.5312 8C10.7599 8.01069 11.1875 8.15553 11.3565 8.22357C12.4702 8.65128 14.598 10.051 15.4134 10.9064C15.5526 11.0425 15.7017 11.2087 15.7415 11.2467C15.9105 11.4605 16 11.723 16 12.0049Z"
+                    fill="#003056"
+                  />
+                </svg>
               </button>
             </div>
 
@@ -132,31 +136,34 @@ const HomeHero = () => {
           <div className="flex flex-col justify-center max-w-3xl mx-auto mt-16 lg:mt-0 lg:max-w-none lg:col-span-6">
             <div className="relative">
               <img
-                className="w-full h-auto rounded"
-                src="images/kindergarten.png"
+                className="w-full h-auto"
+                src="/images/kindergarten.png"
                 alt="Bright Photo Collage"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="absolute inline-flex w-20 h-20 bg-purple-400 rounded-full opacity-60 animate-ping"></span>
+                <span className="absolute inline-flex w-20 h-20 bg-primary-100 rounded-full opacity-60 animate-ping"></span>
 
                 <button
                   type="button"
-                  className="relative z-10 flex items-center justify-center w-20 h-20 bg-white rounded-full outline-none opacity-90 cursor-pointer"
+                  className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full outline-none opacity-90 cursor-pointer"
                   onClick={handleWatchVideo}
                 >
                   <svg
-                    className="w-10 h-10 ml-1 text-purple-600 duration-300 ease-in-out group-hover:text-purple-50"
+                    width="100"
+                    height="100"
+                    viewBox="0 0 100 100"
+                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 494.148 494.148"
-                    fill="currentColor"
                   >
-                    <g>
-                      <g>
-                        <path d="M405.284,201.188L130.804,13.28C118.128,4.596,105.356,0,94.74,0C74.216,0,61.52,16.472,61.52,44.044v406.124    c0,27.54,12.68,43.98,33.156,43.98c10.632,0,23.2-4.6,35.904-13.308l274.608-187.904c17.66-12.104,27.44-28.392,27.44-45.884    C432.632,229.572,422.964,213.288,405.284,201.188z" />
-                      </g>
-                    </g>
+                    <path
+                      opacity="0.4"
+                      d="M100 50.0241C100 77.5687 77.5579 100 50 100C22.4421 100 0 77.5687 0 50.0241C0 22.4313 22.4421 0 50 0C77.5579 0 100 22.4313 100 50.0241"
+                      fill="#003056"
+                    />
+                    <path
+                      d="M70 50.0243C70 51.288 69.6023 52.5565 68.8068 53.5723C68.6577 53.7716 67.9616 54.593 67.4148 55.1276L67.1165 55.4192C62.9403 59.8469 52.5497 66.5055 47.2798 68.6391C47.2798 68.6877 44.1477 69.9563 42.6562 70H42.4574C40.1705 70 38.0327 68.7412 36.9389 66.6999C36.3423 65.5772 35.7955 62.3208 35.7457 62.277C35.2983 59.356 35 54.8846 35 49.9757C35 44.8287 35.2983 40.158 35.8452 37.2904C35.8452 37.2418 36.392 34.6173 36.7401 33.7424C37.2869 32.4836 38.2812 31.4095 39.5241 30.729C40.5185 30.2479 41.5625 30 42.6562 30C43.7997 30.0535 45.9375 30.7776 46.7827 31.1179C52.3509 33.2564 62.9901 40.2552 67.0668 44.5322C67.7628 45.2126 68.5085 46.0437 68.7074 46.2333C69.5526 47.3026 70 48.6148 70 50.0243Z"
+                      fill="#003056"
+                    />
                   </svg>
                 </button>
               </div>

@@ -109,3 +109,18 @@ a {
   transform: translateY(-5px);
   transition: 0.3s;
 }
+.rounded_button {
+  border-radius: 20px;
+}
+.bg-kindergarten {
+  background: rgba(243, 109, 96, 0.3);
+}
+.bg-primary-division {
+  background: rgba(58, 107, 159, 0.2);
+}
+.bg-secondary {
+  background: rgba(176, 216, 145, 0.3);
+}
+.shadow_navigation {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+}

@@ -5,17 +5,17 @@ import { useIntl } from "react-intl";
 const Question = ({ question, answer }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
-    <li className="w-full px-5 py-6 bg-white sm:px-8 sm:py-4 rounded-2xl">
+    <li className="w-full px-5 py-6 sm:px-8 sm:py-4 border border-1 border-primary-100 rounded-2xl">
       <button
         className="flex items-center justify-between w-full text-lg sm:text-xl group"
         onClick={() => setShowAnswer(!showAnswer)}
       >
-        <span className="font-medium text-left text-purple-900 duration-300 ease-in-out group-hover:text-purple-600">
+        <span className="text-left text-primary-100 duration-300 ease-in-out font-bold">
           {question}
         </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className={`flex-shrink-0 w-5 h-6 ml-3 text-purple-700 duration-300 ease-in-out sm:w-6 sm:h-6 sm:ml-6 group-hover:text-purple-600 ${
+          className={`flex-shrink-0 w-5 h-6 ml-3 text-primary-100 duration-300 ease-in-out sm:w-6 sm:h-6 sm:ml-6  ${
             showAnswer ? "transform rotate-180" : ""
           }`}
           fill="none"
@@ -44,7 +44,7 @@ const Faq = ({ id, faq }) => {
   const { formatMessage: f } = useIntl();
   return (
     <motion.section
-      className="py-20 bg-yellow-100 sm:py-28"
+      className="py-20 sm:py-28"
       id={id}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
@@ -68,7 +68,7 @@ const Faq = ({ id, faq }) => {
           </p>
         </div>
         <ul className="relative mt-12 space-y-6">
-          <div>
+          {/* <div>
             <img
               className="absolute hidden h-auto w-28 -left-60 top-10 2xl:block"
               src="svg/question-mark.svg"
@@ -79,7 +79,7 @@ const Faq = ({ id, faq }) => {
               src="svg/bulb.svg"
               alt=""
             />
-          </div>
+          </div> */}
           {faq.map((item, idx) => (
             <Question
               key={`question-${idx}`}

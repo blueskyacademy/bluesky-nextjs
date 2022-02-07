@@ -28,11 +28,10 @@ export default function Home({ allPosts, testimonials, faq, navigations }) {
   return (
     <Layout navigations={navigations}>
       <HomeHero />
-      {/* <div className="w-full h-20 sm:h-20 xl:h-20 bg-gradient-to-b from-purple-50 to-white"></div> */}
       <Programs id="program" />
       <GalleryHero
         id="gallery"
-        className="md:-mt-72"
+        className="md:-mt-36"
         hasButton={true}
         url="/gallery"
         title={f({

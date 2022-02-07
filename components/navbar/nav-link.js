@@ -10,9 +10,11 @@ export function NavLink({ href, title, color, ...props }) {
     return (
       <div className="relative group">
         <span
-          className={`relative z-10 text-lg font-medium ${
-            color ? color : "text-purple-700 group-hover:text-purple-600"
-          } duration-300 ease-in-out whitespace-nowrap`}
+          className={`relative z-10 text-lg ${
+            color ? color : "text-primary-100 group-hover:text-primary-80"
+          } duration-300 ease-in-out whitespace-nowrap ${
+            isActive ? "font-bold" : "font-medium"
+          }`}
         >
           {title}
         </span>
@@ -29,9 +31,11 @@ export function NavLink({ href, title, color, ...props }) {
       <a {...props}>
         <div className="relative group">
           <span
-            className={`relative z-10 text-lg font-medium ${
-              color ? color : "text-purple-700 group-hover:text-purple-600"
-            } duration-300 ease-in-out  whitespace-nowrap`}
+            className={`relative z-10 text-lg  ${
+              color ? color : "text-primary-100 group-hover:text-primary-80"
+            } duration-300 ease-in-out whitespace-nowrap ${
+              isActive ? "font-bold" : "font-medium"
+            }`}
           >
             {title}
           </span>
