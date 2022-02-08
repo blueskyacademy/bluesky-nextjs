@@ -15,11 +15,13 @@ const ClassHero = ({ name, summary, coverImage, description, slug }) => {
     kindergarten: "text-red-800",
     primary: "text-primary-100",
     secondary: "text-green-900",
+    "high-school": "text-orange-900",
   };
   const BACKGROUND_COLOR = {
     kindergarten: "bg-red-900",
     primary: "bg-primary-100",
     secondary: "bg-green-900",
+    "high-school": "bg-orange-800",
   };
   return (
     <div>

@@ -120,6 +120,13 @@ const Navbar = ({
                 }),
                 href: "/programs/secondary",
               },
+              {
+                title: f({
+                  id: "Home.HighSchool",
+                  defaultMessage: "High School",
+                }),
+                href: "/programs/high-school",
+              },
               ...subPagesNavigation,
             ],
           };

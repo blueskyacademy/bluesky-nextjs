@@ -34,13 +34,14 @@ const PersonList = ({ persons }) => {
   );
 };
 
-const DivisionTeam = ({ teachers, slug }) => {
+const DivisionTeam = ({ teachers = [], slug }) => {
   const { formatMessage: f } = useIntl();
   const BACKGROUND_COLOR = {
     kindergarten: "bg-red-900",
     primary: "bg-primary-100",
     secondary: "bg-green-900",
   };
+  if (teachers?.length === 0) return null;
   return (
     <section>
       <div

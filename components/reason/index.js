@@ -1,11 +1,12 @@
 import { useIntl } from "react-intl";
-const Reason = ({ reasons, slug }) => {
+const Reason = ({ reasons = [], slug }) => {
   const { formatMessage: f } = useIntl();
   const BACKGROUND_COLOR = {
     kindergarten: "bg-kindergarten",
     primary: "bg-primary-division",
     secondary: "bg-secondary",
   };
+  if (reasons?.length === 0) return null;
   return (
     <section className="relative w-full px-4 py-12 sm:py-16 sm:px-6 xl:px-8">
       <div className="max-w-xl mx-auto lg:max-w-screen-xl pb-16">
