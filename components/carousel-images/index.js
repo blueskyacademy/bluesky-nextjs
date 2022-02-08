@@ -2,8 +2,9 @@ import { useIntl } from "react-intl";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-const CarouselImages = ({ classes }) => {
+const CarouselImages = ({ classes = [] }) => {
   const { formatMessage: f } = useIntl();
+  if (classes?.length === 0) return null;
   return (
     <div className="max-w-lg mx-auto lg:max-w-screen-md pb-16">
       <div className="px-4 text-center sm:px-6 lg:px-8 pb-8">
