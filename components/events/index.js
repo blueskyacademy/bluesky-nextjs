@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 import React from "react";
 import DateComponent from "../date";
 import { useIntl } from "react-intl";
@@ -34,9 +35,18 @@ const EventCard = ({ title, coverImage, date, slug, excerpt, idx }) => {
             <DateComponent dateString={date} />
           </div>
         </div>
-        <h4 className="mt-4 text-2xl font-bold text-purple-900 xl:text-3xl lg:text-2xl sm:text-3xl lg:leading-tight xl:leading-tight">
-          {title}
-        </h4>
+        <Link href={`/posts/${slug}`}>
+          <a
+            href="#"
+            aria-label="Category"
+            className="inline-block my-2 text-2xl font-semibold leading-6 transition-colors duration-200 hover:text-purple-600"
+          >
+            <h4 className="mt-4 text-2xl font-bold text-purple-900 xl:text-3xl lg:text-2xl sm:text-3xl lg:leading-tight xl:leading-tight">
+              {title}
+            </h4>
+          </a>
+        </Link>
+
         <p className="mt-1 text-purple-800 lg:mt-2">
           {excerpt.slice(0, 100)}...
         </p>
@@ -69,10 +79,19 @@ const Events = ({ id, posts }) => {
           whileInView={{ y: "0", opacity: 1 }}
         >
           <h2 className="text-primary-100 lg:text-center text-5xl font-bold">
-            {f({
-              id: "Home.NewsAndEvents",
-              defaultMessage: "News and Events",
-            })}
+            <span className="relative inline-block">
+              <img
+                src="/svg/star.svg"
+                alt="Sunny"
+                className="absolute z-0 -translate-x-full -top-20 hidden sm:block"
+              />
+              <span>
+                {f({
+                  id: "Home.NewsAndEvents",
+                  defaultMessage: "News and Events",
+                })}
+              </span>
+            </span>
           </h2>
           <p className="max-w-3xl mx-auto mt-3 text-xl leading-relaxed text-primary-100 lg:mt-4 lg:text-center">
             {f({
@@ -88,6 +107,7 @@ const Events = ({ id, posts }) => {
             <EventCard
               idx={idx}
               key={post.slug}
+              slug={post.slug}
               coverImage={post?.coverImage?.url}
               title={post.title}
               excerpt={post.excerpt}
