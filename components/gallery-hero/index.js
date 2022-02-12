@@ -24,7 +24,14 @@ const GalleryHero = ({
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <h2 className="max-w-3xl mx-auto text-center text-primary-100 text-5xl font-bold">
-              {title}
+              <span className="relative inline-block">
+                <span> {title}</span>
+                <img
+                  src="/svg/sunny.svg"
+                  alt="Sunny"
+                  className="absolute -top-20 z-0 translate-x-full hidden sm:block"
+                />
+              </span>
             </h2>
 
             <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-primary-100 sm:mt-5">

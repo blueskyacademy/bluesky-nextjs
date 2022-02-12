@@ -68,42 +68,44 @@ const TestimonialCard = ({ content, img, title, description }) => {
 const Feedback = ({ id, testimonials }) => {
   const { formatMessage: f } = useIntl();
   return (
-    <section
-      id={id}
-      className="py-20 bg-primary-100 sm:py-20 lg:py-20 md:mt-12"
-    >
-      <div className="px-4 mx-auto lg:max-w-screen-2xl sm:px-6">
-        <motion.div
-          className="flex flex-col items-center justify-center"
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          initial={{ y: "50%", opacity: 0 }}
-          whileInView={{ y: "0", opacity: 1 }}
-        >
-          <h2 className="max-w-4xl text-center text-white text-5xl sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-            {f({
-              id: "Home.ParentFeedback",
-              defaultMessage: "See what parents are saying about us",
-            })}
-          </h2>
-          <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-50">
-            {f({
-              id: "Home.ParentFeedbackSummary",
-              defaultMessage:
-                "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
-            })}
-          </p>
-        </motion.div>
-        <div className="grid gap-8 mt-12 md:gap-8 sm:gap-6 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 xl:grid-cols-4 sm:grid-cols-2 2xl:gap-12 lg:gap-6">
-          {testimonials.map((item, idx) => (
-            <TestimonialCard
-              key={`testimonial-${idx}`}
-              content={item?.content}
-              img={item?.photo?.url}
-              title={item?.parent}
-              description={item?.description}
-            />
-          ))}
+    <section id={id} className="md:mt-12 bg-primary-100">
+      <div
+        style={{ backgroundImage: "url(/images/mask.png)" }}
+        className="relative"
+      >
+        <div className="px-4 mx-auto lg:max-w-screen-2xl sm:px-6 py-20 sm:py-20 lg:py-20">
+          <motion.div
+            className="flex flex-col items-center justify-center "
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            initial={{ y: "50%", opacity: 0 }}
+            whileInView={{ y: "0", opacity: 1 }}
+          >
+            <h2 className="max-w-4xl text-center text-white text-5xl sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
+              {f({
+                id: "Home.ParentFeedback",
+                defaultMessage: "See what parents are saying about us",
+              })}
+            </h2>
+            <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-50">
+              {f({
+                id: "Home.ParentFeedbackSummary",
+                defaultMessage:
+                  "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+              })}
+            </p>
+          </motion.div>
+          <div className="grid gap-8 mt-12 md:gap-8 sm:gap-6 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 xl:grid-cols-4 sm:grid-cols-2 2xl:gap-12 lg:gap-6">
+            {testimonials.map((item, idx) => (
+              <TestimonialCard
+                key={`testimonial-${idx}`}
+                content={item?.content}
+                img={item?.photo?.url}
+                title={item?.parent}
+                description={item?.description}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
