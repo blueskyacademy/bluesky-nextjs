@@ -5,7 +5,7 @@ import { useIntl } from "react-intl";
 const Question = ({ question, answer }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
-    <li className="w-full px-5 py-6 sm:px-8 sm:py-4 border border-1 border-primary-100 rounded-2xl">
+    <li className="w-full px-5 py-6 sm:px-8 sm:py-4 border-b border-1 border-primary-100">
       <button
         className="flex items-center justify-between w-full text-lg sm:text-xl group"
         onClick={() => setShowAnswer(!showAnswer)}
@@ -13,26 +13,44 @@ const Question = ({ question, answer }) => {
         <span className="text-left text-primary-100 duration-300 ease-in-out font-bold">
           {question}
         </span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className={`flex-shrink-0 w-5 h-6 ml-3 text-primary-100 duration-300 ease-in-out sm:w-6 sm:h-6 sm:ml-6  ${
-            showAnswer ? "transform rotate-180" : ""
-          }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
+        {!showAnswer ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 ml-3 text-primary-100"
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="#2c3e50"
+            fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 ml-3 text-primary-100"
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="#2c3e50"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        )}
       </button>
       {showAnswer && (
         <div className="relative duration-700">
-          <div className="mt-3 text-base leading-relaxed text-purple-800 sm:text-lg">
+          <div className="my-3 text-base leading-relaxed text-purple-800 sm:text-lg">
             {answer}
           </div>
         </div>
@@ -52,14 +70,14 @@ const Faq = ({ id, faq }) => {
       whileInView={{ opacity: 1 }}
     >
       <div className="px-4 mx-auto lg:max-w-screen-lg sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <h2 className="text-primary-100 text-5xl font-bold">
+        <div className="max-w-screen">
+          <h2 className="text-primary-100 text-5xl font-bold text-center">
             {f({
               id: "Home.FrequentlyAskedQuestions",
               defaultMessage: "Frequently asked questions",
             })}
           </h2>
-          <p className="max-w-2xl mt-4 text-xl leading-relaxed text-primary-100 lg:text-left">
+          <p className="max-w-screen-xl mt-4 text-xl leading-relaxed text-primary-100 text-center">
             {f({
               id: "Home.FAQSummary",
               defaultMessage:
