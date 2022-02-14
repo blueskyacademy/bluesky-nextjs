@@ -5,6 +5,11 @@ export default function Document(props) {
     <Html lang="en">
       <Head>
         <link
+          rel="stylesheet"
+          href="https://use.typekit.net/hsc1kgw.css"
+          as="font"
+        />
+        {/* <link
           rel="preload"
           href="/fonts/MYRIADPRO-REGULAR.woff"
           as="font"
@@ -17,7 +22,7 @@ export default function Document(props) {
           as="font"
           type="font/woff"
           crossOrigin="anonymous"
-        />
+        /> */}
       </Head>
       <body>
         <Main />

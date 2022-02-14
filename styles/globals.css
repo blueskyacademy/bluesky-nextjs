@@ -1,26 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
+/* @font-face {
   font-family: "Myriad Pro";
   font-style: normal;
   font-weight: 100 600;
   font-display: optional;
-  src: url(/fonts/MYRIADPRO-REGULAR.woff) format("woff");
+  src: url(/fonts/MYRIADPRO-REGULAR.OTF) format("otf");
 }
 @font-face {
   font-family: "Myriad Pro";
   font-style: bold;
   font-weight: 700 900;
   font-display: optional;
-  src: url(/fonts/MYRIADPRO-BOLD.woff) format("woff");
-}
+  src: url(/fonts/MYRIADPRO-BOLD.OTF) format("otf");
+} */
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Myriad Pro", sans-serif;
+  font-family: myriad-pro, sans-serif;
   /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
   scroll-behavior: smooth;
