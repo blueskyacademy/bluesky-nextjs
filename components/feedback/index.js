@@ -70,7 +70,12 @@ const Feedback = ({ id, testimonials }) => {
   return (
     <section id={id} className="md:mt-12 bg-primary-100">
       <div
-        style={{ backgroundImage: "url(/images/mask.png)" }}
+        style={{
+          backgroundImage: "url(/images/mask.png)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
         className="relative"
       >
         <div className="px-4 mx-auto lg:max-w-screen-2xl sm:px-6 py-20 sm:py-20 lg:py-20">
