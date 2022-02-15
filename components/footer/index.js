@@ -192,20 +192,29 @@ export default function Footer() {
           </ul>
         </div>
         <div className="sm:order-2 lg:order-none lg:col-span-3 lg:mx-auto">
-          <h6 className="relative text-xl font-bold tracking-wide text-primary-100">
-            <span className="relative z-20 border-dashed border-b-2 border-primary-100">
-              {f({
-                id: "Home.ContactUs",
-                defaultMessage: "Contact us",
-              })}
-            </span>
-          </h6>
+          <Link href="/contact">
+            <a href="#">
+              <h6 className="relative text-xl font-bold tracking-wide text-primary-100">
+                <span className="relative z-20 border-dashed border-b-2 border-primary-100">
+                  {f({
+                    id: "Home.ContactUs",
+                    defaultMessage: "Contact us",
+                  })}
+                </span>
+              </h6>
+            </a>
+          </Link>
 
           <ul className="flex flex-col mt-6 space-y-5">
             <li className="flex flex-shrink max-w-xs">
               <div>
-                <span
-                  className="
+                <a
+                  target="_blank"
+                  href="https://goo.gl/maps/CgmybxdDH9Tv8oz5A"
+                  rel="noopener noreferrer"
+                >
+                  <span
+                    className="
                 flex
                 items-center
                 justify-center
@@ -214,24 +223,25 @@ export default function Footer() {
                 w-11
                 h-11
               "
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 text-purple-700"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
                   >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <circle cx="12" cy="11" r="3" />
-                    <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-                  </svg>
-                </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 text-purple-700"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <circle cx="12" cy="11" r="3" />
+                      <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                    </svg>
+                  </span>
+                </a>
               </div>
               <div className="flex-1 mt-0 ml-3 xl:ml-4">
                 <h5 className="flex items-center text-base font-semibold text-purple-900">
@@ -258,8 +268,9 @@ export default function Footer() {
 
             <li className="flex flex-shrink-0">
               <div>
-                <span
-                  className="
+                <a href="mailto:bluesky@edu.vn?subject = Feedback&body = Message">
+                  <span
+                    className="
                 flex
                 items-center
                 justify-center
@@ -268,24 +279,25 @@ export default function Footer() {
                 w-11
                 h-11
               "
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 text-purple-700"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
                   >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <polyline points="3 7 12 13 21 7" />
-                  </svg>
-                </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 text-purple-700"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <polyline points="3 7 12 13 21 7" />
+                    </svg>
+                  </span>
+                </a>
               </div>
               <div className="flex-1 ml-3 xl:ml-4">
                 <h5 className="flex items-center text-base font-semibold text-purple-900">
@@ -309,8 +321,9 @@ export default function Footer() {
 
             <li className="flex flex-shrink-0">
               <div>
-                <span
-                  className="
+                <a href="tel:+84 238 357 9559">
+                  <span
+                    className="
                 flex
                 items-center
                 justify-center
@@ -319,23 +332,24 @@ export default function Footer() {
                 h-11
                 bg-purple-200
               "
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 text-purple-700"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
                   >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-                  </svg>
-                </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 text-purple-700"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                    </svg>
+                  </span>
+                </a>
               </div>
               <div className="flex-1 ml-3 xl:ml-4">
                 <h5 className="flex items-center text-base font-semibold text-purple-900">

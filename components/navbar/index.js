@@ -4,6 +4,7 @@ import DropdownLink from "./dropdown-link";
 import { useState } from "react";
 import { SubNav } from "./sub-nav";
 import { useIntl } from "react-intl";
+import Link from "next/link";
 
 const Navbar = ({
   navigations,
@@ -90,6 +91,13 @@ const Navbar = ({
                 }),
                 href: "/about#founder",
               },
+              {
+                title: f({
+                  id: "About.Team",
+                  defaultMessage: "Team",
+                }),
+                href: "/teachers",
+              },
               ...subPagesNavigation,
             ],
           };
@@ -148,12 +156,35 @@ const Navbar = ({
     <div className={className}>
       <header className="h-[80px] pt-2 hidden sm:block shadow_navigation">
         <div className="max-w-screen-xl mx-auto flex justify-between">
-          <a>
-            <img className="h-[64px]" src="/svg/logo.svg" alt="" />
-          </a>
+          <div className="flex">
+            <Link href="/">
+              <a href="#">
+                <img className="h-[64px]" src="/svg/logo.svg" alt="" />
+              </a>
+            </Link>
+
+            <nav className="bg-transparent ml-9 sm:pt-5">
+              <div className={`items-center justify-between hidden md:flex`}>
+                {renderNavigations?.map((item, idx) => (
+                  <div
+                    className="mx-3"
+                    key={`menu-${item.path}-${idx}`}
+                    onClick={() => setCurrentSlug(item.slug)}
+                  >
+                    <DropdownLink
+                      title={item.title}
+                      path={item.path}
+                      subPages={item?.subPages}
+                    />
+                  </div>
+                ))}
+              </div>
+            </nav>
+          </div>
+
           <div>
             <ul className="flex mt-2 space-x-12 pt-2">
-              <li className="flex flex-shrink max-w-xs">
+              {/* <li className="flex flex-shrink max-w-xs">
                 <div>
                   <span
                     className="
@@ -267,7 +298,7 @@ const Navbar = ({
                     +84 238 357 9779
                   </h5>
                 </div>
-              </li>
+              </li> */}
               <div className="flex flex-row-reverse mt-1">
                 <img
                   className="px-2 h-[24px] cursor-pointer"
@@ -297,7 +328,7 @@ const Navbar = ({
 
       <div className="max-w-screen-xl mx-auto">
         <nav className="bg-transparent sm:pt-5">
-          <div className={`items-center justify-between hidden md:flex`}>
+          {/* <div className={`items-center justify-between hidden md:flex`}>
             {renderNavigations?.map((item, idx) => (
               <div
                 key={`menu-${item.path}-${idx}`}
@@ -310,7 +341,7 @@ const Navbar = ({
                 />
               </div>
             ))}
-          </div>
+          </div> */}
           {/* Mobile menu */}
           <div className="flex items-center justify-between w-full overflow-y-auto shadow pb-3 sm:hidden bg-white">
             <div className="block ml-6 sm:hidden">
