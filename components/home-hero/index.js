@@ -71,7 +71,7 @@ const HomeHero = () => {
 
             <div className="flex flex-col items-center mt-8 overflow-hidden sm:flex-row">
               <Link href="/about">
-                <a className="text-lg font-semibold text-white bg-primary-100 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded_button outline-none hover:bg-primary-100 group h-[55px]">
+                <a className="text-lg font-medium text-white bg-primary-100 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded_button outline-none hover:bg-primary-100 group h-[55px]">
                   {f({
                     id: "Home.AboutUs",
                     defaultMessage: "About us",

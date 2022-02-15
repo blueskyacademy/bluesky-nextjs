@@ -46,7 +46,7 @@ export default function Home({ allPosts, testimonials, faq, navigations }) {
         images={GALLERY_IMAGES}
       />
       <Events posts={allPosts} id="news" />
-      <Feedback id="parents" testimonials={testimonials.slice(0, 4)} />
+      <Feedback id="parents" testimonials={testimonials.slice(0, 3)} />
       <Faq faq={faq} id="faq" />
       <CTA />
     </Layout>

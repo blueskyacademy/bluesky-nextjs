@@ -16,8 +16,9 @@ const TestimonialCard = ({ content, img, title, description }) => {
         alt="Testimonial 01"
       />
       <p className="mt-3 text-lg font-bold text-purple-900">{title}</p>
+      <p className="mt-1 text-lg text-gray-800 italic">{description}</p>
 
-      <div className="mt-1 flex justify-start w-full space-x-0.5">
+      {/* <div className="mt-1 flex justify-start w-full space-x-0.5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-6 h-6 text-yellow-500"
@@ -58,7 +59,7 @@ const TestimonialCard = ({ content, img, title, description }) => {
         >
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
-      </div>
+      </div> */}
 
       <p className="mt-5 text-lg text-purple-800">{content}</p>
     </motion.div>
@@ -88,8 +89,8 @@ const Feedback = ({ id, testimonials }) => {
           >
             <h2 className="max-w-4xl text-center text-white text-5xl sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
               {f({
-                id: "Home.ParentFeedback",
-                defaultMessage: "See what parents are saying about us",
+                id: "Home.OurStories",
+                defaultMessage: "Our Stories",
               })}
             </h2>
             <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-50">
@@ -100,7 +101,7 @@ const Feedback = ({ id, testimonials }) => {
               })}
             </p>
           </motion.div>
-          <div className="grid gap-8 mt-12 md:gap-8 sm:gap-6 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 xl:grid-cols-4 sm:grid-cols-2 2xl:gap-12 lg:gap-6">
+          <div className="grid gap-8 mt-12 md:gap-8 sm:gap-6 md:mt-14 lg:mt-16 xl:mt-20 2xl:mt-24 xl:grid-cols-3 sm:grid-cols-2 2xl:gap-12 lg:gap-6 lg:max-w-screen-xl mx-auto">
             {testimonials.map((item, idx) => (
               <TestimonialCard
                 key={`testimonial-${idx}`}
