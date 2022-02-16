@@ -40,7 +40,7 @@ a {
   width: 100%;
 }
 .triangle {
-  border-left: 22px solid #49479f;
+  border-left: 22px solid #003056;
   border-top: 22px solid transparent;
   height: 0;
   width: 0;
@@ -123,4 +123,10 @@ a {
 }
 .shadow_navigation {
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+}
+.fixed-register {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  z-index: 100;
 }
