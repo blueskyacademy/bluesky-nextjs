@@ -1,55 +1,95 @@
 import { useState } from "react";
 import Popup from "../popup";
-import Edit from "../../public/svg/edit.svg";
+import { useIntl } from "react-intl";
+import { useScreenSize } from "../../hooks/useScreenSize";
 
-const CallAction = ({ title, content, bottomSpacing }) => {
+const CallAction = () => {
+  const { formatMessage: f } = useIntl();
   const [showModal, setShowModal] = useState(false);
+  const { isMobile } = useScreenSize();
   const handleClick = () => {
     setShowModal(true);
   };
 
   return (
     <>
-      <div className={`fixed right-0 mr-8 mb-2`} style={{ bottom: "120px" }}>
-        <div
-          className="bg-purple-600 text-white rounded-lg shadow-md px-6 py-3 cursor-pointer mb-1"
-          style={{
-            borderRadius: "20px",
-          }}
-        >
+      <div
+        className={`fixed right-0 mr-5 sm:mr-8 mb-8 sm:mb-16 z-10`}
+        style={{ bottom: "120px" }}
+      >
+        <div className="bg-primary-100 text-white rounded-full sm:rounded-3xl shadow-md px-2 py-2 sm:px-6 sm:py-3  cursor-pointer mb-1">
           <div className="flex flex-col justify-center">
             <a href="tel:02383579559">
-              <div className="text-center">Hotline</div>0238 3579 559
+              {isMobile ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="mx-auto h-10 w-10"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                </svg>
+              ) : (
+                <>
+                  {" "}
+                  <div className="text-center">Hotline</div>0238 3579 559
+                </>
+              )}
             </a>
           </div>
-          <div className="triangle"></div>
+          <div className="triangle hidden sm:block"></div>
         </div>
       </div>
 
-      <div
-        className={`fixed bottom-${bottomSpacing} right-0 mr-8 mb-2`}
-        onClick={handleClick}
-      >
+      <div className={`fixed-register`} onClick={handleClick}>
         <div
-          className="bg-purple-600  text-white rounded-lg shadow-md px-6 py-3 cursor-pointer"
-          style={{
-            borderRadius: "20px",
-          }}
+          className={`bg-primary-100 text-white rounded-full sm:rounded-3xl shadow-md px-2 py-2 cursor-pointer sm:px-6`}
         >
           <div className="flex flex-col justify-center">
-            <Edit className="mx-auto mb-2" />
-            <div>{title && title}</div>
-            <div>{content}</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="mx-auto h-10 w-10"
+              width="44"
+              height="44"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+              <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+            </svg>
+            {!isMobile && (
+              <div>
+                {f({
+                  id: "Form.ConsultationRegister",
+                  defaultMessage: "Consultation Register",
+                })}
+              </div>
+            )}
           </div>
-          <div className="triangle"></div>
+          <div className="triangle hidden sm:block"></div>
         </div>
       </div>
 
       <Popup
         showModal={showModal}
         onClose={() => setShowModal(false)}
-        title={"School Visit Registration"}
-        type="School"
+        title={f({
+          id: "Form.ConsultationRegister",
+          defaultMessage: "Consultation Register",
+        })}
+        type="Consultation"
       />
     </>
   );

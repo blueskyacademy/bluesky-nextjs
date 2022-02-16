@@ -50,33 +50,33 @@ export default function Popup({ showModal, onClose, type = "School", title }) {
     <>
       {showModal ? (
         <>
-          <div className='justify-center items-center flex overflow-x-hidden overflow-y-hidden fixed inset-0 z-50 outline-none focus:outline-none'>
-            <div className='relative w-2/5 my-6 mx-auto max-w-6xl'>
+          <div className="justify-center items-center flex overflow-x-hidden overflow-y-hidden fixed inset-0 z-50 outline-none focus:outline-none">
+            <div className="relative w-full sm:w-2/5 my-6 mx-auto max-w-6xl">
               <div
-                id='box-modal'
+                id="box-modal"
                 ref={wrapperRef}
-                className='border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'
+                className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
               >
-                <div className='relative'>
-                  <div className='flex items-start justify-center p-5 pb-0 rounded-t'>
+                <div className="relative">
+                  <div className="flex items-start justify-center p-5 pb-0 rounded-t">
                     <img
-                      src='https://www.bsa.edu.vn/assets/logo-476fe7ebc8e1d8eb9335d0f11d06637c5040a4b26d30522919086c3a21d167f5.png'
-                      className='h-20'
-                      alt='Logo'
+                      src="https://www.bsa.edu.vn/assets/logo-476fe7ebc8e1d8eb9335d0f11d06637c5040a4b26d30522919086c3a21d167f5.png"
+                      className="h-20"
+                      alt="Logo"
                     />
                   </div>
                   <button
                     onClick={handleCloseForm}
-                    className='absolute'
+                    className="absolute"
                     style={{
                       top: "10px",
                       right: "20px",
                     }}
                   >
-                    <span className='text-2xl font-semibold'>×</span>
+                    <span className="text-2xl font-semibold">×</span>
                   </button>
                 </div>
-                <div className='relative px-12 py-4 flex-auto sm:px-6'>
+                <div className="relative px-12 py-4 flex-auto sm:px-6">
                   <Form
                     handleChangeForm={handleChangeForm}
                     handleSubmit={handleSubmit}
@@ -88,7 +88,7 @@ export default function Popup({ showModal, onClose, type = "School", title }) {
               </div>
             </div>
           </div>
-          <div className='opacity-25 fixed inset-0 z-40 bg-black w-100 h-100'></div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black w-100 h-100"></div>
         </>
       ) : null}
     </>
