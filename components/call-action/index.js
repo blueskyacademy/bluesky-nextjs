@@ -14,7 +14,7 @@ const CallAction = () => {
   return (
     <>
       <div
-        className={`fixed right-0 mr-5 sm:mr-8 mb-8 sm:mb-16 z-10`}
+        className={`fixed right-0 mr-6 sm:mr-8 mb-8 sm:mb-16 z-10`}
         style={{ bottom: "120px" }}
       >
         <div className="bg-primary-100 text-white rounded-full sm:rounded-3xl shadow-md px-2 py-2 sm:px-6 sm:py-3  cursor-pointer mb-1">

@@ -327,7 +327,7 @@ const Navbar = ({
       </header>
 
       <div className="max-w-screen-xl mx-auto">
-        <nav className="bg-transparent sm:pt-5">
+        <nav className="bg-transparent">
           {/* <div className={`items-center justify-between hidden md:flex`}>
             {renderNavigations?.map((item, idx) => (
               <div
@@ -390,13 +390,15 @@ const Navbar = ({
               )}
             </div>
             <div className="block w-48 sm:hidden sm:w-52 flex justify-center">
-              <a>
-                <img
-                  src="/svg/logo.svg"
-                  alt="Bright"
-                  className="h-[48px] mt-3 ml-6"
-                />
-              </a>
+              <Link href="/">
+                <a href="#">
+                  <img
+                    src="/svg/logo.svg"
+                    alt="Bright"
+                    className="h-[48px] mt-3 ml-6"
+                  />
+                </a>
+              </Link>
             </div>
             <div className="flex flex-row-reverse mt-4 mr-4 sm:hidden">
               <img

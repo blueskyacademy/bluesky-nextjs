@@ -126,7 +126,7 @@ a {
 }
 .fixed-register {
   position: fixed;
-  right: 20px;
+  right: 24px;
   bottom: 90px;
   z-index: 100;
 }
