@@ -1,7 +1,22 @@
 import { motion } from "framer-motion";
 import { useIntl } from "react-intl";
 
-const TestimonialCard = ({ content, img, title, description }) => {
+const TestimonialCard = ({ content, img, title, description, type }) => {
+  const { formatMessage: f } = useIntl();
+  const TYPE = {
+    teacher: f({
+      id: "Home.TeacherSharing",
+      defaultMessage: "Teacher's Sharing",
+    }),
+    parent: f({
+      id: "Home.ParentSharing",
+      defaultMessage: "Parent's Sharing",
+    }),
+    student: f({
+      id: "Home.StudentSharing",
+      defaultMessage: "Student's Sharing",
+    }),
+  };
   return (
     <motion.div
       className="px-8 py-8 transition duration-300 ease-in-out bg-yellow-200 sm:px-6 md:px-8 lg:px-5 2xl:px-8 rounded-3xl"
@@ -10,13 +25,20 @@ const TestimonialCard = ({ content, img, title, description }) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
     >
+      <h3 className="mb-5 text-xl font-bold text-purple-900 text-center">
+        {type ? TYPE[type] : ""}
+      </h3>
       <img
         src={img}
-        className="object-cover w-20 h-20 border-2 border-yellow-300 rounded-full filter drop-shadow-2xl"
+        className="object-cover w-20 h-20 border-2 border-yellow-300 rounded-full filter drop-shadow-2xl mx-auto"
         alt="Testimonial 01"
       />
-      <p className="mt-3 text-lg font-bold text-purple-900">{title}</p>
-      <p className="mt-1 text-lg text-gray-800 italic">{description}</p>
+      <p className="mt-3 text-lg font-bold text-purple-900 text-center">
+        {title}
+      </p>
+      <p className="mt-1 text-lg text-gray-800 italic text-center">
+        {description}
+      </p>
 
       {/* <div className="mt-1 flex justify-start w-full space-x-0.5">
         <svg
@@ -109,6 +131,7 @@ const Feedback = ({ id, testimonials }) => {
                 img={item?.photo?.url}
                 title={item?.parent}
                 description={item?.description}
+                type={item?.type}
               />
             ))}
           </div>

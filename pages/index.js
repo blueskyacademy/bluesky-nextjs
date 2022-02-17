@@ -1,5 +1,6 @@
 import Layout from "../components/layout";
 import {
+  getCoverImage,
   getFaq,
   getNavigation,
   getPostsForHome,
@@ -15,7 +16,13 @@ import CTA from "../components/cta";
 import Feedback from "../components/feedback";
 import { useIntl } from "react-intl";
 
-export default function Home({ allPosts, testimonials, faq, navigations }) {
+export default function Home({
+  allPosts,
+  testimonials,
+  faq,
+  navigations,
+  coverImage,
+}) {
   const { formatMessage: f } = useIntl();
   useHashFragment();
   const GALLERY_IMAGES = [
@@ -27,6 +34,20 @@ export default function Home({ allPosts, testimonials, faq, navigations }) {
   ];
   return (
     <Layout navigations={navigations}>
+      <div className="max-w-screen-full mx-auto bg-gray-100">
+        {coverImage && (
+          <a rel="noreferrer" href={coverImage?.link}>
+            <img
+              src={coverImage?.image?.url}
+              alt="cover"
+              className="mx-auto"
+              width={"820px"}
+              height="312px"
+            />
+          </a>
+        )}
+      </div>
+
       <HomeHero />
       <Programs id="program" />
       <GalleryHero
@@ -57,8 +78,9 @@ export async function getStaticProps({ locale }) {
   const testimonials = (await getTestimonials(locale)) ?? [];
   const faq = (await getFaq(locale)) ?? [];
   const navigations = (await getNavigation(locale)) ?? [];
+  const coverImage = await getCoverImage();
   return {
-    props: { allPosts, testimonials, faq, navigations },
+    props: { allPosts, testimonials, faq, navigations, coverImage },
     revalidate: 1,
   };
 }
