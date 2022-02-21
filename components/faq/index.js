@@ -68,18 +68,18 @@ const Faq = ({ id, faq }) => {
           </p>
         </div>
         <ul className="relative mt-12 space-y-6">
-          {/* <div>
+          <div>
             <img
-              className="absolute hidden h-auto w-28 -left-60 top-10 2xl:block"
+              className="absolute hidden h-auto w-28 -left-40 top-10 sm:block 2xl:-left-60"
               src="svg/question-mark.svg"
               alt=""
             />
             <img
-              className="absolute hidden h-auto w-28 -right-60 bottom-10 2xl:block"
+              className="absolute hidden h-auto w-28 -right-40 bottom-10 sm:block 2xl:-right-60"
               src="svg/bulb.svg"
               alt=""
             />
-          </div> */}
+          </div>
           {faq.map((item, idx) => (
             <Question
               key={`question-${idx}`}

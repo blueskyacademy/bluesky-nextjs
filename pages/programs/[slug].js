@@ -34,6 +34,7 @@ const Class = ({ division, navigations }) => {
           />
           <AnimationRevealPage>
             <Reason
+              id="viewmore"
               reasons={division?.reasonsCollection?.items}
               slug={division?.slug}
             />

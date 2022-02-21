@@ -31,7 +31,7 @@ const Letter = ({ id, message }) => {
             />
             <div className="col-span-2 transform aspect-w-3 aspect-h-4 2xl:-translate-x-16">
               <img
-                src="/images/kindergarten.png"
+                src="/images/principal.jpeg"
                 className="object-cover w-full h-full rounded-3xl 2xl:rounded-4xl"
                 alt="Program description 01"
               />

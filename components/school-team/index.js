@@ -3,28 +3,32 @@ import { useIntl } from "react-intl";
 
 const DEPARTMENTS = [
   {
-    title: "School Leader Ship",
-    id: "Teacher.SchoolLeaderShip",
+    title: "Administration",
+    id: "Teacher.Administration",
   },
   {
-    title: "Teaching Faculty Leadership",
-    id: "Teacher.TeachingFacultyLeadership",
+    title: "Management",
+    id: "Teacher.Management",
   },
   {
     title: "Kindergarten",
     id: "Teacher.Kindergarten",
   },
   {
-    title: "Primary & Secondary Teachers",
-    id: "Teacher.PrimarySecondary",
+    title: "Primary",
+    id: "Teacher.Primary",
   },
   {
-    title: "Cambridge Programs Division",
+    title: "Secondary",
+    id: "Teacher.Secondary",
+  },
+  {
+    title: "Specialist",
+    id: "Teacher.Specialist",
+  },
+  {
+    title: "Cambridge Program",
     id: "Teacher.CambridgeProgram",
-  },
-  {
-    title: "Art & Physical Division",
-    id: "Teacher.ArtPhysicalDivision",
   },
   {
     title: "Support Staff",
@@ -78,7 +82,7 @@ const formatPersonsByDepartment = (persons) => {
 const SchoolTeam = ({ teachers }) => {
   const { formatMessage: f } = useIntl();
   const [selectedDepartment, setSelectedDepartment] =
-    useState("School Leader Ship");
+    useState("Administration");
   const result = formatPersonsByDepartment(teachers);
   return (
     <section>

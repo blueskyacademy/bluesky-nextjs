@@ -5,7 +5,7 @@ import { useIntl } from "react-intl";
 const RegisterHero = () => {
   const { formatMessage: f } = useIntl();
   return (
-    <section className="relative px-4 py-16 overflow-hidden lg:py-20 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25">
+    <section className="relative px-4 py-16 overflow-hidden lg:py-20 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25 mt-5">
       <img
         src="/svg/dots-large-grid.svg"
         className="absolute right-0 h-auto transform opacity-25 lg:opacity-40 top-12 w-54 hidden md:block"

@@ -5,7 +5,7 @@ const Certificate = ({ id }) => {
   return (
     <section
       id={id}
-      className="relative w-full px-4 sm:px-6 xl:px-8"
+      className="relative w-full px-4 sm:px-6 xl:px-8 mt-10"
       style={{ minHeight: "40vh" }}
     >
       <div className="max-w-xl mx-auto lg:max-w-screen-xl">
