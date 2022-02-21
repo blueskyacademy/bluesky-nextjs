@@ -94,7 +94,7 @@ const Navbar = ({
               {
                 title: f({
                   id: "About.Team",
-                  defaultMessage: "Team",
+                  defaultMessage: "BSA Team",
                 }),
                 href: "/teachers",
               },
