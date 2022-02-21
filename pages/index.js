@@ -34,7 +34,7 @@ export default function Home({
   ];
   return (
     <Layout navigations={navigations}>
-      <div className="max-w-screen-full mx-auto bg-gray-100">
+      <div className="max-w-[1440px] mx-auto">
         {coverImage && (
           <a rel="noreferrer" href={coverImage?.link}>
             <img
