@@ -8,8 +8,14 @@ const CTA = ({ hasButton = true }) => {
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
         <img className="mx-auto w-72" src="/svg/sunrise.svg" />
 
-        <h2 className="max-w-3xl mx-auto mt-6 text-center text-purple-900 text-6xl leading-snug sm:leading-tight xl:leading-tighter font-extrabold ">
-          <span className="block">Giving your child a</span>
+        <h2 className="max-w-3xl mx-auto mt-6 text-center text-purple-900 text-3xl sm:text-6xl leading-snug sm:leading-tight xl:leading-tighter font-extrabold ">
+          <span className="block">
+            {/* Giving your child a{" "} */}
+            {f({
+              id: "Home.ABetterStartFor",
+              defaultMessage: "A better start for",
+            })}
+          </span>
 
           <span className="relative block">
             <span className="relative">
@@ -17,7 +23,13 @@ const CTA = ({ hasButton = true }) => {
                 className="absolute inset-0 transform translate-y-9 sm:translate-y-11 xl:translate-y-14"
                 src="/svg/underline-simple-light-purple.svg"
               />
-              <span className="relative">brighter future</span>
+              <span className="relative">
+                {/* brighter future{" "} */}
+                {f({
+                  id: "Home.ABetterLife",
+                  defaultMessage: "a better life",
+                })}
+              </span>
             </span>
           </span>
         </h2>

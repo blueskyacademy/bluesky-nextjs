@@ -109,6 +109,13 @@ const Navbar = ({
             subPages: [
               {
                 title: f({
+                  id: "Home.EducationPathway",
+                  defaultMessage: "Education Pathway",
+                }),
+                href: "/pages/education-pathway",
+              },
+              {
+                title: f({
                   id: "Home.Kindergarten",
                   defaultMessage: "Kindergarten",
                 }),

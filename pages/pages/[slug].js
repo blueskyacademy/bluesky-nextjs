@@ -24,7 +24,7 @@ const Page = ({ page, posts, navigations }) => {
         <h1>Loading ...</h1>
       ) : (
         <>
-          <div className="max-w-screen-xl mx-auto">
+          <div className="max-w-screen-xl mx-auto mt-12">
             <BreadCrumb title={page?.title} slug={page?.slug} />
           </div>
           <div className="max-w-screen-xl flex flex-col lg:flex-row mx-auto">

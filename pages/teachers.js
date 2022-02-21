@@ -1,9 +1,7 @@
 import GalleryHero from "../components/gallery-hero";
 import Layout from "../components/layout";
 import SchoolTeam from "../components/school-team";
-import Stats from "../components/stats";
-import AnimationRevealPage from "../helpers/AnimationRevealPage";
-import { getNavigation, getStats, getTeachers } from "../lib/api";
+import { getNavigation, getTeachers } from "../lib/api";
 import CTA from "../components/cta";
 import { useIntl } from "react-intl";
 
@@ -14,7 +12,7 @@ const TEACHER_IMAGES = [
   "/images/kindergarten.png",
   "/images/secondary.png",
 ];
-export default function About({ teachers, navigations, stats }) {
+export default function About({ teachers, navigations }) {
   const { formatMessage: f } = useIntl();
   return (
     <Layout navigations={navigations}>
@@ -30,21 +28,19 @@ export default function About({ teachers, navigations, stats }) {
         })}
         images={TEACHER_IMAGES}
       />
-      <AnimationRevealPage>
-        <Stats stats={stats} />
+      <div className="mt-24">
         <SchoolTeam teachers={teachers} />
-        <CTA />
-      </AnimationRevealPage>
+      </div>
+      <CTA />
     </Layout>
   );
 }
 export async function getStaticProps({ locale }) {
   const teachers = (await getTeachers(locale)) ?? [];
   const navigations = (await getNavigation(locale)) ?? [];
-  const stats = (await getStats(locale)) ?? [];
 
   return {
-    props: { teachers, navigations, stats },
+    props: { teachers, navigations },
     revalidate: 1,
   };
 }

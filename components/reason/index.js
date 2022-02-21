@@ -1,5 +1,5 @@
 import { useIntl } from "react-intl";
-const Reason = ({ reasons = [], slug }) => {
+const Reason = ({ reasons = [], slug, id }) => {
   const { formatMessage: f } = useIntl();
   const BACKGROUND_COLOR = {
     kindergarten: "bg-kindergarten",
@@ -8,7 +8,10 @@ const Reason = ({ reasons = [], slug }) => {
   };
   if (reasons?.length === 0) return null;
   return (
-    <section className="relative w-full px-4 py-12 sm:py-16 sm:px-6 xl:px-8">
+    <section
+      id={id}
+      className="relative w-full px-4 py-12 sm:py-16 sm:px-6 xl:px-8"
+    >
       <div className="max-w-xl mx-auto lg:max-w-screen-xl pb-16">
         <div className="px-4 pb-6 text-center sm:px-6 lg:px-8">
           <h3 className="text-purple-900 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">

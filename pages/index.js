@@ -40,9 +40,7 @@ export default function Home({
             <img
               src={coverImage?.image?.url}
               alt="cover"
-              className="mx-auto"
-              width={"820px"}
-              height="312px"
+              className="mx-auto cover"
             />
           </a>
         )}
