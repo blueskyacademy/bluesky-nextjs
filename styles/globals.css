@@ -130,8 +130,8 @@ a {
   bottom: 90px;
   z-index: 100;
 }
-/* .cover {
+.cover {
   height: 100%;
   width: 100%;
   object-fit: cover;
-} */
+}
