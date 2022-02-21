@@ -8,7 +8,7 @@ const Programs = ({ id }) => {
   const { isMobile } = useScreenSize();
   return (
     <div id={id}>
-      <div className="px-4 overflow-hidden md:pb-0 sm:pt-24 sm:px-6 lg:px-8">
+      <div className="px-4 overflow-hidden md:pb-0 sm:pt-12 sm:px-6 lg:px-8">
         <div className="max-w-xl mx-auto md:max-w-screen-xl">
           <motion.div
             className="md:grid md:grid-cols-2 md:gap-12 lg:gap-12 "
@@ -35,7 +35,7 @@ const Programs = ({ id }) => {
             </div>
           </motion.div>
 
-          <div className="mt-16 grid md:mt-72 md:grid md:grid-cols-2 md:gap-8 lg:gap-16">
+          <div className="mt-16 grid md:grid md:grid-cols-2 md:gap-8 lg:gap-16">
             <motion.div
               className="relative"
               initial={{ y: "50%", opacity: 0 }}

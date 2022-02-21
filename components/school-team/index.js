@@ -61,9 +61,9 @@ const PersonList = ({ persons }) => {
       {persons?.map((item, idx) => (
         <PersonCard
           key={`person-${item?.name}-${idx}`}
-          name={item.name}
-          role={item.role}
-          image={item.photo.url}
+          name={item?.name}
+          role={item?.role}
+          image={item.photo?.url}
         />
       ))}
     </div>
