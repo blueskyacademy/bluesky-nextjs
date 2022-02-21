@@ -32,11 +32,13 @@ const RecentPosts = ({ recentPosts }) => {
               >
                 <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
                   <Link href={`/posts/${post.slug}`}>
-                    <img
-                      className="w-full rounded-md lg:h-24 lg:w-24 object-cover rounded cursor-pointer"
-                      src={post?.coverImage?.url}
-                      alt="text"
-                    />
+                    <a>
+                      <img
+                        className="w-full rounded-md lg:h-24 lg:w-24 object-cover rounded cursor-pointer"
+                        src={post?.coverImage?.url}
+                        alt="text"
+                      />
+                    </a>
                   </Link>
                 </div>
                 <div>

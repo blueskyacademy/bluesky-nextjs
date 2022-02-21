@@ -9,10 +9,12 @@ const RegisterHero = () => {
       <img
         src="/svg/dots-large-grid.svg"
         className="absolute right-0 h-auto transform opacity-25 lg:opacity-40 top-12 w-54 hidden md:block"
+        alt=""
       />
       <img
         src="/svg/dots-large-grid.svg"
         className="absolute h-auto transform opacity-40 -left-36 bottom-36 w-54 hidden md:block"
+        alt=""
       />
 
       <div className="max-w-xl mx-auto lg:max-w-screen-xl lg:grid lg:grid-cols-12 lg:gap-8">

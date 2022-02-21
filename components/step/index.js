@@ -85,6 +85,7 @@ const Step = ({ id, steps }) => {
               <img
                 className="absolute inset-0 transform translate-y-9 sm:translate-y-14 xl:translate-y-14"
                 src="/svg/underline-simple-light-purple.svg"
+                alt=""
               />
               <span className="relative">
                 {f({

@@ -33,13 +33,13 @@ const TestimonialCard = ({
       exit="exit"
     >
       <div className="relative">
-        <img src="/svg/quote.svg" className="w-6 mb-1" />
+        <img src="/svg/quote.svg" className="w-6 mb-1" alt="" />
         <blockquote className="font-medium sm:font-normal relative text-sm sm:text-xl text-center sm:text-left ml-6">
           {content}
         </blockquote>
       </div>
       <div className="mt-8 flex items-center flex-col sm:flex-row justify-center text-center sm:text-left pl-6">
-        <img src={img} className="w-24 h-24 rounded-full" />
+        <img src={img} className="w-24 h-24 rounded-full" alt="" />
         <div className="mt-4 sm:mt-0 sm:ml-4 flex flex-col">
           <span className="text-lg font-semibold">{title}</span>
           <span className="text-sm font-normal text-gray-700">

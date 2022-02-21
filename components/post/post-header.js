@@ -17,6 +17,7 @@ export default function PostHeader({ title, coverImage, date }) {
           className="w-full max-w-4xl mx-auto rounded"
           width={960}
           height={500}
+          alt=""
         />
       </div>
     </header>

@@ -21,6 +21,7 @@ const Founders = ({ id, cofounders }) => {
                   <img
                     className="absolute inset-0 transform translate-y-9 sm:translate-y-10 xl:translate-y-12"
                     src="/svg/underline-simple-light-purple.svg"
+                    alt=""
                   />
                   <span className="relative">
                     {f({

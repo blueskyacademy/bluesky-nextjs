@@ -109,6 +109,7 @@ const Programs = ({ id }) => {
               <img
                 src="/svg/arrow.svg"
                 className="absolute top-0 hidden translate-y-3/4 md:block -translate-x-16"
+                alt=""
               />
               {/* <img
                 src="/svg/looped-dotted-line.svg"
@@ -126,6 +127,7 @@ const Programs = ({ id }) => {
               <img
                 src="/svg/red.svg"
                 className="hidden md:block absolute right-0 translate-x-1/2 translate-y-full z-10"
+                alt=""
               />
               <div className="flex flex-col justify-between">
                 <div className="flex-1">
@@ -249,6 +251,7 @@ const Programs = ({ id }) => {
               <img
                 src="/svg/earth.svg"
                 className="absolute translate-y-6 hidden md:block -right-16"
+                alt=""
               />
             </motion.div>
           </div>

@@ -64,24 +64,8 @@ const GalleryHero = ({
               initial={{ y: "50%", opacity: 0 }}
               whileInView={{ y: "0", opacity: 1 }}
             >
-              <Link href={url}>
+              <Link href={url} passHref>
                 <button className="text-lg font-medium text-white bg-primary-100 sm:mt-0 sm:ml-6 leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded_button hover:text-white hover:bg-primary-80 group">
-                  {/* <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 mr-3 text-purple-600 duration-300 ease-in-out group-hover:text-purple-50"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <line x1="12" y1="5" x2="12" y2="19" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                  </svg> */}
                   {f({
                     id: "Home.ViewMore",
                     defaultMessage: "View More",

@@ -44,12 +44,20 @@ const VideoRecord = () => {
         <ol>
           <li className="mt-2">
             1. Press the button{" "}
-            <img src="/images/start_camera.png" className="inline-block"></img>{" "}
+            <img
+              src="/images/start_camera.png"
+              className="inline-block"
+              alt=""
+            ></img>{" "}
             to start the camera (not capture yet)
           </li>
           <li className="mt-2">
             2. When you are ready, press the circle in the bottom bar{" "}
-            <img src="/images/start_capture.png" className="inline-block"></img>{" "}
+            <img
+              src="/images/start_capture.png"
+              className="inline-block"
+              alt=""
+            ></img>{" "}
             to start capturing
           </li>
           <li className="mt-2">
@@ -58,9 +66,13 @@ const VideoRecord = () => {
           </li>
           <li className="mt-2">
             4. You can replay the captured video by clicking the play button{" "}
-            <img src="/images/replay.png" className="inline-block"></img> . If
-            you want to capture a new video, click{" "}
-            <img src="/images/recapture.png" className="inline-block"></img>{" "}
+            <img src="/images/replay.png" className="inline-block" alt=""></img>{" "}
+            . If you want to capture a new video, click{" "}
+            <img
+              src="/images/recapture.png"
+              className="inline-block"
+              alt=""
+            ></img>{" "}
             <br />
             Please make sure you have filled out the application form and your
             email below so that we can get in touch with you. Then click submit
