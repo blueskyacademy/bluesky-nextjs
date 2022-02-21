@@ -331,14 +331,17 @@ const ContactHero = () => {
           <img
             src="/svg/dots-large-grid.svg"
             className="absolute lg:hidden -right-16 -top-12 sm:-top-16 w-80 lg:left-14 lg:-top-16 lg:w-36 opacity-60"
+            alt=""
           />
           <img
             src="/svg/dots-grid.svg"
             className="absolute hidden w-40 opacity-75 lg:block -right-16 -top-16 lg:left-14 lg:-top-16 lg:w-36"
+            alt=""
           />
           <img
             src="/svg/dots-strip.svg"
             className="absolute hidden w-20 rotate-90 opacity-75 lg:block -right-16 top-1/2"
+            alt=""
           ></img>
           <div className="relative z-10 w-full px-4 py-10 mx-auto bg-white shadow-xl rounded-3xl lg:mr-0 lg:ml-auto sm:p-16 lg:p-12 xl:p-14">
             <ContactForm

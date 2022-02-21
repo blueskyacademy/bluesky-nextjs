@@ -6,7 +6,7 @@ const CTA = ({ hasButton = true }) => {
   return (
     <section className="py-24 bg-white sm:py-32">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-        <img className="mx-auto w-72" src="/svg/sunrise.svg" />
+        <img className="mx-auto w-72" src="/svg/sunrise.svg" alt="" />
 
         <h2 className="max-w-3xl mx-auto mt-6 text-center text-purple-900 text-3xl sm:text-6xl leading-snug sm:leading-tight xl:leading-tighter font-extrabold ">
           <span className="block">
@@ -22,6 +22,7 @@ const CTA = ({ hasButton = true }) => {
               <img
                 className="absolute inset-0 transform translate-y-9 sm:translate-y-11 xl:translate-y-14"
                 src="/svg/underline-simple-light-purple.svg"
+                alt=""
               />
               <span className="relative">
                 {/* brighter future{" "} */}

@@ -27,6 +27,7 @@ const Reason = ({ reasons = [], slug, id }) => {
                 <img
                   className="absolute inset-0 transform translate-y-9 sm:translate-y-10 xl:translate-y-12"
                   src="/svg/underline-simple-light-purple.svg"
+                  alt=""
                 />
                 <span className="relative">
                   {f({
@@ -81,6 +82,7 @@ const Reason = ({ reasons = [], slug, id }) => {
                     <img
                       className="flex-shrink-0 mr-3 w-7 h-7"
                       src="/svg/checkmark.svg"
+                      alt=""
                     />
                     <svg
                       className="flex-shrink-0 hidden w-6 h-6 mr-3"

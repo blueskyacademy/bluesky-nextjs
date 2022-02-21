@@ -15,10 +15,10 @@ export default function VideoCarousel({ videos }) {
   const customRenderThumb = (children) =>
     children.map((item) => {
       const videoId = getVideoId(item.props.url);
-      return <img src={getVideoThumb(videoId)} key={item.props.url} />;
+      return <img src={getVideoThumb(videoId)} key={item.props.url} alt="" />;
     });
   const YoutubeSlide = ({ url }) => (
-    <ReactPlayer width='100%' url={url} playing={false} />
+    <ReactPlayer width="100%" url={url} playing={false} />
   );
 
   return (

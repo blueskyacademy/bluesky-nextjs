@@ -15,6 +15,7 @@ const CarouselImages = ({ classes = [] }) => {
               <img
                 className="absolute inset-0 transform translate-y-9 sm:translate-y-10 xl:translate-y-14"
                 src="/svg/underline-simple-light-purple.svg"
+                alt=""
               />
               <span className="relative">
                 {f({
@@ -29,7 +30,7 @@ const CarouselImages = ({ classes = [] }) => {
       <Carousel showThumbs={true} showIndicators={true} showStatus={false}>
         {classes.map((item, idx) => (
           <div key={`image-${item}-${idx}`}>
-            <img src={item?.image?.url} />
+            <img src={item?.image?.url} alt="" />
             <p className="legend">{item?.description}</p>
           </div>
         ))}
