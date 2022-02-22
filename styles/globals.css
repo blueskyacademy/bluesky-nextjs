@@ -128,7 +128,7 @@ a {
   position: fixed;
   right: 24px;
   bottom: 90px;
-  z-index: 100;
+  z-index: 10;
 }
 /* .cover {
   height: 100%;

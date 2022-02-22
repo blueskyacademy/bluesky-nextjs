@@ -44,7 +44,7 @@ const Faq = ({ id, faq }) => {
   const { formatMessage: f } = useIntl();
   return (
     <motion.section
-      className="py-20 sm:py-28"
+      className="pt-20 pb-2 sm:pt-28"
       id={id}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
