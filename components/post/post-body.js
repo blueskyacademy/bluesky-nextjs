@@ -7,7 +7,7 @@ const DynamicVideoEmbed = dynamic(() => import("./video-embed"));
 
 function renderOptions(links) {
   const entryMap = new Map();
-  if (links.entries.block) {
+  if (links?.entries?.block) {
     for (const entry of links.entries.block) {
       entryMap.set(entry.sys.id, entry);
     }
@@ -16,7 +16,7 @@ function renderOptions(links) {
   // create an asset map
   const assetMap = new Map();
   // loop through the assets and add them to the map
-  for (const asset of links.assets.block) {
+  for (const asset of links?.assets?.block) {
     assetMap.set(asset.sys.id, asset);
   }
 

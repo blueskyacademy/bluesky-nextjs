@@ -19,6 +19,7 @@ export default function JobPage({ job, navigations }) {
             title={job.title}
             start={job.start}
             expire={job.expire}
+            introduction={job?.introduction}
             requirement={job.requirement}
             benefit={job.benefit}
           />
