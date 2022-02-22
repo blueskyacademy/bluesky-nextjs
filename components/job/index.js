@@ -1,11 +1,12 @@
 import Link from "next/link";
 import DateComponent from "../date";
 import { useIntl } from "react-intl";
+import PostBody from "../post/post-body";
 
-const Job = ({ title, start, expire, requirement, benefit }) => {
+const Job = ({ title, start, expire, requirement, benefit, introduction }) => {
   const { formatMessage: f } = useIntl();
   return (
-    <div className="mb-12 mx-3 md:ml-10 pl-0 lg:pr-5 lg:mb-0 w-full mt-6">
+    <div className="mb-12 mx-3 md:ml-10 pl-0 lg:pr-5 lg:mb-0 w-full mt-6 max-w-screen-lg">
       <div className="text-center">
         <h2 className="mb-6 font-sans text-3xl font-bold text-gray-900 sm:text-4xl sm:leading-none">
           {title}
@@ -25,6 +26,7 @@ const Job = ({ title, start, expire, requirement, benefit }) => {
           {expire && <DateComponent dateString={expire} />}
         </p>
       </div>
+      <PostBody content={introduction} className="max-w-screen-lg" />
 
       <hr className="my-6 border-gray-300" />
       <div className="flex flex-col">

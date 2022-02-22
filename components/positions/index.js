@@ -1,6 +1,7 @@
 import Link from "next/link";
 import DateComponent from "../date";
 import { useIntl } from "react-intl";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const Position = ({ title, slug, introduction, start, expire }) => {
   const { formatMessage: f } = useIntl();
@@ -28,7 +29,9 @@ const Position = ({ title, slug, introduction, start, expire }) => {
         <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
           {title}
         </h2>
-        <p className="leading-relaxed">{introduction}</p>
+        <div className="leading-relaxed">
+          {documentToReactComponents(introduction?.json)}
+        </div>
         <Link href={`/recruitment/${slug}`}>
           <a className="text-indigo-500 inline-flex items-center mt-4">
             {f({
