@@ -15,6 +15,7 @@ import HomeHero from "../components/home-hero";
 import CTA from "../components/cta";
 import Feedback from "../components/feedback";
 import { useIntl } from "react-intl";
+import Banner from "../components/banner";
 
 export default function Home({
   allPosts,
@@ -34,17 +35,7 @@ export default function Home({
   ];
   return (
     <Layout navigations={navigations}>
-      <div className="max-w-[1440px] mx-auto">
-        {coverImage && (
-          <a rel="noreferrer" href={coverImage?.link}>
-            <img
-              src={coverImage?.image?.url}
-              alt="cover"
-              className="mx-auto cover"
-            />
-          </a>
-        )}
-      </div>
+      <Banner coverImage={coverImage} />
 
       <HomeHero />
       <Programs id="program" />
@@ -76,7 +67,7 @@ export async function getStaticProps({ locale }) {
   const testimonials = (await getTestimonials(locale)) ?? [];
   const faq = (await getFaq(locale)) ?? [];
   const navigations = (await getNavigation(locale)) ?? [];
-  const coverImage = await getCoverImage();
+  const coverImage = await getCoverImage(locale);
   return {
     props: { allPosts, testimonials, faq, navigations, coverImage },
     revalidate: 1,
