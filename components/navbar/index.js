@@ -191,121 +191,6 @@ const Navbar = ({
 
           <div>
             <ul className="flex mt-2 space-x-12 pt-2">
-              {/* <li className="flex flex-shrink max-w-xs">
-                <div>
-                  <span
-                    className="
-                flex
-                items-center
-                justify-center
-                bg-warning-60
-                rounded
-                w-8
-                h-8
-              "
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-purple-700"
-                      width="44"
-                      height="44"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <circle cx="12" cy="11" r="3" />
-                      <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-                    </svg>
-                  </span>
-                </div>
-                <div className="flex-1 mt-1 ml-2 xl:ml-2">
-                  <h5 className="flex items-center text-base text-primary-100">
-                    {f({
-                      id: "Home.AddressDetail",
-                      defaultMessage: "Le Loi, Vinh City, Nghe An, Vietnam",
-                    })}
-                  </h5>
-                </div>
-              </li>
-
-              <li className="flex flex-shrink-0">
-                <div>
-                  <span
-                    className="
-                flex
-                items-center
-                justify-center
-                bg-success-40
-                rounded
-                w-8
-                h-8
-              "
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-purple-700"
-                      width="44"
-                      height="44"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <rect x="3" y="5" width="18" height="14" rx="2" />
-                      <polyline points="3 7 12 13 21 7" />
-                    </svg>
-                  </span>
-                </div>
-                <div className="flex-1 ml-2 xl:ml-2 mt-1">
-                  <h5 className="flex items-center text-base text-primary-100">
-                    bluesky@edu.vn
-                  </h5>
-                </div>
-              </li>
-
-              <li className="flex flex-shrink-0">
-                <div>
-                  <span
-                    className="
-                flex
-                items-center
-                justify-center
-                rounded
-                w-8
-                h-8
-                bg-purple-200
-              "
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-purple-700"
-                      width="44"
-                      height="44"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-                    </svg>
-                  </span>
-                </div>
-                <div className="flex-1 ml-2 xl:ml-2 mt-1">
-                  <h5 className="flex items-center text-base text-primary-100">
-                    +84 238 357 9779
-                  </h5>
-                </div>
-              </li> */}
               <div className="flex flex-row-reverse mt-1">
                 <img
                   className="px-2 h-[24px] cursor-pointer"
@@ -366,34 +251,73 @@ const Navbar = ({
                   </>
                 ) : (
                   <>
-                    <span className="absolute top-0 left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-2 w-0 left-1/2"></span>
+                    {/* <span className="absolute top-0 left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-2 w-0 left-1/2"></span>
                     <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-2 rotate-45"></span>
                     <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-2 -rotate-45"></span>
-                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-4 top-2 w-0 left-1/2"></span>
+                    <span className="absolute left-0 block w-full h-1 transition duration-200 ease-in-out transform rotate-0 bg-white rounded-full opacity-100 top-4 top-2 w-0 left-1/2"></span> */}
                   </>
                 )}
               </button>
               {/* Menu */}
               {showMobileMenu && (
-                <div className="absolute top-0 left-0 z-40 w-screen px-4 py-16 overflow-y-scroll bg-gradient-to-tr from-purple-600 to-purple-600 sm:px-8 overflow-x-hidden">
-                  <div className="flex flex-col items-center justify-center w-full h-full">
-                    <div className="flex flex-col w-full space-y-6 justify-evenly">
-                      {renderNavigations?.map((item, idx) => (
-                        <div
-                          key={`menu-${item.path}-${idx}`}
-                          onClick={handleClickMobileMenu}
-                        >
-                          <DropdownLink
-                            title={item.title}
-                            path={item.path}
-                            subPages={item?.subPages}
-                            color="text-white"
-                          />
-                        </div>
-                      ))}
+                <>
+                  <div className="absolute top-0 left-0 bg-black w-screen h-full  z-10 opacity-50"></div>
+                  <div className="absolute top-0 left-0 z-40 w-11/12 px-4 py-4 overflow-y-scroll bg-white sm:px-8 overflow-x-hidden opacity-100">
+                    <div className="flex justify-between">
+                      <div
+                        onClick={() => {
+                          handleClickMobileMenu();
+                        }}
+                      >
+                        <Link href="/">
+                          <a>
+                            <img
+                              src="/svg/logo.svg"
+                              alt="Bright"
+                              className="h-[48px]"
+                            />
+                          </a>
+                        </Link>
+                      </div>
+
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-6 h-6 text-primary-100 mt-5"
+                        width="44"
+                        height="44"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        onClick={handleClickMobileMenu}
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <rect x="4" y="4" width="16" height="16" rx="2" />
+                        <path d="M10 10l4 4m0 -4l-4 4" />
+                      </svg>
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center w-full h-full mt-4 ">
+                      <div className="flex flex-col w-full space-y-6 justify-evenly">
+                        {renderNavigations?.map((item, idx) => (
+                          <div
+                            key={`menu-${item.path}-${idx}`}
+                            onClick={handleClickMobileMenu}
+                          >
+                            <DropdownLink
+                              title={item.title}
+                              path={item.path}
+                              subPages={item?.subPages}
+                              color="text-primary-100"
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </>
               )}
             </div>
             <div className="block w-48 sm:hidden sm:w-52 flex justify-center">
