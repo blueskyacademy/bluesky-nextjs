@@ -82,7 +82,7 @@ const DropdownSearch = ({
 
         {showDropdown && (
           <>
-            <div className="absolute rounded shadow bg-white overflow-hidden flex flex-col w-full mt-1 border border-gray-200 z-50 text-sm">
+            <div className="absolute rounded shadow bg-white overflow-y-auto flex flex-col w-full mt-1 border border-gray-200 z-50 text-sm max-h-60">
               {filterOptions.map((item, idx) => (
                 <div
                   className="cursor-pointer group"

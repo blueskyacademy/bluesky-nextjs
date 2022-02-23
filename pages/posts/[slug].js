@@ -72,7 +72,6 @@ export async function getStaticProps({ params, locale }) {
 }
 
 export async function getStaticPaths({ locale }) {
-  console.log("locale", locale);
   const allPosts = await getAllPostsWithSlug(locale);
   return {
     paths: allPosts?.map(({ slug }) => `/posts/${slug}`) ?? [],

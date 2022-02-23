@@ -18,11 +18,8 @@ const Dropdown = ({
   });
 
   return (
-    <div className="max-w-md mx-auto">
-      <label
-        htmlFor="select"
-        className="font-semibold block py-2 text-purple-900 text-sm"
-      >
+    <div className="max-w-full">
+      <label htmlFor="select" className="block py-2 text-purple-900 text-sm">
         {title}
       </label>
 

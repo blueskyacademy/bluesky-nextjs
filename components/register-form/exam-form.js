@@ -208,37 +208,35 @@ const ExamForm = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="mt-4">
-                  <Dropdown
-                    options={[GENDER.male, GENDER.female, GENDER.other]}
-                    title={f({
-                      id: "Form.Gender",
-                      defaultMessage: "Gender",
-                    })}
-                    placeholder={f({
-                      id: "Form.SelectAnOption",
-                      defaultMessage: "Select an option",
-                    })}
-                    value={gender}
-                    handleChange={(item) => setGender(item)}
-                  />
-                </div>
-                <div className="mt-4">
-                  <Dropdown
-                    options={[RETEST_OPTIONS.no, RETEST_OPTIONS.yes]}
-                    title={f({
-                      id: "Form.IsItAReTest",
-                      defaultMessage: "Is it a re-test?",
-                    })}
-                    placeholder={f({
-                      id: "Form.SelectAnOption",
-                      defaultMessage: "Select an option",
-                    })}
-                    value={reTestOption}
-                    handleChange={(item) => setReTestOption(item)}
-                  />
-                </div>
+              <div className="mt-4">
+                <Dropdown
+                  options={[GENDER.male, GENDER.female, GENDER.other]}
+                  title={f({
+                    id: "Form.Gender",
+                    defaultMessage: "Gender",
+                  })}
+                  placeholder={f({
+                    id: "Form.SelectAnOption",
+                    defaultMessage: "Select an option",
+                  })}
+                  value={gender}
+                  handleChange={(item) => setGender(item)}
+                />
+              </div>
+              <div className="mt-4">
+                <Dropdown
+                  options={[RETEST_OPTIONS.no, RETEST_OPTIONS.yes]}
+                  title={f({
+                    id: "Form.IsItAReTest",
+                    defaultMessage: "Is it a re-test?",
+                  })}
+                  placeholder={f({
+                    id: "Form.SelectAnOption",
+                    defaultMessage: "Select an option",
+                  })}
+                  value={reTestOption}
+                  handleChange={(item) => setReTestOption(item)}
+                />
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="mt-6">
