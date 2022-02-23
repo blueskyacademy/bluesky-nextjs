@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import { useDisableBodyScroll } from "../../hooks/useBodyDisableScroll";
 import PostBody from "../post/post-body";
@@ -23,7 +23,7 @@ export const SpotLightPopup = ({ showPopup, onClose, coverImage }) => {
                 className="w-full max-w-6xl max-h-full overflow-auto bg-white rounded-2xl"
                 ref={wrapperRef}
               >
-                <div className="relative aspect-w-9 sm:aspect-w-16 aspect-h-16 sm:aspect-h-9 bg-white border-y-[10px] border-primary-100">
+                <div className="relative aspect-w-9 sm:aspect-w-16 aspect-h-11 sm:aspect-h-9 bg-white border-y-[10px] border-primary-100">
                   <PostBody
                     content={coverImage?.content}
                     className="max-w-6xl bg-white px-5 sm:px-12 overflow-y-auto py-5 rounded-2xl"
