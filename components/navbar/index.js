@@ -313,7 +313,7 @@ const Navbar = ({
                   src="/svg/VN.svg"
                   onClick={() =>
                     router.push({ pathname, query }, asPath, {
-                      locale: "vi-VN",
+                      locale: "vi",
                     })
                   }
                 />
@@ -323,7 +323,7 @@ const Navbar = ({
                   alt="English"
                   onClick={() =>
                     router.push({ pathname, query }, asPath, {
-                      locale: "en-US",
+                      locale: "en",
                     })
                   }
                 />
@@ -414,7 +414,7 @@ const Navbar = ({
                 src="/svg/VN.svg"
                 onClick={() =>
                   router.push({ pathname, query }, asPath, {
-                    locale: "vi-VN",
+                    locale: "vi",
                   })
                 }
               />
@@ -424,7 +424,7 @@ const Navbar = ({
                 alt="English"
                 onClick={() =>
                   router.push({ pathname, query }, asPath, {
-                    locale: "en-US",
+                    locale: "en",
                   })
                 }
               />

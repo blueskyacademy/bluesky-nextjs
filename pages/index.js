@@ -36,7 +36,6 @@ export default function Home({
   return (
     <Layout navigations={navigations}>
       <Banner coverImage={coverImage} />
-
       <HomeHero />
       <Programs id="program" />
       <GalleryHero
@@ -67,7 +66,7 @@ export async function getStaticProps({ locale }) {
   const testimonials = (await getTestimonials(locale)) ?? [];
   const faq = (await getFaq(locale)) ?? [];
   const navigations = (await getNavigation(locale)) ?? [];
-  const coverImage = await getCoverImage(locale);
+  const coverImage = (await getCoverImage(locale)) ?? null;
   return {
     props: { allPosts, testimonials, faq, navigations, coverImage },
     revalidate: 1,

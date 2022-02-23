@@ -5,8 +5,8 @@ import en from "../translations/en.json";
 import vi from "../translations/vn.json";
 
 const messages = {
-  "en-US": en,
-  "vi-VN": vi,
+  en: en,
+  vi: vi,
 };
 
 function MyApp({ Component, pageProps }) {

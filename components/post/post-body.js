@@ -29,7 +29,12 @@ function renderOptions(links) {
     },
     renderNode: {
       [INLINES.HYPERLINK]: (node, children) => (
-        <a href={node.data.uri} target="_blank" rel="nofollow noreferrer">
+        <a
+          href={node.data.uri}
+          target="_blank"
+          rel="nofollow noreferrer"
+          className="text-primary-100"
+        >
           {children}
         </a>
       ),

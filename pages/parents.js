@@ -16,7 +16,6 @@ export default function Parents({ testimonials, classes, navigations }) {
     <Layout navigations={navigations}>
       <RegisterHero />
       <RegisterForm id="register" tab={tab} classes={classes} />
-      {/* <Testimonial testimonials={testimonials} /> */}
       <CTA hasButton={false} />
     </Layout>
   );
