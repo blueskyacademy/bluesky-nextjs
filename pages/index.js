@@ -55,7 +55,7 @@ export default function Home({
         images={GALLERY_IMAGES}
       />
       <Events posts={allPosts} id="news" />
-      <Feedback id="parents" testimonials={testimonials.slice(0, 3)} />
+      <Feedback id="parents" testimonials={testimonials} />
       <Faq faq={faq} id="faq" />
       <CTA />
     </Layout>
