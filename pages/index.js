@@ -22,7 +22,7 @@ export default function Home({
   testimonials,
   faq,
   navigations,
-  coverImage,
+  coverImages,
 }) {
   const { formatMessage: f } = useIntl();
   useHashFragment();
@@ -35,7 +35,8 @@ export default function Home({
   ];
   return (
     <Layout navigations={navigations}>
-      <Banner coverImage={coverImage} />
+      {/* <Banner coverImage={coverImage} /> */}
+      <Banner coverImages={coverImages} />
       <HomeHero />
       <Programs id="program" />
       <GalleryHero
@@ -66,9 +67,9 @@ export async function getStaticProps({ locale }) {
   const testimonials = (await getTestimonials(locale)) ?? [];
   const faq = (await getFaq(locale)) ?? [];
   const navigations = (await getNavigation(locale)) ?? [];
-  const coverImage = (await getCoverImage(locale)) ?? null;
+  const coverImages = (await getCoverImage(locale)) ?? [];
   return {
-    props: { allPosts, testimonials, faq, navigations, coverImage },
+    props: { allPosts, testimonials, faq, navigations, coverImages },
     revalidate: 1,
   };
 }

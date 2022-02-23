@@ -44,7 +44,7 @@ const DropdownLink = ({ title, slug, path, subPages = [], color }) => {
                 key={`${item?.title}-${idx}`}
               >
                 <a className="block w-full py-2 transition duration-200 ease-in-out rounded-xl sm:px-5 group mx-5">
-                  <h5 className="text-md font-semibold text-white whitespace-pre-wrap">
+                  <h5 className="text-md text-primary-100 whitespace-pre-wrap">
                     {item?.title}
                   </h5>
                 </a>
