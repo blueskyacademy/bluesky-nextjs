@@ -11,7 +11,7 @@ const DescriptionValues = () => {
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <div className="lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-16">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-10">
           <div className="flex flex-col justify-center">
             <h2 className="text-purple-900 sm:text-center lg:text-left text-2xl leading-tight tracking-tight sm:text-3xl sm:leading-tighter font-bold">
               {f({
@@ -20,7 +20,7 @@ const DescriptionValues = () => {
               })}
             </h2>
 
-            <div className="grid max-w-4xl gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-1 sm:mx-auto lg:mx-0 lg:max-w-md">
+            <div className="grid max-w-4xl gap-2 mt-10 sm:grid-cols-2 lg:grid-cols-1 sm:mx-auto lg:mx-0 lg:max-w-xl">
               <div className="flex">
                 <div className="w-14">
                   <img src="/svg/checkmark.svg" className="w-7 h-7" alt="" />
@@ -57,7 +57,7 @@ const DescriptionValues = () => {
                     {f({
                       id: "About.CoordinationSummary",
                       defaultMessage:
-                        "The ability to present, lead and coordinate",
+                        "We inspire students to become confident and ethical leaders, strengthening their voices and capacity to contribute positively to their communities. Young people leave the BSA with the tools and confidence they need to be successful personally and academically in higher levels and beyond.",
                     })}
                   </p>
                 </div>
@@ -90,7 +90,7 @@ const DescriptionValues = () => {
             <div className="aspect-w-9 aspect-h-6">
               <img
                 className="object-cover w-full h-full rounded-3xl"
-                src="/images/secondary.png"
+                src="/images/aim-develope.jpg"
                 alt="values"
               />
             </div>

@@ -112,7 +112,7 @@ const Step = ({ id, steps }) => {
         <div className="relative" style={{ minHeight: "100vh" }}>
           <img
             className="inset-0 object-cover object-bottom rounded shadow-lg h-96 lg:absolute lg:h-full"
-            src="/images/kindergarten.png"
+            src="/images/admission.jpg"
             alt=""
           />
         </div>

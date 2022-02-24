@@ -35,7 +35,6 @@ export default function Home({
   ];
   return (
     <Layout navigations={navigations}>
-      {/* <Banner coverImage={coverImage} /> */}
       <Banner coverImages={coverImages} />
       <HomeHero />
       <Programs id="program" />

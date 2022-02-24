@@ -4,16 +4,19 @@ import SchoolTeam from "../components/school-team";
 import { getNavigation, getTeachers } from "../lib/api";
 import CTA from "../components/cta";
 import { useIntl } from "react-intl";
+import { useRouter } from "next/router";
 
 const TEACHER_IMAGES = [
-  "/images/teacher-01.jpeg",
-  "/images/teacher-03.jpeg",
-  "/images/teacher-02.jpeg",
-  "/images/kindergarten.png",
-  "/images/secondary.png",
+  "/images/teacher-01.jpg",
+  "/images/teacher-02.jpg",
+  "/images/teacher-03.jpg",
+  "/images/teacher-04.jpg",
+  "/images/teacher-05.jpg",
 ];
 export default function About({ teachers, navigations }) {
   const { formatMessage: f } = useIntl();
+  const router = useRouter();
+  const { locale } = router;
   return (
     <Layout navigations={navigations}>
       <GalleryHero
@@ -21,11 +24,16 @@ export default function About({ teachers, navigations }) {
           id: "Teacher.OurTeachers",
           defaultMessage: "Our Teacher",
         })}
+        subTitle={f({
+          id: "Teacher.WeAreBSATeam",
+          defaultMessage: "We are BSA's TEAM!",
+        })}
         description={f({
           id: "Teacher.WePrideOurselves",
           defaultMessage:
-            "At Blue Sky Academy, we pride ourselves on the quality of our teachers. We commit to creating a positive classroom experience for all students, no matter their learning needs.",
+            "We do believe that educating is one of the most challenging jobs in the world. We inspire, motivate, encourage, support and educate Children. We also believe in the power of fun inside and outside of the workplace. Hence, we enjoy daily work by watching student's improvement and happiness. Simultaneously, we bring and share the joy into our team after school. Together, we make team spirit, laughter, motivation, fostering innovation and creativity. We are BSA's TEAM!",
         })}
+        descriptionSize={locale == "vi" ? "max-w-screen-xl" : "max-w-screen-lg"}
         images={TEACHER_IMAGES}
       />
       <div className="mt-24">

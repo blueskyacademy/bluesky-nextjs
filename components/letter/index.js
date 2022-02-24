@@ -39,7 +39,7 @@ const Letter = ({ id, message }) => {
             <div className="transform 2xl:-translate-x-16">
               <div className="aspect-w-1 aspect-h-1">
                 <img
-                  src="/images/primary.png"
+                  src="/images/letter1.jpg"
                   className="object-cover w-full h-full rounded-3xl 2xl:rounded-4xl"
                   alt="Program description 02"
                 />
@@ -48,7 +48,7 @@ const Letter = ({ id, message }) => {
             <div className="transform 2xl:-translate-x-16">
               <div className="aspect-w-1 aspect-h-1">
                 <img
-                  src="/images/secondary.png"
+                  src="/images/letter2.jpg"
                   className="object-cover w-full h-full rounded-3xl 2xl:rounded-4xl"
                   alt="Program description 03"
                 />

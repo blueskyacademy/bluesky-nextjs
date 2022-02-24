@@ -36,14 +36,14 @@ const Intro = ({ id, visions }) => {
                   <div className="aspect-w-3 aspect-h-4 rounded-2xl">
                     <img
                       className="object-cover rounded-2xl"
-                      src="/images/primary.png"
+                      src={`/images/vision${idx}.jpg`}
                       alt="Home blocks 01"
                     />
                   </div>
                   <div className="absolute bottom-0 left-0 hidden sm:block sm:translate-y-1/3 sm:w-72 sm:h-72 lg:w-64 lg:h-64 xl:w-72 xl:h-72 2xl:w-80 2xl:h-80 rounded-3xl">
                     <img
                       className="object-cover w-full h-full rounded-3xl"
-                      src="/images/kindergarten.png"
+                      src={`/images/vision${idx * 2 + 3}.jpg`}
                       alt="Home blocks 02"
                     />
                   </div>

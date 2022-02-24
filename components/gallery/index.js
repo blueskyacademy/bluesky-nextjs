@@ -8,8 +8,8 @@ export const Gallery = () => {
           <div className="flex justify-center">
             <span className="inline-block px-4 py-2 font-medium text-purple-700 bg-purple-200 rounded-full shadow-md -rotate-1">
               {f({
-                id: "Gallery.CreatingMemoriesForStudents",
-                defaultMessage: "Creating memories for students",
+                id: "About.WhereGreatKidsGrow",
+                defaultMessage: "Where great kids grow",
               })}
             </span>
           </div>
@@ -19,11 +19,11 @@ export const Gallery = () => {
               defaultMessage: "See what our students' experience looks like",
             })}
           </h2>
-          <p className="max-w-2xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
+          <p className="max-w-screen-xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-800 sm:mt-5">
             {f({
               id: "Gallery.GallerySummary",
               defaultMessage:
-                "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+                "When you see these pictures, please bear in mind our aspirational mission to educate happy, independent, creative, intellectual, passionate and lifelong learners. We have worked hard to capture the joy, the beauty and, most importantly, the reality of what will undoubtedly go down in history of Blue Sky Academy. I hope you agree that the captured images reflect that joy of learning, working and living in a nurturing environment that gives children the security and opportunity to discover themselves and their world..",
             })}
           </p>
         </div>
