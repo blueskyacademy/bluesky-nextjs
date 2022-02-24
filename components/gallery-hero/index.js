@@ -7,6 +7,8 @@ const GalleryHero = ({
   className,
   title,
   description,
+  descriptionSize = "max-w-4xl",
+  subTitle = "",
   hasButton = false,
   url,
   images,
@@ -34,9 +36,18 @@ const GalleryHero = ({
               </span>
             </h2>
 
-            <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-primary-100 sm:mt-5">
+            <p
+              className={`${descriptionSize} mx-auto mt-4 text-xl leading-relaxed text-center text-primary-100 sm:mt-5`}
+            >
               {description}
             </p>
+            {subTitle && (
+              <h4 className="max-w-3xl mx-auto text-center text-primary-100 text-xl font-bold mt-1">
+                <span className="relative inline-block">
+                  <span>{subTitle}</span>
+                </span>
+              </h4>
+            )}
           </motion.div>
 
           <div className="grid grid-flow-row-dense grid-cols-2 gap-2 sm:grid-cols-3 mt- sm:mt-12 lg:mt-12 sm:gap-3 md:gap-4 lg:gap-6">

@@ -67,7 +67,7 @@ const Programs = ({ id }) => {
                     <div className="relative mt-8 aspect-w-3 aspect-h-2">
                       <img
                         className="object-cover rounded-2xl"
-                        src="/images/primary.png"
+                        src="/images/primary.jpg"
                         alt="Program 01"
                       />
                     </div>
@@ -147,7 +147,7 @@ const Programs = ({ id }) => {
                   <div className="relative mt-8 aspect-w-3 aspect-h-2">
                     <img
                       className="object-cover rounded-2xl"
-                      src="/images/kindergarten.png"
+                      src="/images/kindergarten.jpg"
                       alt="Program 02"
                     />
                   </div>
@@ -211,7 +211,7 @@ const Programs = ({ id }) => {
                   <div className="relative mt-8 aspect-w-3 aspect-h-2">
                     <img
                       className="object-cover rounded-2xl"
-                      src="/images/secondary.png"
+                      src="/images/secondary.jpeg"
                       alt="Program 03"
                     />
                   </div>
