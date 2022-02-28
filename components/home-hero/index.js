@@ -56,20 +56,20 @@ const HomeHero = () => {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h1 className="uppercase max-w-xl mt-4 text-center text-primary-100 sm:mt-5 lg:text-left h1 lg:max-w-none text-7xl leading-snug sm:leading-tight xl:leading-tighter font-bold">
+            <h2 className="uppercase text-primary-100 font-bold text-5xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter">
               {f({
                 id: "Home.BlueSkyAcademy",
                 defaultMessage: "Blue Sky Academy",
               })}
-            </h1>
-            <p className="max-w-2xl mt-3 text-xl leading-loose text-center text-purple-800 lg:text-left">
+            </h2>
+            <p className="max-w-2xl mt-3 text-xl leading-relaxed text-center text-purple-800 lg:text-left">
               {f({
                 id: "Home.SloganHero",
-                defaultMessage: `Blue Sky Academy believes that empowering our students to absorb knowledge and sharpen their skills will create an organic relationship between school, family and society.`,
+                defaultMessage: `Established in 2004 and licensed by the Vietnamese Government, Blue Sky Academy (BSA) is a Cambridge International School with the National Education system offering K-12 education programmes. Our mission is to educate a world-class generation of Vietnamese students who possess scientific knowledge on par with students in developed countries. Blue Sky Academy students will develop a deep understanding of traditional values, practical living skills and righteous points of view. They will hold responsibilities of what are expected in global citizens, with the courage and confidence needed to integrate into a global collaboration.`,
               })}
             </p>
 
-            <div className="flex flex-col items-center mt-8 overflow-hidden sm:flex-row">
+            <div className="flex flex-col items-center mt-4 overflow-hidden sm:flex-row">
               <Link href="/about">
                 <a className="text-lg font-medium text-white bg-primary-100 relative leading-normal inline-flex items-center justify-center px-8 py-3 duration-300 ease-in-out rounded_button outline-none hover:bg-primary-100 group h-[55px]">
                   {f({
@@ -126,12 +126,12 @@ const HomeHero = () => {
               </button>
             </div>
 
-            <p className="hidden text-sm font-medium tracking-wider text-purple-900 uppercase sm:block lg:hidden xl:block mt-14">
+            {/* <p className="hidden text-sm font-medium tracking-wider text-purple-900 uppercase sm:block lg:hidden xl:block mt-14">
               {f({
                 id: "Home.CambrigdeInternationalSchool",
                 defaultMessage: "Cambrigde International School",
               })}
-            </p>
+            </p> */}
           </motion.div>
           <div className="flex flex-col justify-center max-w-3xl mx-auto mt-16 lg:mt-0 lg:max-w-none lg:col-span-6">
             <div className="relative">

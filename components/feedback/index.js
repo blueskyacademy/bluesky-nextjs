@@ -81,9 +81,9 @@ const Feedback = ({ id, testimonials }) => {
             </h2>
             <p className="max-w-3xl mx-auto mt-4 text-xl leading-relaxed text-center text-purple-50">
               {f({
-                id: "Home.ParentFeedbackSummary",
+                id: "Home.OurStoriesSummary",
                 defaultMessage:
-                  "Providing the best possible start to your children's education. Our goal is to ensure your little one's success in life. So We provide an environment that enables students to thrive.",
+                  "All of teachers and support staffs at BSA know and call each of us by name, they understand our families, our hobbies and listen to us all the time. Therefore, we are very pleased to say that we were a happy family. We love everything of Blue Sky!",
               })}
             </p>
           </div>

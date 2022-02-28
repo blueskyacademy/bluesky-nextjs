@@ -69,11 +69,11 @@ const Reason = ({ reasons = [], slug, id }) => {
             </span>
             <div className="px-4 py-10 mt-2 sm:px-10 sm:py-12">
               <div className="font-semibold text-purple-900 leading-relaxed sm:text-xl">
-                {f({
+                {/* {f({
                   id: "Program.WePrideOurselvesOnTheQuality",
                   defaultMessage:
                     "At Blue Sky Academy, we pride ourselves on the quality of our teaching. You can expect the following from our academy:",
-                })}
+                })} */}
               </div>
 
               <ul className="mt-5 space-y-5 text-lg text-purple-800">
