@@ -9,10 +9,10 @@ import { getClasses, getNavigation } from "../lib/api";
 import ParentGallery from "../components/parent-gallery";
 
 const PARENTS_IMAGES = [
-  "/images/parent-1.jpg",
-  "/images/parent-4.jpg",
-  "/images/parent-2.jpg",
-  "/images/parent-3.jpg",
+  "/images/Parent1.jpg",
+  "/images/Parent4.jpg",
+  "/images/Parent2.jpg",
+  "/images/Parent3.jpg",
 ];
 export default function Parents({ classes, navigations }) {
   const router = useRouter();
