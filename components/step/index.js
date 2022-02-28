@@ -74,47 +74,47 @@ const StepCard = ({ last, title, content }) => {
 const Step = ({ id, steps }) => {
   const { formatMessage: f } = useIntl();
   return (
-    <div
-      id={id}
-      className="py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:py-20"
-    >
-      <div className="text-center sm:px-6 lg:px-8 pb-24">
-        <h3 className="text-purple-900 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
-          <span className="relative block">
-            <span className="relative">
-              <img
-                className="absolute inset-0 transform translate-y-9 sm:translate-y-14 xl:translate-y-14"
-                src="/svg/underline-simple-light-purple.svg"
-                alt=""
-              />
+    <div id={id}>
+      {/* <div className="w-full h-16 sm:h-16 xl:h-16 bg-gradient-to-b from-purple-25 to-white"></div> */}
+      <div className="py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:py-20">
+        <div className="text-center sm:px-6 lg:px-8 pb-24">
+          <h3 className="text-purple-900 text-4xl leading-tight tracking-tight sm:text-5xl xl:text-6xl sm:leading-tighter font-bold">
+            <span className="relative block">
               <span className="relative">
-                {f({
-                  id: "Admission.ProcessToApply",
-                  defaultMessage: "Process to apply",
-                })}{" "}
+                <img
+                  className="absolute inset-0 transform translate-y-9 sm:translate-y-14 xl:translate-y-14"
+                  src="/svg/underline-simple-light-purple.svg"
+                  alt=""
+                />
+                <span className="relative">
+                  {f({
+                    id: "Admission.ProcessToApply",
+                    defaultMessage: "Process to apply",
+                  })}{" "}
+                </span>
               </span>
             </span>
-          </span>
-        </h3>
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-2">
-        <div className="lg:py-6">
-          {steps?.map((item, idx) => (
-            <StepCard
-              key={idx}
-              last={idx === steps?.length - 1}
-              title={item.title}
-              content={item.content}
-            />
-          ))}
+          </h3>
         </div>
-        <div className="relative" style={{ minHeight: "100vh" }}>
-          <img
-            className="inset-0 object-cover object-bottom rounded shadow-lg h-96 lg:absolute lg:h-full"
-            src="/images/admission.jpg"
-            alt=""
-          />
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="lg:py-6">
+            {steps?.map((item, idx) => (
+              <StepCard
+                key={idx}
+                last={idx === steps?.length - 1}
+                title={item.title}
+                content={item.content}
+              />
+            ))}
+          </div>
+          <div className="relative" style={{ minHeight: "100vh" }}>
+            <img
+              className="inset-0 object-cover object-bottom rounded shadow-lg h-96 lg:absolute lg:h-full"
+              src="/images/admission.jpg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>

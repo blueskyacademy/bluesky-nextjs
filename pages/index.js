@@ -27,12 +27,13 @@ export default function Home({
   const { formatMessage: f } = useIntl();
   useHashFragment();
   const GALLERY_IMAGES = [
-    "/images/primary.png",
-    "/images/kindergarten.png",
-    "/images/secondary.png",
-    "/images/gallery-hero-01.png",
-    "/images/gallery-hero-02.png",
+    "/images/gallery-02.jpg",
+    "/images/gallery-01.jpg",
+    "/images/gallery-03.jpg",
+    "/images/gallery-04.jpg",
+    "/images/gallery-05.jpg",
   ];
+  console.log("faq", faq);
   return (
     <Layout navigations={navigations}>
       <Banner coverImages={coverImages} />

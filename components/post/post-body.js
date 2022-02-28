@@ -16,8 +16,10 @@ function renderOptions(links) {
   // create an asset map
   const assetMap = new Map();
   // loop through the assets and add them to the map
-  for (const asset of links?.assets?.block) {
-    assetMap.set(asset.sys.id, asset);
+  if (links?.entries?.block) {
+    for (const asset of links?.assets?.block) {
+      assetMap.set(asset.sys.id, asset);
+    }
   }
 
   return {
@@ -93,7 +95,7 @@ function renderOptions(links) {
         // render the asset accordingly
         return (
           <div>
-            <img src={asset.url} alt="My image alt text" />
+            <img src={asset?.url} alt="My image alt text" />
             <div className="text-center mt-1 font-semibold">
               {asset?.description}
             </div>

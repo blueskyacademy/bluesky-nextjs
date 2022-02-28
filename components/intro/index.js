@@ -47,7 +47,7 @@ const Intro = ({ id, visions }) => {
                       alt="Home blocks 02"
                     />
                   </div>
-                  {idx === 2 && (
+                  {/* {idx === 2 && (
                     <div className="absolute sm:translate-y-1/4 hidden sm:block">
                       <img
                         className="object-cover w-full h-full rounded-3xl"
@@ -55,7 +55,7 @@ const Intro = ({ id, visions }) => {
                         alt="Home blocks 02"
                       />
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
 

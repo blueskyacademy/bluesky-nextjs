@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useIntl } from "react-intl";
+import PostBody from "../post/post-body";
 
-const Question = ({ question, answer }) => {
+const Question = ({ question, answer, response }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
     <li className="w-full px-5 py-6 sm:px-8 sm:py-4 border border-1 border-primary-100 rounded-2xl">
@@ -33,7 +34,9 @@ const Question = ({ question, answer }) => {
       {showAnswer && (
         <div className="relative duration-700">
           <div className="mt-3 text-base leading-relaxed text-purple-800 sm:text-lg">
-            {answer}
+            {response && (
+              <PostBody content={response} className="max-w-screen-lg" />
+            )}
           </div>
         </div>
       )}
@@ -59,13 +62,13 @@ const Faq = ({ id, faq }) => {
               defaultMessage: "Frequently asked questions",
             })}
           </h2>
-          <p className="max-w-2xl mt-4 text-xl leading-relaxed text-primary-100 lg:text-left">
+          {/* <p className="max-w-2xl mt-4 text-xl leading-relaxed text-primary-100 lg:text-left">
             {f({
               id: "Home.FAQSummary",
               defaultMessage:
                 "Blue Sky Academy answers the most frequently asked private school questions regarding our community and admissions process",
             })}
-          </p>
+          </p> */}
         </div>
         <ul className="relative mt-12 space-y-6">
           <div>
@@ -84,7 +87,7 @@ const Faq = ({ id, faq }) => {
             <Question
               key={`question-${idx}`}
               question={item?.question}
-              answer={item?.answer}
+              response={item?.response}
             />
           ))}
         </ul>

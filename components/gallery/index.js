@@ -35,7 +35,7 @@ export const Gallery = () => {
           <div className="flex flex-col col-span-4 md:col-span-2 md:justify-end">
             <div className="w-full cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
               <img
-                src="/images/kindergarten.png"
+                src="/images/gallery-05.jpg"
                 className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl rotate-3 md:-rotate-8 md:-translate-y-12 md:translate-x-3 group-hover:rotate-0 group-hover:scale-110"
                 alt="Gallery hero 01"
               />
@@ -45,7 +45,7 @@ export const Gallery = () => {
             <div className="w-1/2 mr-2 md:w-full sm:mr-3 md:mr-0">
               <div className="relative z-10 cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
                 <img
-                  src="/images/primary.png"
+                  src="/images/gallery-02.jpg"
                   className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl -rotate-3 md:-rotate-8 group-hover:rotate-0 group-hover:scale-110"
                   alt="Gallery hero 02"
                 />
@@ -55,7 +55,7 @@ export const Gallery = () => {
             <div className="relative w-1/2 ml-2 sm:ml-3 md:ml-6">
               <div className="cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
                 <img
-                  src="/images/gallery-hero-01.png"
+                  src="/images/gallery-03.jpg"
                   className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl rotate-3 md:rotate-8 group-hover:rotate-0 group-hover:scale-110"
                   alt="Gallery hero 03"
                 />
@@ -66,7 +66,7 @@ export const Gallery = () => {
           <div className="col-span-4 md:col-span-4 md:pr-4">
             <div className="w-full cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
               <img
-                src="/images/secondary.png"
+                src="/images/gallery-04.jpg"
                 className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl -rotate-3 md:rotate-4 group-hover:rotate-0 group-hover:scale-110"
                 alt=""
               />
@@ -77,7 +77,7 @@ export const Gallery = () => {
             <div className="w-1/2 mr-2 md:w-full sm:mr-3 md:mr-0">
               <div className="relative z-10 cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50">
                 <img
-                  src="/images/gallery-hero-02.png"
+                  src="/images/gallery-01.jpg"
                   className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl rotate-3 md:rotate-12 group-hover:rotate-0 group-hover:scale-110"
                   alt="images/gallery-hero-05.jpg"
                 />
@@ -87,7 +87,7 @@ export const Gallery = () => {
             <div className="relative w-1/2 ml-2 md:w-2/3 sm:ml-3 md:-ml-3 lg:-ml-6">
               <div className="cursor-pointer aspect-w-1 aspect-h-1 group hover:z-50 md:-translate-y-6">
                 <img
-                  src="/images/gallery-hero-03.jpeg"
+                  src="/images/gallery-06.jpg"
                   className="object-cover object-center w-full h-full duration-300 ease-in-out shadow-2xl rounded-2xl -rotate-3 md:-rotate-8 group-hover:rotate-0 group-hover:scale-110"
                   alt="Gallery hero 06"
                 />

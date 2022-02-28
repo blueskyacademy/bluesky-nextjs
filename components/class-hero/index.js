@@ -1,11 +1,13 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Link from "next/link";
 import { useIntl } from "react-intl";
+import PostBody from "../post/post-body";
 
 const ClassDescription = ({ content }) => {
   return (
-    <div className="mx-auto prose-lg prose-lg mt-4 sm:mt-6 lg:mt-6 sm:prose-lg text-purple-900">
-      {documentToReactComponents(content.json)}
+    <div className="mx-auto prose-lg prose-lg mt-4 sm:mt-6 lg:mt-6 sm:prose-lg text-purple-900 py-4">
+      {/* {documentToReactComponents(content.json)} */}
+      <PostBody content={content} />
     </div>
   );
 };
