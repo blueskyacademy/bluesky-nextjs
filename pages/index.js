@@ -27,11 +27,11 @@ export default function Home({
   const { formatMessage: f } = useIntl();
   useHashFragment();
   const GALLERY_IMAGES = [
-    "/images/gallery-02.jpg",
-    "/images/gallery-01.jpg",
-    "/images/gallery-03.jpg",
-    "/images/gallery-04.jpg",
-    "/images/gallery-05.jpg",
+    "/images/gallery2.jpg",
+    "/images/gallery1.jpg",
+    "/images/gallery3.jpg",
+    "/images/gallery4.jpg",
+    "/images/gallery5.jpg",
   ];
   return (
     <Layout navigations={navigations}>
