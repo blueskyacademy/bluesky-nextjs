@@ -33,7 +33,6 @@ export default function Home({
     "/images/gallery-04.jpg",
     "/images/gallery-05.jpg",
   ];
-  console.log("faq", faq);
   return (
     <Layout navigations={navigations}>
       <Banner coverImages={coverImages} />
