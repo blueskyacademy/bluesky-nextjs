@@ -83,7 +83,7 @@ const Faq = ({ id, faq }) => {
               alt=""
             />
           </div>
-          {faq.map((item, idx) => (
+          {faq?.map((item, idx) => (
             <Question
               key={`question-${idx}`}
               question={item?.question}

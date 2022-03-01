@@ -5,7 +5,7 @@ import { useIntl } from "react-intl";
 const AdmissionIntro = () => {
   const { formatMessage: f } = useIntl();
   return (
-    <section className="relative px-4 py-16 overflow-hidden lg:py-20 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25 mt-5">
+    <section className="relative px-4 pt-10 pb-16 overflow-hidden lg:pb-20 lg:pt-5 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-25 mt-5">
       <img
         src="/svg/dots-large-grid.svg"
         className="absolute right-0 h-auto transform opacity-25 lg:opacity-40 top-12 w-54 hidden md:block"
@@ -18,8 +18,16 @@ const AdmissionIntro = () => {
       />
       <div className="max-w-xl mx-auto lg:max-w-screen-xl lg:grid lg:grid-cols-12 lg:gap-8">
         <div className="flex flex-col justify-center lg:col-span-6">
+          <img
+            src="/images/parents.jpg"
+            alt="hero"
+            className="w-full max-h-[420px] object-cover mx-auto rounded-2xl"
+            style={{
+              objectPosition: "0 10%",
+            }}
+          />
           <div className="relative">
-            <h2 className="max-w-xl mt-10 text-purple-900 sm:mt-10 font-extrabold text-5xl sm:text-5xl xl:text-5xl leading-snug sm:leading-tight xl:leading-tighter lg:max-w-none">
+            <h2 className="max-w-xl mt-2 text-purple-900 sm:mt-2 font-extrabold text-4xl sm:text-4xl xl:text-4xl leading-snug sm:leading-tight xl:leading-tighter lg:max-w-none">
               {f({
                 id: "Admission.GreetingFromAdmissionTeam",
                 defaultMessage: "Greeting From Admission Team",
