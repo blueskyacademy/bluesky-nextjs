@@ -7,6 +7,14 @@ import AnimationRevealPage from "../helpers/AnimationRevealPage";
 const Schedules = ({ classes, navigations }) => {
   return (
     <Layout navigations={navigations}>
+      <img
+        src="/images/schedules.jpg"
+        alt="hero"
+        className="w-full mt-1 max-h-[620px] object-cover"
+        style={{
+          objectPosition: "0 90%",
+        }}
+      />
       <AnimationRevealPage>
         <ScheduleHero classes={classes} />
         <CTA />
