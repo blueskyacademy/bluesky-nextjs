@@ -91,8 +91,8 @@ const SchoolTeam = ({ teachers }) => {
           <div className="flex items-center">
             <h3 className="max-w-4xl text-white sm:text-center text-4xl leading-tight tracking-wide sm:text-5xl xl:text-6xl sm:leading-tighter font-bold lg:text-left">
               {f({
-                id: "Teacher.MeetTheAwesomeTeacher",
-                defaultMessage: "Meet the awesome teachers",
+                id: "Teacher.OurTeachers",
+                defaultMessage: "Our Teacher",
               })}
             </h3>
           </div>
