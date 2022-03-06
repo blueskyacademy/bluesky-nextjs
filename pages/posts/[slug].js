@@ -67,6 +67,7 @@ export async function getStaticProps({ params, locale }) {
       post: data?.post ?? null,
       morePosts: data?.morePosts ?? [],
       navigations,
+      revalidate: 1,
     },
   };
 }
