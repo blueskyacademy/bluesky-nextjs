@@ -22,8 +22,8 @@ export function SubNav({ slug = "home" }) {
       },
       {
         title: f({
-          id: "Home.Parent",
-          defaultMessage: "Parent",
+          id: "Home.OurStories",
+          defaultMessage: "Our Stories",
         }),
         href: "#parents",
       },

@@ -7,7 +7,7 @@ module.exports = {
     // locales: ["en-US", "vi-VN"],
     // defaultLocale: "en-US",
     locales: ["en", "vi"],
-    defaultLocale: "en",
+    defaultLocale: "vi",
   },
   webpack(config) {
     config.module.rules.push({

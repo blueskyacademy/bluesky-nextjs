@@ -24,8 +24,8 @@ const BannerImage = ({ coverImage, locale }) => {
         ) : coverImage?.post?.slug ? (
           <Link
             href={
-              locale === "vi"
-                ? `/vi/posts/${coverImage?.post?.slug}`
+              locale === "en"
+                ? `/en/posts/${coverImage?.post?.slug}`
                 : `/posts/${coverImage?.post?.slug}`
             }
           >

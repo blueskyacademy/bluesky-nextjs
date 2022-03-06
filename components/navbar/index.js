@@ -42,8 +42,8 @@ const Navbar = ({
               },
               {
                 title: f({
-                  id: "Home.Parent",
-                  defaultMessage: "Parent",
+                  id: "Home.OurStories",
+                  defaultMessage: "Our Stories",
                 }),
                 href: "/#parents",
               },
@@ -147,6 +147,30 @@ const Navbar = ({
           };
           result.push(newNavigation);
           break;
+        case "parents":
+          newNavigation = {
+            ...item,
+            subPages: [
+              ...subPagesNavigation,
+              {
+                title: f({
+                  id: "Home.ParentHandbook",
+                  defaultMessage: "Parent Handbook",
+                }),
+                href: "/handbook",
+              },
+              {
+                title: f({
+                  id: "Home.Yearbook",
+                  defaultMessage: "Yearbook",
+                }),
+                href: "/yearbook",
+              },
+            ],
+          };
+          result.push(newNavigation);
+          break;
+
         default:
           newNavigation = {
             ...item,
