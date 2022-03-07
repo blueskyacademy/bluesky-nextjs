@@ -99,6 +99,13 @@ const Navbar = ({
                 href: "/teachers",
               },
               ...subPagesNavigation,
+              {
+                title: f({
+                  id: "Home.Yearbook",
+                  defaultMessage: "Yearbook",
+                }),
+                href: "/yearbook",
+              },
             ],
           };
           result.push(newNavigation);
@@ -158,13 +165,6 @@ const Navbar = ({
                   defaultMessage: "Parent Handbook",
                 }),
                 href: "/handbook",
-              },
-              {
-                title: f({
-                  id: "Home.Yearbook",
-                  defaultMessage: "Yearbook",
-                }),
-                href: "/yearbook",
               },
             ],
           };
