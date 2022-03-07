@@ -5,15 +5,15 @@ const HandBookPage = ({ navigations }) => {
     <>
       <Layout navigations={navigations}>
         <object
-          data="/pdf/handbook.pdf"
+          data="/images/handbookParent.pdf"
           type="application/pdf"
           style={{
-            width: "100%",
+            width: "100vw",
             height: "100vh",
             marginTop: "5px",
           }}
         >
-          <iframe src="/pdf/handbook.pdf"></iframe>
+          <iframe src="/images/handbookParent.pdf"></iframe>
         </object>
       </Layout>
     </>
