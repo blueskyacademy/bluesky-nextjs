@@ -4,10 +4,9 @@ module.exports = {
     loader: "custom",
   },
   i18n: {
-    // locales: ["en-US", "vi-VN"],
-    // defaultLocale: "en-US",
     locales: ["en", "vi"],
     defaultLocale: "vi",
+    localeDetection: false,
   },
   webpack(config) {
     config.module.rules.push({
