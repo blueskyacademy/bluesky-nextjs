@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useRef } from "react";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import { useIntl } from "react-intl";
+import CustomImage from "../custom-image";
 
 const VideoPopup = ({ showPopup, onClose }) => {
   const wrapperRef = useRef(null);
@@ -135,10 +136,12 @@ const HomeHero = () => {
           </motion.div>
           <div className="flex flex-col justify-center max-w-3xl mx-auto mt-16 lg:mt-0 lg:max-w-none lg:col-span-6">
             <div className="relative">
-              <img
+              <CustomImage
                 className="w-full h-auto"
                 src="/images/kindergarten.png"
                 alt="Bright Photo Collage"
+                width={624}
+                height={416}
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="absolute inline-flex w-20 h-20 bg-primary-100 rounded-full opacity-60 animate-ping"></span>

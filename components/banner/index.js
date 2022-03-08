@@ -3,6 +3,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import CustomImage from "../custom-image";
 
 const BannerImage = ({ coverImage, locale }) => {
   if (!coverImage) return null;
@@ -15,10 +16,12 @@ const BannerImage = ({ coverImage, locale }) => {
             href={coverImage?.facebookLink}
             rel="noopener noreferrer"
           >
-            <img
+            <CustomImage
               src={coverImage?.image?.url}
               alt="cover"
               className="mx-auto cover"
+              width={1440}
+              height={550}
             />
           </a>
         ) : coverImage?.post?.slug ? (
@@ -30,18 +33,22 @@ const BannerImage = ({ coverImage, locale }) => {
             }
           >
             <a>
-              <img
+              <CustomImage
                 src={coverImage?.image?.url}
                 alt="cover"
                 className="mx-auto cover"
+                width={1440}
+                height={550}
               />
             </a>
           </Link>
         ) : (
-          <img
+          <CustomImage
             src={coverImage?.image?.url}
             alt="cover"
             className="mx-auto cover"
+            width={1440}
+            height={550}
           />
         )}
       </div>

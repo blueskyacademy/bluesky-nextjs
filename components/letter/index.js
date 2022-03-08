@@ -25,7 +25,7 @@ const Letter = ({ id, message }) => {
               alt=""
             />
             <img
-              src="/images/dots-grid.svg"
+              src="/svg/dots-grid.svg"
               className="absolute top-0 hidden h-auto transform translate-y-12 right-2 w-80"
               alt=""
             />
