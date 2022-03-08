@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { format } from "date-fns";
 import Form from "../form";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
+import CustomImage from "../custom-image";
 
 export default function Popup({ showModal, onClose, type = "School", title }) {
   const [form, setForm] = useState({});
@@ -59,10 +60,11 @@ export default function Popup({ showModal, onClose, type = "School", title }) {
               >
                 <div className="relative">
                   <div className="flex items-start justify-center p-5 pb-0 rounded-t">
-                    <img
-                      src="https://www.bsa.edu.vn/assets/logo-476fe7ebc8e1d8eb9335d0f11d06637c5040a4b26d30522919086c3a21d167f5.png"
-                      className="h-20"
+                    <CustomImage
+                      src="/images/logo.png"
                       alt="Logo"
+                      width={80}
+                      height={80}
                     />
                   </div>
                   <button
