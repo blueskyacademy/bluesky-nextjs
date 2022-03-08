@@ -4,11 +4,9 @@ export function useHashFragment() {
   const router = useRouter();
   useEffect(() => {
     const onHashChangeStart = (url) => {
-      console.log(`Path changing to ${url}`);
       const hash = window.location.hash;
       const id = hash.replace("#", "");
       const element = document.getElementById(id);
-      console.log("element", element);
       if (element) {
         element.scrollIntoView({
           behavior: "smooth",

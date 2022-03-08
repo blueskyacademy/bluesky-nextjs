@@ -29,32 +29,35 @@ const PostList = ({ posts }) => {
               whileInView={{ opacity: 1, transition }}
               viewport={{ once: true }}
             >
-              <a href="#">
-                <img
-                  className="h-80 w-full object-cover rounded"
-                  src={post.coverImage?.url}
-                  alt=""
-                />
-                <p className="mt-6 text-sm text-blue-400">
-                  <span className="text-gray-600">
-                    {" "}
-                    <DateComponent dateString={post?.date} />
-                  </span>
-                </p>
-                <Link href={`/posts/${post.slug}`}>
-                  <a
-                    href="#"
-                    aria-label="Category"
-                    className="inline-block my-2 text-2xl font-semibold leading-6 transition-colors duration-200 hover:text-purple-600"
-                  >
-                    {post.title}
-                  </a>
-                </Link>
+              <Link href={`/posts/${post.slug}`}>
+                <a>
+                  <img
+                    className="h-80 w-full object-cover rounded"
+                    src={post.coverImage?.url}
+                    alt=""
+                  />
+                </a>
+              </Link>
 
-                <p className="text-gray-800 leading-loose">
-                  {idx === 0 ? post.excerpt : post?.excerpt.slice(0, 150)}...
-                </p>
-              </a>
+              <p className="mt-6 text-sm text-blue-400">
+                <span className="text-gray-600">
+                  {" "}
+                  <DateComponent dateString={post?.date} />
+                </span>
+              </p>
+              <Link href={`/posts/${post.slug}`}>
+                <a
+                  href="#"
+                  aria-label="Category"
+                  className="inline-block my-2 text-2xl font-semibold leading-6 transition-colors duration-200 hover:text-purple-600"
+                >
+                  {post.title}
+                </a>
+              </Link>
+
+              <p className="text-gray-800 leading-loose">
+                {idx === 0 ? post.excerpt : post?.excerpt.slice(0, 150)}...
+              </p>
             </motion.div>
           ))}
         </div>
