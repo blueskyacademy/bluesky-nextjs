@@ -29,7 +29,7 @@ export default function PostsIndexPage({
     </Layout>
   );
 }
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
   const totalPosts = await getTotalPostNumber();
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
 
@@ -40,7 +40,12 @@ export async function getStaticPaths() {
    * which is page 1
    */
   for (let page = 2; page <= totalPages; page++) {
-    paths.push({ params: { page: page.toString() } });
+    for (const locale of locales) {
+      paths.push({
+        params: { page: page.toString() },
+        locale,
+      });
+    }
   }
 
   return {
