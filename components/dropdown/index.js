@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useIntl } from "react-intl";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 const Dropdown = ({
@@ -8,7 +9,9 @@ const Dropdown = ({
   title,
   placeholder = "",
   error = false,
+  hasTranslate = false,
 }) => {
+  const { formatMessage: f } = useIntl();
   const [showDropdown, setShowDropdown] = useState(false);
   const wrapper = useRef(null);
   useOutsideClick(wrapper, () => {
@@ -30,7 +33,13 @@ const Dropdown = ({
           }`}
         >
           <input
-            value={value}
+            value={
+              hasTranslate
+                ? f({
+                    id: `Form.${value}`,
+                  })
+                : value
+            }
             placeholder={placeholder}
             name="select"
             id="select"
@@ -78,7 +87,11 @@ const Dropdown = ({
                   }}
                 >
                   <a className="block p-2 border-transparent border-l-4 group-hover:border-purple-600 group-hover:bg-gray-100">
-                    {item}
+                    {hasTranslate
+                      ? f({
+                          id: `Form.${item}`,
+                        })
+                      : item}
                   </a>
                 </div>
               ))}
