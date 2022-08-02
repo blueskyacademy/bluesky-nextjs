@@ -221,6 +221,7 @@ const ExamForm = () => {
                   })}
                   value={gender}
                   handleChange={(item) => setGender(item)}
+                  hasTranslate
                 />
               </div>
               <div className="mt-4">
@@ -236,6 +237,7 @@ const ExamForm = () => {
                   })}
                   value={reTestOption}
                   handleChange={(item) => setReTestOption(item)}
+                  hasTranslate
                 />
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -244,12 +246,18 @@ const ExamForm = () => {
                     htmlFor="dateOfBirth"
                     className="ml-0.5 text-purple-900 font-medium text-sm"
                   >
-                    Current School
+                    {f({
+                      id: "Form.CurrentSchool",
+                      defaultMessage: "CurrentSchool",
+                    })}
                   </label>
 
                   <input
                     type="text"
-                    placeholder="Name, Address"
+                    placeholder={f({
+                      id: "Form.NameAddress",
+                      defaultMessage: "Name, Address",
+                    })}
                     className="w-full p-4 mt-2 text-sm font-medium text-purple-700 placeholder-purple-700 duration-300 ease-in-out border-2 outline-none h-14 placeholder-opacity-70 rounded-2xl border-purple-50 focus:border-purple-200 focus:ring-purple-200 focus:outline-none"
                     required
                     id="currentSchool"
