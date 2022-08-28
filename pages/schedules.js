@@ -3,8 +3,15 @@ import ScheduleHero from "../components/schedule-hero";
 import CTA from "../components/cta";
 import { getClasses, getNavigation } from "../lib/api";
 import AnimationRevealPage from "../helpers/AnimationRevealPage";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Schedules = ({ classes, navigations }) => {
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/");
+  }, [router]);
+
   return (
     <Layout navigations={navigations}>
       <img
