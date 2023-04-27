@@ -43,7 +43,17 @@ const Class = ({ division, navigations }) => {
               slug={division?.slug}
             />
             <DivisionTeam
-              teachers={division?.teachersCollection?.items}
+              teachers={division?.teachersCollection?.items?.filter((n) =>
+                n
+                  ? console.error(
+                      "null in teachersCollection in ",
+                      division.name,
+                      {
+                        items: division.teachersCollection.items,
+                      }
+                    )
+                  : n
+              )}
               slug={division?.slug}
             />
             <CarouselImages classes={division?.classesCollection?.items} />
