@@ -120,9 +120,7 @@ const ContactInformation = () => {
                   })}
                 </h5>
                 <p className="mt-1.5 text-base text-purple-800 leading-relaxed">
-                  +84 238 357 9779
-                  <br />
-                  +84 238 357 9559
+                  0818 700 990
                 </p>
               </div>
             </div>
