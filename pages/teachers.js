@@ -7,11 +7,22 @@ import { useIntl } from "react-intl";
 import { useRouter } from "next/router";
 
 const TEACHER_IMAGES = [
-  "/images/teacher-01.jpg",
-  "/images/teacher-02.jpg",
-  "/images/teacher-03.jpg",
-  "/images/teacher-04.jpg",
-  "/images/teacher-05.jpg",
+  "/images/teachers/MHU08036.jpg",
+  "/images/teachers/MHU07825.jpg",
+  "/images/teachers/MHU08028.jpg",
+  "/images/teachers/MHU08211.jpg",
+  "/images/teachers/MHU08556.jpg",
+  "/images/teachers/MHU08088.jpg",
+  "/images/teachers/Toan_truong_2.jpg",
+  "/images/teachers/Van_phong_1.jpg",
+  "/images/teachers/Cambridge.jpg",
+  "/images/teachers/Hanh_chinh.jpg",
+  "/images/teachers/Mam_non.jpg",
+  "/images/teachers/Pho_thong.jpg",
+  "/images/teachers/Bep.jpg",
+  "/images/teachers/Xe_bus.jpg",
+  "/images/teachers/VSCN.jpg",
+  "/images/teachers/Bao_ve.jpg",
 ];
 export default function About({ teachers, navigations }) {
   const { formatMessage: f } = useIntl();

@@ -55,8 +55,8 @@ const GalleryHero = ({
               <motion.img
                 key={`image-hero-${item}-${idx}`}
                 className={`object-cover w-full rounded-2xl lg:h-80 h-30vw ${
-                  idx == 1 && "col-span-2"
-                }`}
+                  (idx == 1 || idx == 6) && "col-span-2"
+                } ${idx == 1 && "object-bottom"}`}
                 alt="School grid 01"
                 src={item}
                 viewport={{ once: true }}
