@@ -366,9 +366,7 @@ export default function Footer() {
                 text-opacity-90
               "
                 >
-                  +84 238 357 9779
-                  <br />
-                  +84 238 357 9559
+                  0818 700 990
                 </p>
               </div>
             </li>
