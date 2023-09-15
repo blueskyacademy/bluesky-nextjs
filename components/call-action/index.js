@@ -19,7 +19,7 @@ const CallAction = () => {
       >
         <div className="bg-primary-100 text-white rounded-full sm:rounded-3xl shadow-md px-2 py-2 sm:px-6 sm:py-3  cursor-pointer mb-1">
           <div className="flex flex-col justify-center">
-            <a href="tel:02383579559">
+            <a href="tel:0818700990">
               {isMobile ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
